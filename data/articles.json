@@ -1,68 +1,20 @@
 {
-  "generated_at_ist": "2026-05-13 16:29:52 IST",
-  "generated_at_utc": "2026-05-13T10:59:52.072643+00:00",
+  "generated_at_ist": "2026-05-13 16:45:19 IST",
+  "generated_at_utc": "2026-05-13T11:15:19.619605+00:00",
+  "generated_iso": "2026-05-13T16:45:19.619403+05:30",
   "display_date": "Wednesday, 13 May 2026",
-  "display_time": "04:29 PM IST",
+  "display_time": "04:45 PM IST",
   "stats": {
-    "total_articles": 6,
+    "total_articles": 0,
     "domains_total": 9,
-    "domains_with_news": 1,
-    "elapsed": "67s"
+    "domains_with_news": 0,
+    "elapsed": "288s"
   },
   "domains": [
     {
       "label": "🛰️ Remote Sensing & Earth Observation",
-      "count": 6,
-      "articles": [
-        {
-          "title": "Planet Labs Achieves AI-Powered Real-Time Satellite Imagery Analysis",
-          "summary": "Planet Labs successfully demonstrated on-board AI object detection from space, using its Pelican-4 satellite to identify aircraft at Alice Springs airport. The breakthrough marks the first reliable autonomous classification from orbit.",
-          "source": "IEEE Spectrum",
-          "date": "May 2026",
-          "significance": "First successful real-time AI processing in space - transforms satellites from data collectors to intelligent sensors",
-          "url": "https://spectrum.ieee.org/ai-earth-observation-in-space"
-        },
-        {
-          "title": "NASA Expands Commercial Satellite Data Program with Eight New Partnerships",
-          "summary": "NASA's CSDA program signed agreements with Planet, Airbus, Vantor, Capella, ICEYE, MDA, Umbra and others, providing high-resolution multispectral and SAR data to support Earth science research and applications.",
-          "source": "NASA Earthdata",
-          "date": "January 2026",
-          "significance": "Major expansion of commercial data access for scientific community - broadens quality and coverage of Earth observation",
-          "url": "https://www.earthdata.nasa.gov/news/nasas-csda-program-announces-eight-new-data-agreements"
-        },
-        {
-          "title": "NRO Selects EarthDaily for Commercial Earth Observation Support",
-          "summary": "The National Reconnaissance Office chose EarthDaily Analytics to provide multispectral satellite imagery across 22 spectral bands under the Strategic Commercial Enhancements program, with additional satellites launching through 2026.",
-          "source": "Military Aerospace",
-          "date": "2026",
-          "significance": "Government adoption of commercial multispectral data signals shift toward hybrid public-private Earth observation",
-          "url": "https://www.militaryaerospace.com/commercial-aerospace/news/55376025/nro-selects-earthdaily-for-commercial-multispectral-earth-observation-support"
-        },
-        {
-          "title": "China Launches Yaogan-50 02 Remote Sensing Satellite",
-          "summary": "China successfully deployed the Yaogan-50 02 satellite using a modified Long March-6 rocket from Taiyuan Launch Center. The satellite supports land survey, crop yield estimation, and disaster prevention missions.",
-          "source": "People's Daily Online",
-          "date": "March 2026",
-          "significance": "Strengthens China's Earth observation capabilities for agriculture and disaster management applications",
-          "url": "https://en.people.cn/n3/2026/0316/c90000-20436096.html"
-        },
-        {
-          "title": "Breakthrough Database Enhances Marine Debris Detection from Space",
-          "summary": "Scientists developed the Marine Debris hyperspectral reference Library collection (MADLib), improving satellite detection of ocean plastics using advanced light pattern analysis from NASA's EMIT sensor.",
-          "source": "The Daily Galaxy",
-          "date": "February 2026",
-          "significance": "Revolutionary approach to tracking ocean pollution globally using hyperspectral satellite data",
-          "url": "https://dailygalaxy.com/2026/02/satellite-revolution-ocean-cleanup-efforts/"
-        },
-        {
-          "title": "SatViT-Seg: New AI Framework for Real-Time Satellite Image Processing",
-          "summary": "Researchers introduced SatViT-Seg, a Vision Transformer designed for efficient on-board satellite processing, achieving state-of-the-art land cover mapping performance with reduced computational overhead.",
-          "source": "Remote Sensing Journal",
-          "date": "January 2026",
-          "significance": "Advances satellite edge computing capabilities for real-time land cover analysis and mapping applications",
-          "url": "https://www.mdpi.com/2072-4292/18/1"
-        }
-      ]
+      "count": 0,
+      "articles": []
     },
     {
       "label": "🗺️ GIS & Geospatial Technology",

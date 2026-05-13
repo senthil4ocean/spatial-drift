@@ -1,13 +1,13 @@
 {
-  "generated_at_ist": "2026-05-13 10:10:14 IST",
-  "generated_at_utc": "2026-05-13T04:40:14.320844+00:00",
+  "generated_at_ist": "2026-05-13 11:33:20 IST",
+  "generated_at_utc": "2026-05-13T06:03:20.581371+00:00",
   "display_date": "Wednesday, 13 May 2026",
-  "display_time": "10:10 AM IST",
+  "display_time": "11:33 AM IST",
   "stats": {
     "total_articles": 6,
     "domains_total": 9,
     "domains_with_news": 1,
-    "elapsed": "69s"
+    "elapsed": "66s"
   },
   "domains": [
     {
@@ -15,52 +15,52 @@
       "count": 6,
       "articles": [
         {
-          "title": "NASA Announces Eight New Commercial Satellite Data Agreements for Earth Observation",
-          "summary": "NASA's CSDA program expanded partnerships with seven commercial providers to acquire high-quality multispectral and SAR data. These agreements include Planet, Airbus, Vantor, Capella, ICEYE, MDA, and Umbra.",
+          "title": "NASA CSDA Announces 8 New Commercial Satellite Data Agreements",
+          "summary": "NASA's Commercial Satellite Data Acquisition program announced partnerships with Planet, Airbus, Vantor, Capella, ICEYE, MDA, and Umbra, expanding high-quality multispectral and SAR data access for Earth science research.",
           "source": "NASA Earthdata",
           "date": "January 2, 2026",
-          "significance": "Significantly expands NASA's Earth observation data access through commercial partnerships",
+          "significance": "Major expansion of commercial satellite data access for NASA research community",
           "url": "https://www.earthdata.nasa.gov/news/nasas-csda-program-announces-eight-new-data-agreements"
         },
         {
-          "title": "Satellogic Unveils Merlin Constellation for Daily Global 1-Meter Resolution Earth Imaging",
-          "summary": "Satellogic announced Merlin, a new satellite constellation designed for daily global remapping at one-meter resolution. The first satellite launches October 2026 with full operational capability expected by early 2027.",
-          "source": "Stock Titan",
-          "date": "March 18, 2026",
-          "significance": "Revolutionary persistent monitoring capability enabling continuous global intelligence infrastructure",
-          "url": "https://www.stocktitan.net/news/SATL/satellogic-introduces-merlin-constellation-for-daily-global-32lrg62dbjty.html"
-        },
-        {
-          "title": "MicroVision Demonstrates Breakthrough Tri-Lidar Architecture for Advanced Perception",
-          "summary": "MicroVision successfully demonstrated its Tri-Lidar Architecture, integrating multiple specialized lidar sensors into a coordinated, software-defined platform. The technology improves cost efficiency and performance.",
-          "source": "Newswire",
-          "date": "May 5, 2026",
-          "significance": "Breakthrough multi-sensor integration enabling enhanced real-world perception performance and scalability",
-          "url": "https://www.newswire.com/news/microvision-demonstrates-tri-lidar-breakthrough-advancing-integration-and"
-        },
-        {
           "title": "Deep Learning Pipeline Reconstructs Century of Urban Growth from Historical Imagery",
-          "summary": "Researchers developed an AI pipeline that reconstructs urban expansion from historical aerial imagery spanning 1920-2024. The method bridges century-scale domain gaps using attention-enhanced colorization and segmentation.",
-          "source": "MDPI Remote Sensing",
-          "date": "2 days ago",
-          "significance": "Enables unprecedented century-scale urban analysis and planning using historical aerial archives",
+          "summary": "New deep learning pipeline uses attention-enhanced Pix2Pix colorization and U-Net++ segmentation to bridge century-scale domain gap, enabling automated urban expansion reconstruction from 1920-2024 aerial and satellite imagery.",
+          "source": "Remote Sensing (MDPI)",
+          "date": "May 2026",
+          "significance": "Breakthrough allows quantitative urban reconstruction from pre-satellite archives",
           "url": "https://www.mdpi.com/2072-4292/18/10/1517"
         },
         {
-          "title": "Shanghai University Develops LiDAR Breakthrough for Port Navigation Safety",
-          "summary": "Researchers developed a sophisticated point-cloud filtering algorithm for single-photon LiDAR systems, enhancing maritime environmental perception and navigation accuracy in ports.",
-          "source": "Maritime Technology Review",
-          "date": "January 27, 2026",
-          "significance": "Improves maritime navigation safety and autonomous vessel operations through enhanced LiDAR processing",
-          "url": "https://maritimetechnologyreview.com/2026/01/27/shanghai-universitys-lidar-breakthrough-enhances-port-navigation-safety/"
+          "title": "Quantum LiDAR Breakthrough Achieves 1000-Fold SNR Improvement",
+          "summary": "Revolutionary quantum lidar system fundamentally redefines covert 3D sensing capabilities with astonishing 1000-fold improvement in Signal-to-Noise Ratio over classical devices.",
+          "source": "LiDAR News",
+          "date": "May 2026",
+          "significance": "Game-changing advancement in LiDAR sensitivity and covert sensing capabilities",
+          "url": "https://lidarnews.com/category/news/"
         },
         {
-          "title": "NASA Revives Next-Generation Eagle and Falcon Earth Observation Flagship Missions",
-          "summary": "NASA is proceeding with flagship Earth-observing satellites despite budget challenges. Eagle will map Earth's surface in 400+ wavelength channels while Falcon will study cloud-pollution interactions.",
-          "source": "Science AAAS",
-          "date": "March 25, 2026",
-          "significance": "Major advancement in Earth science capabilities with molecular-level surface mapping and atmospheric monitoring",
-          "url": "https://www.science.org/content/article/nasa-revives-next-generation-flagship-earth-observing-missions"
+          "title": "Mohammed VI Satellites Achieve Sub-0.5m Accuracy for Large-Scale Mapping",
+          "summary": "Morocco's Mohammed VI satellites demonstrate planimetric RMSE under 0.5 meters, meeting 1:10,000 mapping standards and proving very-high-resolution satellite imagery as cost-effective alternative to aerial photogrammetry.",
+          "source": "Remote Sensing (MDPI)",
+          "date": "May 2026",
+          "significance": "Validates satellite imagery for national topographic mapping programs at unprecedented precision",
+          "url": "https://www.mdpi.com/2072-4292/18/9/1421"
+        },
+        {
+          "title": "NASA-ESA-USGS Release Joint Earth Observation Quality Assessment Framework",
+          "summary": "Joint Earth Observation Mission Quality Assessment Framework provides standardized methodology for assessing optical data quality from commercial Earth observation missions, supporting trusted use of commercial EO data.",
+          "source": "Overlook Horizon",
+          "date": "April 26, 2026",
+          "significance": "Establishes industry standards for commercial Earth observation data quality assessment",
+          "url": "https://overlookhorizon.com/joint-earth-observation-mission-quality-assessment-framework-optical-guidelines-documents-released/"
+        },
+        {
+          "title": "Deep Learning Pipeline Detects Rip Currents from Satellite Imagery",
+          "summary": "New deep learning pipeline successfully detects rip currents from high-resolution satellite imagery using object detection and classification models, providing high-accuracy offline analysis tool for coastal hazard assessment.",
+          "source": "Remote Sensing (MDPI)",
+          "date": "January 22, 2026",
+          "significance": "First automated satellite-based rip current detection system for coastal safety applications",
+          "url": "https://www.mdpi.com/2072-4292/18/2/368"
         }
       ]
     },

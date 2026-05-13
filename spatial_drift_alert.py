@@ -479,6 +479,7 @@ def build_compact_message(all_results: list, run_meta: dict) -> list:
     header = (
         f"🌍 <b>SPATIAL DRIFT</b>\n"
         f"<i>Explore · Analyze · Anticipate</i>\n"
+        f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
         f"🕐 <b>{esc_html(time_str)}</b>\n"
         f"📅 <i>{esc_html(today)}</i>\n\n"
         f"📰 <b>{total_articles}</b> articles · <b>{successful}/{len(all_results)}</b> domains · "
@@ -508,8 +509,10 @@ def build_compact_message(all_results: list, run_meta: dict) -> list:
         topic_blocks.append(block)
 
     footer = (
-        f"\n━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        f"\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        f"🌐 <b>SPATIAL DRIFT</b>\n"
         f"<i>Tap any title to open the article.</i>\n"
+        f"<i>Visit dashboard for full summaries + LinkedIn/blog generator.</i>\n"
         f"<i>Next brief in ~4 hours.</i>"
     )
 

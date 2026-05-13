@@ -1,13 +1,13 @@
 {
-  "generated_at_ist": "2026-05-13 14:54:05 IST",
-  "generated_at_utc": "2026-05-13T09:24:05.902318+00:00",
+  "generated_at_ist": "2026-05-13 16:29:52 IST",
+  "generated_at_utc": "2026-05-13T10:59:52.072643+00:00",
   "display_date": "Wednesday, 13 May 2026",
-  "display_time": "02:54 PM IST",
+  "display_time": "04:29 PM IST",
   "stats": {
     "total_articles": 6,
     "domains_total": 9,
     "domains_with_news": 1,
-    "elapsed": "71s"
+    "elapsed": "67s"
   },
   "domains": [
     {
@@ -15,52 +15,52 @@
       "count": 6,
       "articles": [
         {
-          "title": "NASA announces eight new commercial satellite data agreements for Earth observation",
-          "summary": "NASA's CSDA program added eight new agreements with commercial partners to expand Earth science data offerings, including multispectral imagery and SAR data from companies like Planet, Airbus, Capella, and ICEYE.",
+          "title": "Planet Labs Achieves AI-Powered Real-Time Satellite Imagery Analysis",
+          "summary": "Planet Labs successfully demonstrated on-board AI object detection from space, using its Pelican-4 satellite to identify aircraft at Alice Springs airport. The breakthrough marks the first reliable autonomous classification from orbit.",
+          "source": "IEEE Spectrum",
+          "date": "May 2026",
+          "significance": "First successful real-time AI processing in space - transforms satellites from data collectors to intelligent sensors",
+          "url": "https://spectrum.ieee.org/ai-earth-observation-in-space"
+        },
+        {
+          "title": "NASA Expands Commercial Satellite Data Program with Eight New Partnerships",
+          "summary": "NASA's CSDA program signed agreements with Planet, Airbus, Vantor, Capella, ICEYE, MDA, Umbra and others, providing high-resolution multispectral and SAR data to support Earth science research and applications.",
           "source": "NASA Earthdata",
-          "date": "January 2, 2026",
-          "significance": "Expands access to diverse commercial satellite data for NASA research and global Earth observation applications",
+          "date": "January 2026",
+          "significance": "Major expansion of commercial data access for scientific community - broadens quality and coverage of Earth observation",
           "url": "https://www.earthdata.nasa.gov/news/nasas-csda-program-announces-eight-new-data-agreements"
         },
         {
-          "title": "Polish space company Eycore launches first European private SAR satellite",
-          "summary": "Eycore launched Eycore-1 SAR satellite on May 3, 2026, making it the second privately-owned European company to operate its own synthetic aperture radar satellite for high-resolution Earth observation.",
-          "source": "SpaceNews",
-          "date": "May 2026",
-          "significance": "Advances European commercial SAR capabilities and Poland's POLSARIS military constellation for defense applications",
-          "url": "https://spacenews.com/polish-space-company-eycore-launches-first-sar-earth-observation-satellite/"
+          "title": "NRO Selects EarthDaily for Commercial Earth Observation Support",
+          "summary": "The National Reconnaissance Office chose EarthDaily Analytics to provide multispectral satellite imagery across 22 spectral bands under the Strategic Commercial Enhancements program, with additional satellites launching through 2026.",
+          "source": "Military Aerospace",
+          "date": "2026",
+          "significance": "Government adoption of commercial multispectral data signals shift toward hybrid public-private Earth observation",
+          "url": "https://www.militaryaerospace.com/commercial-aerospace/news/55376025/nro-selects-earthdaily-for-commercial-multispectral-earth-observation-support"
         },
         {
-          "title": "Deep learning breakthrough: Century-scale urban growth reconstruction from aerial imagery",
-          "summary": "Researchers developed AI pipeline using attention-enhanced Pix2Pix colorization to automatically reconstruct urban expansion from historical aerial photos spanning 1920-2024.",
-          "source": "Remote Sensing",
-          "date": "May 2026",
-          "significance": "Enables automated analysis of pre-satellite archives for century-scale urban planning and climate research",
-          "url": "https://www.mdpi.com/2072-4292/18/10/1517"
+          "title": "China Launches Yaogan-50 02 Remote Sensing Satellite",
+          "summary": "China successfully deployed the Yaogan-50 02 satellite using a modified Long March-6 rocket from Taiyuan Launch Center. The satellite supports land survey, crop yield estimation, and disaster prevention missions.",
+          "source": "People's Daily Online",
+          "date": "March 2026",
+          "significance": "Strengthens China's Earth observation capabilities for agriculture and disaster management applications",
+          "url": "https://en.people.cn/n3/2026/0316/c90000-20436096.html"
         },
         {
-          "title": "Sony announces AS-DT1 compact LiDAR sensor for 2026 release",
-          "summary": "Sony's new AS-DT1 LiDAR sensor offers 40m indoor range and 20m outdoor range with sub-meter resolution, designed for mobile robots, drones, and embedded systems.",
-          "source": "Intertest",
-          "date": "Coming 2026",
-          "significance": "Democratizes high-performance 3D sensing for robotics, UAVs, and autonomous vehicle applications",
-          "url": "https://intertest.com/blogs/the-scope/coming-in-2026-sony-s-as-dt1-lidar-sensor-sets-a-new-standard-for-compact-3d-sensing"
-        },
-        {
-          "title": "On-orbit image processing technology advances for intelligent remote sensing satellites",
-          "summary": "New framework for satellite-based AI processing enables real-time analysis and thematic product generation directly in space, eliminating ground-based processing delays.",
-          "source": "ScienceDirect",
+          "title": "Breakthrough Database Enhances Marine Debris Detection from Space",
+          "summary": "Scientists developed the Marine Debris hyperspectral reference Library collection (MADLib), improving satellite detection of ocean plastics using advanced light pattern analysis from NASA's EMIT sensor.",
+          "source": "The Daily Galaxy",
           "date": "February 2026",
-          "significance": "Revolutionizes satellite data processing by enabling instant information products for time-critical applications",
-          "url": "https://www.sciencedirect.com/science/article/pii/S1270963826002415"
+          "significance": "Revolutionary approach to tracking ocean pollution globally using hyperspectral satellite data",
+          "url": "https://dailygalaxy.com/2026/02/satellite-revolution-ocean-cleanup-efforts/"
         },
         {
-          "title": "SpaceX launches 45 Earth observation satellites in CAS500-2 rideshare mission",
-          "summary": "Major rideshare mission deployed South Korean CAS500-2 satellite plus 44 other payloads including Italian IRIDE constellation satellites and multiple commercial EO platforms.",
-          "source": "Spaceflight Now",
-          "date": "May 3, 2026",
-          "significance": "Demonstrates continued growth in commercial Earth observation market with diverse international partnerships",
-          "url": "https://spaceflightnow.com/2026/05/02/live-coverage-spacex-to-launch-south-korean-earth-observation-satellite-44-more-payloads-on-overnight-falcon-9-rideshare-mission/"
+          "title": "SatViT-Seg: New AI Framework for Real-Time Satellite Image Processing",
+          "summary": "Researchers introduced SatViT-Seg, a Vision Transformer designed for efficient on-board satellite processing, achieving state-of-the-art land cover mapping performance with reduced computational overhead.",
+          "source": "Remote Sensing Journal",
+          "date": "January 2026",
+          "significance": "Advances satellite edge computing capabilities for real-time land cover analysis and mapping applications",
+          "url": "https://www.mdpi.com/2072-4292/18/1"
         }
       ]
     },

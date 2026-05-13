@@ -1,24 +1,60 @@
 {
-  "generated_at_ist": "Awaiting first run",
-  "generated_at_utc": "—",
-  "generated_iso": null,
-  "display_date": "Awaiting first run",
-  "display_time": "—",
+  "generated_at_ist": "2026-05-13 20:57:35 IST",
+  "generated_at_utc": "2026-05-13T15:27:35.434919+00:00",
+  "generated_iso": "2026-05-13T20:57:35.434741+05:30",
+  "display_date": "Wednesday, 13 May 2026",
+  "display_time": "08:57 PM IST",
   "stats": {
     "total_articles": 0,
     "domains_total": 9,
     "domains_with_news": 0,
-    "elapsed": "—"
+    "elapsed": "292s"
   },
   "domains": [
-    {"label": "🛰️ Remote Sensing & Earth Observation", "count": 0, "articles": []},
-    {"label": "🗺️ GIS & Geospatial Technology", "count": 0, "articles": []},
-    {"label": "🌡️ Climatology & Atmospheric Science", "count": 0, "articles": []},
-    {"label": "🌊 Oceanography & Marine Science", "count": 0, "articles": []},
-    {"label": "🏔️ Plate Tectonics & Seismology", "count": 0, "articles": []},
-    {"label": "🌋 Volcanology", "count": 0, "articles": []},
-    {"label": "⛏️ Mining & Mineral Resources", "count": 0, "articles": []},
-    {"label": "🪨 Geology & Geomorphology", "count": 0, "articles": []},
-    {"label": "🚀 Space & Geodesy", "count": 0, "articles": []}
+    {
+      "label": "🛰️ Remote Sensing & Earth Observation",
+      "count": 0,
+      "articles": []
+    },
+    {
+      "label": "🗺️ GIS & Geospatial Technology",
+      "count": 0,
+      "articles": []
+    },
+    {
+      "label": "🌡️ Climatology & Atmospheric Science",
+      "count": 0,
+      "articles": []
+    },
+    {
+      "label": "🌊 Oceanography & Marine Science",
+      "count": 0,
+      "articles": []
+    },
+    {
+      "label": "🏔️ Plate Tectonics & Seismology",
+      "count": 0,
+      "articles": []
+    },
+    {
+      "label": "🌋 Volcanology",
+      "count": 0,
+      "articles": []
+    },
+    {
+      "label": "⛏️ Mining & Mineral Resources",
+      "count": 0,
+      "articles": []
+    },
+    {
+      "label": "🪨 Geology & Geomorphology",
+      "count": 0,
+      "articles": []
+    },
+    {
+      "label": "🚀 Space & Geodesy",
+      "count": 0,
+      "articles": []
+    }
   ]
 }

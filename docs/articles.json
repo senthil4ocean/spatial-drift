@@ -1,0 +1,23 @@
+{
+  "generated_at_ist": "Awaiting first run",
+  "generated_at_utc": "—",
+  "display_date": "Awaiting first run",
+  "display_time": "—",
+  "stats": {
+    "total_articles": 0,
+    "domains_total": 9,
+    "domains_with_news": 0,
+    "elapsed": "—"
+  },
+  "domains": [
+    {"label": "🛰️ Remote Sensing & Earth Observation", "count": 0, "articles": []},
+    {"label": "🗺️ GIS & Geospatial Technology", "count": 0, "articles": []},
+    {"label": "🌡️ Climatology & Atmospheric Science", "count": 0, "articles": []},
+    {"label": "🌊 Oceanography & Marine Science", "count": 0, "articles": []},
+    {"label": "🏔️ Plate Tectonics & Seismology", "count": 0, "articles": []},
+    {"label": "🌋 Volcanology", "count": 0, "articles": []},
+    {"label": "⛏️ Mining & Mineral Resources", "count": 0, "articles": []},
+    {"label": "🪨 Geology & Geomorphology", "count": 0, "articles": []},
+    {"label": "🚀 Space & Geodesy", "count": 0, "articles": []}
+  ]
+}

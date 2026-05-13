@@ -2,22 +2,18 @@
 ╔═══════════════════════════════════════════════════════╗
 ║          SPATIAL DRIFT — Daily Intelligence Alert      ║
 ║          Explore. Analyze. Anticipate.                 ║
-║          v3.0 — Citations, Links & Reliability         ║
+║          v4.0 — Compact, IST, Website Integration      ║
 ╚═══════════════════════════════════════════════════════╝
 
-WHAT'S NEW IN v3.0
+WHAT'S NEW IN v4.0
 ─────────────────────────────────────────────────────────
-1. Strips <cite> and other HTML tags from API output
-   (these were leaking into Telegram as raw text).
-2. URLs are now MANDATORY in the prompt + extracted as
-   backup from web_search tool result blocks.
-3. 5 articles per domain (raised from 2).
-4. max_tokens raised to 4096 to prevent JSON truncation.
-5. Per-topic messages split automatically if they exceed
-   Telegram's 4096-character limit.
-6. Detailed per-article URL diagnostics in the logs.
-7. Stronger JSON extraction: pre-strips HTML tags before
-   parsing, so even citation-wrapped JSON parses cleanly.
+1. Single combined Telegram message when content fits.
+   Auto-splits ONLY when 4096-char limit forces it.
+2. No fixed article cap — returns whatever's available
+   per domain (typically 3-5).
+3. IST timestamp at the top of every message.
+4. Saves all articles to data/articles.json which the
+   companion website reads to display the same content.
 """
 
 import os
@@ -26,8 +22,9 @@ import json
 import time
 import html
 import requests
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from difflib import SequenceMatcher
+from pathlib import Path
 
 # ── Credentials ────────────────────────────────────────────────────────────────
 ANTHROPIC_API_KEY  = os.environ.get("ANTHROPIC_API_KEY",  "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")
@@ -35,10 +32,24 @@ TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "8755526579:AAEIYLkfrm
 TELEGRAM_CHAT_ID   = os.environ.get("TELEGRAM_CHAT_ID",   "1739337359")
 
 # ── Configuration ──────────────────────────────────────────────────────────────
-NUM_ARTICLES_PER_TOPIC = 5
+MAX_ARTICLES_PER_TOPIC = 6        # upper bound — model returns what it finds
 MAX_RETRIES_PER_TOPIC  = 2
 MAX_TOKENS             = 4096
-TELEGRAM_MSG_LIMIT     = 4000   # safe margin under 4096
+TELEGRAM_MSG_LIMIT     = 4000     # safe margin under 4096
+
+# Output paths for the website
+ROOT_DIR  = Path(__file__).parent
+DATA_DIR  = ROOT_DIR / "data"
+DOCS_DIR  = ROOT_DIR / "docs"
+DATA_DIR.mkdir(exist_ok=True)
+DOCS_DIR.mkdir(exist_ok=True)
+ARTICLES_FILES = [
+    DATA_DIR / "articles.json",
+    DOCS_DIR / "articles.json",   # for GitHub Pages
+]
+
+# IST timezone (UTC+5:30)
+IST = timezone(timedelta(hours=5, minutes=30))
 
 # ── Topic Definitions ──────────────────────────────────────────────────────────
 TOPICS = [
@@ -73,7 +84,7 @@ TOPICS = [
 # ── System Prompts ─────────────────────────────────────────────────────────────
 NEWS_SYSTEM_PROMPT = f"""You are the news research engine for SPATIAL DRIFT.
 
-TASK: Use web_search to find the {NUM_ARTICLES_PER_TOPIC} most recent and significant real news articles for the given geospatial domain.
+TASK: Use web_search to find the most recent and significant real news articles for the given geospatial domain. Return as many as you can find (up to {MAX_ARTICLES_PER_TOPIC}). Quality over quantity — only include articles you can verify.
 
 OUTPUT FORMAT — STRICT:
 Return ONLY a valid JSON array. Start with [ and end with ]. Nothing before or after.
@@ -102,20 +113,7 @@ The web_search tool will mark sources with <cite> tags in your reasoning, but yo
 STRIP these from your final JSON output. The summary, title, and significance fields
 must contain ONLY plain text. No <cite>, no <span>, no HTML.
 
-Return {NUM_ARTICLES_PER_TOPIC} articles. If you find fewer real ones, return what you found.
 Output the JSON array and nothing else."""
-
-
-TRENDS_SYSTEM_PROMPT = """You are a trend analyst for SPATIAL DRIFT.
-
-Given news from multiple geospatial domains, identify 3 cross-cutting trends.
-
-Return ONLY a JSON array with exactly 3 items:
-[
-  {"theme": "Short trend name (max 50 chars)", "insight": "One sentence on the cross-domain pattern (max 160 chars)"}
-]
-
-Plain text only. No HTML, no <cite> tags, no markdown. Just the raw JSON array."""
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -127,20 +125,15 @@ def clean_text(text) -> str:
     if text is None:
         return ""
     s = str(text)
-    # Remove <cite ...>...</cite> with content preserved
     s = re.sub(r"<cite[^>]*>", "", s)
     s = re.sub(r"</cite>", "", s)
-    # Remove any other HTML tags (e.g. <span>, <a>, <div>)
     s = re.sub(r"<[^>]+>", "", s)
-    # Decode any HTML entities
     s = html.unescape(s)
-    # Collapse whitespace
     s = re.sub(r"\s+", " ", s).strip()
     return s
 
 
 def is_valid_url(url) -> bool:
-    """Check if a value is a valid http(s) URL."""
     if not isinstance(url, str):
         return False
     url = url.strip()
@@ -148,19 +141,21 @@ def is_valid_url(url) -> bool:
 
 
 def esc_html(text) -> str:
-    """Escape for Telegram HTML mode (only < > & need escaping)."""
     if text is None:
         return ""
     return html.escape(str(text), quote=False)
 
 
+def now_ist() -> datetime:
+    return datetime.now(IST)
+
+
 # ═══════════════════════════════════════════════════════════════════════════════
-# ANTHROPIC API CALL
+# ANTHROPIC API
 # ═══════════════════════════════════════════════════════════════════════════════
 
 def call_anthropic(system_prompt: str, user_msg: str, use_search: bool = True,
                    retries: int = MAX_RETRIES_PER_TOPIC) -> dict:
-    """Call Anthropic API. Returns the full JSON response dict on success."""
     payload = {
         "model": "claude-sonnet-4-20250514",
         "max_tokens": MAX_TOKENS,
@@ -195,17 +190,15 @@ def call_anthropic(system_prompt: str, user_msg: str, use_search: bool = True,
             print(f"        ↻  Retry {attempt+1}/{retries} in {wait}s ({last_err[:80]})")
             time.sleep(wait)
 
-    raise RuntimeError(f"API call failed after {retries+1} attempts. Last error: {last_err}")
+    raise RuntimeError(f"API call failed: {last_err}")
 
 
 def extract_response_text(api_data: dict) -> str:
-    """Join all text blocks from a Messages API response."""
     parts = [b.get("text", "") for b in api_data.get("content", []) if b.get("type") == "text"]
     return "\n".join(p for p in parts if p).strip()
 
 
 def extract_search_urls(api_data: dict) -> list:
-    """Extract URL+title pairs from web_search_tool_result blocks as backup."""
     found = []
     for block in api_data.get("content", []):
         if block.get("type") != "web_search_tool_result":
@@ -223,16 +216,10 @@ def extract_search_urls(api_data: dict) -> list:
     return found
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
-# JSON EXTRACTION
-# ═══════════════════════════════════════════════════════════════════════════════
-
 def extract_json_array(raw: str) -> list:
-    """Bulletproof JSON array extraction — strips HTML tags first, then walks brackets."""
     if not raw:
         return []
 
-    # Pre-clean: strip code fences and HTML tags GLOBALLY before extraction
     cleaned = re.sub(r"```(?:json)?\s*", "", raw)
     cleaned = cleaned.replace("```", "")
     cleaned = re.sub(r"<cite[^>]*>", "", cleaned)
@@ -243,7 +230,6 @@ def extract_json_array(raw: str) -> list:
     if start == -1:
         return []
 
-    # Walk to find matching ]
     depth = 0
     in_str = False
     esc_next = False
@@ -276,76 +262,16 @@ def extract_json_array(raw: str) -> list:
     try:
         return json.loads(candidate)
     except json.JSONDecodeError as e:
-        # Last-ditch: try removing any remaining stray tags
         candidate2 = re.sub(r"<[^>]+>", "", candidate)
         try:
             return json.loads(candidate2)
         except json.JSONDecodeError:
             print(f"        ⚠️  JSON parse failed: {e}")
-            print(f"        Snippet (first 250 chars): {candidate[:250]!r}")
+            print(f"        Snippet: {candidate[:200]!r}")
             return []
 
 
-# ═══════════════════════════════════════════════════════════════════════════════
-# FETCH NEWS FOR ONE TOPIC
-# ═══════════════════════════════════════════════════════════════════════════════
-
-def fetch_topic(emoji: str, label: str, query: str) -> list:
-    """Fetch news for one topic with retries and URL backfill."""
-    user_msg = (
-        f"Search the web for the {NUM_ARTICLES_PER_TOPIC} most recent and significant "
-        f"news articles about: {query}.\n\n"
-        f"Return as a JSON array with the exact schema specified. "
-        f"Make sure every article includes a real URL from your search results."
-    )
-
-    try:
-        api_data = call_anthropic(NEWS_SYSTEM_PROMPT, user_msg, use_search=True)
-    except Exception as e:
-        print(f"        ❌ API hard failure: {e}")
-        return []
-
-    raw_text = extract_response_text(api_data)
-    if not raw_text:
-        print(f"        ⚠️  Empty text response (stop_reason: {api_data.get('stop_reason')})")
-        return []
-
-    articles = extract_json_array(raw_text)
-    if not articles:
-        print(f"        ⚠️  No JSON array parsed. Raw text preview:")
-        print(f"        {raw_text[:300]!r}")
-        return []
-
-    # Backup URL pool from web_search tool results
-    search_urls = extract_search_urls(api_data)
-
-    # Clean every text field & validate/backfill URLs
-    cleaned = []
-    for a in articles:
-        if not isinstance(a, dict):
-            continue
-
-        obj = {
-            "title":        clean_text(a.get("title", "")),
-            "summary":      clean_text(a.get("summary", "")),
-            "source":       clean_text(a.get("source", "")),
-            "date":         clean_text(a.get("date", "")),
-            "significance": clean_text(a.get("significance", "")),
-            "url":          str(a.get("url", "")).strip(),
-        }
-
-        # If URL missing or invalid, try to match by title from search results
-        if not is_valid_url(obj["url"]) and search_urls:
-            obj["url"] = best_url_match(obj["title"], search_urls) or ""
-
-        if obj["title"]:
-            cleaned.append(obj)
-
-    return cleaned
-
-
 def best_url_match(article_title: str, search_urls: list) -> str:
-    """Find the best-matching URL from search results by title similarity."""
     if not article_title or not search_urls:
         return ""
     best_score = 0.0
@@ -363,159 +289,163 @@ def best_url_match(article_title: str, search_urls: list) -> str:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TREND ANALYSIS
+# FETCH PER-TOPIC NEWS
 # ═══════════════════════════════════════════════════════════════════════════════
 
-def fetch_trends(all_results: list) -> list:
-    """Identify cross-domain trends from collected articles."""
-    lines = []
-    for label, articles in all_results:
-        for a in articles:
-            lines.append(f"- [{label}] {a['title']} — {a['summary']}")
-    if not lines:
-        return []
-
+def fetch_topic(emoji: str, label: str, query: str) -> list:
     user_msg = (
-        "Below are recent geospatial news items from multiple domains. "
-        "Identify exactly 3 cross-cutting trends connecting them. Return raw JSON only.\n\n"
-        + "\n".join(lines[:40])
+        f"Search the web for the most recent and significant real news articles about: {query}.\n\n"
+        f"Return up to {MAX_ARTICLES_PER_TOPIC} articles you can verify, or fewer if that's all you find. "
+        f"Quality over quantity. Make sure every article has a real URL from your search results. "
+        f"Return as a JSON array with the exact schema specified."
     )
 
     try:
-        api_data = call_anthropic(TRENDS_SYSTEM_PROMPT, user_msg, use_search=False, retries=1)
-        raw = extract_response_text(api_data)
-        trends = extract_json_array(raw)
-        cleaned = []
-        for t in trends:
-            if isinstance(t, dict):
-                cleaned.append({
-                    "theme":   clean_text(t.get("theme", "")),
-                    "insight": clean_text(t.get("insight", "")),
-                })
-        return cleaned
+        api_data = call_anthropic(NEWS_SYSTEM_PROMPT, user_msg, use_search=True)
     except Exception as e:
-        print(f"  ⚠️  Trends analysis failed: {e}")
+        print(f"        ❌ API hard failure: {e}")
         return []
 
+    raw_text = extract_response_text(api_data)
+    if not raw_text:
+        print(f"        ⚠️  Empty response (stop_reason: {api_data.get('stop_reason')})")
+        return []
 
-# ═══════════════════════════════════════════════════════════════════════════════
-# TELEGRAM MESSAGE BUILDING
-# ═══════════════════════════════════════════════════════════════════════════════
-
-def build_topic_message(topic_label: str, articles: list) -> list:
-    """Build one or more message strings for a topic. Splits if too long."""
+    articles = extract_json_array(raw_text)
     if not articles:
-        return [
-            f"<b>{esc_html(topic_label)}</b>\n"
-            f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-            f"<i>No fresh articles fetched this run — will retry next cycle.</i>"
-        ]
+        print(f"        ⚠️  No JSON parsed. Preview: {raw_text[:200]!r}")
+        return []
 
-    header = f"<b>{esc_html(topic_label)}</b>\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-    messages = []
-    current = header
+    search_urls = extract_search_urls(api_data)
+    cleaned = []
+    for a in articles:
+        if not isinstance(a, dict):
+            continue
 
-    for i, a in enumerate(articles, 1):
-        title       = esc_html(a["title"])
-        summary     = esc_html(a["summary"])
-        source      = esc_html(a["source"])
-        date        = esc_html(a["date"])
-        significance = esc_html(a["significance"])
-        url         = a["url"]
+        obj = {
+            "title":        clean_text(a.get("title", "")),
+            "summary":      clean_text(a.get("summary", "")),
+            "source":       clean_text(a.get("source", "")),
+            "date":         clean_text(a.get("date", "")),
+            "significance": clean_text(a.get("significance", "")),
+            "url":          str(a.get("url", "")).strip(),
+        }
 
-        if is_valid_url(url):
-            # Escape special chars for HTML attribute context
-            safe_url = url.replace("&", "&amp;").replace('"', "%22")
-            title_html = f'<b>{i}. <a href="{safe_url}">{title}</a></b>'
-            link_line = f'🔗 <a href="{safe_url}">Open article →</a>\n'
-        else:
-            title_html = f'<b>{i}. {title}</b>'
-            link_line = ""
+        if not is_valid_url(obj["url"]) and search_urls:
+            obj["url"] = best_url_match(obj["title"], search_urls) or ""
 
-        block = (
-            f"\n{title_html}\n"
-            f"📰 <i>{source}</i>  •  <i>{date}</i>\n"
-            f"{summary}\n"
-            f"{link_line}"
-            f"💡 <i>{significance}</i>\n"
-        )
+        if obj["title"]:
+            cleaned.append(obj)
 
-        # If adding this block would exceed limit, flush current and start new
-        if len(current) + len(block) > TELEGRAM_MSG_LIMIT:
-            messages.append(current)
-            current = f"<b>{esc_html(topic_label)} (cont.)</b>\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-
-        current += block
-
-    if current.strip():
-        messages.append(current)
-    return messages
+    return cleaned
 
 
-def build_all_messages(all_results: list, trends: list, run_meta: dict) -> list:
-    """Build the complete list of Telegram-ready HTML message strings."""
-    messages = []
-    now = datetime.now()
-    today = now.strftime("%A, %d %B %Y")
-    time_str = now.strftime("%H:%M UTC")
+# ═══════════════════════════════════════════════════════════════════════════════
+# MESSAGE BUILDING — COMPACT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def build_compact_message(all_results: list, run_meta: dict) -> list:
+    """
+    Build a single combined message. Auto-splits ONLY when 4096-char limit forces it.
+    Each split is a continuation, so it reads as one flow.
+    """
+    ts = now_ist()
+    today = ts.strftime("%A, %d %B %Y")
+    time_str = ts.strftime("%I:%M %p IST")
 
     successful = sum(1 for _, a in all_results if a)
     total_articles = sum(len(a) for _, a in all_results)
     total_links = sum(1 for _, ar in all_results for a in ar if is_valid_url(a.get("url", "")))
 
-    # ── Opening header ─────────────────────────────────────────────────────
+    # ── Header ──
     header = (
         f"🌍 <b>SPATIAL DRIFT</b>\n"
         f"<i>Explore · Analyze · Anticipate</i>\n"
         f"━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"📅 <b>{esc_html(today)}</b>  •  🕐 <code>{esc_html(time_str)}</code>\n\n"
-        f"Your geospatial intelligence brief:\n"
-        f"📰 <b>{total_articles}</b> articles across <b>{successful}/{len(all_results)}</b> domains\n"
-        f"🔗 <b>{total_links}</b> direct article links\n\n"
-        f"<i>Tap any title or link to open the source. Use this material to fuel your blog and LinkedIn content.</i>"
+        f"🕐 <b>{esc_html(time_str)}</b>\n"
+        f"📅 <i>{esc_html(today)}</i>\n\n"
+        f"📰 <b>{total_articles}</b> articles · <b>{successful}/{len(all_results)}</b> domains · "
+        f"<b>{total_links}</b> live links\n\n"
     )
-    messages.append(header)
 
-    # ── Per-topic messages ──────────────────────────────────────────────────
+    # ── Build all topic blocks ──
+    topic_blocks = []
     for topic_label, articles in all_results:
-        topic_messages = build_topic_message(topic_label, articles)
-        messages.extend(topic_messages)
+        if not articles:
+            topic_blocks.append(
+                f"<b>{esc_html(topic_label)}</b>\n"
+                f"<i>— no fresh items this cycle</i>\n"
+            )
+            continue
 
-    # ── Trends ──────────────────────────────────────────────────────────────
-    if trends:
-        block = (
-            "📊 <b>TRENDING THEMES</b>\n"
-            "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-            "<i>Cross-domain patterns emerging today:</i>\n"
-        )
-        for i, t in enumerate(trends, 1):
-            block += f"\n<b>{i}. {esc_html(t['theme'])}</b>\n{esc_html(t['insight'])}\n"
-        messages.append(block)
+        block = f"<b>{esc_html(topic_label)}</b>\n"
+        for i, a in enumerate(articles, 1):
+            title       = esc_html(a["title"])
+            source      = esc_html(a["source"])
+            date        = esc_html(a["date"])
+            url         = a["url"]
 
-    # ── Footer ──────────────────────────────────────────────────────────────
-    messages.append(
-        "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"🌐 <b>SPATIAL DRIFT</b> — <i>Explore. Analyze. Anticipate.</i>\n\n"
-        f"<i>Next brief in ~6 hours.</i>\n"
-        f"<i>Run: {successful}/{len(all_results)} domains • {total_articles} articles • "
-        f"{total_links} links • {esc_html(run_meta.get('elapsed','—'))}</i>"
+            if is_valid_url(url):
+                safe_url = url.replace("&", "&amp;").replace('"', "%22")
+                title_html = f'<b>{i}.</b> <a href="{safe_url}">{title}</a>'
+            else:
+                title_html = f'<b>{i}.</b> {title}'
+
+            block += f"{title_html}\n   <i>📰 {source} · {date}</i>\n"
+        topic_blocks.append(block)
+
+    # ── Footer ──
+    footer = (
+        f"\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
+        f"🌐 <b>SPATIAL DRIFT</b>\n"
+        f"<i>Tap any title to open the article.</i>\n"
+        f"<i>Visit your dashboard for full summaries + LinkedIn/blog generator.</i>\n"
+        f"<i>Next brief in ~6 hours.</i>"
     )
+
+    # ── Try to fit everything in ONE message first ──
+    full_message = header + "\n".join(topic_blocks) + footer
+    if len(full_message) <= TELEGRAM_MSG_LIMIT:
+        return [full_message]
+
+    # ── Otherwise, pack greedily into as few messages as possible ──
+    messages = []
+    current = header
+    is_first = True
+
+    for block in topic_blocks:
+        # Check if block fits in current message
+        if len(current) + len(block) + len(footer) + 2 > TELEGRAM_MSG_LIMIT:
+            # Flush current (without footer)
+            current += f"\n<i>— continued ↓</i>"
+            messages.append(current)
+            # Start next message
+            current = f"🌍 <b>SPATIAL DRIFT</b> <i>(part {len(messages)+1})</i>\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
+
+        current += block + "\n"
+
+    # Add footer to last message
+    if len(current) + len(footer) <= TELEGRAM_MSG_LIMIT:
+        current += footer
+        messages.append(current)
+    else:
+        messages.append(current)
+        messages.append(footer)
 
     return messages
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TELEGRAM DELIVERY
+# TELEGRAM SEND
 # ═══════════════════════════════════════════════════════════════════════════════
 
 def send_telegram(text: str, retries: int = 3) -> tuple:
-    """Send HTML message to Telegram. Returns (ok, error_or_None)."""
     api_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
     payload = {
         "chat_id": TELEGRAM_CHAT_ID,
         "text": text[:4096],
         "parse_mode": "HTML",
-        "disable_web_page_preview": False,
+        "disable_web_page_preview": True,  # cleaner look in a single big message
     }
 
     last_err = None
@@ -530,7 +460,6 @@ def send_telegram(text: str, retries: int = 3) -> tuple:
             except Exception:
                 last_err = str(e)
 
-            # If HTML parse error, fall back to plain text
             if "parse" in (last_err or "").lower() or "entities" in (last_err or "").lower():
                 plain = re.sub(r"<[^>]+>", "", text)
                 try:
@@ -552,21 +481,57 @@ def send_telegram(text: str, retries: int = 3) -> tuple:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
+# SAVE DATA FOR WEBSITE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+def save_articles_for_website(all_results: list, run_meta: dict):
+    """Write the latest articles to a JSON file the website can read."""
+    ts = now_ist()
+    payload = {
+        "generated_at_ist":   ts.strftime("%Y-%m-%d %H:%M:%S IST"),
+        "generated_at_utc":   datetime.now(timezone.utc).isoformat(),
+        "display_date":       ts.strftime("%A, %d %B %Y"),
+        "display_time":       ts.strftime("%I:%M %p IST"),
+        "stats": {
+            "total_articles":   sum(len(a) for _, a in all_results),
+            "domains_total":    len(all_results),
+            "domains_with_news": sum(1 for _, a in all_results if a),
+            "elapsed":          run_meta.get("elapsed", "—"),
+        },
+        "domains": [
+            {
+                "label":    label,
+                "count":    len(articles),
+                "articles": articles,
+            }
+            for label, articles in all_results
+        ],
+    }
+
+    try:
+        text = json.dumps(payload, ensure_ascii=False, indent=2)
+        for path in ARTICLES_FILES:
+            path.write_text(text, encoding="utf-8")
+            print(f"  💾 Wrote {payload['stats']['total_articles']} articles → {path}")
+    except Exception as e:
+        print(f"  ⚠️  Could not save articles.json: {e}")
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
 # MAIN
 # ═══════════════════════════════════════════════════════════════════════════════
 
 def main():
     start = time.time()
+    ts = now_ist()
     print()
     print("╔══════════════════════════════════════════════╗")
-    print("║    SPATIAL DRIFT v3.0 — Daily Alert          ║")
+    print("║    SPATIAL DRIFT v4.0 — Daily Alert          ║")
     print("║    Explore. Analyze. Anticipate.             ║")
     print("╚══════════════════════════════════════════════╝")
-    print(f"  Run started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}")
-    print(f"  Target: {NUM_ARTICLES_PER_TOPIC} articles × {len(TOPICS)} domains")
+    print(f"  Run started: {ts.strftime('%Y-%m-%d %I:%M:%S %p IST')}")
     print()
 
-    # ── Fetch each topic ────────────────────────────────────────────────────
     all_results = []
     for emoji, label, query in TOPICS:
         full_label = f"{emoji} {label}"
@@ -580,37 +545,33 @@ def main():
             url = a.get("url", "")
             mark = "🔗" if is_valid_url(url) else "❌"
             print(f"        {mark} {a.get('title','')[:65]}")
-            if not is_valid_url(url):
-                print(f"           url value: {url[:80]!r}")
         time.sleep(1)
 
-    # ── Trends ──────────────────────────────────────────────────────────────
-    print()
-    print("  🧠 Analyzing cross-topic trends ...")
-    trends = fetch_trends(all_results)
-    print(f"     {'✅' if trends else '⚠️ '} {len(trends)} trend(s) identified")
-
-    # ── Build & send ────────────────────────────────────────────────────────
     elapsed = f"{int(time.time() - start)}s"
-    print()
-    print("  📨 Building Telegram messages ...")
-    messages = build_all_messages(all_results, trends, {"elapsed": elapsed})
-    print(f"     {len(messages)} message(s) ready")
 
+    # ── Save for website ──
     print()
-    print(f"  📤 Sending to Telegram ...")
+    save_articles_for_website(all_results, {"elapsed": elapsed})
+
+    # ── Build & send Telegram ──
+    print()
+    print("  📨 Building Telegram message(s)...")
+    messages = build_compact_message(all_results, {"elapsed": elapsed})
+    print(f"     {len(messages)} message(s) — {'single combined' if len(messages)==1 else 'auto-split due to size'}")
+
+    print(f"\n  📤 Sending to Telegram...")
     delivered = 0
     for i, msg in enumerate(messages, 1):
         ok, err = send_telegram(msg)
         if ok:
             note = f" ({err})" if err else ""
-            print(f"     ✅ {i}/{len(messages)}{note}")
+            print(f"     ✅ {i}/{len(messages)}{note}  [{len(msg)} chars]")
             delivered += 1
         else:
             print(f"     ❌ {i}/{len(messages)} — {err}")
         time.sleep(0.5)
 
-    # ── Summary ─────────────────────────────────────────────────────────────
+    # ── Summary ──
     successful = sum(1 for _, a in all_results if a)
     total_articles = sum(len(a) for _, a in all_results)
     total_links = sum(1 for _, ar in all_results for a in ar if is_valid_url(a.get("url", "")))
@@ -623,8 +584,7 @@ def main():
     print(f"  │  Domains successful: {successful:2d}                 │")
     print(f"  │  Articles found:     {total_articles:2d}                 │")
     print(f"  │  Articles w/ links:  {total_links:2d}                 │")
-    print(f"  │  Trends identified:  {len(trends):2d}                 │")
-    print(f"  │  Messages delivered: {delivered:2d}/{len(messages):<2d}              │")
+    print(f"  │  Messages sent:      {delivered:2d}/{len(messages):<2d}              │")
     print(f"  │  Total runtime:      {elapsed:<7}            │")
     print("  └─────────────────────────────────────────┘")
     print()

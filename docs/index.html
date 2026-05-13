@@ -4,884 +4,1270 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Spatial Drift — Explore · Analyze · Anticipate</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<meta name="description" content="Daily geospatial intelligence: remote sensing, GIS, climatology, oceanography, tectonics, volcanology, mining, geology, space." />
 <style>
+  /* ─────────────────── RESET & FONT ─────────────────── */
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body, button, input, textarea, pre, select {
+    font-family: 'Times New Roman', Times, serif;
+  }
 
+  /* ─────────────────── LIGHT THEME (Science Daily palette) ─────────────────── */
   :root {
-    --ink: #0a0d14;
-    --ink2: #12151f;
-    --ink3: #1a1e2e;
-    --ink4: #232838;
-    --line: rgba(255,255,255,0.07);
-    --line2: rgba(255,255,255,0.12);
-    --txt: #e2e6f0;
-    --txt2: #8890a8;
-    --txt3: #5a6278;
-    --accent: #4af0c4;
-    --accent2: #2dd4a4;
-    --amber: #f0a84a;
-    --rose: #f06a6a;
-    --sky: #4ab8f0;
-    --purple: #b48af0;
+    --bg:           #FFFFFF;
+    --bg-alt:       #F4F4F4;
+    --bg-soft:      #FAFAFA;
+    --panel:        #FFFFFF;
+    --panel-alt:    #F7F7F7;
+    --header-bg:    #003D7A;     /* Science Daily deep blue header */
+    --header-text:  #FFFFFF;
+    --accent:       #003D7A;     /* primary blue */
+    --accent-2:     #0066CC;     /* link blue */
+    --accent-3:     #C8102E;     /* red highlight */
+    --text:         #1A1A1A;
+    --text-2:       #4A4A4A;
+    --text-3:       #7A7A7A;
+    --line:         #D8D8D8;
+    --line-2:       #BCBCBC;
+    --tag-bg:       #E8F0F8;
+    --tag-text:     #003D7A;
+    --hover:        #F0F4F8;
+    --shadow:       0 1px 3px rgba(0,0,0,0.06);
+    --shadow-hover: 0 2px 8px rgba(0,0,0,0.12);
+  }
+
+  /* ─────────────────── DARK THEME (system preference) ─────────────────── */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg:           #121212;
+      --bg-alt:       #1A1A1A;
+      --bg-soft:      #1E1E1E;
+      --panel:        #1C1C1C;
+      --panel-alt:    #242424;
+      --header-bg:    #001F3F;
+      --header-text:  #FFFFFF;
+      --accent:       #4A9EE5;
+      --accent-2:     #6FB6F0;
+      --accent-3:     #FF6B7A;
+      --text:         #E8E8E8;
+      --text-2:       #BCBCBC;
+      --text-3:       #8A8A8A;
+      --line:         #2E2E2E;
+      --line-2:       #3E3E3E;
+      --tag-bg:       #1F3550;
+      --tag-text:     #6FB6F0;
+      --hover:        #2A2A2A;
+      --shadow:       0 1px 3px rgba(0,0,0,0.4);
+      --shadow-hover: 0 2px 8px rgba(0,0,0,0.6);
+    }
+  }
+
+  /* ─────────────────── MANUAL THEME OVERRIDE ─────────────────── */
+  html[data-theme="light"] {
+    --bg:           #FFFFFF; --bg-alt: #F4F4F4; --bg-soft: #FAFAFA;
+    --panel:        #FFFFFF; --panel-alt: #F7F7F7;
+    --header-bg:    #003D7A; --header-text: #FFFFFF;
+    --accent:       #003D7A; --accent-2: #0066CC; --accent-3: #C8102E;
+    --text:         #1A1A1A; --text-2: #4A4A4A; --text-3: #7A7A7A;
+    --line:         #D8D8D8; --line-2: #BCBCBC;
+    --tag-bg:       #E8F0F8; --tag-text: #003D7A;
+    --hover:        #F0F4F8;
+    --shadow:       0 1px 3px rgba(0,0,0,0.06); --shadow-hover: 0 2px 8px rgba(0,0,0,0.12);
+  }
+  html[data-theme="dark"] {
+    --bg:           #121212; --bg-alt: #1A1A1A; --bg-soft: #1E1E1E;
+    --panel:        #1C1C1C; --panel-alt: #242424;
+    --header-bg:    #001F3F; --header-text: #FFFFFF;
+    --accent:       #4A9EE5; --accent-2: #6FB6F0; --accent-3: #FF6B7A;
+    --text:         #E8E8E8; --text-2: #BCBCBC; --text-3: #8A8A8A;
+    --line:         #2E2E2E; --line-2: #3E3E3E;
+    --tag-bg:       #1F3550; --tag-text: #6FB6F0;
+    --hover:        #2A2A2A;
+    --shadow:       0 1px 3px rgba(0,0,0,0.4); --shadow-hover: 0 2px 8px rgba(0,0,0,0.6);
   }
 
   body {
-    background: var(--ink);
-    color: var(--txt);
-    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-    line-height: 1.6;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
     min-height: 100vh;
+    font-size: 16px;
+    transition: background 0.2s ease, color 0.2s ease;
   }
 
-  a { color: var(--accent); text-decoration: none; }
-  a:hover { color: var(--accent2); }
-  button { font-family: inherit; cursor: pointer; }
+  a { color: var(--accent-2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  button { cursor: pointer; }
 
-  /* ── HEADER ── */
-  .header {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(10,13,20,0.92);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--line);
-    padding: 0 32px;
+  /* ═════════════════════ HEADER STRIP ═════════════════════ */
+  .top-strip {
+    background: var(--header-bg);
+    color: var(--header-text);
+    font-size: 12px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
   }
-  .header-inner {
-    max-width: 1280px; margin: 0 auto;
-    height: 64px; display: flex; align-items: center; justify-content: space-between;
+  .top-strip-inner {
+    max-width: 1280px; margin: 0 auto; padding: 0 20px;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 16px; flex-wrap: wrap;
   }
-  .brand { display: flex; flex-direction: column; }
-  .brand-name {
-    font-family: 'Space Mono', monospace; font-size: 1.15rem; font-weight: 700;
-    letter-spacing: .15em; color: var(--accent);
+  .top-strip a { color: var(--header-text); opacity: 0.85; }
+  .top-strip a:hover { opacity: 1; text-decoration: underline; }
+  .top-strip .left, .top-strip .right { display: flex; gap: 16px; align-items: center; }
+  .theme-toggle {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+    color: var(--header-text); padding: 3px 12px; border-radius: 3px;
+    font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
   }
-  .brand-tag {
-    font-size: .62rem; letter-spacing: .25em; color: var(--txt3); text-transform: uppercase;
-  }
-  .header-right { display: flex; align-items: center; gap: 14px; }
-  .pulse-dot {
-    width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
-    box-shadow: 0 0 12px var(--accent);
-    animation: pulse 2s ease-in-out infinite;
-  }
-  .live-label {
-    font-size: .65rem; letter-spacing: .2em; color: var(--accent);
-    font-family: 'Space Mono', monospace;
-  }
-  .last-update {
-    font-size: .7rem; color: var(--txt3); font-family: 'Space Mono', monospace;
-  }
+  .theme-toggle:hover { background: rgba(255,255,255,0.2); }
 
-  /* ── HERO ── */
-  .hero {
-    position: relative; overflow: hidden;
-    padding: 48px 32px 36px;
-    border-bottom: 1px solid var(--line);
-    background: var(--ink2);
+  /* ═════════════════════ MASTHEAD ═════════════════════ */
+  .masthead {
+    background: var(--bg);
+    border-bottom: 3px double var(--line-2);
+    padding: 24px 0 20px;
   }
-  .hero-grid {
-    position: absolute; inset: 0; pointer-events: none;
-    background-image:
-      linear-gradient(var(--line) 1px, transparent 1px),
-      linear-gradient(90deg, var(--line) 1px, transparent 1px);
-    background-size: 56px 56px;
-    mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black, transparent);
-  }
-  .hero-inner { position: relative; max-width: 1280px; margin: 0 auto; }
-  .hero-eyebrow {
-    font-family: 'Space Mono', monospace; font-size: .65rem;
-    letter-spacing: .3em; color: var(--txt3); text-transform: uppercase; margin-bottom: 12px;
-  }
-  .hero-title {
-    font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 800;
-    line-height: 1.1; color: var(--txt); margin-bottom: 12px;
-  }
-  .hero-title span { color: var(--accent); }
-  .hero-sub {
-    font-size: .95rem; color: var(--txt2);
-    max-width: 580px; line-height: 1.65; margin-bottom: 24px;
-  }
-
-  .hero-stats { display: flex; gap: 28px; flex-wrap: wrap; }
-  .stat {
-    display: flex; flex-direction: column; gap: 2px;
-    padding-left: 14px; border-left: 2px solid var(--line2);
-  }
-  .stat-num {
-    font-family: 'Space Mono', monospace; font-size: 1.5rem;
-    font-weight: 700; color: var(--accent);
-  }
-  .stat-lbl {
-    font-size: .65rem; letter-spacing: .15em;
-    color: var(--txt3); text-transform: uppercase;
-  }
-
-  /* ── DOMAIN FILTERS ── */
-  .filter-bar {
-    background: var(--ink2);
-    border-bottom: 1px solid var(--line);
-    padding: 0 32px;
-    overflow-x: auto;
-  }
-  .filter-inner {
-    max-width: 1280px; margin: 0 auto;
-    display: flex; gap: 6px; padding: 12px 0;
-    white-space: nowrap;
-  }
-  .filter-btn {
-    display: flex; align-items: center; gap: 6px;
-    padding: 7px 14px; border-radius: 4px;
-    border: 1px solid transparent; background: transparent;
-    color: var(--txt2); font-size: .78rem; font-weight: 500;
-    transition: all .15s;
-  }
-  .filter-btn:hover { background: var(--ink3); color: var(--txt); }
-  .filter-btn.active {
-    background: rgba(74,240,196,0.1);
-    border-color: rgba(74,240,196,0.3);
-    color: var(--accent);
-  }
-  .filter-count {
-    font-family: 'Space Mono', monospace; font-size: .65rem;
-    opacity: .7;
-  }
-
-  /* ── MAIN LAYOUT ── */
-  .main {
-    max-width: 1280px; margin: 0 auto;
-    padding: 28px 32px;
-    display: grid; grid-template-columns: 1fr 440px; gap: 24px;
-  }
-  @media (max-width: 980px) {
-    .main { grid-template-columns: 1fr; }
-    .studio { position: relative !important; top: 0 !important; }
-  }
-
-  /* ── LOADING / EMPTY ── */
-  .loading-state, .empty-state {
-    grid-column: 1 / -1;
-    display: flex; flex-direction: column; align-items: center;
-    justify-content: center; padding: 80px 24px;
-    border: 1px solid var(--line); border-radius: 10px;
-    background: var(--ink2);
-  }
-  .loading-orb {
-    width: 56px; height: 56px; border-radius: 50%;
-    border: 2px solid rgba(74,240,196,0.15);
-    border-top-color: var(--accent);
-    animation: spin .9s linear infinite;
-    margin-bottom: 18px;
-  }
-  .empty-orb {
-    width: 64px; height: 64px; border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, rgba(74,240,196,0.3), rgba(74,240,196,0.02));
-    border: 1px solid rgba(74,240,196,0.15);
-    margin-bottom: 20px; display: flex; align-items: center;
-    justify-content: center; font-size: 1.6rem;
-  }
-  .empty-title {
-    font-family: 'Space Mono', monospace; font-size: .8rem;
-    letter-spacing: .2em; color: var(--txt3);
-    margin-bottom: 10px; text-transform: uppercase;
-  }
-  .empty-text {
-    font-size: .85rem; color: var(--txt3);
-    text-align: center; max-width: 460px; line-height: 1.7;
-  }
-  .empty-text strong { color: var(--txt2); }
-  .empty-text code {
-    font-family: 'Space Mono', monospace;
-    background: var(--ink3); padding: 2px 6px;
-    border-radius: 3px; color: var(--accent); font-size: .8rem;
-  }
-
-  /* ── FEED ── */
-  .feed-panel {
-    border: 1px solid var(--line); border-radius: 10px;
-    overflow: hidden; background: var(--ink2);
-  }
-  .feed-header {
-    padding: 14px 20px; background: var(--ink3);
-    border-bottom: 1px solid var(--line);
+  .masthead-inner {
+    max-width: 1280px; margin: 0 auto; padding: 0 20px;
     display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; flex-wrap: wrap;
   }
-  .feed-title {
-    font-family: 'Space Mono', monospace; font-size: .68rem;
-    letter-spacing: .18em; color: var(--accent); text-transform: uppercase;
+  .logo-area { display: flex; flex-direction: column; }
+  .logo {
+    font-size: 38px; font-weight: 700;
+    color: var(--accent); line-height: 1; letter-spacing: -0.5px;
   }
-  .feed-count {
-    font-family: 'Space Mono', monospace; font-size: .65rem;
-    color: var(--txt3);
+  .logo .word2 { color: var(--accent-3); }
+  .tagline {
+    font-size: 14px; color: var(--text-2);
+    font-style: italic; margin-top: 4px;
   }
+  .header-meta {
+    text-align: right; font-size: 13px; color: var(--text-2);
+    line-height: 1.5;
+  }
+  .header-meta .date {
+    font-weight: 700; color: var(--text); font-size: 14px;
+  }
+  .header-meta .stats { margin-top: 4px; }
+  .header-meta .stats span { color: var(--accent); font-weight: 700; }
 
-  .domain-section {
+  /* ═════════════════════ NAV BAR ═════════════════════ */
+  .nav-bar {
+    background: var(--bg-alt);
     border-bottom: 1px solid var(--line);
-  }
-  .domain-section:last-child { border-bottom: none; }
-  .domain-header {
-    padding: 12px 20px;
-    background: var(--ink3);
-    font-size: .78rem; font-weight: 600;
-    color: var(--txt);
-    border-bottom: 1px solid var(--line);
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .domain-badge {
-    font-family: 'Space Mono', monospace; font-size: .62rem;
-    padding: 2px 8px; background: var(--ink4);
-    border-radius: 12px; color: var(--txt2);
-  }
-
-  .article-card {
-    padding: 18px 20px;
     border-top: 1px solid var(--line);
+    padding: 10px 0;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .nav-inner {
+    max-width: 1280px; margin: 0 auto; padding: 0 20px;
+    display: flex; gap: 4px; align-items: center;
+    overflow-x: auto; white-space: nowrap;
+  }
+  .nav-item {
+    padding: 6px 14px;
+    color: var(--text-2);
+    font-size: 14px;
+    border-radius: 2px;
+    transition: all 0.12s;
+    background: transparent; border: none;
+    text-decoration: none;
+  }
+  .nav-item:hover { background: var(--hover); color: var(--accent); text-decoration: none; }
+  .nav-item.active {
+    background: var(--accent); color: var(--header-text);
+    font-weight: 700;
+  }
+  .nav-spacer { flex: 1; }
+  .search-wrap {
+    display: flex; align-items: center; gap: 6px;
+    border: 1px solid var(--line-2); border-radius: 3px;
+    padding: 4px 10px; background: var(--panel);
+    min-width: 220px;
+  }
+  .search-wrap input {
+    border: none; outline: none; background: transparent;
+    color: var(--text); font-size: 14px; flex: 1;
+  }
+  .search-wrap input::placeholder { color: var(--text-3); }
+  .search-icon { color: var(--text-3); font-size: 13px; }
+
+  /* ═════════════════════ MAIN LAYOUT ═════════════════════ */
+  .main-wrap {
+    max-width: 1280px; margin: 0 auto; padding: 24px 20px 60px;
+  }
+
+  /* page heading */
+  .page-heading {
+    margin-bottom: 24px; padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+  }
+  .page-heading h1 {
+    font-size: 28px; font-weight: 700;
+    color: var(--text); margin-bottom: 4px;
+  }
+  .page-heading p {
+    color: var(--text-2); font-size: 15px; font-style: italic;
+  }
+
+  /* main grid: feed + sidebar */
+  .main-grid {
+    display: grid; grid-template-columns: 1fr 320px;
+    gap: 28px;
+  }
+  @media (max-width: 960px) {
+    .main-grid { grid-template-columns: 1fr; }
+    .sidebar { order: -1; }
+  }
+
+  /* ═════════════════════ FEATURED STORY (top of feed) ═════════════════════ */
+  .featured {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 4px; overflow: hidden;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+  }
+  .featured-band {
+    background: var(--accent); color: var(--header-text);
+    padding: 6px 14px; font-size: 11px; letter-spacing: 0.15em;
+    text-transform: uppercase; font-weight: 700;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .featured-content { padding: 18px 22px 22px; }
+  .featured-domain {
+    color: var(--accent-3); font-size: 12px;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    font-weight: 700; margin-bottom: 6px;
+  }
+  .featured-title {
+    font-size: 24px; line-height: 1.25;
+    color: var(--text); margin-bottom: 10px; font-weight: 700;
     cursor: pointer;
-    transition: background .12s;
+  }
+  .featured-title:hover { color: var(--accent-2); }
+  .featured-summary {
+    font-size: 16px; color: var(--text-2);
+    line-height: 1.6; margin-bottom: 14px;
+  }
+  .featured-meta {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    font-size: 13px; color: var(--text-3);
+    padding-top: 10px; border-top: 1px solid var(--line);
+  }
+  .featured-meta a { color: var(--accent-2); font-weight: 700; }
+
+  /* ═════════════════════ DOMAIN SECTIONS ═════════════════════ */
+  .domain-section { margin-bottom: 32px; }
+  .domain-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 8px; margin-bottom: 14px;
+    border-bottom: 2px solid var(--accent);
+  }
+  .domain-title {
+    font-size: 20px; font-weight: 700;
+    color: var(--text);
+  }
+  .domain-title .emoji { margin-right: 6px; }
+  .domain-count {
+    font-size: 12px; color: var(--text-3);
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+
+  .articles-list {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 720px) {
+    .articles-list { grid-template-columns: 1fr; }
+  }
+
+  .article {
+    padding: 14px 16px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.12s;
     position: relative;
   }
-  .article-card:first-of-type { border-top: none; }
-  .article-card:hover { background: rgba(255,255,255,0.02); }
-  .article-card.selected {
-    background: rgba(74,240,196,0.05);
-    border-left: 3px solid var(--accent);
-    padding-left: 17px;
+  .article:hover {
+    background: var(--hover);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-hover);
   }
-  .article-card.selected::before {
-    content: ''; position: absolute; right: 16px; top: 22px;
-    width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+  .article-tag {
+    display: inline-block; margin-bottom: 6px;
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--tag-text); font-weight: 700;
+    padding: 2px 8px; background: var(--tag-bg); border-radius: 2px;
   }
-  .art-meta {
-    display: flex; align-items: center; gap: 10px;
-    margin-bottom: 8px; flex-wrap: wrap;
+  .article-title {
+    font-size: 16px; line-height: 1.35;
+    color: var(--text); font-weight: 700;
+    margin-bottom: 8px;
   }
-  .art-source {
-    font-family: 'Space Mono', monospace; font-size: .6rem;
-    letter-spacing: .1em; color: var(--sky); text-transform: uppercase;
+  .article:hover .article-title { color: var(--accent-2); }
+  .article-summary {
+    font-size: 14px; color: var(--text-2);
+    line-height: 1.5; margin-bottom: 10px;
   }
-  .art-date { font-size: .65rem; color: var(--txt3); }
-  .art-title {
-    font-size: .95rem; font-weight: 600; color: var(--txt);
-    line-height: 1.4; margin-bottom: 8px;
+  .article-meta {
+    display: flex; gap: 10px; font-size: 12px;
+    color: var(--text-3); flex-wrap: wrap;
+    padding-top: 8px; border-top: 1px dotted var(--line);
   }
-  .art-summary {
-    font-size: .8rem; color: var(--txt2);
-    line-height: 1.6; margin-bottom: 10px;
+  .article-meta .pipe { color: var(--text-3); opacity: 0.5; }
+  .article-meta .src { color: var(--accent); font-weight: 700; }
+  .article-meta a {
+    color: var(--accent-2); margin-left: auto;
+    font-weight: 700;
   }
-  .art-footer {
-    display: flex; align-items: center; gap: 14px;
-    flex-wrap: wrap;
+  .article-sig {
+    font-size: 12px; color: var(--accent-3);
+    font-style: italic; margin-top: 6px;
+    padding: 6px 8px; background: var(--bg-alt);
+    border-left: 2px solid var(--accent-3); border-radius: 2px;
   }
-  .art-link {
-    font-size: .72rem; color: var(--accent);
-    display: inline-flex; align-items: center; gap: 4px;
-    font-weight: 500;
-  }
-  .art-link:hover { text-decoration: underline; }
-  .art-sig {
-    font-size: .72rem; color: var(--amber);
-    font-style: italic; flex: 1; min-width: 200px;
-  }
-
   .domain-empty {
-    padding: 16px 20px;
-    font-size: .78rem; color: var(--txt3);
-    font-style: italic; text-align: center;
+    grid-column: 1 / -1;
+    padding: 20px; text-align: center;
+    font-style: italic; color: var(--text-3);
+    background: var(--bg-soft); border: 1px dashed var(--line-2);
+    border-radius: 3px; font-size: 14px;
   }
 
-  /* ── STUDIO PANEL ── */
-  .studio {
-    border: 1px solid var(--line); border-radius: 10px;
-    overflow: hidden; background: var(--ink2);
-    position: sticky; top: 80px;
-    height: fit-content;
-    max-height: calc(100vh - 100px);
-    display: flex; flex-direction: column;
+  /* ═════════════════════ SIDEBAR ═════════════════════ */
+  .sidebar {
+    display: flex; flex-direction: column; gap: 20px;
   }
-  .studio-header {
-    padding: 14px 18px; background: var(--ink3);
-    border-bottom: 1px solid var(--line);
-    display: flex; align-items: center; gap: 10px;
+  .sidebar-box {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 3px; overflow: hidden;
+    box-shadow: var(--shadow);
   }
-  .studio-dot {
-    width: 6px; height: 6px; border-radius: 50%;
-    background: var(--accent); flex-shrink: 0;
+  .sidebar-title {
+    background: var(--accent); color: var(--header-text);
+    font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 8px 14px; font-weight: 700;
   }
-  .studio-title {
-    font-family: 'Space Mono', monospace; font-size: .68rem;
-    letter-spacing: .18em; color: var(--accent);
-  }
-  .output-tabs {
-    display: flex; border-bottom: 1px solid var(--line);
-    flex-shrink: 0;
-  }
-  .output-tab {
-    flex: 1; padding: 11px 8px; border: none; background: transparent;
-    font-size: .72rem; font-weight: 500; color: var(--txt3);
-    letter-spacing: .04em; border-bottom: 2px solid transparent;
-    transition: all .15s;
-  }
-  .output-tab:hover { color: var(--txt2); }
-  .output-tab.active {
-    color: var(--accent); border-bottom-color: var(--accent);
-    background: rgba(74,240,196,0.04);
-  }
-  .studio-source {
-    padding: 12px 18px; font-size: .7rem; color: var(--txt3);
-    border-bottom: 1px solid var(--line);
-    font-style: italic; line-height: 1.5;
-    flex-shrink: 0;
-  }
-  .studio-source em { color: var(--txt2); font-style: normal; }
-  .output-area {
-    flex: 1; padding: 16px 18px;
-    min-height: 240px; overflow-y: auto;
-  }
-  .generating-state {
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    height: 240px; gap: 14px;
-  }
-  .gen-ring {
-    width: 36px; height: 36px; border-radius: 50%;
-    border: 2px solid rgba(74,240,196,0.2);
-    border-top-color: var(--accent);
-    animation: spin .8s linear infinite;
-  }
-  .gen-text {
-    font-family: 'Space Mono', monospace; font-size: .65rem;
-    letter-spacing: .15em; color: var(--accent);
-  }
-  .output-text {
-    font-size: .78rem; line-height: 1.8; color: var(--txt2);
-    white-space: pre-wrap; word-break: break-word;
-    font-family: 'Outfit', sans-serif;
-  }
-  .copy-btn {
-    padding: 12px; border: none;
-    border-top: 1px solid var(--line);
-    background: rgba(74,240,196,0.06); color: var(--accent);
-    font-family: 'Space Mono', monospace; font-size: .68rem;
-    letter-spacing: .15em; transition: all .15s;
-    flex-shrink: 0;
-  }
-  .copy-btn:hover { background: rgba(74,240,196,0.12); }
+  .sidebar-body { padding: 12px 14px; }
 
-  .studio-placeholder {
-    flex: 1; display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    padding: 40px 24px; gap: 12px; text-align: center;
+  /* trending list */
+  .trend-list { list-style: none; }
+  .trend-list li {
+    padding: 8px 0; border-bottom: 1px dotted var(--line);
+    font-size: 14px; line-height: 1.4;
   }
-  .studio-placeholder-icon {
-    width: 48px; height: 48px; border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, rgba(74,240,196,0.25), transparent);
-    border: 1px solid rgba(74,240,196,0.2);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.2rem;
+  .trend-list li:last-child { border-bottom: none; }
+  .trend-list a {
+    color: var(--text); display: block;
+    cursor: pointer;
   }
-  .studio-placeholder p {
-    font-size: .8rem; color: var(--txt3); line-height: 1.6;
+  .trend-list a:hover { color: var(--accent-2); text-decoration: none; }
+  .trend-num {
+    color: var(--accent-3); font-weight: 700;
+    font-size: 16px; margin-right: 6px;
+  }
+  .trend-meta {
+    font-size: 11px; color: var(--text-3);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-top: 2px;
   }
 
-  /* ── REFRESH BUTTON ── */
-  .refresh-btn {
+  /* domain quick links */
+  .domain-jump {
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .domain-jump a {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 7px 10px; border-radius: 2px;
+    color: var(--text); font-size: 14px;
+    transition: all 0.1s;
+    background: transparent;
+  }
+  .domain-jump a:hover { background: var(--hover); color: var(--accent-2); text-decoration: none; }
+  .domain-jump a .count {
+    font-size: 12px; color: var(--text-3);
+    background: var(--bg-alt); padding: 1px 7px; border-radius: 10px;
+  }
+  .domain-jump a.active { background: var(--tag-bg); color: var(--accent); font-weight: 700; }
+
+  /* quick actions */
+  .qa-buttons {
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .qa-btn {
+    background: var(--panel-alt); border: 1px solid var(--line);
+    color: var(--text); padding: 10px 12px;
+    font-size: 14px; text-align: left; border-radius: 2px;
+    transition: all 0.1s;
     display: flex; align-items: center; gap: 8px;
-    padding: 8px 14px;
-    background: rgba(74,240,196,0.08);
-    border: 1px solid rgba(74,240,196,0.25);
-    border-radius: 4px;
-    color: var(--accent);
-    font-family: 'Space Mono', monospace;
-    font-size: .65rem; letter-spacing: .12em;
-    transition: all .15s;
   }
-  .refresh-btn:hover { background: rgba(74,240,196,0.15); }
+  .qa-btn:hover { background: var(--hover); border-color: var(--accent); }
+  .qa-btn .ico { color: var(--accent); font-weight: 700; }
 
-  /* ── ANIMATIONS ── */
-  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .4; } }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-  .fade-in { animation: fadeIn .3s ease forwards; }
+  /* stats card */
+  .stat-line {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 6px 0; font-size: 14px;
+    border-bottom: 1px dotted var(--line);
+  }
+  .stat-line:last-child { border-bottom: none; }
+  .stat-line .label { color: var(--text-2); }
+  .stat-line .val { color: var(--accent); font-weight: 700; }
 
-  /* ── API KEY MODAL ── */
+  /* ═════════════════════ FOOTER ═════════════════════ */
+  .footer {
+    background: var(--bg-alt); border-top: 1px solid var(--line);
+    padding: 28px 0; margin-top: 48px;
+    font-size: 13px; color: var(--text-3);
+  }
+  .footer-inner {
+    max-width: 1280px; margin: 0 auto; padding: 0 20px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+  }
+  .footer-brand {
+    font-weight: 700; color: var(--text); font-size: 14px;
+  }
+  .footer-brand .accent { color: var(--accent-3); }
+
+  /* ═════════════════════ STUDIO MODAL ═════════════════════ */
   .modal-overlay {
     position: fixed; inset: 0;
-    background: rgba(10,13,20,0.85);
-    backdrop-filter: blur(8px);
+    background: rgba(0,0,0,0.5); backdrop-filter: blur(3px);
     display: flex; align-items: center; justify-content: center;
-    z-index: 1000; padding: 24px;
+    padding: 20px; z-index: 1000;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.2s;
   }
+  .modal-overlay.show { opacity: 1; pointer-events: auto; }
   .modal {
-    background: var(--ink2);
-    border: 1px solid var(--line2);
-    border-radius: 12px;
-    padding: 28px; max-width: 460px; width: 100%;
+    background: var(--panel); border: 1px solid var(--line-2);
+    border-radius: 4px; max-width: 720px; width: 100%;
+    max-height: 90vh; overflow: hidden;
+    display: flex; flex-direction: column;
+    transform: translateY(10px);
+    transition: transform 0.2s;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  }
+  .modal-overlay.show .modal { transform: none; }
+  .modal-header {
+    background: var(--accent); color: var(--header-text);
+    padding: 12px 18px;
+    display: flex; justify-content: space-between; align-items: center;
   }
   .modal-title {
-    font-family: 'Space Mono', monospace; font-size: .8rem;
-    letter-spacing: .15em; color: var(--accent);
-    margin-bottom: 12px; text-transform: uppercase;
+    font-size: 13px; letter-spacing: 0.15em; text-transform: uppercase;
+    font-weight: 700;
   }
-  .modal-text {
-    font-size: .85rem; color: var(--txt2);
-    line-height: 1.6; margin-bottom: 18px;
+  .modal-close {
+    background: transparent; border: none; color: var(--header-text);
+    font-size: 22px; line-height: 1; padding: 0 4px;
   }
-  .modal-input {
-    width: 100%; padding: 10px 14px;
-    background: var(--ink); border: 1px solid var(--line2);
-    border-radius: 6px; color: var(--txt);
-    font-family: 'Space Mono', monospace; font-size: .8rem;
-    margin-bottom: 16px;
+  .modal-source {
+    padding: 12px 18px; background: var(--bg-alt);
+    border-bottom: 1px solid var(--line);
+    font-size: 14px; color: var(--text-2); font-style: italic;
   }
-  .modal-input:focus { outline: none; border-color: var(--accent); }
+  .modal-source strong { color: var(--text); }
+  .modal-tabs {
+    display: flex; border-bottom: 1px solid var(--line);
+    background: var(--panel-alt);
+  }
+  .modal-tab {
+    flex: 1; padding: 11px 8px;
+    background: transparent; border: none;
+    font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-3); font-weight: 700;
+    border-bottom: 2px solid transparent;
+  }
+  .modal-tab.active {
+    color: var(--accent); border-bottom-color: var(--accent);
+    background: var(--panel);
+  }
+  .modal-tab:hover:not(.active) { color: var(--text-2); }
+  .modal-content {
+    flex: 1; padding: 22px; overflow-y: auto;
+    min-height: 260px; background: var(--panel);
+  }
+  .modal-content pre {
+    font-size: 15px; line-height: 1.7;
+    color: var(--text); white-space: pre-wrap;
+    word-break: break-word; margin: 0;
+  }
+  .loading-state {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; height: 240px; gap: 14px;
+  }
+  .spinner {
+    width: 32px; height: 32px; border-radius: 50%;
+    border: 2px solid var(--line);
+    border-top-color: var(--accent);
+    animation: spin 0.7s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .loading-text {
+    font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .modal-footer {
+    padding: 12px 18px; background: var(--panel-alt);
+    border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between; gap: 10px;
+  }
   .modal-btn {
-    width: 100%; padding: 11px;
-    background: var(--accent); border: none; border-radius: 6px;
-    color: var(--ink); font-weight: 700; font-size: .82rem;
-    letter-spacing: .05em;
+    padding: 8px 18px; border-radius: 3px;
+    background: var(--accent); color: var(--header-text);
+    border: 1px solid var(--accent);
+    font-size: 13px; letter-spacing: 0.08em; font-weight: 700;
+    text-transform: uppercase;
   }
-  .modal-btn:hover { background: var(--accent2); }
-  .modal-link {
-    display: block; margin-top: 12px; font-size: .72rem;
-    color: var(--txt3); text-align: center;
+  .modal-btn:hover { background: var(--accent-2); border-color: var(--accent-2); }
+  .modal-btn.alt {
+    background: transparent; color: var(--text-2);
+    border-color: var(--line-2);
   }
-  .modal-link a { color: var(--sky); }
+  .modal-btn.alt:hover {
+    background: var(--hover); color: var(--text);
+    border-color: var(--text-3);
+  }
 
-  /* ── SCROLLBAR ── */
+  /* api modal */
+  .api-modal-body { padding: 22px; background: var(--panel); }
+  .api-modal-body p {
+    font-size: 14px; color: var(--text-2);
+    line-height: 1.6; margin-bottom: 12px;
+  }
+  .api-modal-body input {
+    width: 100%; padding: 9px 12px;
+    border: 1px solid var(--line-2); border-radius: 3px;
+    background: var(--bg); color: var(--text);
+    font-size: 14px; margin-bottom: 12px;
+  }
+  .api-modal-body input:focus {
+    outline: none; border-color: var(--accent);
+  }
+  .api-modal-body .modal-btn { width: 100%; }
+  .api-modal-body .hint {
+    text-align: center; font-size: 12px;
+    color: var(--text-3); margin-top: 10px;
+  }
+
+  /* ═════════════════════ LOADING / EMPTY ═════════════════════ */
+  .loading-full, .empty-full {
+    padding: 80px 24px; text-align: center;
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 4px;
+  }
+  .loading-full .spinner, .empty-full .icon {
+    margin: 0 auto 16px;
+  }
+  .empty-full .icon { font-size: 32px; }
+  .empty-full p {
+    font-size: 15px; color: var(--text-2); line-height: 1.6;
+  }
+  .empty-full p.small {
+    font-size: 12px; color: var(--text-3); margin-top: 8px;
+  }
+  .empty-full code {
+    font-family: 'Courier New', monospace; font-size: 13px;
+    background: var(--bg-alt); padding: 2px 6px;
+    border-radius: 2px; color: var(--accent);
+  }
+
+  /* scrollbar */
   ::-webkit-scrollbar { width: 8px; height: 8px; }
-  ::-webkit-scrollbar-track { background: var(--ink2); }
-  ::-webkit-scrollbar-thumb { background: var(--ink4); border-radius: 4px; }
-  ::-webkit-scrollbar-thumb:hover { background: var(--txt3); }
+  ::-webkit-scrollbar-track { background: var(--bg-alt); }
+  ::-webkit-scrollbar-thumb { background: var(--line-2); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--text-3); }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header class="header">
-  <div class="header-inner">
-    <div class="brand">
-      <span class="brand-name">SPATIAL DRIFT</span>
-      <span class="brand-tag">Explore · Analyze · Anticipate</span>
+<!-- ═══════════ TOP STRIP ═══════════ -->
+<div class="top-strip">
+  <div class="top-strip-inner">
+    <div class="left">
+      <span id="strip-date">—</span>
+      <span>|</span>
+      <span id="strip-time">—</span>
     </div>
-    <div class="header-right">
-      <span class="last-update" id="last-update">Loading...</span>
-      <span class="pulse-dot"></span>
-      <span class="live-label">LIVE</span>
+    <div class="right">
+      <a href="#feed">All Articles</a>
+      <a href="https://www.sciencedaily.com/news/earth_climate/" target="_blank" rel="noopener">Science Daily</a>
+      <a href="#" id="strip-api">API Key</a>
+      <button class="theme-toggle" id="theme-toggle">◐ Theme</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ MASTHEAD ═══════════ -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="logo-area">
+      <div class="logo">Spatial <span class="word2">Drift</span></div>
+      <div class="tagline">Explore · Analyze · Anticipate</div>
+    </div>
+    <div class="header-meta">
+      <div class="date" id="head-date">—</div>
+      <div class="stats">
+        Last update: <span id="head-update">—</span><br>
+        <span id="head-articles">0</span> articles &nbsp;·&nbsp;
+        <span id="head-domains">0</span> active domains
+      </div>
     </div>
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-inner">
-    <p class="hero-eyebrow">Geospatial Intelligence Platform</p>
-    <h1 class="hero-title">The world is always<br><span>shifting beneath us</span></h1>
-    <p class="hero-sub">Daily curated news across 9 geospatial domains. Browse articles, then generate ready-to-publish LinkedIn posts and blog drafts — all in one place.</p>
-    <div class="hero-stats">
-      <div class="stat"><span class="stat-num" id="stat-articles">—</span><span class="stat-lbl">Articles</span></div>
-      <div class="stat"><span class="stat-num" id="stat-domains">—</span><span class="stat-lbl">Domains</span></div>
-      <div class="stat"><span class="stat-num" id="stat-links">—</span><span class="stat-lbl">Live links</span></div>
+<!-- ═══════════ NAV BAR ═══════════ -->
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <button class="nav-item active" data-filter="all">All</button>
+    <button class="nav-item" data-filter="🛰️ Remote Sensing & Earth Observation">Remote Sensing</button>
+    <button class="nav-item" data-filter="🗺️ GIS & Geospatial Technology">GIS</button>
+    <button class="nav-item" data-filter="🌡️ Climatology & Atmospheric Science">Climatology</button>
+    <button class="nav-item" data-filter="🌊 Oceanography & Marine Science">Oceanography</button>
+    <button class="nav-item" data-filter="🏔️ Plate Tectonics & Seismology">Tectonics</button>
+    <button class="nav-item" data-filter="🌋 Volcanology">Volcanology</button>
+    <button class="nav-item" data-filter="⛏️ Mining & Mineral Resources">Mining</button>
+    <button class="nav-item" data-filter="🪨 Geology & Geomorphology">Geology</button>
+    <button class="nav-item" data-filter="🚀 Space & Geodesy">Space</button>
+    <div class="nav-spacer"></div>
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input id="search-input" type="text" placeholder="Search articles..." />
     </div>
-  </div>
-</section>
-
-<!-- FILTERS -->
-<nav class="filter-bar">
-  <div class="filter-inner" id="filter-bar">
-    <!-- Filter buttons inserted by JS -->
   </div>
 </nav>
 
-<!-- MAIN -->
-<main class="main" id="main">
-  <div class="loading-state" id="initial-loading">
-    <div class="loading-orb"></div>
-    <p class="empty-title">Loading articles...</p>
-    <p class="empty-text">Fetching the latest geospatial intelligence brief.</p>
+<!-- ═══════════ MAIN ═══════════ -->
+<main class="main-wrap">
+
+  <div class="page-heading">
+    <h1 id="page-title">Today's Geospatial Intelligence</h1>
+    <p id="page-sub">Click any article to generate a LinkedIn post, blog draft, or quick brief.</p>
+  </div>
+
+  <div class="main-grid">
+
+    <!-- FEED COLUMN -->
+    <section id="feed-column">
+      <div id="feed-content">
+        <div class="loading-full">
+          <div class="spinner"></div>
+          <p>Loading latest intelligence...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIDEBAR COLUMN -->
+    <aside class="sidebar">
+
+      <!-- Trending Now -->
+      <div class="sidebar-box">
+        <div class="sidebar-title">Top Stories</div>
+        <div class="sidebar-body">
+          <ul class="trend-list" id="trend-list">
+            <li style="color:var(--text-3); font-style:italic;">Loading...</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Domain Jump -->
+      <div class="sidebar-box">
+        <div class="sidebar-title">Browse Domains</div>
+        <div class="sidebar-body">
+          <div class="domain-jump" id="domain-jump"></div>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="sidebar-box">
+        <div class="sidebar-title">Quick Actions</div>
+        <div class="sidebar-body">
+          <div class="qa-buttons">
+            <button class="qa-btn" id="qa-refresh"><span class="ico">↻</span> Refresh Data</button>
+            <button class="qa-btn" id="qa-generate"><span class="ico">✎</span> Generate Post from Top Article</button>
+            <button class="qa-btn" id="qa-key"><span class="ico">⊕</span> Set API Key</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Today's Highlights -->
+      <div class="sidebar-box">
+        <div class="sidebar-title">Today's Highlights</div>
+        <div class="sidebar-body">
+          <div class="stat-line"><span class="label">Research articles</span><span class="val" id="stat-research">0</span></div>
+          <div class="stat-line"><span class="label">Discoveries</span><span class="val" id="stat-discovery">0</span></div>
+          <div class="stat-line"><span class="label">Technology</span><span class="val" id="stat-technology">0</span></div>
+          <div class="stat-line"><span class="label">Live links</span><span class="val" id="stat-links">0</span></div>
+        </div>
+      </div>
+
+    </aside>
+
   </div>
 </main>
 
-<!-- API KEY MODAL -->
-<div class="modal-overlay" id="api-modal" style="display:none;">
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Spatial <span class="accent">Drift</span></div>
+      <div>Geospatial Intelligence · AI-Powered</div>
+    </div>
+    <div style="text-align:right;">
+      <div>Sources include Science Daily, Reuters, Nature, ESA, NASA, ISRO</div>
+      <div>Updated 4× daily · <a href="https://www.sciencedaily.com" target="_blank" rel="noopener">Science Daily</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════ STUDIO MODAL ═══════════ -->
+<div class="modal-overlay" id="studio-overlay">
   <div class="modal">
-    <p class="modal-title">🔑 Enter Anthropic API Key</p>
-    <p class="modal-text">To generate LinkedIn posts and blog drafts, paste your Anthropic API key below. It's stored only in this browser session.</p>
-    <input type="password" class="modal-input" id="api-key-input" placeholder="sk-ant-..." />
-    <button class="modal-btn" id="save-api-key">Save & Continue</button>
-    <p class="modal-link">Get a key from <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a></p>
+    <div class="modal-header">
+      <span class="modal-title">✎ Content Studio</span>
+      <button class="modal-close" id="studio-close">×</button>
+    </div>
+    <div class="modal-source" id="studio-source">Select an article first.</div>
+    <div class="modal-tabs">
+      <button class="modal-tab active" data-type="linkedin">LinkedIn Post</button>
+      <button class="modal-tab" data-type="blog">Blog Draft</button>
+      <button class="modal-tab" data-type="brief">Quick Brief</button>
+    </div>
+    <div class="modal-content" id="studio-content"></div>
+    <div class="modal-footer">
+      <button class="modal-btn alt" id="studio-regen">↻ Regenerate</button>
+      <button class="modal-btn" id="studio-copy">⎘ Copy to Clipboard</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ API KEY MODAL ═══════════ -->
+<div class="modal-overlay" id="api-overlay">
+  <div class="modal" style="max-width:480px;">
+    <div class="modal-header">
+      <span class="modal-title">⊕ Anthropic API Key</span>
+      <button class="modal-close" id="api-close">×</button>
+    </div>
+    <div class="api-modal-body">
+      <p>To generate LinkedIn posts and blog drafts, paste your Anthropic API key below. It is stored only in your browser session and never sent to a server.</p>
+      <input type="password" id="api-key-input" placeholder="sk-ant-..." />
+      <button class="modal-btn" id="api-save">Save & Continue</button>
+      <p class="hint">Get a key from <a href="https://console.anthropic.com" target="_blank" rel="noopener">console.anthropic.com</a></p>
+    </div>
   </div>
 </div>
 
 <script>
-  // ═══════════════════════════════════════════════════════════════════════════
-  //  STATE
-  // ═══════════════════════════════════════════════════════════════════════════
-  const state = {
-    data: null,                      // articles.json content
-    activeDomain: "all",             // current filter
-    selectedArticle: null,           // selected for studio
-    outputType: "linkedin",          // 'linkedin' | 'blog' | 'brief'
-    generated: "",                   // generated content
-    generating: false,
-    apiKey: sessionStorage.getItem("anthropic_api_key") || "",
+/* ═══════════════════════════════════════════════════
+   THEME — system aware with manual override
+═══════════════════════════════════════════════════ */
+(function() {
+  const saved = localStorage.getItem('sd_theme'); // 'light' | 'dark' | null
+  if (saved === 'light' || saved === 'dark') {
+    document.documentElement.setAttribute('data-theme', saved);
+  }
+  document.getElementById('theme-toggle').onclick = () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    let next;
+    if (!current) {
+      // First click: toggle opposite of system
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      next = systemDark ? 'light' : 'dark';
+    } else if (current === 'light') {
+      next = 'dark';
+    } else {
+      next = 'light';
+    }
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('sd_theme', next);
   };
+})();
 
-  // ═══════════════════════════════════════════════════════════════════════════
-  //  CONTENT GENERATION PROMPTS
-  // ═══════════════════════════════════════════════════════════════════════════
-  const PROMPTS = {
-    linkedin: `You are a LinkedIn ghostwriter for a senior geospatial scientist. Write an authoritative LinkedIn post based on the article below.
+/* ═══════════════════════════════════════════════════
+   STATE
+═══════════════════════════════════════════════════ */
+const state = {
+  data: null,
+  activeDomain: "all",
+  filterText: "",
+  selectedArticle: null,
+  outputType: "linkedin",
+  generated: "",
+  generating: false,
+  apiKey: sessionStorage.getItem("anthropic_api_key") || "",
+};
+
+/* ═══════════════════════════════════════════════════
+   CONTENT GENERATION PROMPTS
+═══════════════════════════════════════════════════ */
+const PROMPTS = {
+  linkedin: `You are a LinkedIn ghostwriter for a senior geospatial scientist. Write an authoritative LinkedIn post based on the article below.
 
 Rules:
 - Opening line: bold, provocative, no "I" as first word
-- 3–4 short punchy paragraphs (1–2 lines each)
-- 2–4 strategic emojis placed naturally
-- End with ONE thought-provoking question to drive engagement
-- 5–7 hashtags on a new line at the end
-- 180–230 words total
+- 3-4 short punchy paragraphs (1-2 lines each)
+- 2-4 strategic emojis placed naturally
+- End with ONE thought-provoking question
+- 5-7 hashtags on a new line at the end
+- 180-230 words total
 - Tone: confident expert, forward-thinking, accessible
 
-Return ONLY the post text, no commentary.`,
+Return ONLY the post text.`,
 
-    blog: `You are a technical science writer for SPATIAL DRIFT. Write a polished blog post draft based on the article below.
+  blog: `You are a technical science writer for SPATIAL DRIFT. Write a polished blog post draft based on the article below.
 
 Structure (use markdown):
 ## [Compelling title]
-[2-line hook that makes readers need to keep reading]
+[2-line hook]
 
 ### What's Happening
-[2 solid paragraphs — what occurred, who's involved, the technical details]
+[2 solid paragraphs - what occurred, who's involved, technical details]
 
 ### Why Geospatial Professionals Should Pay Attention
-[2 paragraphs — implications for the field, practical takeaways]
+[2 paragraphs - implications, practical takeaways]
 
 ### Key Takeaways
 - [Point 1]
 - [Point 2]
 - [Point 3]
 
-[Closing sentence with a forward-looking call to thought]
+[Closing forward-looking sentence]
 
-400–500 words. Authoritative but readable. Return only the blog content.`,
+400-500 words. Authoritative but readable. Return only the blog.`,
 
-    brief: `You are a rapid-fire analyst for SPATIAL DRIFT. Create an ultra-concise intelligence brief based on the article below.
+  brief: `You are a rapid-fire analyst for SPATIAL DRIFT. Create an ultra-concise intelligence brief.
 
 Format exactly:
-📌 WHAT  — [one sentence]
-🔬 HOW   — [one sentence on method/technology]
-🌍 WHERE — [location or global scope]
-📊 SCALE — [quantify if possible]
-⚡ BOTTOM LINE — [one punchy sentence on the takeaway]
+WHAT  - [one sentence]
+HOW   - [one sentence on method/technology]
+WHERE - [location or global scope]
+SCALE - [quantify if possible]
+BOTTOM LINE - [one punchy sentence]
 
 Return ONLY the 5-line brief.`,
-  };
+};
 
-  // ═══════════════════════════════════════════════════════════════════════════
-  //  LOAD DATA
-  // ═══════════════════════════════════════════════════════════════════════════
-  async function loadArticles() {
-    try {
-      const resp = await fetch("articles.json?t=" + Date.now());
-      if (!resp.ok) throw new Error("Could not fetch articles.json");
-      state.data = await resp.json();
-      render();
-    } catch (e) {
-      showNoData(e.message);
-    }
+/* ═══════════════════════════════════════════════════
+   LIVE CLOCK (system time)
+═══════════════════════════════════════════════════ */
+function updateLiveClock() {
+  const now = new Date();
+  const dateStr = now.toLocaleDateString(undefined, {
+    weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
+  });
+  const timeStr = now.toLocaleTimeString(undefined, {
+    hour: '2-digit', minute: '2-digit', second: '2-digit'
+  });
+  const stripDate = document.getElementById('strip-date');
+  const stripTime = document.getElementById('strip-time');
+  if (stripDate) stripDate.textContent = dateStr;
+  if (stripTime) stripTime.textContent = timeStr;
+
+  const headDate = document.getElementById('head-date');
+  if (headDate) headDate.textContent = dateStr.toUpperCase();
+}
+updateLiveClock();
+setInterval(updateLiveClock, 1000);
+
+/* ═══════════════════════════════════════════════════
+   LOAD DATA
+═══════════════════════════════════════════════════ */
+async function loadArticles() {
+  try {
+    const resp = await fetch("articles.json?t=" + Date.now());
+    if (!resp.ok) throw new Error("Could not fetch articles.json");
+    state.data = await resp.json();
+    render();
+  } catch (e) {
+    showNoData(e.message);
   }
+}
 
-  function showNoData(msg) {
-    document.getElementById("main").innerHTML = `
-      <div class="empty-state">
-        <div class="empty-orb">📡</div>
-        <p class="empty-title">No data yet</p>
-        <p class="empty-text">
-          The website couldn't load <code>articles.json</code>.<br><br>
-          <strong>Run your Python script first</strong> — it generates the data file the website reads.<br><br>
-          <span style="color:var(--rose);font-size:.75rem">Error: ${escapeHtml(msg)}</span>
-        </p>
-      </div>`;
+function showNoData(msg) {
+  document.getElementById("feed-content").innerHTML = `
+    <div class="empty-full">
+      <div class="icon">📡</div>
+      <p><strong>No data available yet.</strong></p>
+      <p>Run the GitHub Action once to populate <code>articles.json</code>.</p>
+      <p class="small">${esc(msg)}</p>
+    </div>`;
+}
+
+/* ═══════════════════════════════════════════════════
+   RENDER MAIN
+═══════════════════════════════════════════════════ */
+function render() {
+  renderHeader();
+  renderFeed();
+  renderTrending();
+  renderDomainJump();
+  renderHighlights();
+  bindNavEvents();
+}
+
+function renderHeader() {
+  const d = state.data;
+  document.getElementById('head-articles').textContent = d.stats.total_articles;
+  document.getElementById('head-domains').textContent = d.stats.domains_with_news + '/' + d.stats.domains_total;
+
+  // Last update — convert from generated_iso to user's local time
+  if (d.generated_iso) {
+    const local = new Date(d.generated_iso);
+    const t = local.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit', hour12: true });
+    const dd = local.toLocaleDateString(undefined, { day: 'numeric', month: 'short' });
+    document.getElementById('head-update').textContent = `${t}, ${dd}`;
+  } else {
+    document.getElementById('head-update').textContent = 'awaiting first run';
   }
+}
 
-  // ═══════════════════════════════════════════════════════════════════════════
-  //  RENDER
-  // ═══════════════════════════════════════════════════════════════════════════
-  function render() {
-    renderStats();
-    renderFilters();
-    renderMain();
-  }
+function renderFeed() {
+  const feed = document.getElementById("feed-content");
+  const domains = state.activeDomain === "all"
+    ? state.data.domains
+    : state.data.domains.filter(d => d.label === state.activeDomain);
 
-  function renderStats() {
-    const d = state.data;
-    document.getElementById("stat-articles").textContent = d.stats.total_articles;
-    document.getElementById("stat-domains").textContent = d.stats.domains_with_news + "/" + d.stats.domains_total;
-    const links = d.domains.reduce((sum, dom) =>
-      sum + dom.articles.filter(a => isValidUrl(a.url)).length, 0);
-    document.getElementById("stat-links").textContent = links;
-    document.getElementById("last-update").textContent = "Updated: " + d.display_time;
-  }
+  // search filter
+  const q = (state.filterText || '').toLowerCase();
+  const filterArt = a =>
+    !q ||
+    (a.title || "").toLowerCase().includes(q) ||
+    (a.summary || "").toLowerCase().includes(q);
 
-  function renderFilters() {
-    const bar = document.getElementById("filter-bar");
-    const total = state.data.stats.total_articles;
-    let html = `<button class="filter-btn ${state.activeDomain === 'all' ? 'active' : ''}" data-domain="all">
-                  All <span class="filter-count">(${total})</span>
-                </button>`;
-    for (const dom of state.data.domains) {
-      const active = state.activeDomain === dom.label;
-      html += `<button class="filter-btn ${active ? 'active' : ''}" data-domain="${escapeHtml(dom.label)}">
-                 ${escapeHtml(dom.label)} <span class="filter-count">(${dom.count})</span>
-               </button>`;
-    }
-    bar.innerHTML = html;
-    bar.querySelectorAll(".filter-btn").forEach(btn => {
-      btn.onclick = () => {
-        state.activeDomain = btn.getAttribute("data-domain");
-        state.selectedArticle = null;
-        state.generated = "";
-        render();
-      };
+  // collect all filtered articles
+  const allArts = [];
+  domains.forEach(dom => {
+    dom.articles.filter(filterArt).forEach(a => {
+      allArts.push({ ...a, _domain: dom.label });
     });
+  });
+
+  if (allArts.length === 0) {
+    feed.innerHTML = `
+      <div class="empty-full">
+        <div class="icon">🔍</div>
+        <p>No articles match your filter.</p>
+      </div>`;
+    return;
   }
 
-  function renderMain() {
-    const main = document.getElementById("main");
-    const domains = state.activeDomain === "all"
-      ? state.data.domains
-      : state.data.domains.filter(d => d.label === state.activeDomain);
+  // ── FEATURED article: first article from first non-empty domain ──
+  const featured = allArts[0];
 
-    const totalShown = domains.reduce((sum, d) => sum + d.count, 0);
-
-    main.innerHTML = `
-      <div class="feed-panel">
-        <div class="feed-header">
-          <span class="feed-title">${state.activeDomain === "all" ? "All Domains" : escapeHtml(state.activeDomain)}</span>
-          <span class="feed-count">${totalShown} articles</span>
-        </div>
-        ${domains.map(renderDomainSection).join("")}
+  let html = `
+    <div class="featured">
+      <div class="featured-band">
+        <span>▶ Featured Story</span>
+        <span>${esc(featured.date || '')}</span>
       </div>
-      <div id="studio-container"></div>
-    `;
-
-    main.querySelectorAll(".article-card").forEach(card => {
-      card.onclick = (e) => {
-        // Don't select if user clicked a link
-        if (e.target.tagName === "A") return;
-        const did = card.getAttribute("data-d");
-        const aid = parseInt(card.getAttribute("data-a"), 10);
-        const dom = state.data.domains.find(d => d.label === did);
-        if (!dom) return;
-        state.selectedArticle = { ...dom.articles[aid], _domain: did };
-        state.generated = "";
-        renderMain();
-        generateContent();
-      };
-    });
-
-    renderStudio();
-  }
-
-  function renderDomainSection(dom) {
-    if (dom.count === 0) {
-      return `
-        <div class="domain-section">
-          <div class="domain-header">
-            ${escapeHtml(dom.label)}
-            <span class="domain-badge">0 articles</span>
-          </div>
-          <div class="domain-empty">— no fresh articles this cycle —</div>
-        </div>`;
-    }
-
-    return `
-      <div class="domain-section">
-        <div class="domain-header">
-          ${escapeHtml(dom.label)}
-          <span class="domain-badge">${dom.count} ${dom.count === 1 ? 'article' : 'articles'}</span>
+      <div class="featured-content">
+        <div class="featured-domain">${esc(featured._domain || '')}</div>
+        <h2 class="featured-title" data-i="0">${esc(featured.title)}</h2>
+        <p class="featured-summary">${esc(featured.summary || '')}</p>
+        <div class="featured-meta">
+          <span><strong style="color:var(--accent)">${esc(featured.source || 'Unknown')}</strong></span>
+          ${featured.significance ? `<span style="color:var(--accent-3); font-style:italic;">${esc(featured.significance)}</span>` : ''}
+          ${isValidUrl(featured.url) ? `<a href="${escAttr(featured.url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="margin-left:auto;">Read source →</a>` : ''}
         </div>
-        ${dom.articles.map((a, i) => renderArticle(dom.label, a, i)).join("")}
-      </div>`;
-  }
+      </div>
+    </div>`;
 
-  function renderArticle(domainLabel, a, idx) {
-    const selected = state.selectedArticle &&
-                     state.selectedArticle._domain === domainLabel &&
-                     state.selectedArticle.title === a.title;
-    const hasUrl = isValidUrl(a.url);
-    return `
-      <div class="article-card fade-in ${selected ? 'selected' : ''}"
-           data-d="${escapeHtml(domainLabel)}" data-a="${idx}"
-           style="animation-delay:${idx * 40}ms">
-        <div class="art-meta">
-          <span class="art-source">${escapeHtml(a.source || "Unknown")}</span>
-          <span class="art-date">${escapeHtml(a.date || "")}</span>
-        </div>
-        <h3 class="art-title">${escapeHtml(a.title)}</h3>
-        <p class="art-summary">${escapeHtml(a.summary || "")}</p>
-        <div class="art-footer">
-          ${hasUrl ? `<a class="art-link" href="${escapeAttr(a.url)}" target="_blank" rel="noopener">🔗 Open source →</a>` : ''}
-          ${a.significance ? `<span class="art-sig">💡 ${escapeHtml(a.significance)}</span>` : ''}
-        </div>
-      </div>`;
-  }
+  // ── DOMAIN SECTIONS (filtered to current selection) ──
+  domains.forEach(dom => {
+    const articles = dom.articles.filter(filterArt);
+    if (articles.length === 0 && state.activeDomain === "all") return;
 
-  // ═══════════════════════════════════════════════════════════════════════════
-  //  STUDIO (LinkedIn / Blog / Brief generator)
-  // ═══════════════════════════════════════════════════════════════════════════
-  function renderStudio() {
-    const container = document.getElementById("studio-container");
-    if (!container) return;
+    html += `<section class="domain-section">
+      <div class="domain-header">
+        <div class="domain-title">${esc(dom.label)}</div>
+        <div class="domain-count">${dom.count} ${dom.count === 1 ? 'article' : 'articles'}</div>
+      </div>
+      <div class="articles-list">`;
 
-    if (!state.selectedArticle) {
-      container.innerHTML = `
-        <div class="studio">
-          <div class="studio-header">
-            <span class="studio-dot"></span>
-            <span class="studio-title">Content Studio</span>
-          </div>
-          <div class="studio-placeholder">
-            <div class="studio-placeholder-icon">✦</div>
-            <p>Click any article to generate a LinkedIn post, blog draft, or quick brief — ready to publish.</p>
-          </div>
-        </div>`;
-      return;
-    }
-
-    const a = state.selectedArticle;
-    container.innerHTML = `
-      <div class="studio">
-        <div class="studio-header">
-          <span class="studio-dot"></span>
-          <span class="studio-title">Content Studio</span>
-        </div>
-        <div class="output-tabs">
-          <button class="output-tab ${state.outputType === 'linkedin' ? 'active' : ''}" data-type="linkedin">LinkedIn Post</button>
-          <button class="output-tab ${state.outputType === 'blog' ? 'active' : ''}" data-type="blog">Blog Draft</button>
-          <button class="output-tab ${state.outputType === 'brief' ? 'active' : ''}" data-type="brief">Quick Brief</button>
-        </div>
-        <div class="studio-source">From: <em>${escapeHtml(a.title)}</em></div>
-        <div class="output-area">
-          ${state.generating
-            ? `<div class="generating-state">
-                 <div class="gen-ring"></div>
-                 <span class="gen-text">Composing...</span>
-               </div>`
-            : `<pre class="output-text">${escapeHtml(state.generated || "Generating...")}</pre>`}
-        </div>
-        ${state.generated && !state.generating
-          ? `<button class="copy-btn" id="copy-btn">⎘ Copy to Clipboard</button>`
-          : ''}
-      </div>`;
-
-    container.querySelectorAll(".output-tab").forEach(t => {
-      t.onclick = () => {
-        state.outputType = t.getAttribute("data-type");
-        state.generated = "";
-        renderStudio();
-        generateContent();
-      };
-    });
-
-    const copyBtn = document.getElementById("copy-btn");
-    if (copyBtn) {
-      copyBtn.onclick = () => {
-        navigator.clipboard.writeText(state.generated);
-        copyBtn.textContent = "✓ Copied!";
-        setTimeout(() => { copyBtn.textContent = "⎘ Copy to Clipboard"; }, 1800);
-      };
-    }
-  }
-
-  // ═══════════════════════════════════════════════════════════════════════════
-  //  CONTENT GENERATION via Anthropic API
-  // ═══════════════════════════════════════════════════════════════════════════
-  async function generateContent() {
-    if (!state.apiKey) {
-      document.getElementById("api-modal").style.display = "flex";
-      return;
-    }
-    const a = state.selectedArticle;
-    if (!a) return;
-
-    state.generating = true;
-    state.generated = "";
-    renderStudio();
-
-    try {
-      const resp = await fetch("https://api.anthropic.com/v1/messages", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-api-key": state.apiKey,
-          "anthropic-version": "2023-06-01",
-          "anthropic-dangerous-direct-browser-access": "true",
-        },
-        body: JSON.stringify({
-          model: "claude-sonnet-4-20250514",
-          max_tokens: 1500,
-          system: PROMPTS[state.outputType],
-          messages: [{
-            role: "user",
-            content: `Article details:\nTitle: ${a.title}\nSummary: ${a.summary}\nSource: ${a.source}\nDomain: ${a._domain}\nSignificance: ${a.significance || ""}\nURL: ${a.url || "N/A"}`
-          }],
-        }),
+    if (articles.length === 0) {
+      html += `<div class="domain-empty">No fresh items this cycle.</div>`;
+    } else {
+      // Skip the featured article in its own domain section to avoid duplication
+      articles.forEach((a) => {
+        if (a === featured) return; // skip the featured one
+        const idx = allArts.indexOf(allArts.find(x => x.title === a.title && x._domain === dom.label));
+        const hasUrl = isValidUrl(a.url);
+        html += `
+          <article class="article" data-i="${idx}">
+            <span class="article-tag">${esc(dom.label)}</span>
+            <h3 class="article-title">${esc(a.title)}</h3>
+            <p class="article-summary">${esc(a.summary || '')}</p>
+            ${a.significance ? `<div class="article-sig">⟶ ${esc(a.significance)}</div>` : ''}
+            <div class="article-meta">
+              <span class="src">${esc(a.source || 'Unknown')}</span>
+              <span class="pipe">|</span>
+              <span>${esc(a.date || '')}</span>
+              ${hasUrl ? `<a href="${escAttr(a.url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Read source →</a>` : ''}
+            </div>
+          </article>`;
       });
-
-      const data = await resp.json();
-      if (data.error) throw new Error(data.error.message || "API error");
-
-      const textBlock = data.content?.find(b => b.type === "text");
-      state.generated = textBlock?.text || "No content generated.";
-    } catch (e) {
-      state.generated = `❌ Error generating content:\n\n${e.message}\n\nIf this is a CORS or API key error, check your key in the modal.`;
-    } finally {
-      state.generating = false;
-      renderStudio();
     }
+    html += `</div></section>`;
+  });
+
+  feed.innerHTML = html;
+
+  // bind article click events
+  feed.querySelectorAll("[data-i]").forEach(el => {
+    el.onclick = (e) => {
+      if (e.target.tagName === "A") return;
+      const i = parseInt(el.getAttribute("data-i"), 10);
+      state.selectedArticle = allArts[i];
+      openStudio();
+    };
+  });
+}
+
+function renderTrending() {
+  const all = state.data.domains.flatMap(d => d.articles.map(a => ({...a, _domain: d.label})));
+  const top = all.slice(0, 5);
+  const ul = document.getElementById('trend-list');
+  if (top.length === 0) {
+    ul.innerHTML = `<li style="color:var(--text-3); font-style:italic;">No articles yet</li>`;
+    return;
   }
+  ul.innerHTML = top.map((a, i) => `
+    <li>
+      <a data-trend-i="${i}">
+        <span class="trend-num">${i + 1}.</span>${esc(a.title.slice(0, 80))}${a.title.length > 80 ? '…' : ''}
+        <div class="trend-meta">${esc(a._domain)}</div>
+      </a>
+    </li>`).join('');
+  ul.querySelectorAll('[data-trend-i]').forEach(el => {
+    el.onclick = () => {
+      const i = parseInt(el.getAttribute('data-trend-i'), 10);
+      state.selectedArticle = top[i];
+      openStudio();
+    };
+  });
+}
 
-  // ═══════════════════════════════════════════════════════════════════════════
-  //  API KEY MODAL
-  // ═══════════════════════════════════════════════════════════════════════════
-  document.getElementById("save-api-key").onclick = () => {
-    const v = document.getElementById("api-key-input").value.trim();
-    if (!v.startsWith("sk-ant-")) {
-      alert("Please enter a valid Anthropic API key (starts with sk-ant-)");
-      return;
-    }
-    state.apiKey = v;
-    sessionStorage.setItem("anthropic_api_key", v);
-    document.getElementById("api-modal").style.display = "none";
-    if (state.selectedArticle) generateContent();
+function renderDomainJump() {
+  const wrap = document.getElementById('domain-jump');
+  const total = state.data.stats.total_articles;
+  let html = `<a class="${state.activeDomain==='all'?'active':''}" data-d="all">All Articles <span class="count">${total}</span></a>`;
+  state.data.domains.forEach(d => {
+    const active = state.activeDomain === d.label ? 'active' : '';
+    html += `<a class="${active}" data-d="${esc(d.label)}">${esc(d.label)} <span class="count">${d.count}</span></a>`;
+  });
+  wrap.innerHTML = html;
+  wrap.querySelectorAll('[data-d]').forEach(a => {
+    a.onclick = () => {
+      state.activeDomain = a.getAttribute('data-d');
+      syncNav();
+      renderFeed();
+      renderDomainJump();
+    };
+  });
+}
+
+function renderHighlights() {
+  const arts = state.data.domains.flatMap(d => d.articles);
+  const keywords = {
+    research: /\b(research|study|paper|findings?|scientist|published|university)\b/i,
+    discovery: /\b(discover|first|new|breakthrough|unveil|reveal|found)\b/i,
+    technology: /\b(satellite|technology|launch|deploy|sensor|AI|platform|tool|system)\b/i,
   };
+  let r = 0, d = 0, t = 0, links = 0;
+  arts.forEach(a => {
+    const text = (a.title || "") + " " + (a.summary || "");
+    if (keywords.research.test(text)) r++;
+    if (keywords.discovery.test(text)) d++;
+    if (keywords.technology.test(text)) t++;
+    if (isValidUrl(a.url)) links++;
+  });
+  document.getElementById('stat-research').textContent = r;
+  document.getElementById('stat-discovery').textContent = d;
+  document.getElementById('stat-technology').textContent = t;
+  document.getElementById('stat-links').textContent = links;
+}
 
-  // ═══════════════════════════════════════════════════════════════════════════
-  //  UTILITIES
-  // ═══════════════════════════════════════════════════════════════════════════
-  function escapeHtml(s) {
-    if (s == null) return "";
-    return String(s)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#39;");
-  }
-  function escapeAttr(s) {
-    return escapeHtml(s);
-  }
-  function isValidUrl(u) {
-    return typeof u === "string" && (u.startsWith("http://") || u.startsWith("https://"));
-  }
+function syncNav() {
+  document.querySelectorAll('.nav-item').forEach(n => {
+    const isActive = n.getAttribute('data-filter') === state.activeDomain;
+    n.classList.toggle('active', isActive);
+  });
+}
 
-  // ═══════════════════════════════════════════════════════════════════════════
-  //  INIT
-  // ═══════════════════════════════════════════════════════════════════════════
-  loadArticles();
+function bindNavEvents() {
+  document.querySelectorAll('.nav-item').forEach(btn => {
+    btn.onclick = () => {
+      state.activeDomain = btn.getAttribute('data-filter');
+      syncNav();
+      renderFeed();
+      renderDomainJump();
+      document.querySelector('.main-wrap').scrollIntoView({behavior:'smooth', block:'start'});
+    };
+  });
+}
+
+/* ═══════════════════════════════════════════════════
+   STUDIO MODAL
+═══════════════════════════════════════════════════ */
+function openStudio() {
+  const a = state.selectedArticle;
+  if (!a) return;
+  document.getElementById('studio-source').innerHTML = `<strong>From:</strong> ${esc(a.title)}`;
+  document.getElementById('studio-overlay').classList.add('show');
+  state.generated = "";
+  generateContent();
+}
+function closeStudio() {
+  document.getElementById('studio-overlay').classList.remove('show');
+  state.selectedArticle = null;
+}
+document.getElementById('studio-close').onclick = closeStudio;
+document.getElementById('studio-overlay').onclick = (e) => {
+  if (e.target.id === 'studio-overlay') closeStudio();
+};
+document.querySelectorAll('.modal-tab').forEach(t => {
+  t.onclick = () => {
+    document.querySelectorAll('.modal-tab').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    state.outputType = t.getAttribute('data-type');
+    state.generated = "";
+    generateContent();
+  };
+});
+document.getElementById('studio-regen').onclick = () => {
+  state.generated = "";
+  generateContent();
+};
+document.getElementById('studio-copy').onclick = () => {
+  if (!state.generated) return;
+  navigator.clipboard.writeText(state.generated);
+  const btn = document.getElementById('studio-copy');
+  btn.textContent = '✓ Copied!';
+  setTimeout(() => btn.textContent = '⎘ Copy to Clipboard', 1800);
+};
+
+async function generateContent() {
+  if (!state.apiKey) {
+    document.getElementById('api-overlay').classList.add('show');
+    return;
+  }
+  const a = state.selectedArticle;
+  if (!a) return;
+  state.generating = true;
+  renderStudioContent();
+
+  try {
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': state.apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true',
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1500,
+        system: PROMPTS[state.outputType],
+        messages: [{
+          role: 'user',
+          content: `Article details:\nTitle: ${a.title}\nSummary: ${a.summary}\nSource: ${a.source}\nDomain: ${a._domain}\nSignificance: ${a.significance || ''}\nURL: ${a.url || 'N/A'}`
+        }],
+      }),
+    });
+    const data = await resp.json();
+    if (data.error) throw new Error(data.error.message || 'API error');
+    const textBlock = data.content?.find(b => b.type === 'text');
+    state.generated = textBlock?.text || 'No content generated.';
+  } catch (e) {
+    state.generated = `Error: ${e.message}\n\nIf this is an API key error, click "Set API Key" in Quick Actions to update it.`;
+  } finally {
+    state.generating = false;
+    renderStudioContent();
+  }
+}
+
+function renderStudioContent() {
+  const c = document.getElementById('studio-content');
+  if (state.generating) {
+    c.innerHTML = `
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <span class="loading-text">Composing...</span>
+      </div>`;
+  } else {
+    c.innerHTML = `<pre>${esc(state.generated)}</pre>`;
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   API KEY MODAL
+═══════════════════════════════════════════════════ */
+document.getElementById('api-close').onclick = () => {
+  document.getElementById('api-overlay').classList.remove('show');
+};
+document.getElementById('api-save').onclick = () => {
+  const v = document.getElementById('api-key-input').value.trim();
+  if (!v.startsWith('sk-ant-')) {
+    alert('Please enter a valid Anthropic API key (starts with sk-ant-)');
+    return;
+  }
+  state.apiKey = v;
+  sessionStorage.setItem('anthropic_api_key', v);
+  document.getElementById('api-overlay').classList.remove('show');
+  if (state.selectedArticle) generateContent();
+};
+
+/* ═══════════════════════════════════════════════════
+   QUICK ACTIONS
+═══════════════════════════════════════════════════ */
+document.getElementById('qa-refresh').onclick = () => loadArticles();
+document.getElementById('qa-generate').onclick = () => {
+  const all = state.data?.domains.flatMap(d => d.articles.map(a => ({...a, _domain: d.label})));
+  if (all && all.length) {
+    state.selectedArticle = all[0];
+    openStudio();
+  }
+};
+document.getElementById('qa-key').onclick = () => {
+  document.getElementById('api-overlay').classList.add('show');
+};
+document.getElementById('strip-api').onclick = (e) => {
+  e.preventDefault();
+  document.getElementById('api-overlay').classList.add('show');
+};
+
+/* ═══════════════════════════════════════════════════
+   SEARCH
+═══════════════════════════════════════════════════ */
+document.getElementById('search-input').oninput = (e) => {
+  state.filterText = e.target.value;
+  renderFeed();
+};
+
+/* ═══════════════════════════════════════════════════
+   UTILS
+═══════════════════════════════════════════════════ */
+function esc(s) {
+  if (s == null) return "";
+  return String(s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+function escAttr(s) { return esc(s); }
+function isValidUrl(u) {
+  return typeof u === 'string' && (u.startsWith('http://') || u.startsWith('https://'));
+}
+
+/* ═══════════════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════════════ */
+loadArticles();
 </script>
-
 </body>
 </html>

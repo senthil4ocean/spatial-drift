@@ -1,13 +1,13 @@
 {
-  "generated_at_ist": "2026-05-13 11:33:20 IST",
-  "generated_at_utc": "2026-05-13T06:03:20.581371+00:00",
+  "generated_at_ist": "2026-05-13 14:54:05 IST",
+  "generated_at_utc": "2026-05-13T09:24:05.902318+00:00",
   "display_date": "Wednesday, 13 May 2026",
-  "display_time": "11:33 AM IST",
+  "display_time": "02:54 PM IST",
   "stats": {
     "total_articles": 6,
     "domains_total": 9,
     "domains_with_news": 1,
-    "elapsed": "66s"
+    "elapsed": "71s"
   },
   "domains": [
     {
@@ -15,52 +15,52 @@
       "count": 6,
       "articles": [
         {
-          "title": "NASA CSDA Announces 8 New Commercial Satellite Data Agreements",
-          "summary": "NASA's Commercial Satellite Data Acquisition program announced partnerships with Planet, Airbus, Vantor, Capella, ICEYE, MDA, and Umbra, expanding high-quality multispectral and SAR data access for Earth science research.",
+          "title": "NASA announces eight new commercial satellite data agreements for Earth observation",
+          "summary": "NASA's CSDA program added eight new agreements with commercial partners to expand Earth science data offerings, including multispectral imagery and SAR data from companies like Planet, Airbus, Capella, and ICEYE.",
           "source": "NASA Earthdata",
           "date": "January 2, 2026",
-          "significance": "Major expansion of commercial satellite data access for NASA research community",
+          "significance": "Expands access to diverse commercial satellite data for NASA research and global Earth observation applications",
           "url": "https://www.earthdata.nasa.gov/news/nasas-csda-program-announces-eight-new-data-agreements"
         },
         {
-          "title": "Deep Learning Pipeline Reconstructs Century of Urban Growth from Historical Imagery",
-          "summary": "New deep learning pipeline uses attention-enhanced Pix2Pix colorization and U-Net++ segmentation to bridge century-scale domain gap, enabling automated urban expansion reconstruction from 1920-2024 aerial and satellite imagery.",
-          "source": "Remote Sensing (MDPI)",
+          "title": "Polish space company Eycore launches first European private SAR satellite",
+          "summary": "Eycore launched Eycore-1 SAR satellite on May 3, 2026, making it the second privately-owned European company to operate its own synthetic aperture radar satellite for high-resolution Earth observation.",
+          "source": "SpaceNews",
           "date": "May 2026",
-          "significance": "Breakthrough allows quantitative urban reconstruction from pre-satellite archives",
+          "significance": "Advances European commercial SAR capabilities and Poland's POLSARIS military constellation for defense applications",
+          "url": "https://spacenews.com/polish-space-company-eycore-launches-first-sar-earth-observation-satellite/"
+        },
+        {
+          "title": "Deep learning breakthrough: Century-scale urban growth reconstruction from aerial imagery",
+          "summary": "Researchers developed AI pipeline using attention-enhanced Pix2Pix colorization to automatically reconstruct urban expansion from historical aerial photos spanning 1920-2024.",
+          "source": "Remote Sensing",
+          "date": "May 2026",
+          "significance": "Enables automated analysis of pre-satellite archives for century-scale urban planning and climate research",
           "url": "https://www.mdpi.com/2072-4292/18/10/1517"
         },
         {
-          "title": "Quantum LiDAR Breakthrough Achieves 1000-Fold SNR Improvement",
-          "summary": "Revolutionary quantum lidar system fundamentally redefines covert 3D sensing capabilities with astonishing 1000-fold improvement in Signal-to-Noise Ratio over classical devices.",
-          "source": "LiDAR News",
-          "date": "May 2026",
-          "significance": "Game-changing advancement in LiDAR sensitivity and covert sensing capabilities",
-          "url": "https://lidarnews.com/category/news/"
+          "title": "Sony announces AS-DT1 compact LiDAR sensor for 2026 release",
+          "summary": "Sony's new AS-DT1 LiDAR sensor offers 40m indoor range and 20m outdoor range with sub-meter resolution, designed for mobile robots, drones, and embedded systems.",
+          "source": "Intertest",
+          "date": "Coming 2026",
+          "significance": "Democratizes high-performance 3D sensing for robotics, UAVs, and autonomous vehicle applications",
+          "url": "https://intertest.com/blogs/the-scope/coming-in-2026-sony-s-as-dt1-lidar-sensor-sets-a-new-standard-for-compact-3d-sensing"
         },
         {
-          "title": "Mohammed VI Satellites Achieve Sub-0.5m Accuracy for Large-Scale Mapping",
-          "summary": "Morocco's Mohammed VI satellites demonstrate planimetric RMSE under 0.5 meters, meeting 1:10,000 mapping standards and proving very-high-resolution satellite imagery as cost-effective alternative to aerial photogrammetry.",
-          "source": "Remote Sensing (MDPI)",
-          "date": "May 2026",
-          "significance": "Validates satellite imagery for national topographic mapping programs at unprecedented precision",
-          "url": "https://www.mdpi.com/2072-4292/18/9/1421"
+          "title": "On-orbit image processing technology advances for intelligent remote sensing satellites",
+          "summary": "New framework for satellite-based AI processing enables real-time analysis and thematic product generation directly in space, eliminating ground-based processing delays.",
+          "source": "ScienceDirect",
+          "date": "February 2026",
+          "significance": "Revolutionizes satellite data processing by enabling instant information products for time-critical applications",
+          "url": "https://www.sciencedirect.com/science/article/pii/S1270963826002415"
         },
         {
-          "title": "NASA-ESA-USGS Release Joint Earth Observation Quality Assessment Framework",
-          "summary": "Joint Earth Observation Mission Quality Assessment Framework provides standardized methodology for assessing optical data quality from commercial Earth observation missions, supporting trusted use of commercial EO data.",
-          "source": "Overlook Horizon",
-          "date": "April 26, 2026",
-          "significance": "Establishes industry standards for commercial Earth observation data quality assessment",
-          "url": "https://overlookhorizon.com/joint-earth-observation-mission-quality-assessment-framework-optical-guidelines-documents-released/"
-        },
-        {
-          "title": "Deep Learning Pipeline Detects Rip Currents from Satellite Imagery",
-          "summary": "New deep learning pipeline successfully detects rip currents from high-resolution satellite imagery using object detection and classification models, providing high-accuracy offline analysis tool for coastal hazard assessment.",
-          "source": "Remote Sensing (MDPI)",
-          "date": "January 22, 2026",
-          "significance": "First automated satellite-based rip current detection system for coastal safety applications",
-          "url": "https://www.mdpi.com/2072-4292/18/2/368"
+          "title": "SpaceX launches 45 Earth observation satellites in CAS500-2 rideshare mission",
+          "summary": "Major rideshare mission deployed South Korean CAS500-2 satellite plus 44 other payloads including Italian IRIDE constellation satellites and multiple commercial EO platforms.",
+          "source": "Spaceflight Now",
+          "date": "May 3, 2026",
+          "significance": "Demonstrates continued growth in commercial Earth observation market with diverse international partnerships",
+          "url": "https://spaceflightnow.com/2026/05/02/live-coverage-spacex-to-launch-south-korean-earth-observation-satellite-44-more-payloads-on-overnight-falcon-9-rideshare-mission/"
         }
       ]
     },

@@ -15,11 +15,14 @@ on:
   # ── Manual trigger from GitHub Actions tab ────────────────────────────────
   workflow_dispatch:
 
+permissions:
+  contents: write   # so we can commit articles.json back
+
 jobs:
   send-geospatial-brief:
     name: Fetch & Deliver Daily Brief
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
 
     steps:
       - name: 📥 Checkout repository
@@ -39,3 +42,15 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python spatial_drift_alert.py
+
+      - name: 💾 Commit updated articles.json
+        run: |
+          git config user.name  "spatial-drift-bot"
+          git config user.email "bot@spatialdrift.local"
+          git add data/articles.json docs/articles.json || true
+          if git diff --staged --quiet; then
+            echo "Nothing to commit."
+          else
+            git commit -m "🌍 Update articles — $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+          fi

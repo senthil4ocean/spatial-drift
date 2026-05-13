@@ -1,52 +1,62 @@
 name: 🌍 Spatial Drift — Daily Alert
 
 on:
+  # ── Multiple triggers around each IST target time to combat GitHub cron lag ──
+  # GitHub Actions cron is "best effort" and can be 5-30 min late under load.
+  # We trigger at the target slot AND a backup 30 min later. The script's
+  # built-in deduplication (last_run.txt) ensures only ONE message fires per slot.
   schedule:
-    # 08:00 AM IST -> 02:30 UTC
-    - cron: "30 2 * * *"
-    # 12:00 PM IST -> 06:30 UTC
-    - cron: "30 6 * * *"
-    # 04:00 PM IST -> 10:30 UTC
+    # 8:00 AM IST window (02:30 UTC primary, 03:00 UTC backup)
+    - cron: "30 2  * * *"
+    - cron: "0  3  * * *"
+    # 12:00 PM IST window (06:30 UTC primary, 07:00 UTC backup)
+    - cron: "30 6  * * *"
+    - cron: "0  7  * * *"
+    # 4:00 PM IST window (10:30 UTC primary, 11:00 UTC backup)
     - cron: "30 10 * * *"
-    # 09:30 PM IST -> 16:00 UTC
-    - cron: "00 16 * * *"
+    - cron: "0  11 * * *"
+    # 10:00 PM IST window (16:30 UTC primary, 17:00 UTC backup)
+    - cron: "30 16 * * *"
+    - cron: "0  17 * * *"
+
   workflow_dispatch:
 
 permissions:
   contents: write
-
-env:
-  # Opt into Node.js 24 to resolve deprecation warnings
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
 jobs:
   send-geospatial-brief:
     name: Fetch & Deliver Daily Brief
     runs-on: ubuntu-latest
     timeout-minutes: 30
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v5
 
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v5
+      - name: 🐍 Set up Python 3.12
+        uses: actions/setup-python@v6
         with:
-          python-version: "3.11"
+          python-version: "3.12"
 
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: pip install requests
 
-      - name: Run Spatial Drift Alert
+      - name: 🌍 Run Spatial Drift Alert
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python spatial_drift_alert.py
 
-      - name: Commit updated articles.json
+      - name: 💾 Commit updated articles.json
         run: |
-          git config user.name "spatial-drift-bot"
+          git config user.name  "spatial-drift-bot"
           git config user.email "bot@spatialdrift.local"
-          git add data/articles.json docs/articles.json
-          git commit -m "Automated update: $(date -u)" || echo "No changes to commit"
-          git push
+          git add data/articles.json data/last_run.txt docs/articles.json || true
+          if git diff --staged --quiet; then
+            echo "Nothing to commit."
+          else
+            git commit -m "🌍 Update articles — $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+          fi

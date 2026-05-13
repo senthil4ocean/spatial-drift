@@ -1,13 +1,13 @@
 {
-  "generated_at_ist": "2026-05-13 08:24:18 IST",
-  "generated_at_utc": "2026-05-13T02:54:18.063668+00:00",
+  "generated_at_ist": "2026-05-13 10:10:14 IST",
+  "generated_at_utc": "2026-05-13T04:40:14.320844+00:00",
   "display_date": "Wednesday, 13 May 2026",
-  "display_time": "08:24 AM IST",
+  "display_time": "10:10 AM IST",
   "stats": {
     "total_articles": 6,
     "domains_total": 9,
     "domains_with_news": 1,
-    "elapsed": "65s"
+    "elapsed": "69s"
   },
   "domains": [
     {
@@ -15,52 +15,52 @@
       "count": 6,
       "articles": [
         {
-          "title": "Deep Learning Pipeline Reconstructs Century of Urban Growth from Historical Imagery",
-          "summary": "Researchers developed an AI system combining CNN-LSTM-Attention-KAN architecture to analyze urban expansion from 1920-2024 using historical aerial and satellite imagery.",
-          "source": "Remote Sensing (MDPI)",
-          "date": "May 11, 2026",
-          "significance": "Breakthrough enables quantitative urban planning analysis across century-scale timeframes using AI",
-          "url": "https://www.mdpi.com/2072-4292/18/10/1517"
-        },
-        {
-          "title": "NASA CSDA Program Announces Eight New Commercial Satellite Data Agreements",
-          "summary": "NASA expanded partnerships with seven commercial providers including Planet, Airbus, and SAR specialists like Capella and ICEYE for enhanced Earth observation capabilities.",
+          "title": "NASA Announces Eight New Commercial Satellite Data Agreements for Earth Observation",
+          "summary": "NASA's CSDA program expanded partnerships with seven commercial providers to acquire high-quality multispectral and SAR data. These agreements include Planet, Airbus, Vantor, Capella, ICEYE, MDA, and Umbra.",
           "source": "NASA Earthdata",
           "date": "January 2, 2026",
-          "significance": "Major expansion of NASA's commercial satellite data access for research and applications",
+          "significance": "Significantly expands NASA's Earth observation data access through commercial partnerships",
           "url": "https://www.earthdata.nasa.gov/news/nasas-csda-program-announces-eight-new-data-agreements"
         },
         {
-          "title": "Polish Company Eycore Launches First European SAR Satellite",
-          "summary": "Eycore-1 satellite with X-band synthetic aperture radar launched on Falcon 9, making Eycore the second private European company to own a SAR satellite.",
-          "source": "SpaceNews",
-          "date": "May 3, 2026",
-          "significance": "Advances European commercial SAR capabilities and Polish POLSARIS military radar constellation",
-          "url": "https://spacenews.com/polish-space-company-eycore-launches-first-sar-earth-observation-satellite/"
+          "title": "Satellogic Unveils Merlin Constellation for Daily Global 1-Meter Resolution Earth Imaging",
+          "summary": "Satellogic announced Merlin, a new satellite constellation designed for daily global remapping at one-meter resolution. The first satellite launches October 2026 with full operational capability expected by early 2027.",
+          "source": "Stock Titan",
+          "date": "March 18, 2026",
+          "significance": "Revolutionary persistent monitoring capability enabling continuous global intelligence infrastructure",
+          "url": "https://www.stocktitan.net/news/SATL/satellogic-introduces-merlin-constellation-for-daily-global-32lrg62dbjty.html"
         },
         {
-          "title": "NRO Selects EarthDaily for Commercial Multispectral Earth Observation Support",
-          "summary": "National Reconnaissance Office partners with EarthDaily Analytics for 22-band multispectral satellite imagery to enhance national security monitoring workflows.",
-          "source": "Military Aerospace",
-          "date": "Recent 2026",
-          "significance": "Integration of commercial imagery into national security and intelligence architectures",
-          "url": "https://www.militaryaerospace.com/commercial-aerospace/news/55376025/nro-selects-earthdaily-for-commercial-multispectral-earth-observation-support"
+          "title": "MicroVision Demonstrates Breakthrough Tri-Lidar Architecture for Advanced Perception",
+          "summary": "MicroVision successfully demonstrated its Tri-Lidar Architecture, integrating multiple specialized lidar sensors into a coordinated, software-defined platform. The technology improves cost efficiency and performance.",
+          "source": "Newswire",
+          "date": "May 5, 2026",
+          "significance": "Breakthrough multi-sensor integration enabling enhanced real-world perception performance and scalability",
+          "url": "https://www.newswire.com/news/microvision-demonstrates-tri-lidar-breakthrough-advancing-integration-and"
         },
         {
-          "title": "AI Model Enables UAV Navigation in GPS-Denied Environments Using LiDAR",
-          "summary": "Researchers developed CLAK model using CNN-LSTM-Attention-KAN architecture for drone localization using LiDAR and non-visual sensors, achieving sub-meter accuracy.",
-          "source": "Satellite Navigation Journal",
-          "date": "April 2, 2026",
-          "significance": "Breakthrough enables autonomous navigation in challenging environments where GPS fails",
-          "url": "https://www.eurekalert.org/news-releases/1122587"
+          "title": "Deep Learning Pipeline Reconstructs Century of Urban Growth from Historical Imagery",
+          "summary": "Researchers developed an AI pipeline that reconstructs urban expansion from historical aerial imagery spanning 1920-2024. The method bridges century-scale domain gaps using attention-enhanced colorization and segmentation.",
+          "source": "MDPI Remote Sensing",
+          "date": "2 days ago",
+          "significance": "Enables unprecedented century-scale urban analysis and planning using historical aerial archives",
+          "url": "https://www.mdpi.com/2072-4292/18/10/1517"
         },
         {
-          "title": "Deep Learning Pipeline Detects Rip Currents from Satellite Imagery",
-          "summary": "Scientists developed AI system to automatically identify coastal rip currents in satellite images, creating new dataset for coastal hazard assessment.",
-          "source": "Remote Sensing (MDPI)",
-          "date": "January 22, 2026",
-          "significance": "Enables automated coastal hazard monitoring and public safety applications using satellite data",
-          "url": "https://www.mdpi.com/2072-4292/18/2/368"
+          "title": "Shanghai University Develops LiDAR Breakthrough for Port Navigation Safety",
+          "summary": "Researchers developed a sophisticated point-cloud filtering algorithm for single-photon LiDAR systems, enhancing maritime environmental perception and navigation accuracy in ports.",
+          "source": "Maritime Technology Review",
+          "date": "January 27, 2026",
+          "significance": "Improves maritime navigation safety and autonomous vessel operations through enhanced LiDAR processing",
+          "url": "https://maritimetechnologyreview.com/2026/01/27/shanghai-universitys-lidar-breakthrough-enhances-port-navigation-safety/"
+        },
+        {
+          "title": "NASA Revives Next-Generation Eagle and Falcon Earth Observation Flagship Missions",
+          "summary": "NASA is proceeding with flagship Earth-observing satellites despite budget challenges. Eagle will map Earth's surface in 400+ wavelength channels while Falcon will study cloud-pollution interactions.",
+          "source": "Science AAAS",
+          "date": "March 25, 2026",
+          "significance": "Major advancement in Earth science capabilities with molecular-level surface mapping and atmospheric monitoring",
+          "url": "https://www.science.org/content/article/nasa-revives-next-generation-flagship-earth-observing-missions"
         }
       ]
     },

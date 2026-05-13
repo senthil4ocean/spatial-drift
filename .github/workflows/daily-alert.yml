@@ -1,56 +1,52 @@
 name: 🌍 Spatial Drift — Daily Alert
 
 on:
-  # ── Runs 4 times daily (IST = UTC+5:30) ──────────────────────────────────
-  #   08:00 AM IST → 02:30 UTC
-  #   12:00 PM IST → 06:30 UTC
-  #   04:00 PM IST → 10:30 UTC
-  #   10:00 PM IST → 16:30 UTC
   schedule:
-    - cron: "30 2  * * *"   # 08:00 AM IST
-    - cron: "30 6  * * *"   # 12:00 PM IST
-    - cron: "30 10 * * *"   # 04:00 PM IST
-    - cron: "30 16 * * *"   # 10:00 PM IST
-
-  # ── Manual trigger from GitHub Actions tab ────────────────────────────────
+    # 08:00 AM IST -> 02:30 UTC
+    - cron: "30 2 * * *"
+    # 12:00 PM IST -> 06:30 UTC
+    - cron: "30 6 * * *"
+    # 04:00 PM IST -> 10:30 UTC
+    - cron: "30 10 * * *"
+    # 09:30 PM IST -> 16:00 UTC
+    - cron: "00 16 * * *"
   workflow_dispatch:
 
 permissions:
-  contents: write   # so we can commit articles.json back
+  contents: write
+
+env:
+  # Opt into Node.js 24 to resolve deprecation warnings
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
 jobs:
   send-geospatial-brief:
     name: Fetch & Deliver Daily Brief
     runs-on: ubuntu-latest
-    timeout-minutes: 25
-
+    timeout-minutes: 30
     steps:
-      - name: 📥 Checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: 🐍 Set up Python 3.11
+      - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: 📦 Install dependencies
+      - name: Install dependencies
         run: pip install requests
 
-      - name: 🌍 Run Spatial Drift Alert
+      - name: Run Spatial Drift Alert
         env:
-          ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python spatial_drift_alert.py
 
-      - name: 💾 Commit updated articles.json
+      - name: Commit updated articles.json
         run: |
-          git config user.name  "spatial-drift-bot"
+          git config user.name "spatial-drift-bot"
           git config user.email "bot@spatialdrift.local"
-          git add data/articles.json docs/articles.json || true
-          if git diff --staged --quiet; then
-            echo "Nothing to commit."
-          else
-            git commit -m "🌍 Update articles — $(date -u +'%Y-%m-%d %H:%M UTC')"
-            git push
-          fi
+          git add data/articles.json docs/articles.json
+          git commit -m "Automated update: $(date -u)" || echo "No changes to commit"
+          git push

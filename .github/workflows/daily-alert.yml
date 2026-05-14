@@ -2,27 +2,33 @@ name: 🌍 Spatial Drift — Daily Alert
 
 on:
   # ── Multiple triggers around each IST target time to combat GitHub cron lag ──
-  # GitHub Actions cron is "best effort" and can be 5-30 min late under load.
+  # Cron in GitHub Actions is "best effort" and can lag 5-30 minutes under load.
   # We trigger at the target slot AND a backup 30 min later. The script's
-  # built-in deduplication (last_run.txt) ensures only ONE message fires per slot.
+  # time-windowed dedup (last_run.txt with timestamp) ensures only ONE message
+  # fires per slot.
   schedule:
     # 8:00 AM IST window (02:30 UTC primary, 03:00 UTC backup)
     - cron: "30 2  * * *"
     - cron: "0  3  * * *"
-    # 12:00 PM IST window (06:30 UTC primary, 07:00 UTC backup)
+    # 12:00 PM IST window
     - cron: "30 6  * * *"
     - cron: "0  7  * * *"
-    # 4:00 PM IST window (10:30 UTC primary, 11:00 UTC backup)
+    # 4:00 PM IST window
     - cron: "30 10 * * *"
     - cron: "0  11 * * *"
-    # 6:00 PM IST window (12:30 UTC primary, 13:00 UTC backup)
-    - cron: "30 12 * * *"
-    - cron: "0  13 * * *"
-    # 10:00 PM IST window (16:30 UTC primary, 17:00 UTC backup)
+    # 10:00 PM IST window
     - cron: "30 16 * * *"
     - cron: "0  17 * * *"
 
+  # Manual trigger from Actions tab — always runs to completion
   workflow_dispatch:
+
+  # PR validation — also forces a full run for testing
+  pull_request:
+    branches: [main]
+    paths:
+      - 'spatial_drift_alert.py'
+      - '.github/workflows/daily-alert.yml'
 
 permissions:
   contents: write
@@ -50,9 +56,19 @@ jobs:
           ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python spatial_drift_alert.py
+          # FORCE_RUN bypasses dedup for manual / PR triggers (scheduled runs leave it empty)
+          FORCE_RUN: ${{ (github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request') && '1' || '' }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+        run: |
+          echo "════════════════════════════════════════"
+          echo "Trigger:    ${GITHUB_EVENT_NAME}"
+          echo "FORCE_RUN:  ${FORCE_RUN:-'(unset — scheduled run)'}"
+          echo "════════════════════════════════════════"
+          python spatial_drift_alert.py
 
       - name: 💾 Commit updated articles.json
+        # Only commit when running on main (not on PRs from forks)
+        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
         run: |
           git config user.name  "spatial-drift-bot"
           git config user.email "bot@spatialdrift.local"

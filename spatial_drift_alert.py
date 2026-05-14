@@ -46,7 +46,7 @@ from difflib import SequenceMatcher
 from pathlib import Path
 
 # ── Credentials ────────────────────────────────────────────────────────────────
-ANTHROPIC_API_KEY  = os.environ.get("ANTHROPIC_API_KEY",  "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")
+ANTHROPIC_API_KEY  = os.environ.get("ANTHROPIC_API_KEY",  "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")
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "8755526579:AAEIYLkfrmFV5Byprb-uyGeXzUIDaHsqk_s")
 TELEGRAM_CHAT_ID   = os.environ.get("TELEGRAM_CHAT_ID",   "1739337359")
 

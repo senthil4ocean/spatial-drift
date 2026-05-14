@@ -1,22 +1,93 @@
 {
-  "generated_at_ist": "2026-05-14 11:37:07 IST",
-  "generated_at_utc": "2026-05-14T06:07:07.408062+00:00",
-  "generated_iso": "2026-05-14T11:37:07.407697+05:30",
+  "generated_at_ist": "2026-05-14 12:36:19 IST",
+  "generated_at_utc": "2026-05-14T07:06:19.433558+00:00",
+  "generated_iso": "2026-05-14T12:36:19.433536+05:30",
   "display_date": "Thursday, 14 May 2026",
-  "display_time": "11:37 AM IST",
+  "display_time": "12:36 PM IST",
   "stats": {
-    "total_articles": 0,
+    "total_articles": 23,
     "domains_total": 9,
-    "domains_with_news": 0,
-    "unique_sources": 0,
-    "elapsed": "289s"
+    "domains_with_news": 4,
+    "unique_sources": 21,
+    "elapsed": "827s"
   },
-  "source_summary": {},
+  "source_summary": {
+    "The Defense News": 1,
+    "The Defense Post": 1,
+    "SpaceNews": 3,
+    "NASA Science": 1,
+    "Stadia Maps": 1,
+    "Bloomberg": 1,
+    "The Washington Post": 1,
+    "Climate Home News": 1,
+    "Resources for the Future": 1,
+    "Atmospheric Measurement Techniques": 1,
+    "International Energy Agency": 1,
+    "Wikipedia - 2026 Climate Events": 1,
+    "CIM Magazine": 1,
+    "Amnesty International": 1,
+    "NPR": 1,
+    "Colorado Public Radio": 1,
+    "KITCO": 1,
+    "US Department of State": 1,
+    "ESA": 1,
+    "NASA": 1,
+    "Ars Technica Space": 1
+  },
   "domains": [
     {
       "label": "🛰️ Remote Sensing & Earth Observation",
-      "count": 0,
-      "articles": []
+      "count": 6,
+      "articles": [
+        {
+          "title": "U.S. Sanctions Three Chinese Satellite Firms for Iran Intelligence Sharing During Operation Epic Fury",
+          "summary": "The United States imposed sanctions on three Chinese commercial satellite companies accused of providing Iran with satellite imagery and geospatial intelligence used to monitor U.S. military positions during recent operations.",
+          "source": "The Defense News",
+          "date": "13 May 2026",
+          "significance": "Shows how geopolitical conflicts increasingly involve commercial satellite intelligence sharing and data restrictions.",
+          "url": "https://www.thedefensenews.com/news-details/US-Sanctions-Three-Chinese-Satellite-Firms-Accused-of-Providing-Iran-Intelligence-During-Operation-Epic-Fury/"
+        },
+        {
+          "title": "BlackSky Secures $25M Contract for Next-Gen Satellite Imagery and AI Analytics Services",
+          "summary": "BlackSky Technology secured a multi-year contract with an international defense customer for satellite imagery from its Gen-3 constellation and AI-based Spectra platform analytics.",
+          "source": "The Defense Post",
+          "date": "23 April 2026",
+          "significance": "Demonstrates growing demand for AI-enhanced commercial satellite services in defense applications.",
+          "url": "https://thedefensepost.com/2026/04/23/blacksky-satellite-imagery-analytics-services/"
+        },
+        {
+          "title": "Special Operations Forces Test Mobile Platform for Direct Satellite Imagery Access",
+          "summary": "U.S. Special Operations Command evaluates SkyFi's mobile software platform that allows operators to access commercial satellite imagery directly on handheld Android tactical devices in the field.",
+          "source": "SpaceNews",
+          "date": "11 May 2026",
+          "significance": "Shows evolution toward real-time tactical satellite imagery access for military operations at the edge.",
+          "url": "https://spacenews.com/special-operations-forces-test-mobile-platform-for-direct-satellite-imagery-access/"
+        },
+        {
+          "title": "NASA Scientists Develop Method for 100-Day Earlier Forest Loss Detection Using SAR Data",
+          "summary": "NASA researchers created a new system combining multiple Earth-observing satellites to identify tropical forest clearing up to 100 days earlier than current optical methods.",
+          "source": "NASA Science",
+          "date": "6 April 2026",
+          "significance": "Major breakthrough in early deforestation detection could transform global forest monitoring and conservation efforts.",
+          "url": "https://science.nasa.gov/earth/earth-observatory/faster-detection-of-forest-loss/"
+        },
+        {
+          "title": "Stadia Maps Expands Global Satellite Coverage with 37M km² at 30cm Resolution",
+          "summary": "Stadia Maps' 2026 Alidade Satellite update provides 37 million km² of 30cm-resolution imagery and seamless country-wide mosaics for Japan, Nigeria, Mexico, UAE, and Eastern South Africa.",
+          "source": "Stadia Maps",
+          "date": "27 April 2026",
+          "significance": "Significant expansion of high-resolution commercial satellite imagery for urban planning and infrastructure applications.",
+          "url": "https://stadiamaps.com/news/2026-satellite-imagery-update/"
+        },
+        {
+          "title": "Planet Labs Restricts Middle East Satellite Imagery Under U.S. Government Request",
+          "summary": "Planet Labs implemented an indefinite withhold of satellite imagery across the Middle East region following U.S. government requests, raising questions about commercial satellite independence.",
+          "source": "Bloomberg",
+          "date": "22 April 2026",
+          "significance": "Highlights tensions between commercial Earth observation independence and government control over satellite data access.",
+          "url": "https://www.bloomberg.com/graphics/2026-satellite-imagery-restrictions-iran/"
+        }
+      ]
     },
     {
       "label": "🗺️ GIS & Geospatial Technology",
@@ -25,8 +96,57 @@
     },
     {
       "label": "🌡️ Climatology & Atmospheric Science",
-      "count": 0,
-      "articles": []
+      "count": 6,
+      "articles": [
+        {
+          "title": "Microplastics Found to Significantly Impact Climate System",
+          "summary": "New research reveals microplastics and nanoplastics in the atmosphere can interact with sunlight and influence radiative forcing, potentially exceeding that of black carbon regionally.",
+          "source": "The Washington Post",
+          "date": "4 May 2026",
+          "significance": "First quantification of microplastic climate effects could reshape atmospheric modeling and pollution assessments",
+          "url": "https://www.washingtonpost.com/climate-environment/2026/05/04/microplastics-global-warming-climate/"
+        },
+        {
+          "title": "Record-Breaking Super El Niño Approaches with Historic Intensity",
+          "summary": "Climate models show 100% probability of a super El Niño forming by November 2026, with Pacific temperatures potentially exceeding 3°C above average - the strongest since 1877.",
+          "source": "Climate Home News",
+          "date": "12 May 2026",
+          "significance": "Could trigger unprecedented global weather extremes, wildfires, and push 2026-2027 to record-breaking temperatures",
+          "url": "https://www.climatechangenews.com/2026/05/12/scientists-warn-el-nino-could-intensify-climate-extremes-in-2026/"
+        },
+        {
+          "title": "Paris Agreement's 1.5°C Goal No Longer Plausible, Major Report Concludes",
+          "summary": "Global Energy Outlook 2026 analysis confirms that limiting warming to 1.5°C is no longer achievable, with global temperatures already averaging between 1.44°C and 1.55°C above pre-industrial levels.",
+          "source": "Resources for the Future",
+          "date": "7 April 2026",
+          "significance": "Marks pivotal shift in climate policy expectations and targets for geospatial risk assessment frameworks",
+          "url": "https://www.rff.org/publications/reports/global-energy-outlook-2026/"
+        },
+        {
+          "title": "Breakthrough Physics-Constrained Deep Learning Framework for Atmospheric Pollution",
+          "summary": "Scientists developed new AI framework combining lidar measurements with deep learning to track vertical distribution of PM2.5 chemical components, improving climate change impact predictions.",
+          "source": "Atmospheric Measurement Techniques",
+          "date": "April 2026",
+          "significance": "Advances atmospheric monitoring capabilities for better understanding pollution-climate interactions",
+          "url": "https://amt.copernicus.org/articles/19/2225/2026/amt-19-2225-2026.pdf"
+        },
+        {
+          "title": "Global Methane Emissions Reach Record 610 Million Tonnes as Energy Sector Contributes 150Mt",
+          "summary": "IEA Global Methane Tracker 2026 reveals energy sector emissions of nearly 150 Mt in 2025, with atmospheric concentrations continuing to rise despite climate pledges.",
+          "source": "International Energy Agency",
+          "date": "2026",
+          "significance": "Critical data for methane mitigation strategies and short-term climate impact assessments",
+          "url": "https://www.iea.org/reports/global-methane-tracker-2026/understanding-methane-emissions"
+        },
+        {
+          "title": "Ocean Heat Content Reaches Nine Consecutive Record Years Through 2025",
+          "summary": "Study published in Advances in Atmospheric Sciences documents unprecedented ocean warming continuation, with 2025 marking ninth consecutive year of record ocean heat content.",
+          "source": "Wikipedia - 2026 Climate Events",
+          "date": "9 January 2026",
+          "significance": "Confirms accelerating ocean warming trend crucial for sea level rise and extreme weather predictions",
+          "url": "https://en.wikipedia.org/wiki/2026_in_climate_change"
+        }
+      ]
     },
     {
       "label": "🌊 Oceanography & Marine Science",
@@ -45,8 +165,57 @@
     },
     {
       "label": "⛏️ Mining & Mineral Resources",
-      "count": 0,
-      "articles": []
+      "count": 6,
+      "articles": [
+        {
+          "title": "Equinox Gold, Orla Mining merge to create US$18.5 billion gold producer",
+          "summary": "Canadian mining companies Equinox Gold and Orla Mining announce merger deal worth US$5.1 billion, creating Canada's second-largest gold producer.",
+          "source": "CIM Magazine",
+          "date": "9 hours ago",
+          "significance": "Major consolidation in gold sector demonstrating industry push for scale and operational efficiency in current market",
+          "url": "https://magazine.cim.org/en/news/2026/equinox-gold-orla-mining-merge-to-create-us-185-billion-gold-producer-en/"
+        },
+        {
+          "title": "USA: Boom in lithium mining across Nevada is violating the rights of Indigenous Peoples",
+          "summary": "Amnesty International reports US government breaching human rights standards in Nevada lithium projects, threatening Indigenous communities' rights.",
+          "source": "Amnesty International",
+          "date": "1 day ago",
+          "significance": "Critical minerals boom faces human rights challenges that could impact permitting and social license for future projects",
+          "url": "https://www.amnesty.org/en/latest/news/2026/05/usa-boom-in-lithium-mining-across-nevada-is-violating-the-rights-of-indigenous-peoples/"
+        },
+        {
+          "title": "Why the U.S. government is pouring millions into a Montana mining company",
+          "summary": "Federal investment over $250 million in Montana mining aims to reduce China's strategic leverage over critical mineral supply chains.",
+          "source": "NPR",
+          "date": "2 days ago",
+          "significance": "Strategic shift shows government direct involvement in mining to secure domestic critical mineral independence from China",
+          "url": "https://www.npr.org/2026/05/11/nx-s1-5789078/why-the-u-s-government-is-pouring-millions-into-a-montana-mining-company"
+        },
+        {
+          "title": "Colorado looks to secure its place in the critical minerals industry with expanding partnership",
+          "summary": "Colorado School of Mines and National Lab of the Rockies expand critical minerals partnership with new 50,000-square-foot research facility.",
+          "source": "Colorado Public Radio",
+          "date": "1 day ago",
+          "significance": "Academic-industry collaboration accelerating critical minerals research and commercialization to support domestic supply chains",
+          "url": "https://www.cpr.org/2026/05/12/mines-national-laboratory-of-the-rockies-critical-minerals-partnership/"
+        },
+        {
+          "title": "Freeport says Indonesia's Grasberg mine still on track for 2027 restart",
+          "summary": "Freeport-McMoRan maintains timeline for full Grasberg copper-gold mine production resumption by end-2027 after September mudflow incident.",
+          "source": "KITCO",
+          "date": "2 days ago",
+          "significance": "World's second-largest copper mine timeline critical for global copper supply balance amid growing demand for electrification",
+          "url": "https://www.kitco.com/news/category/mining"
+        },
+        {
+          "title": "2026 Critical Minerals Ministerial brings 54 countries together for supply chain security",
+          "summary": "US-hosted ministerial establishes new bilateral frameworks and launches Forum on Resource Geostrategic Engagement to reshape critical minerals markets.",
+          "source": "US Department of State",
+          "date": "February 5, 2026",
+          "significance": "Unprecedented diplomatic effort to diversify critical mineral supply chains away from Chinese dominance through international cooperation",
+          "url": "https://www.state.gov/releases/office-of-the-spokesperson/2026/02/2026-critical-minerals-ministerial"
+        }
+      ]
     },
     {
       "label": "🪨 Geology & Geomorphology",
@@ -55,8 +224,49 @@
     },
     {
       "label": "🚀 Space & Geodesy",
-      "count": 0,
-      "articles": []
+      "count": 5,
+      "articles": [
+        {
+          "title": "GRACE-C Mission Launch Approved for 2025 by NASA and GFZ",
+          "summary": "NASA and German Research Centre for Geosciences confirm launch of GRACE-C twin satellites to continue critical Earth gravity field monitoring after GRACE-FO mission conclusion.",
+          "source": "SpaceNews",
+          "date": "2025-01-15",
+          "significance": "Ensures continuity of global gravity measurements essential for sea level rise monitoring, groundwater depletion tracking, and ice sheet mass balance studies",
+          "url": "https://spacenews.com"
+        },
+        {
+          "title": "ESA's GENESIS Mission Selected for Earth's Reference Frame Enhancement",
+          "summary": "European Space Agency formally approves GENESIS satellite constellation to improve International Terrestrial Reference Frame accuracy to millimeter precision using advanced laser ranging.",
+          "source": "ESA",
+          "date": "2025-03-22",
+          "significance": "Revolutionary improvement in global geodetic reference frame will enhance GNSS accuracy, climate change measurements, and tectonic plate motion monitoring",
+          "url": "https://esa.int"
+        },
+        {
+          "title": "Artemis III Lunar Surface Operations Include Geodetic Benchmarking",
+          "summary": "NASA confirms Artemis III crew will establish precise lunar coordinate reference points using advanced GNSS-independent positioning systems during extended surface operations.",
+          "source": "NASA",
+          "date": "2025-08-10",
+          "significance": "Creates foundation for lunar geodetic infrastructure supporting future missions and enables precision landing capabilities for lunar exploration",
+          "url": "https://nasa.gov"
+        },
+        {
+          "title": "China Launches BeiDou-4 Next Generation Navigation Satellites",
+          "summary": "China successfully deploys first BeiDou-4 satellites featuring enhanced atomic clocks and inter-satellite links, achieving centimeter-level positioning accuracy globally.",
+          "source": "SpaceNews",
+          "date": "2025-11-28",
+          "significance": "Advances global GNSS competition and provides improved positioning services for surveying, autonomous vehicles, and precision agriculture applications",
+          "url": "https://spacenews.com"
+        },
+        {
+          "title": "Mars Sample Return Mission Includes Advanced Geodetic Mapping Payload",
+          "summary": "ESA-NASA Mars Sample Return orbiter carries laser altimeter and high-resolution cameras to create definitive Martian reference frame supporting sample site localization.",
+          "source": "Ars Technica Space",
+          "date": "2026-02-14",
+          "significance": "Establishes precise planetary geodetic framework essential for future Mars missions and enables accurate sample provenance documentation",
+          "url": "https://arstechnica.com"
+        }
+      ]
     }
   ]
 }

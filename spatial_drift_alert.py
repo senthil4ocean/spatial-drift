@@ -72,7 +72,7 @@ ARTICLES_FILES = [
 LAST_RUN_FILE = DATA_DIR / "last_run.txt"
 
 IST = timezone(timedelta(hours=5, minutes=30))
-TARGET_SLOTS = [(8, 0), (12, 0), (16, 0), (22, 0)]
+TARGET_SLOTS = [(7, 0)]   # single daily run at 7:00 AM IST
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -642,7 +642,7 @@ def build_compact_message(all_results: list, run_meta: dict) -> list:
         f"🌐 <b>SPATIAL DRIFT</b>\n"
         f"<i>Tap any title to open the article.</i>\n"
         f"<i>Visit dashboard for full summaries + LinkedIn/blog generator.</i>\n"
-        f"<i>Next brief in ~4 hours.</i>"
+        f"<i>Next brief tomorrow at 7:00 AM IST.</i>"
     )
 
     full_message = header + "\n".join(topic_blocks) + footer

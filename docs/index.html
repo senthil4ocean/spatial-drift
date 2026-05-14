@@ -534,27 +534,6 @@
     border-color: var(--text-3);
   }
 
-  /* api modal */
-  .api-modal-body { padding: 22px; background: var(--panel); }
-  .api-modal-body p {
-    font-size: 14px; color: var(--text-2);
-    line-height: 1.6; margin-bottom: 12px;
-  }
-  .api-modal-body input {
-    width: 100%; padding: 9px 12px;
-    border: 1px solid var(--line-2); border-radius: 3px;
-    background: var(--bg); color: var(--text);
-    font-size: 14px; margin-bottom: 12px;
-  }
-  .api-modal-body input:focus {
-    outline: none; border-color: var(--accent);
-  }
-  .api-modal-body .modal-btn { width: 100%; }
-  .api-modal-body .hint {
-    text-align: center; font-size: 12px;
-    color: var(--text-3); margin-top: 10px;
-  }
-
   /* ═════════════════════ LOADING / EMPTY ═════════════════════ */
   .loading-full, .empty-full {
     padding: 80px 24px; text-align: center;
@@ -597,7 +576,6 @@
     <div class="right">
       <a href="#feed">All Articles</a>
       <a href="https://www.sciencedaily.com/news/earth_climate/" target="_blank" rel="noopener">Science Daily</a>
-      <a href="#" id="strip-api">API Key</a>
       <button class="theme-toggle" id="theme-toggle">◐ Theme</button>
     </div>
   </div>
@@ -689,8 +667,7 @@
         <div class="sidebar-body">
           <div class="qa-buttons">
             <button class="qa-btn" id="qa-refresh"><span class="ico">↻</span> Refresh Data</button>
-            <button class="qa-btn" id="qa-generate"><span class="ico">✎</span> Generate Post from Top Article</button>
-            <button class="qa-btn" id="qa-key"><span class="ico">⊕</span> Set API Key</button>
+            <button class="qa-btn" id="qa-generate"><span class="ico">✎</span> Generate from Top Article</button>
           </div>
         </div>
       </div>
@@ -734,30 +711,14 @@
     </div>
     <div class="modal-source" id="studio-source">Select an article first.</div>
     <div class="modal-tabs">
-      <button class="modal-tab active" data-type="linkedin">LinkedIn Post</button>
-      <button class="modal-tab" data-type="blog">Blog Draft</button>
-      <button class="modal-tab" data-type="brief">Quick Brief</button>
+      <button class="modal-tab active" data-type="brief">① Overview</button>
+      <button class="modal-tab" data-type="linkedin">② LinkedIn Post</button>
+      <button class="modal-tab" data-type="blog">③ Blog Post</button>
     </div>
     <div class="modal-content" id="studio-content"></div>
     <div class="modal-footer">
       <button class="modal-btn alt" id="studio-regen">↻ Regenerate</button>
       <button class="modal-btn" id="studio-copy">⎘ Copy to Clipboard</button>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════ API KEY MODAL ═══════════ -->
-<div class="modal-overlay" id="api-overlay">
-  <div class="modal" style="max-width:480px;">
-    <div class="modal-header">
-      <span class="modal-title">⊕ Anthropic API Key</span>
-      <button class="modal-close" id="api-close">×</button>
-    </div>
-    <div class="api-modal-body">
-      <p>To generate LinkedIn posts and blog drafts, paste your Anthropic API key below. It is stored only in your browser session and never sent to a server.</p>
-      <input type="password" id="api-key-input" placeholder="sk-ant-..." />
-      <button class="modal-btn" id="api-save">Save & Continue</button>
-      <p class="hint">Get a key from <a href="https://console.anthropic.com" target="_blank" rel="noopener">console.anthropic.com</a></p>
     </div>
   </div>
 </div>
@@ -796,60 +757,119 @@ const state = {
   activeDomain: "all",
   filterText: "",
   selectedArticle: null,
-  outputType: "linkedin",
+  outputType: "brief",
   generated: "",
   generating: false,
-  apiKey: sessionStorage.getItem("anthropic_api_key") || "",
+  // API key embedded directly — no prompt needed each time.
+  // NOTE: this is visible in page source on a public site. Set a spend
+  // limit on this key at console.anthropic.com → Limits.
+  apiKey: "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",
 };
 
 /* ═══════════════════════════════════════════════════
    CONTENT GENERATION PROMPTS
+   Built on the NotebookLM-style briefing template:
+   - "brief"    → Part 1: Source Briefing / Overview
+   - "linkedin" → Part 2: High-Engagement LinkedIn Post
+   - "blog"     → Part 3: Engaging Blog Content Blueprint
 ═══════════════════════════════════════════════════ */
 const PROMPTS = {
-  linkedin: `You are a LinkedIn ghostwriter for a senior geospatial scientist. Write an authoritative LinkedIn post based on the article below.
+  /* ── PART 1: SOURCE BRIEFING / OVERVIEW ── */
+  brief: `You are an intelligence analyst for SPATIAL DRIFT. Produce a NotebookLM-style Source Briefing for the geospatial article below. Extract the raw intelligence and core architecture before any writing happens.
 
-Rules:
-- Opening line: bold, provocative, no "I" as first word
-- 3-4 short punchy paragraphs (1-2 lines each)
-- 2-4 strategic emojis placed naturally
-- End with ONE thought-provoking question
-- 5-7 hashtags on a new line at the end
-- 180-230 words total
+Output in this EXACT structure (plain text, use the headers shown):
+
+SOURCE BRIEFING
+Source: [publication name + article title]
+
+THE ONE-SENTENCE THROUGH-LINE
+[If this entire article were boiled down to a single argument or thesis, what is it?]
+
+CORE CONCEPTUAL PILLARS
+Pillar 1: [Name the concept] — [2-sentence breakdown of why it matters]
+Pillar 2: [Name the concept] — [2-sentence breakdown of why it matters]
+Pillar 3: [Name the concept] — [2-sentence breakdown of why it matters]
+
+HIGH-SIGNAL FRAMEWORKS & DATA
+[List specific statistics, named frameworks, or unique terminology. If the summary lacks hard numbers, note the key qualitative claims instead.]
+
+VISUAL EXTRACTION CHECKLIST
+- Feature image idea: [describe an image that would work as the blog post feature image]
+- Mid-content visual idea: [describe a chart/diagram that would anchor the middle of a blog post]
+
+WHY THIS MATTERS FOR GEOSPATIAL PROFESSIONALS
+[2-3 sentences on the practical significance for someone working in geospatial sciences]
+
+Return ONLY the briefing in the structure above. No preamble.`,
+
+  /* ── PART 2: HIGH-ENGAGEMENT LINKEDIN POST ── */
+  linkedin: `You are a LinkedIn ghostwriter for a senior geospatial scientist building thought leadership. Write a high-engagement LinkedIn post based on the article below, following this proven layout that bypasses generic "I read an article today" openings.
+
+STRUCTURE (follow precisely, but write it as a flowing post — do not print the bracketed labels):
+
+[Pattern-Interrupt Hook]
+Open with ONE of these two styles, whichever fits the article better:
+- The Contrarian: "Most people look at [topic] completely backward. They think it's about [common misconception]..."
+- The Direct Value: "[Author/Source]'s latest breakdown on [topic] completely changed how I think about [specific element]..."
+
+[Contextual Setup]
+Introduce the core shift — name the key concept from the article and explain it in one punchy sentence.
+
+[Personal Layer / The "So What?"]
+Add a senior practitioner's take — a raw thought, an agreement, or a respectful disagreement. Why does this matter in the trenches of geospatial work?
+
+[Actionable Breakdown]
+"If you want to operationalize this today, focus on these 3 shifts:"
+1. Stop doing [X]
+2. Start tracking [Y]
+3. Optimize for [Z]
+
+[Conversation Starter / CTA]
+End with a question that invites debate. Then a final line: "(Full breakdown linked in the comments below 👇)"
+
+RULES:
+- 200-260 words total
+- 2-4 strategic emojis, placed naturally (not one per line)
+- 5-7 relevant hashtags on a new line at the very end
 - Tone: confident expert, forward-thinking, accessible
+- Do NOT print the bracketed section labels — weave them into natural prose
 
 Return ONLY the post text.`,
 
-  blog: `You are a technical science writer for SPATIAL DRIFT. Write a polished blog post draft based on the article below.
+  /* ── PART 3: ENGAGING BLOG CONTENT BLUEPRINT ── */
+  blog: `You are a technical science writer for SPATIAL DRIFT. Write a highly engaging long-form blog post based on the article below, following this readability-engineered blueprint.
 
-Structure (use markdown):
-## [Compelling title]
-[2-line hook]
+Use markdown. Follow this EXACT structure:
 
-### What's Happening
-[2 solid paragraphs - what occurred, who's involved, technical details]
+# [Working Title: Your Twist + Core Concept — A New Framework for Geospatial Professionals]
 
-### Why Geospatial Professionals Should Pay Attention
-[2 paragraphs - implications, practical takeaways]
+## 1. The Hook & The Current Paradigm Shift
+Validate a problem the reader faces right now. Address the traditional way of handling this issue, then introduce the article's core concept as the modern antidote. (2 paragraphs)
 
-### Key Takeaways
-- [Point 1]
-- [Point 2]
-- [Point 3]
+> **[FEATURE IMAGE PLACEHOLDER]** — Caption: A visual look at how [concept] is reshaping [industry context] (Source: [publication name]).
 
-[Closing forward-looking sentence]
+## 2. Deep Dive: Breaking Down [Core Pillar 1]
+Explain the first major takeaway. Blend the source's findings with real-world practitioner observations. Use **bold** for scannability. (2-3 paragraphs)
 
-400-500 words. Authoritative but readable. Return only the blog.`,
+**Key insight from the source:** "[paraphrase an impactful claim or data point from the article]"
 
-  brief: `You are a rapid-fire analyst for SPATIAL DRIFT. Create an ultra-concise intelligence brief.
+## 3. The Reality Check: [Core Pillar 2 / The Hard Truth]
+Provide the nuance most surface-level articles skip. Discuss why implementing this concept is genuinely difficult and what roadblocks to watch for. (2 paragraphs)
 
-Format exactly:
-WHAT  - [one sentence]
-HOW   - [one sentence on method/technology]
-WHERE - [location or global scope]
-SCALE - [quantify if possible]
-BOTTOM LINE - [one punchy sentence]
+> **[MID-CONTENT VISUAL PLACEHOLDER]** — Caption: The structural breakdown of [pillar 2] as outlined by [publication name].
 
-Return ONLY the 5-line brief.`,
+## 4. Your Execution Playbook
+Give the reader a tactical, immediate step-by-step application plan. Format as a bulleted checklist of exactly how a geospatial professional would use this knowledge.
+
+## 5. Summary & Ecosystem Discussion
+Summarize the macro-impact of this shift. Close with an open-ended question inviting readers to share their workflows and challenges in the comments.
+
+RULES:
+- 600-750 words total
+- Authoritative but readable — write for a working geospatial professional
+- Keep the two image placeholder blocks exactly as shown so the user knows where to drop extracted visuals
+
+Return ONLY the blog content.`,
 };
 
 /* ═══════════════════════════════════════════════════
@@ -1152,14 +1172,13 @@ document.getElementById('studio-copy').onclick = () => {
 };
 
 async function generateContent() {
-  if (!state.apiKey) {
-    document.getElementById('api-overlay').classList.add('show');
-    return;
-  }
   const a = state.selectedArticle;
   if (!a) return;
   state.generating = true;
   renderStudioContent();
+
+  // Blog blueprint needs more room than the overview or LinkedIn post
+  const maxTokens = state.outputType === 'blog' ? 2400 : 1500;
 
   try {
     const resp = await fetch('https://api.anthropic.com/v1/messages', {
@@ -1172,7 +1191,7 @@ async function generateContent() {
       },
       body: JSON.stringify({
         model: 'claude-sonnet-4-20250514',
-        max_tokens: 1500,
+        max_tokens: maxTokens,
         system: PROMPTS[state.outputType],
         messages: [{
           role: 'user',
@@ -1185,7 +1204,7 @@ async function generateContent() {
     const textBlock = data.content?.find(b => b.type === 'text');
     state.generated = textBlock?.text || 'No content generated.';
   } catch (e) {
-    state.generated = `Error: ${e.message}\n\nIf this is an API key error, click "Set API Key" in Quick Actions to update it.`;
+    state.generated = `Error: ${e.message}\n\nThe embedded API key may be invalid or out of credit. Check console.anthropic.com.`;
   } finally {
     state.generating = false;
     renderStudioContent();
@@ -1206,24 +1225,6 @@ function renderStudioContent() {
 }
 
 /* ═══════════════════════════════════════════════════
-   API KEY MODAL
-═══════════════════════════════════════════════════ */
-document.getElementById('api-close').onclick = () => {
-  document.getElementById('api-overlay').classList.remove('show');
-};
-document.getElementById('api-save').onclick = () => {
-  const v = document.getElementById('api-key-input').value.trim();
-  if (!v.startsWith('sk-ant-')) {
-    alert('Please enter a valid Anthropic API key (starts with sk-ant-)');
-    return;
-  }
-  state.apiKey = v;
-  sessionStorage.setItem('anthropic_api_key', v);
-  document.getElementById('api-overlay').classList.remove('show');
-  if (state.selectedArticle) generateContent();
-};
-
-/* ═══════════════════════════════════════════════════
    QUICK ACTIONS
 ═══════════════════════════════════════════════════ */
 document.getElementById('qa-refresh').onclick = () => loadArticles();
@@ -1233,13 +1234,6 @@ document.getElementById('qa-generate').onclick = () => {
     state.selectedArticle = all[0];
     openStudio();
   }
-};
-document.getElementById('qa-key').onclick = () => {
-  document.getElementById('api-overlay').classList.add('show');
-};
-document.getElementById('strip-api').onclick = (e) => {
-  e.preventDefault();
-  document.getElementById('api-overlay').classList.add('show');
 };
 
 /* ═══════════════════════════════════════════════════

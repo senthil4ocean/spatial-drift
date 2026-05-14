@@ -1,33 +1,24 @@
 name: 🌍 Spatial Drift — Daily Alert
 
 on:
-  # ── Multiple triggers around each IST target time to combat GitHub cron lag ──
-  # Cron in GitHub Actions is "best effort" and can lag 5-30 minutes under load.
-  # We trigger at the target slot AND a backup 30 min later. The script's
-  # time-windowed dedup (last_run.txt with timestamp) ensures only ONE message
-  # fires per slot.
+  # ── Multiple triggers around each IST target time ──
   schedule:
-    # 8:00 AM IST window (02:30 UTC primary, 03:00 UTC backup)
     - cron: "30 2  * * *"
     - cron: "0  3  * * *"
-    # 12:00 PM IST window
     - cron: "30 6  * * *"
     - cron: "0  7  * * *"
-    # 4:00 PM IST window
     - cron: "30 10 * * *"
     - cron: "0  11 * * *"
-    # 10:00 PM IST window
     - cron: "30 16 * * *"
     - cron: "0  17 * * *"
 
-  # Manual trigger from Actions tab — always runs to completion
   workflow_dispatch:
 
-  # PR validation — also forces a full run for testing
   pull_request:
     branches: [main]
     paths:
       - 'spatial_drift_alert.py'
+      - '**/spatial_drift_alert.py'
       - '.github/workflows/daily-alert.yml'
 
 permissions:
@@ -48,6 +39,23 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: 🔎 Diagnostic — list repository contents
+        run: |
+          echo "════════════════════════════════════════════"
+          echo "REPOSITORY ROOT CONTENTS"
+          echo "════════════════════════════════════════════"
+          ls -la
+          echo ""
+          echo "════════════════════════════════════════════"
+          echo "FILE TREE (depth 3, excluding .git)"
+          echo "════════════════════════════════════════════"
+          find . -maxdepth 3 -not -path '*/\.git*' -not -path '*/__pycache__*' | sort
+          echo ""
+          echo "════════════════════════════════════════════"
+          echo "LOCATING spatial_drift_alert.py"
+          echo "════════════════════════════════════════════"
+          find . -name "spatial_drift_alert.py" -not -path '*/\.git*' || echo "❌ NOT FOUND"
+
       - name: 📦 Install dependencies
         run: pip install requests
 
@@ -56,24 +64,48 @@ jobs:
           ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
-          # FORCE_RUN bypasses dedup for manual / PR triggers (scheduled runs leave it empty)
           FORCE_RUN: ${{ (github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request') && '1' || '' }}
           GITHUB_EVENT_NAME: ${{ github.event_name }}
         run: |
           echo "════════════════════════════════════════"
           echo "Trigger:    ${GITHUB_EVENT_NAME}"
-          echo "FORCE_RUN:  ${FORCE_RUN:-'(unset — scheduled run)'}"
+          echo "FORCE_RUN:  ${FORCE_RUN:-'(unset)'}"
           echo "════════════════════════════════════════"
-          python spatial_drift_alert.py
+
+          # Auto-locate the script wherever the user put it
+          SCRIPT_PATH=$(find . -name "spatial_drift_alert.py" -not -path '*/\.git*' -not -path '*/__pycache__*' | head -1)
+
+          if [ -z "$SCRIPT_PATH" ]; then
+            echo ""
+            echo "❌ ERROR: spatial_drift_alert.py not found anywhere in the repo."
+            echo ""
+            echo "ACTION REQUIRED: Upload spatial_drift_alert.py to the repository root."
+            echo "The repo currently contains:"
+            ls -la
+            exit 1
+          fi
+
+          echo "✅ Found script at: $SCRIPT_PATH"
+          echo ""
+
+          # Move script to repo root so its relative paths (data/, docs/) work
+          if [ "$SCRIPT_PATH" != "./spatial_drift_alert.py" ]; then
+            echo "ℹ️  Script is in a subdirectory. Copying to repo root..."
+            cp "$SCRIPT_PATH" ./spatial_drift_alert.py
+          fi
+
+          # Ensure data and docs directories exist
+          mkdir -p data docs
+
+          python ./spatial_drift_alert.py
 
       - name: 💾 Commit updated articles.json
-        # Only commit when running on main (not on PRs from forks)
         if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
         run: |
           git config user.name  "spatial-drift-bot"
           git config user.email "bot@spatialdrift.local"
-          git add data/articles.json data/last_run.txt docs/articles.json || true
-          if git diff --staged --quiet; then
+          git add data/articles.json data/last_run.txt docs/articles.json 2>/dev/null || true
+          if git diff --staged --quiet 2>/dev/null; then
             echo "Nothing to commit."
           else
             git commit -m "🌍 Update articles — $(date -u +'%Y-%m-%d %H:%M UTC')"

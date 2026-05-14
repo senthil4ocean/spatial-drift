@@ -1,22 +1,88 @@
 {
-  "generated_at_ist": "2026-05-14 10:00:15 IST",
-  "generated_at_utc": "2026-05-14T04:30:15.842157+00:00",
-  "generated_iso": "2026-05-14T10:00:15.841984+05:30",
+  "generated_at_ist": "2026-05-14 10:24:10 IST",
+  "generated_at_utc": "2026-05-14T04:54:10.733263+00:00",
+  "generated_iso": "2026-05-14T10:24:10.733087+05:30",
   "display_date": "Thursday, 14 May 2026",
-  "display_time": "10:00 AM IST",
+  "display_time": "10:24 AM IST",
   "stats": {
-    "total_articles": 0,
+    "total_articles": 17,
     "domains_total": 9,
-    "domains_with_news": 0,
-    "unique_sources": 0,
-    "elapsed": "293s"
+    "domains_with_news": 3,
+    "unique_sources": 16,
+    "elapsed": "624s"
   },
-  "source_summary": {},
+  "source_summary": {
+    "The Defense News": 1,
+    "SpaceNews": 1,
+    "U.S. Geological Survey": 1,
+    "The Defense Post": 1,
+    "PR Newswire": 1,
+    "Stadia Maps": 1,
+    "Weather Channel": 1,
+    "Nature Communications": 1,
+    "Nature Climate and Atmospheric Science": 1,
+    "NOAA Chemical Sciences Laboratory": 1,
+    "Severe Weather Europe": 1,
+    "Nature Climate Change": 1,
+    "ScienceDaily": 2,
+    "Al Jazeera": 1,
+    "USGS Hawaiian Volcano Observatory": 1,
+    "VolcanoDiscovery": 1
+  },
   "domains": [
     {
       "label": "🛰️ Remote Sensing & Earth Observation",
-      "count": 0,
-      "articles": []
+      "count": 6,
+      "articles": [
+        {
+          "title": "US Sanctions Three Chinese Satellite Firms for Providing Iran Intelligence During Operation Epic Fury",
+          "summary": "The United States imposed sanctions on Chinese satellite companies accused of providing Iran with satellite imagery and geospatial intelligence used to monitor and target U.S. military positions during Operation Epic Fury.",
+          "source": "The Defense News",
+          "date": "13 May 2026",
+          "significance": "Highlights geopolitical tensions around satellite intelligence sharing and impacts on commercial earth observation sector",
+          "url": "https://www.thedefensenews.com/news-details/US-Sanctions-Three-Chinese-Satellite-Firms-Accused-of-Providing-Iran-Intelligence-During-Operation-Epic-Fury/"
+        },
+        {
+          "title": "Special Operations Forces Test Mobile Platform for Direct Satellite Imagery Access",
+          "summary": "U.S. Special Operations Command evaluates SkyFi's mobile software platform allowing field operators to access commercial satellite imagery directly on handheld Android tactical devices.",
+          "source": "SpaceNews",
+          "date": "11 May 2026",
+          "significance": "Demonstrates growing demand for real-time tactical satellite imagery access at the edge of military operations",
+          "url": "https://spacenews.com/special-operations-forces-test-mobile-platform-for-direct-satellite-imagery-access/"
+        },
+        {
+          "title": "NASA Announces New Landsat Science Team for 2026-2030 Term",
+          "summary": "The U.S. Geological Survey, in cooperation with NASA, named the new Landsat Science Team to support the world's longest-running Earth observation mission with focus on atmospheric correction, water quality mapping, and interoperability.",
+          "source": "U.S. Geological Survey",
+          "date": "17 December 2025",
+          "significance": "Drives future Landsat capabilities and ensures continuity of critical Earth observation programs through 2030",
+          "url": "https://www.usgs.gov/landsat-missions/news/new-landsat-science-team-announced"
+        },
+        {
+          "title": "ICEYE Launches Six New SAR Satellites for Poland and Portugal Defense Programs",
+          "summary": "ICEYE deployed six 25cm resolution synthetic aperture radar satellites aboard SpaceX's Transporter-16 mission, expanding constellation capacity for commercial operations and sovereign military missions.",
+          "source": "The Defense Post",
+          "date": "31 March 2026",
+          "significance": "Shows accelerating adoption of commercial SAR constellations for national security and defense intelligence",
+          "url": "https://thedefensepost.com/2026/03/31/iceye-satellites-poland-portugal/"
+        },
+        {
+          "title": "ICEYE Deploys SAR-Based Deforestation Monitoring to Protect Congo Basin Wildlife Habitats",
+          "summary": "ICEYE partnered with the Jane Goodall Institute to deploy its Deforestation Solution using synthetic aperture radar imagery for near real-time detection of illegal mining and logging in the Congo Basin.",
+          "source": "PR Newswire",
+          "date": "22 April 2026",
+          "significance": "Demonstrates SAR technology's breakthrough capability for environmental monitoring in cloud-covered tropical regions",
+          "url": "https://www.prnewswire.com/news-releases/iceye-and-the-jane-goodall-institute-deploy-sar-based-deforestation-monitoring-to-protect-congo-basin-wildlife-habitats-302750538.html"
+        },
+        {
+          "title": "Stadia Maps 2026 Satellite Imagery Update Expands 30cm Coverage to 37 Million km²",
+          "summary": "Stadia Maps released its most significant satellite imagery update, expanding 30cm-resolution coverage to 37 million square kilometers and adding seamless country-wide mosaics for Japan, Nigeria, Mexico, UAE, and Eastern South Africa.",
+          "source": "Stadia Maps",
+          "date": "27 April 2026",
+          "significance": "Represents major advancement in high-resolution commercial satellite imagery availability for urban planning and infrastructure analysis",
+          "url": "https://stadiamaps.com/news/2026-satellite-imagery-update/"
+        }
+      ]
     },
     {
       "label": "🗺️ GIS & Geospatial Technology",
@@ -25,8 +91,57 @@
     },
     {
       "label": "🌡️ Climatology & Atmospheric Science",
-      "count": 0,
-      "articles": []
+      "count": 6,
+      "articles": [
+        {
+          "title": "Super El Niño Forecast for Late 2026 Could Break Temperature Records",
+          "summary": "Climate scientists predict a potentially record-strong El Niño developing by summer 2026, with ocean temperatures 2°C+ above normal. This could make 2026 or 2027 the warmest years on record.",
+          "source": "Weather Channel",
+          "date": "7 May 2026",
+          "significance": "A Super El Niño would alter global weather patterns, affecting rainfall, storms, and temperature extremes worldwide",
+          "url": "https://weather.com/news/climate/news/2026-05-07-super-el-nino-forecast-may2026"
+        },
+        {
+          "title": "Global Methane Emissions Rebounded in 2024 Despite Atmospheric Growth Slowdown",
+          "summary": "Satellite data reveals methane emissions increased in 2024 even as atmospheric growth decelerated. Wetland emissions rebounded strongly, offsetting improved atmospheric sinks.",
+          "source": "Nature Communications",
+          "date": "7 May 2026",
+          "significance": "Shows how natural emissions can mask progress on methane mitigation efforts, critical for climate targets",
+          "url": "https://www.nature.com/articles/s41467-026-72764-3"
+        },
+        {
+          "title": "New Method Identifies Warming Biases in Climate Models Using Scaling Behavior",
+          "summary": "Scientists develop novel approach to assess hot model problem in CMIP6 climate models by measuring fast climate responses to external forcings and cumulative effects.",
+          "source": "Nature Climate and Atmospheric Science",
+          "date": "27 March 2026",
+          "significance": "Could improve climate model accuracy and confidence in projections by objectively identifying model biases",
+          "url": "https://www.nature.com/articles/s41612-026-01390-z"
+        },
+        {
+          "title": "Study Reveals Atmospheric Chemistry Key to Understanding Methane Rise",
+          "summary": "New NOAA research shows methane trends cannot be understood by emissions alone. Changes in hydroxyl radical sinks complicate source-based interpretations of atmospheric methane increases.",
+          "source": "NOAA Chemical Sciences Laboratory",
+          "date": "20 January 2026",
+          "significance": "Critical for atmospheric monitoring as misattributed methane trends could undermine emission reduction strategies",
+          "url": "https://csl.noaa.gov/news/2026/437_0120.html"
+        },
+        {
+          "title": "Arctic Sea Ice at Record Low as Super El Niño Threatens Further Melting",
+          "summary": "Arctic sea ice extent reached record winter lows while models predict an incoming Super El Niño could accelerate polar ice loss through atmospheric pattern changes.",
+          "source": "Severe Weather Europe",
+          "date": "13 April 2026",
+          "significance": "Links tropical warming to polar ice loss, with implications for winter weather patterns and sea level rise",
+          "url": "https://www.severe-weather.eu/global-weather/arctic-sea-ice-meets-super-el-nino-2026-2027-atmospheric-impact-polar-vortex-winter-united-states-canada-europe-fa/"
+        },
+        {
+          "title": "Microplastics in Atmosphere Found to Influence Climate by Interacting with Sunlight",
+          "summary": "Research published in Nature Climate Change shows atmospheric microplastics can exceed black carbon's radiative forcing regionally, representing a new climate factor.",
+          "source": "Nature Climate Change",
+          "date": "6 May 2026",
+          "significance": "Reveals previously unquantified climate forcing agent that could affect regional climate predictions and air quality",
+          "url": "https://www.nature.com/nclimate/articles?year=2026"
+        }
+      ]
     },
     {
       "label": "🌊 Oceanography & Marine Science",
@@ -40,8 +155,49 @@
     },
     {
       "label": "🌋 Volcanology",
-      "count": 0,
-      "articles": []
+      "count": 5,
+      "articles": [
+        {
+          "title": "Hunga Tonga Volcanic Eruption Discovered to Break Down Methane in Atmosphere",
+          "summary": "Scientists discovered volcanic ash and seawater from the 2022 Hunga Tonga eruption created reactive chlorine particles that unexpectedly destroyed methane in the atmosphere, potentially offering new climate change solutions.",
+          "source": "ScienceDaily",
+          "date": "10 May 2026",
+          "significance": "Reveals unexpected atmospheric chemistry mechanism that could inform future methane reduction strategies",
+          "url": "https://www.sciencedaily.com/releases/2026/05/260509210640.htm"
+        },
+        {
+          "title": "Mount Dukono Eruption in Indonesia Kills Three Hikers in Restricted Zone",
+          "summary": "A volcanic eruption at Mount Dukono on Indonesia's Halmahera island killed three people including two Singaporeans who were hiking in a restricted area despite safety warnings.",
+          "source": "Al Jazeera",
+          "date": "8 May 2026",
+          "significance": "Highlights critical need for volcanic hazard awareness and enforcement of exclusion zones",
+          "url": "https://www.aljazeera.com/news/2026/5/8/indonesia-volcano-kills-three-as-search-for-missing-hikers-continues"
+        },
+        {
+          "title": "Kilauea Volcano Episode 47 Eruption Window Opens with Predicted Lava Fountaining",
+          "summary": "The Hawaiian Volcano Observatory forecasts Kilauea summit will likely begin episode 47 eruption between May 12-14, 2026, as magma pressure builds following recent pause in activity.",
+          "source": "USGS Hawaiian Volcano Observatory",
+          "date": "12 May 2026",
+          "significance": "Demonstrates improved volcanic eruption forecasting capabilities for episodic Hawaiian volcanism",
+          "url": "https://www.usgs.gov/volcanoes/kilauea/volcano-updates"
+        },
+        {
+          "title": "New Jerk Detection Method Successfully Predicts 92% of Volcanic Eruptions",
+          "summary": "Researchers developed a revolutionary seismic detection technique called Jerk that accurately forecasted 92% of 24 eruptions on La Réunion volcano between 2014-2023, providing 8-hour advance warnings.",
+          "source": "ScienceDaily",
+          "date": "15 March 2026",
+          "significance": "Major breakthrough in volcanic eruption prediction could transform early warning systems globally",
+          "url": "https://www.sciencedaily.com/releases/2026/03/260315004411.htm"
+        },
+        {
+          "title": "Mount Semeru Continues Active Eruption with 81 Daily Explosions and Pyroclastic Flows",
+          "summary": "Indonesia's Mount Semeru produced 81 explosions on May 5, 2026, with ash plumes reaching 900 meters and dangerous pyroclastic density currents at alert Level 3.",
+          "source": "VolcanoDiscovery",
+          "date": "5 May 2026",
+          "significance": "Ongoing high-intensity volcanic activity requiring constant monitoring for hazard assessment in populated Java region",
+          "url": "https://www.volcanodiscovery.com/semeru/news/301594/Semeru-Indonesia-Volcano-Indonesia-activity-update-May-5-2026-Continuing-eruptionCite-this-Report.html"
+        }
+      ]
     },
     {
       "label": "⛏️ Mining & Mineral Resources",

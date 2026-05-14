@@ -1,15 +1,17 @@
 {
-  "generated_at_ist": "2026-05-14 00:26:07 IST",
-  "generated_at_utc": "2026-05-13T18:56:07.555415+00:00",
-  "generated_iso": "2026-05-14T00:26:07.555233+05:30",
+  "generated_at_ist": "2026-05-14 10:00:15 IST",
+  "generated_at_utc": "2026-05-14T04:30:15.842157+00:00",
+  "generated_iso": "2026-05-14T10:00:15.841984+05:30",
   "display_date": "Thursday, 14 May 2026",
-  "display_time": "12:26 AM IST",
+  "display_time": "10:00 AM IST",
   "stats": {
     "total_articles": 0,
     "domains_total": 9,
     "domains_with_news": 0,
-    "elapsed": "289s"
+    "unique_sources": 0,
+    "elapsed": "293s"
   },
+  "source_summary": {},
   "domains": [
     {
       "label": "🛰️ Remote Sensing & Earth Observation",

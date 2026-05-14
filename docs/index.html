@@ -534,6 +534,55 @@
     border-color: var(--text-3);
   }
 
+  /* ── API key modal ── */
+  .key-modal-body { padding: 22px; background: var(--panel); }
+  .key-modal-body p {
+    font-size: 13.5px; color: var(--text-2);
+    line-height: 1.6; margin-bottom: 14px;
+  }
+  .key-modal-body strong { color: var(--text); }
+  .key-status {
+    font-size: 13px; padding: 0; margin: 0;
+  }
+  .key-status.has-key {
+    background: var(--tag-bg); color: var(--tag-text);
+    padding: 8px 12px; border-radius: 3px; margin-bottom: 14px;
+    font-weight: 700;
+  }
+  .key-label {
+    display: block; font-size: 12px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--text-3); margin-bottom: 5px;
+  }
+  .key-input-row {
+    display: flex; gap: 6px; margin-bottom: 4px;
+  }
+  .key-input-row input {
+    flex: 1; padding: 9px 12px;
+    border: 1px solid var(--line-2); border-radius: 3px;
+    background: var(--bg); color: var(--text);
+    font-size: 14px; font-family: 'Courier New', monospace;
+    letter-spacing: 0.04em;
+  }
+  .key-input-row input:focus {
+    outline: none; border-color: var(--accent);
+  }
+  .key-eye {
+    width: 42px; border: 1px solid var(--line-2);
+    border-radius: 3px; background: var(--panel-alt);
+    color: var(--text-2); font-size: 15px; cursor: pointer;
+  }
+  .key-eye:hover { background: var(--hover); }
+  .key-hints {
+    margin-top: 16px; padding-top: 14px;
+    border-top: 1px solid var(--line);
+  }
+  .key-hints p {
+    font-size: 12px; color: var(--text-3);
+    margin-bottom: 6px; line-height: 1.5;
+  }
+  .key-hints a { color: var(--accent-2); }
+
   /* ═════════════════════ LOADING / EMPTY ═════════════════════ */
   .loading-full, .empty-full {
     padding: 80px 24px; text-align: center;
@@ -576,6 +625,7 @@
     <div class="right">
       <a href="#feed">All Articles</a>
       <a href="https://www.sciencedaily.com/news/earth_climate/" target="_blank" rel="noopener">Science Daily</a>
+      <a href="#" id="strip-key">🔑 API Key</a>
       <button class="theme-toggle" id="theme-toggle">◐ Theme</button>
     </div>
   </div>
@@ -668,6 +718,7 @@
           <div class="qa-buttons">
             <button class="qa-btn" id="qa-refresh"><span class="ico">↻</span> Refresh Data</button>
             <button class="qa-btn" id="qa-generate"><span class="ico">✎</span> Generate from Top Article</button>
+            <button class="qa-btn" id="qa-key"><span class="ico">🔑</span> Set API Key</button>
           </div>
         </div>
       </div>
@@ -723,6 +774,37 @@
   </div>
 </div>
 
+<!-- ═══════════ API KEY MODAL ═══════════ -->
+<div class="modal-overlay" id="key-overlay">
+  <div class="modal" style="max-width:520px;">
+    <div class="modal-header">
+      <span class="modal-title">🔑 Anthropic API Key</span>
+      <button class="modal-close" id="key-close">×</button>
+    </div>
+    <div class="key-modal-body">
+      <p>Enter your Anthropic API key to generate content. It is held only in
+      this browser session — <strong>never saved to the website's code or
+      repository</strong>, so it can't be auto-revoked.</p>
+
+      <div class="key-status" id="key-status"></div>
+
+      <label class="key-label" for="key-input">API Key</label>
+      <div class="key-input-row">
+        <input type="password" id="key-input" placeholder="sk-ant-api03-..." autocomplete="off" spellcheck="false" />
+        <button type="button" class="key-eye" id="key-eye" title="Show / hide">👁</button>
+      </div>
+
+      <button class="modal-btn" id="key-save" style="width:100%; margin-top:6px;">Save Key for This Session</button>
+
+      <div class="key-hints">
+        <p>• Get a key at <a href="https://console.anthropic.com" target="_blank" rel="noopener">console.anthropic.com → API Keys</a></p>
+        <p>• Set a spend cap under <strong>Limits</strong> as a safety net</p>
+        <p>• You'll re-enter it next time you open the site (sessions don't persist)</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 /* ═══════════════════════════════════════════════════
    THEME — system aware with manual override
@@ -760,10 +842,12 @@ const state = {
   outputType: "brief",
   generated: "",
   generating: false,
-  // API key embedded directly — no prompt needed each time.
-  // NOTE: this is visible in page source on a public site. Set a spend
-  // limit on this key at console.anthropic.com → Limits.
-  apiKey: "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",
+  // API key is NEVER hardcoded here — a key in a public file gets
+  // auto-revoked by Anthropic's scanners within minutes.
+  // It is entered once per browser session via the key modal,
+  // held only in memory + sessionStorage (cleared when tab closes),
+  // and never committed to the repo.
+  apiKey: sessionStorage.getItem("sd_api_key") || "",
 };
 
 /* ═══════════════════════════════════════════════════
@@ -1174,6 +1258,14 @@ document.getElementById('studio-copy').onclick = () => {
 async function generateContent() {
   const a = state.selectedArticle;
   if (!a) return;
+
+  // No key yet — open the key modal and stop. Generation resumes
+  // automatically after the user saves a key.
+  if (!state.apiKey) {
+    openKeyModal();
+    return;
+  }
+
   state.generating = true;
   renderStudioContent();
 
@@ -1200,11 +1292,23 @@ async function generateContent() {
       }),
     });
     const data = await resp.json();
-    if (data.error) throw new Error(data.error.message || 'API error');
+    if (data.error) {
+      // 401 → key bad/revoked. Clear it so the user is re-prompted.
+      if (/401|authentication|invalid x-api-key|credentials/i.test(data.error.message || '')) {
+        state.apiKey = "";
+        sessionStorage.removeItem("sd_api_key");
+        state.generated = "Your API key was rejected (invalid or revoked).\n\nClick the key icon to enter a fresh one. Tip: keys exposed publicly get auto-revoked — keep this key only here in your browser, never in the repo.";
+        state.generating = false;
+        renderStudioContent();
+        openKeyModal();
+        return;
+      }
+      throw new Error(data.error.message || 'API error');
+    }
     const textBlock = data.content?.find(b => b.type === 'text');
     state.generated = textBlock?.text || 'No content generated.';
   } catch (e) {
-    state.generated = `Error: ${e.message}\n\nThe embedded API key may be invalid or out of credit. Check console.anthropic.com.`;
+    state.generated = `Error: ${e.message}\n\nCheck your API key and credit balance at console.anthropic.com.`;
   } finally {
     state.generating = false;
     renderStudioContent();
@@ -1223,6 +1327,79 @@ function renderStudioContent() {
     c.innerHTML = `<pre>${esc(state.generated)}</pre>`;
   }
 }
+
+/* ═══════════════════════════════════════════════════
+   API KEY MODAL
+═══════════════════════════════════════════════════ */
+function maskKey(k) {
+  if (!k || k.length < 16) return "";
+  return k.slice(0, 12) + "…" + k.slice(-4);
+}
+
+function refreshKeyStatus() {
+  const status = document.getElementById('key-status');
+  const input = document.getElementById('key-input');
+  if (state.apiKey) {
+    status.className = 'key-status has-key';
+    status.textContent = '✓ Key active this session: ' + maskKey(state.apiKey);
+    input.value = '';
+    input.placeholder = 'Enter a new key to replace it…';
+  } else {
+    status.className = 'key-status';
+    status.textContent = '';
+    input.value = '';
+    input.placeholder = 'sk-ant-api03-...';
+  }
+}
+
+function openKeyModal() {
+  refreshKeyStatus();
+  document.getElementById('key-overlay').classList.add('show');
+  setTimeout(() => document.getElementById('key-input').focus(), 100);
+}
+function closeKeyModal() {
+  document.getElementById('key-overlay').classList.remove('show');
+}
+
+document.getElementById('qa-key').onclick = openKeyModal;
+document.getElementById('key-close').onclick = closeKeyModal;
+document.getElementById('strip-key').onclick = (e) => { e.preventDefault(); openKeyModal(); };
+document.getElementById('key-overlay').onclick = (e) => {
+  if (e.target.id === 'key-overlay') closeKeyModal();
+};
+
+// Show / hide the key text
+document.getElementById('key-eye').onclick = () => {
+  const input = document.getElementById('key-input');
+  input.type = input.type === 'password' ? 'text' : 'password';
+};
+
+// Save the key for this session
+document.getElementById('key-save').onclick = () => {
+  const v = document.getElementById('key-input').value.trim();
+  if (!v) {
+    // Empty save just closes if a key already exists
+    if (state.apiKey) { closeKeyModal(); }
+    else { alert('Please enter your Anthropic API key.'); }
+    return;
+  }
+  if (!v.startsWith('sk-ant-')) {
+    alert('That does not look like an Anthropic key. It should start with "sk-ant-".');
+    return;
+  }
+  state.apiKey = v;
+  sessionStorage.setItem('sd_api_key', v);
+  closeKeyModal();
+  // If an article is selected and waiting, resume generation automatically
+  if (state.selectedArticle && document.getElementById('studio-overlay').classList.contains('show')) {
+    generateContent();
+  }
+};
+
+// Enter key in the input = save
+document.getElementById('key-input').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') document.getElementById('key-save').click();
+});
 
 /* ═══════════════════════════════════════════════════
    QUICK ACTIONS

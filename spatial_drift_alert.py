@@ -46,9 +46,45 @@ from difflib import SequenceMatcher
 from pathlib import Path
 
 # ── Credentials ────────────────────────────────────────────────────────────────
-ANTHROPIC_API_KEY  = os.environ.get("ANTHROPIC_API_KEY",  "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")
-TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "8755526579:AAEIYLkfrmFV5Byprb-uyGeXzUIDaHsqk_s")
-TELEGRAM_CHAT_ID   = os.environ.get("TELEGRAM_CHAT_ID",   "1739337359")
+# All credentials come ONLY from environment variables (GitHub Secrets).
+# No hardcoded fallbacks — a hardcoded key in a public repo gets auto-revoked
+# by Anthropic's secret scanners within minutes.
+#
+# In GitHub Actions these are injected from:
+#   Settings → Secrets and variables → Actions
+# Required secrets: ANTHROPIC_API_KEY, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
+
+ANTHROPIC_API_KEY  = os.environ.get("ANTHROPIC_API_KEY",  "").strip()
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
+TELEGRAM_CHAT_ID   = os.environ.get("TELEGRAM_CHAT_ID",   "").strip()
+
+
+def _check_credentials():
+    """Fail fast with a clear message if any required secret is missing."""
+    missing = []
+    if not ANTHROPIC_API_KEY:
+        missing.append("ANTHROPIC_API_KEY")
+    if not TELEGRAM_BOT_TOKEN:
+        missing.append("TELEGRAM_BOT_TOKEN")
+    if not TELEGRAM_CHAT_ID:
+        missing.append("TELEGRAM_CHAT_ID")
+    if missing:
+        print()
+        print("  ❌ MISSING REQUIRED SECRETS:")
+        for m in missing:
+            print(f"     • {m}")
+        print()
+        print("  FIX: GitHub repo → Settings → Secrets and variables → Actions")
+        print("       Add each missing secret, then re-run the workflow.")
+        print()
+        raise SystemExit(f"Missing secrets: {', '.join(missing)}")
+    # Light sanity check on the API key shape
+    if not ANTHROPIC_API_KEY.startswith("sk-ant-"):
+        print()
+        print("  ⚠️  ANTHROPIC_API_KEY does not start with 'sk-ant-'.")
+        print("      The secret value may be malformed (extra quotes/spaces?).")
+        print("      Re-create the secret cleanly if the run fails with 401.")
+        print()
 
 # ── Configuration ──────────────────────────────────────────────────────────────
 MAX_ARTICLES_PER_TOPIC = 6
@@ -831,6 +867,9 @@ def main():
     print(f"  Run token:    {run_token}")
     print(f"  Target slot:  {nearest_slot_label(ts)}")
     print()
+
+    # Verify all required secrets are present before doing any work
+    _check_credentials()
 
     if should_skip_this_run():
         return

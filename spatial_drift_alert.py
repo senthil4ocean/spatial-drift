@@ -1,31 +1,38 @@
 """
 ╔═══════════════════════════════════════════════════════╗
-║         SPATIAL DRIFT — Daily Intelligence Alert       ║
-║         Explore. Analyze. Anticipate.                  ║
-║         v5.0 FINAL — All-Domain Coverage Fix           ║
+║        SPATIAL DRIFT — Daily Intelligence Alert        ║
+║        Explore. Analyze. Anticipate.                   ║
+║        v6.1 — Global Authoritative Sourcing            ║
 ╚═══════════════════════════════════════════════════════╝
 
-PROBLEMS FIXED IN THIS VERSION
+CONFIRMATION OF SOURCE STRATEGY
 ─────────────────────────────────────────────────────────
-1. ONLY REMOTE SENSING SHOWED ARTICLES (8 other domains empty)
-   ROOT CAUSE: The web_search tool has per-conversation rate limits.
-   When 9 domains share one HTTP session in quick succession, the
-   later calls get throttled and return empty.
-   FIX: Larger delays between calls (8s), explicit retry on empty
-   results, and a fallback that uses only the model's knowledge
-   (no web_search) so a domain never returns zero articles.
+The previous versions had Science Daily as the LOCKED priority,
+which is why repeats and stale articles were a problem.
 
-2. SCIENCE DAILY NOW USED AS PRIMARY SOURCE
-   Each domain has dedicated Science Daily category URLs that the
-   model is told to search by name first.
+THIS VERSION uses a BROAD POOL of 12-18 authoritative sources per
+domain, including:
+- Peer-reviewed journals: Nature, Science, PNAS, AGU, IEEE
+- Space agencies: NASA, ESA, ISRO, JAXA, CNES, DLR, CSA
+- Geological surveys: USGS, BGS, GSC, Geoscience Australia
+- Climate orgs: NOAA, IPCC, ECMWF, Met Office, WMO
+- Industry publications: Geospatial World, GIM, SpaceNews, Mining.com
+- Mainstream news: Reuters, BBC Science, AP, Phys.org, Eos
+- Open data portals: Copernicus, EarthData, OpenStreetMap
 
-3. NODE.JS 20 DEPRECATION
-   Workflow updated to actions/checkout@v5 and setup-python@v6.
+Science Daily is included but NOT prioritized — it's just one
+trusted source among many.
 
-4. WRONG DELIVERY TIMES
-   GitHub cron is "best effort" and lags 5-30 minutes under load.
-   We now schedule extra cron triggers near each target time AND
-   add a deduplication file so the same time slot only sends once.
+KEY FIXES IN v6.1
+─────────────────────────────────────────────────────────
+1. Knowledge fallback if web_search returns nothing (no more
+   blank domains).
+2. Source-diversity enforcement: each source capped at 2 items
+   per domain.
+3. Source diversity LOGGED to GitHub Actions output so you can
+   verify which sources were used.
+4. Cache-buster timestamp in queries to avoid stale cached
+   web_search results.
 """
 
 import os
@@ -48,7 +55,9 @@ MAX_ARTICLES_PER_TOPIC = 6
 MAX_RETRIES_PER_TOPIC  = 3
 MAX_TOKENS             = 4096
 TELEGRAM_MSG_LIMIT     = 4000
-DELAY_BETWEEN_DOMAINS  = 8   # seconds — critical to avoid rate limits
+DELAY_BETWEEN_DOMAINS  = 8
+RECENCY_WINDOW_DAYS    = 30   # widened from 14 for better coverage
+MAX_PER_SOURCE         = 2    # source-diversity cap
 
 # Output paths
 ROOT_DIR  = Path(__file__).parent
@@ -60,132 +69,216 @@ ARTICLES_FILES = [
     DATA_DIR / "articles.json",
     DOCS_DIR / "articles.json",
 ]
-LAST_RUN_FILE = DATA_DIR / "last_run.txt"  # deduplication marker
+LAST_RUN_FILE = DATA_DIR / "last_run.txt"
 
-# IST timezone
 IST = timezone(timedelta(hours=5, minutes=30))
-
-# Target IST slots (hour, minute) — used for "this run is closest to which slot"
 TARGET_SLOTS = [(8, 0), (12, 0), (16, 0), (22, 0)]
 
 
-# ── Topic Definitions ──────────────────────────────────────────────────────────
+# ═══════════════════════════════════════════════════════════════════════════════
+# TOPIC DEFINITIONS — broad global authoritative source pool per domain
+# ═══════════════════════════════════════════════════════════════════════════════
+
 TOPICS = [
     {
         "emoji": "🛰️",
         "label": "Remote Sensing & Earth Observation",
-        "query": "latest remote sensing satellite imagery earth observation news 2026",
-        "science_daily_urls": [
-            "https://www.sciencedaily.com/news/space_time/satellites/",
-            "https://www.sciencedaily.com/news/earth_climate/geography/",
+        "keywords": "satellite imagery, earth observation, LiDAR, SAR, hyperspectral, multispectral, Sentinel, Landsat, Planet Labs, Maxar, ICEYE, optical sensing",
+        "trusted_sources": [
+            # Peer-reviewed
+            "Nature", "Science", "Remote Sensing of Environment",
+            "IEEE Transactions on Geoscience and Remote Sensing", "MDPI Remote Sensing",
+            "ISPRS Journal of Photogrammetry and Remote Sensing",
+            # Agencies / data providers
+            "NASA", "ESA", "ISRO", "JAXA", "USGS", "NOAA", "Copernicus", "CNES", "DLR",
+            "Planet Labs", "Maxar Technologies", "Airbus Defence and Space",
+            # News / industry
+            "SpaceNews", "Geospatial World", "GIM International", "Eos (AGU)",
+            "Reuters", "BBC Science", "Phys.org", "ScienceDaily",
         ],
     },
     {
         "emoji": "🗺️",
         "label": "GIS & Geospatial Technology",
-        "query": "latest GIS geospatial mapping spatial analysis news 2026",
-        "science_daily_urls": [
-            "https://www.sciencedaily.com/news/computers_math/computer_modeling/",
-            "https://www.sciencedaily.com/news/earth_climate/geography/",
+        "keywords": "GIS, geospatial AI, digital twin, spatial analysis, ArcGIS, QGIS, 3D city model, OpenStreetMap, geocoding, location intelligence",
+        "trusted_sources": [
+            "Esri", "Geospatial World", "GIM International", "Directions Magazine",
+            "International Journal of Geographical Information Science",
+            "Cartography and Geographic Information Science", "Transactions in GIS",
+            "MIT Technology Review", "TechCrunch", "IEEE Spectrum",
+            "Google Maps Platform", "Microsoft Planetary Computer",
+            "OpenStreetMap Foundation", "QGIS", "OGC (Open Geospatial Consortium)",
+            "Reuters", "Phys.org", "ScienceDaily",
         ],
     },
     {
         "emoji": "🌡️",
         "label": "Climatology & Atmospheric Science",
-        "query": "latest climate change atmospheric science weather research 2026",
-        "science_daily_urls": [
-            "https://www.sciencedaily.com/news/earth_climate/climate/",
-            "https://www.sciencedaily.com/news/earth_climate/weather/",
+        "keywords": "climate change, global warming, atmospheric science, IPCC, methane, CO2, heatwave, sea ice, cyclone, ENSO, jet stream, climate model",
+        "trusted_sources": [
+            "Nature Climate Change", "Science", "Nature Geoscience", "PNAS",
+            "Geophysical Research Letters", "Atmospheric Chemistry and Physics",
+            "Journal of Climate", "Climate Dynamics",
+            "IPCC", "WMO", "NOAA", "NASA Climate", "ECMWF",
+            "UK Met Office", "Copernicus Climate Change Service",
+            "Reuters", "BBC Science", "AP News", "Phys.org", "ScienceDaily",
+            "Carbon Brief", "Inside Climate News",
         ],
     },
     {
         "emoji": "🌊",
         "label": "Oceanography & Marine Science",
-        "query": "latest oceanography sea level marine science discovery 2026",
-        "science_daily_urls": [
-            "https://www.sciencedaily.com/news/earth_climate/oceanography/",
-            "https://www.sciencedaily.com/news/earth_climate/sea_life/",
+        "keywords": "oceanography, sea level rise, ocean temperature, marine ecosystems, coral reef, ocean currents, deep sea, salinity, AMOC, thermohaline",
+        "trusted_sources": [
+            "Nature", "Nature Geoscience", "Science",
+            "Journal of Geophysical Research: Oceans", "Ocean Science",
+            "Limnology and Oceanography", "Marine Geology",
+            "NOAA", "NASA Earth Science", "Scripps Institution of Oceanography",
+            "Woods Hole Oceanographic Institution", "WMO",
+            "Reuters", "BBC Science", "AP News", "Phys.org",
+            "Eos (AGU)", "ScienceDaily", "Smithsonian Ocean",
         ],
     },
     {
         "emoji": "🏔️",
         "label": "Plate Tectonics & Seismology",
-        "query": "latest earthquake seismology plate tectonics fault discovery 2026",
-        "science_daily_urls": [
-            "https://www.sciencedaily.com/news/earth_climate/earthquakes/",
-            "https://www.sciencedaily.com/news/earth_climate/geology/",
+        "keywords": "earthquake, seismology, plate tectonics, fault, subduction, mantle, GPS geodesy, seismic activity, tsunami warning",
+        "trusted_sources": [
+            "Nature Geoscience", "Science", "Geophysical Research Letters",
+            "Seismological Research Letters", "Earth and Planetary Science Letters",
+            "Journal of Geophysical Research: Solid Earth",
+            "USGS Earthquake Hazards", "EMSC", "IRIS", "GFZ Potsdam",
+            "GNS Science (NZ)", "Geoscience Australia",
+            "Reuters", "BBC Science", "AP News", "Phys.org", "ScienceDaily",
+            "Eos (AGU)",
         ],
     },
     {
         "emoji": "🌋",
         "label": "Volcanology",
-        "query": "latest volcanic eruption volcano monitoring news 2026",
-        "science_daily_urls": [
-            "https://www.sciencedaily.com/news/earth_climate/volcanoes/",
+        "keywords": "volcanic eruption, volcano monitoring, lava flow, magma, ash plume, pyroclastic, volcanic gas, caldera, Smithsonian GVP",
+        "trusted_sources": [
+            "Nature Geoscience", "Science", "Journal of Volcanology and Geothermal Research",
+            "Bulletin of Volcanology",
+            "USGS Volcano Hazards Program", "Smithsonian Global Volcanism Program",
+            "INGV (Italy)", "Icelandic Met Office", "VolcanoDiscovery",
+            "JMA (Japan Met Agency)", "Indonesian PVMBG", "Philippine PHIVOLCS",
+            "Reuters", "BBC Science", "AP News", "Phys.org", "ScienceDaily",
+            "Eos (AGU)",
         ],
     },
     {
         "emoji": "⛏️",
         "label": "Mining & Mineral Resources",
-        "query": "latest mining mineral exploration lithium rare earth discovery 2026",
-        "science_daily_urls": [
-            "https://www.sciencedaily.com/news/matter_energy/mining/",
-            "https://www.sciencedaily.com/news/earth_climate/geology/",
+        "keywords": "mining, mineral exploration, critical minerals, lithium, cobalt, rare earth elements, copper, nickel, uranium, sustainable mining",
+        "trusted_sources": [
+            "Mining.com", "Mining Magazine", "Mining Journal", "Mining Weekly",
+            "Reuters Mining", "Bloomberg Metals & Mining", "S&P Global Market Intelligence",
+            "USGS Mineral Resources", "BGS (British Geological Survey)",
+            "Geological Survey of Canada", "Geoscience Australia",
+            "Nature Geoscience", "Economic Geology", "Ore Geology Reviews",
+            "Financial Times Mining", "Wall Street Journal",
+            "Phys.org", "ScienceDaily",
         ],
     },
     {
         "emoji": "🪨",
         "label": "Geology & Geomorphology",
-        "query": "latest geology geological discovery rock formation news 2026",
-        "science_daily_urls": [
-            "https://www.sciencedaily.com/news/earth_climate/geology/",
-            "https://www.sciencedaily.com/news/fossils_ruins/geochronology/",
+        "keywords": "geology, geological discovery, rock formation, stratigraphy, paleoclimate, sedimentology, mineralogy, geochronology, geomorphology",
+        "trusted_sources": [
+            "Nature Geoscience", "Geology (GSA)", "Earth and Planetary Science Letters",
+            "Science", "Geological Society of America Bulletin",
+            "Quaternary Science Reviews", "Journal of Sedimentary Research",
+            "USGS", "BGS", "Geological Survey of Canada", "Geoscience Australia",
+            "GFZ Potsdam",
+            "Reuters", "BBC Science", "Smithsonian", "National Geographic",
+            "Phys.org", "ScienceDaily", "Eos (AGU)",
         ],
     },
     {
         "emoji": "🚀",
         "label": "Space & Geodesy",
-        "query": "latest satellite launch space mission earth observation 2026",
-        "science_daily_urls": [
-            "https://www.sciencedaily.com/news/space_time/space_exploration/",
-            "https://www.sciencedaily.com/news/space_time/satellites/",
+        "keywords": "satellite launch, space mission, earth observation satellite, geodesy, GNSS, GPS, reference frame, ITRF, GRACE, lunar mission, Mars mission",
+        "trusted_sources": [
+            "SpaceNews", "Spaceflight Now", "Ars Technica Space", "The Space Review",
+            "NASA", "ESA", "ISRO", "JAXA", "CNES", "DLR", "CSA", "Roscosmos",
+            "SpaceX", "Blue Origin", "Rocket Lab",
+            "Reuters", "BBC Science", "AP News", "Nature Astronomy",
+            "Sky and Telescope", "Phys.org", "ScienceDaily",
         ],
     },
 ]
 
 
-# ── System Prompts ─────────────────────────────────────────────────────────────
-NEWS_SYSTEM_PROMPT = f"""You are the news research engine for SPATIAL DRIFT.
+# ═══════════════════════════════════════════════════════════════════════════════
+# SYSTEM PROMPT
+# ═══════════════════════════════════════════════════════════════════════════════
 
-TASK: Find the most recent and significant real news articles for ONE specific geospatial domain.
+NEWS_SYSTEM_PROMPT = f"""You are the news research engine for SPATIAL DRIFT — a geospatial intelligence platform.
 
-PRIORITY SOURCE: Science Daily — always check this first by searching for the domain keyword on their site (e.g., "site:sciencedaily.com volcano" or "Science Daily climate"). They cover all earth-science topics daily.
+YOUR JOB: Use web_search to find the most RECENT real news articles for ONE geospatial domain.
 
-YOUR STRATEGY:
-1. Use web_search to find recent articles from Science Daily, Reuters, Nature, ESA, NASA, etc.
-2. Aim for {MAX_ARTICLES_PER_TOPIC} articles. If web_search returns nothing, fall back to articles you know about.
-3. Always return at least 2 articles — even if you must use slightly older significant ones from your training data when web search fails.
+ABSOLUTE REQUIREMENTS:
+1. RECENCY: Articles MUST be from the last {RECENCY_WINDOW_DAYS} days. Reject anything older.
+2. SOURCE DIVERSITY: Pull articles from MANY DIFFERENT outlets. Do not concentrate on a single source.
+   The user wants global coverage — mix peer-reviewed journals, government agencies, industry
+   publications, and mainstream news outlets from around the world.
+3. AUTHENTIC SOURCES ONLY: Use only real, reputable publishers from the provided trusted list (or
+   equivalent quality). No blogs, no aggregators, no SEO farms, no opinion sites.
+4. REAL URLs: Every article URL must come from your actual web_search results — never fabricate.
+5. DIFFERENT SOURCES: At most {MAX_PER_SOURCE} articles from any single source. Aim for {MAX_ARTICLES_PER_TOPIC}
+   articles from {MAX_ARTICLES_PER_TOPIC} different publishers.
+
+SEARCH STRATEGY:
+- Run at least 3-4 different web_searches with varied keywords and source hints
+- Combine results across queries before picking the best
+- Examples:
+  • "<keyword> latest news 2026"
+  • "<keyword> site:nature.com"
+  • "<keyword> site:reuters.com"
+  • "<keyword> breakthrough this month"
 
 OUTPUT FORMAT — STRICT:
 Return ONLY a valid JSON array. Start with [ and end with ]. Nothing before or after.
-No code fences. No markdown. No commentary. No <cite> tags. No HTML.
+No code fences, no markdown, no commentary, no <cite> tags, no HTML.
 Plain text only inside JSON strings.
 
-SCHEMA — every article object must have:
+SCHEMA:
 {{
   "title": "Plain text headline, max 100 chars",
   "summary": "1-2 sentence summary in plain text",
-  "source": "Publication name (Science Daily, Reuters, Nature, ESA, etc.)",
-  "date": "Like 'May 2026' or '3 days ago'",
-  "url": "https://... — REAL URL from web_search results, or the source's homepage if specific URL unknown",
-  "significance": "Plain text, max 120 chars, why geospatial pros care"
+  "source": "Real publication name (e.g., 'Nature', 'Reuters', 'NASA', 'USGS', 'BBC Science')",
+  "date": "Specific recent date like '8 May 2026' or '3 days ago'",
+  "url": "https://... — REAL URL from web_search results",
+  "significance": "Plain text, max 120 chars, why geospatial pros should care"
 }}
 
-CRITICAL:
-- Every article must have a URL. If web_search gave you a specific URL, use it.
-  Otherwise use the source's main domain (e.g., https://www.sciencedaily.com/news/earth_climate/volcanoes/)
-- NEVER return an empty array. Return at least 2 articles.
-- Plain text only in all string fields. No <cite>, no HTML.
+Output the JSON array and nothing else."""
+
+
+KB_FALLBACK_PROMPT = """You are a geospatial sciences news researcher.
+
+Web search returned insufficient results. Based on your training knowledge,
+list significant recent articles, papers, or developments from 2025-2026
+for the given geospatial domain.
+
+Use real source names (Nature, Reuters, NASA, USGS, etc.). For URL, use the
+source's main domain if you don't know the specific article URL.
+
+Return a JSON array following the exact schema below. Plain text only.
+Do not return an empty array — provide at least 2-3 known items.
+
+SCHEMA:
+[
+  {
+    "title": "Plain text headline",
+    "summary": "1-2 sentence summary",
+    "source": "Publication name",
+    "date": "Approximate date",
+    "url": "https://... source URL",
+    "significance": "Why geospatial pros care"
+  }
+]
 
 Output ONLY the JSON array."""
 
@@ -224,7 +317,6 @@ def now_ist() -> datetime:
 
 
 def nearest_slot_label(ts: datetime) -> str:
-    """Return the IST time slot this run is closest to (for deduplication)."""
     hour = ts.hour + ts.minute / 60
     best = min(TARGET_SLOTS, key=lambda s: abs(s[0] - hour))
     return f"{ts.strftime('%Y-%m-%d')}_{best[0]:02d}00"
@@ -266,7 +358,6 @@ def call_anthropic(system_prompt: str, user_msg: str, use_search: bool = True,
             except Exception:
                 body = ""
             last_err = f"HTTP {e.response.status_code}: {body}"
-            # On 429 (rate limit) or 529 (overloaded), wait longer
             if e.response.status_code in (429, 529):
                 if attempt < retries:
                     wait = 15 + (attempt * 10)
@@ -358,7 +449,6 @@ def extract_json_array(raw: str) -> list:
             return json.loads(candidate2)
         except json.JSONDecodeError:
             print(f"        ⚠️  JSON parse failed: {e}")
-            print(f"        Preview: {candidate[:250]!r}")
             return []
 
 
@@ -380,67 +470,77 @@ def best_url_match(title: str, search_urls: list) -> str:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# FETCH ONE TOPIC — with fallback
+# FETCH ONE TOPIC — with diverse sources and knowledge fallback
 # ═══════════════════════════════════════════════════════════════════════════════
 
-def fetch_topic(topic: dict) -> list:
-    """Fetch news for one domain. Tries web search first, then falls back to
-    model knowledge if web search returns empty (so we never get a blank domain)."""
+def fetch_topic(topic: dict, run_token: str) -> list:
+    """Fetch news for one domain. Pass 1 = web_search across diverse sources.
+    Pass 2 = knowledge fallback if web returns empty."""
     label = topic["label"]
-    query = topic["query"]
-    sd_urls = topic.get("science_daily_urls", [])
+    keywords = topic["keywords"]
+    sources = topic["trusted_sources"]
 
-    sd_list = "\n".join(f"  - {u}" for u in sd_urls) if sd_urls else "  (none)"
+    ts = now_ist()
+    today_str = ts.strftime("%d %B %Y")
+    sources_str = ", ".join(sources[:18])  # cap displayed list
 
-    user_msg_with_search = f"""Find the latest news for this geospatial domain: "{label}"
+    # ── PASS 1: web search with diverse sourcing ──
+    user_msg = f"""Find the latest news articles for this geospatial domain.
 
-PRIORITY: Search Science Daily first using queries like "site:sciencedaily.com {label.lower().split('&')[0].strip()}". Also check these category pages by searching for their content:
-{sd_list}
+DOMAIN: {label}
+KEYWORDS: {keywords}
+DATE WINDOW: Past {RECENCY_WINDOW_DAYS} days (today is {today_str})
+RUN ID: {run_token}  (use this to vary your searches and avoid cached results)
 
-Then run additional searches using these keywords: {query}
+GLOBAL TRUSTED SOURCES (pull from AS MANY DIFFERENT ONES as possible):
+{sources_str}
 
-Return {MAX_ARTICLES_PER_TOPIC} most recent and relevant articles as a JSON array.
-EVERY article must have a real URL (from search results) or the source's main URL.
-NEVER return an empty array."""
+Important: Mix sources. Don't return all articles from one outlet.
+At most {MAX_PER_SOURCE} per source. Aim for {MAX_ARTICLES_PER_TOPIC} articles from {MAX_ARTICLES_PER_TOPIC} different publishers.
 
-    # ── PASS 1: with web search ────────────────────────────────────────────
+Run multiple varied web_searches:
+- "{keywords.split(',')[0].strip()} latest news"
+- "{keywords.split(',')[0].strip()} 2026 research"
+- "{label.lower()} discovery this month"
+- "{keywords.split(',')[1].strip() if ',' in keywords else keywords} new findings"
+
+Return {MAX_ARTICLES_PER_TOPIC} articles as a JSON array per the schema. Plain text only.
+EVERY article needs a real URL from web_search."""
+
+    articles = []
+    search_urls = []
     try:
-        print(f"        🔍 Pass 1: web search...")
-        api_data = call_anthropic(NEWS_SYSTEM_PROMPT, user_msg_with_search, use_search=True)
+        print(f"        🔍 Pass 1: web search across {len(sources)} trusted sources...")
+        api_data = call_anthropic(NEWS_SYSTEM_PROMPT, user_msg, use_search=True)
         raw_text = extract_response_text(api_data)
         articles = extract_json_array(raw_text) if raw_text else []
         search_urls = extract_search_urls(api_data)
+        print(f"        🔍 Pass 1 returned: {len(articles)} articles, {len(search_urls)} candidate URLs")
     except Exception as e:
         print(f"        ⚠️  Pass 1 failed: {e}")
-        articles = []
-        search_urls = []
 
-    # ── PASS 2: knowledge-only fallback if nothing came back ───────────────
+    # ── PASS 2: knowledge fallback if web returned empty ──
     if not articles:
-        print(f"        🔍 Pass 2: knowledge fallback (no web search)...")
+        print(f"        🔍 Pass 2: knowledge fallback...")
         try:
-            user_msg_kb = f"""I need news for the geospatial domain: "{label}"
-
-Based on your training knowledge, list {MAX_ARTICLES_PER_TOPIC} significant articles, papers,
-or developments from 2025-2026 in this field. Topics: {query}
-
-For each, provide a URL pointing to the publishing source's main page if you don't know
-the exact article URL. For Science Daily articles, use: {sd_urls[0] if sd_urls else 'https://www.sciencedaily.com/news/earth_climate/'}
-
-Return a JSON array following the exact schema. NEVER return empty."""
-
-            api_data = call_anthropic(NEWS_SYSTEM_PROMPT, user_msg_kb, use_search=False, retries=1)
+            kb_msg = f"""Domain: {label}
+Keywords: {keywords}
+Provide 3-5 significant 2025-2026 developments from your training knowledge.
+Use real source names from this list: {sources_str[:500]}
+Return as JSON array per schema."""
+            api_data = call_anthropic(KB_FALLBACK_PROMPT, kb_msg, use_search=False, retries=1)
             raw_text = extract_response_text(api_data)
             articles = extract_json_array(raw_text) if raw_text else []
+            print(f"        🔍 Pass 2 returned: {len(articles)} fallback articles")
         except Exception as e:
             print(f"        ❌ Pass 2 also failed: {e}")
-            articles = []
 
     if not articles:
         return []
 
-    # Clean & validate every article
+    # ── Clean, validate, dedupe by source ──
     cleaned = []
+    seen_sources = {}
     for a in articles:
         if not isinstance(a, dict):
             continue
@@ -452,15 +552,44 @@ Return a JSON array following the exact schema. NEVER return empty."""
             "significance": clean_text(a.get("significance", "")),
             "url":          str(a.get("url", "")).strip(),
         }
-        # Backfill URL from search if missing
         if not is_valid_url(obj["url"]) and search_urls:
             obj["url"] = best_url_match(obj["title"], search_urls) or ""
-        # Final fallback: Science Daily category page
-        if not is_valid_url(obj["url"]) and sd_urls:
-            obj["url"] = sd_urls[0]
-        if obj["title"]:
-            cleaned.append(obj)
+        if not obj["title"]:
+            continue
+        src_key = obj["source"].lower().strip()
+        if seen_sources.get(src_key, 0) >= MAX_PER_SOURCE:
+            continue
+        seen_sources[src_key] = seen_sources.get(src_key, 0) + 1
+        cleaned.append(obj)
+
+    # ── Log source diversity ──
+    if cleaned:
+        srcs_used = sorted(set(a["source"] for a in cleaned if a["source"]))
+        print(f"        📚 Sources used ({len(srcs_used)}): {', '.join(srcs_used[:6])}{'...' if len(srcs_used) > 6 else ''}")
+
     return cleaned
+
+
+def deduplicate_across_domains(all_results: list) -> list:
+    """Remove articles whose titles closely match across domains."""
+    seen_titles = []
+    out = []
+    for label, articles in all_results:
+        keep = []
+        for a in articles:
+            t = (a.get("title") or "").lower().strip()
+            if not t:
+                continue
+            is_dupe = False
+            for prev in seen_titles:
+                if SequenceMatcher(None, t, prev).ratio() > 0.85:
+                    is_dupe = True
+                    break
+            if not is_dupe:
+                seen_titles.append(t)
+                keep.append(a)
+        out.append((label, keep))
+    return out
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -582,7 +711,7 @@ def send_telegram(text: str, retries: int = 3) -> tuple:
 # SAVE FOR WEBSITE
 # ═══════════════════════════════════════════════════════════════════════════════
 
-def save_articles_for_website(all_results: list, run_meta: dict):
+def save_articles_for_website(all_results: list, run_meta: dict, source_summary: dict):
     ts = now_ist()
     payload = {
         "generated_at_ist":   ts.strftime("%Y-%m-%d %H:%M:%S IST"),
@@ -594,8 +723,10 @@ def save_articles_for_website(all_results: list, run_meta: dict):
             "total_articles":   sum(len(a) for _, a in all_results),
             "domains_total":    len(all_results),
             "domains_with_news": sum(1 for _, a in all_results if a),
+            "unique_sources":   len(source_summary),
             "elapsed":          run_meta.get("elapsed", "—"),
         },
+        "source_summary": source_summary,  # which sources contributed how many articles
         "domains": [
             {"label": label, "count": len(articles), "articles": articles}
             for label, articles in all_results
@@ -611,11 +742,10 @@ def save_articles_for_website(all_results: list, run_meta: dict):
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# DEDUPLICATION (prevents the same slot from sending twice)
+# DEDUPLICATION
 # ═══════════════════════════════════════════════════════════════════════════════
 
 def should_skip_this_run() -> bool:
-    """Check if this slot already ran in the last 2 hours."""
     ts = now_ist()
     slot = nearest_slot_label(ts)
     if LAST_RUN_FILE.exists():
@@ -630,7 +760,6 @@ def should_skip_this_run() -> bool:
 
 
 def mark_run_complete():
-    """Write the current slot to the dedup file."""
     ts = now_ist()
     slot = nearest_slot_label(ts)
     try:
@@ -646,27 +775,28 @@ def mark_run_complete():
 def main():
     start = time.time()
     ts = now_ist()
+    # Unique run token so the model varies its searches between runs
+    run_token = ts.strftime("%Y%m%d-%H%M")
+
     print()
     print("╔══════════════════════════════════════════════╗")
-    print("║   SPATIAL DRIFT v5.0 FINAL — Daily Alert     ║")
-    print("║   All-Domain Coverage Edition                ║")
+    print("║   SPATIAL DRIFT v6.1 — Daily Alert           ║")
+    print("║   Global Authoritative Sourcing              ║")
     print("╚══════════════════════════════════════════════╝")
-    print(f"  Run started: {ts.strftime('%Y-%m-%d %I:%M:%S %p IST')}")
-    print(f"  Target slot: {nearest_slot_label(ts)}")
+    print(f"  Run started:  {ts.strftime('%Y-%m-%d %I:%M:%S %p IST')}")
+    print(f"  Run token:    {run_token}")
+    print(f"  Target slot:  {nearest_slot_label(ts)}")
     print()
 
-    # ── Deduplication check ────────────────────────────────────────────────
     if should_skip_this_run():
-        print("  This run was triggered for a slot that already fired.")
-        print("  Exiting cleanly to avoid duplicate Telegram messages.")
         return
 
-    # ── Fetch all domains ──────────────────────────────────────────────────
+    # ── Fetch all domains ──
     all_results = []
     for idx, topic in enumerate(TOPICS):
         full_label = f"{topic['emoji']} {topic['label']}"
         print(f"  📡 [{idx+1}/{len(TOPICS)}] {topic['label']}")
-        articles = fetch_topic(topic)
+        articles = fetch_topic(topic, run_token)
         all_results.append((full_label, articles))
         with_url = sum(1 for a in articles if is_valid_url(a.get("url", "")))
         status = "✅" if articles else "⚠️ "
@@ -674,22 +804,47 @@ def main():
         for a in articles[:3]:
             url = a.get("url", "")
             mark = "🔗" if is_valid_url(url) else "❌"
-            print(f"        {mark} {a.get('title','')[:60]}")
+            src = a.get("source", "?")
+            print(f"        {mark} [{src[:18]:<18}] {a.get('title','')[:50]}")
         if len(articles) > 3:
             print(f"        ... and {len(articles)-3} more")
-
-        # CRITICAL: delay between domains to avoid rate limits
         if idx < len(TOPICS) - 1:
             print(f"     ⏸  pausing {DELAY_BETWEEN_DOMAINS}s before next domain...")
             time.sleep(DELAY_BETWEEN_DOMAINS)
 
+    # ── Dedupe across domains ──
+    print()
+    print("  🧹 Deduplicating cross-domain titles...")
+    before = sum(len(a) for _, a in all_results)
+    all_results = deduplicate_across_domains(all_results)
+    after = sum(len(a) for _, a in all_results)
+    print(f"     Removed {before - after} duplicate(s)")
+
+    # ── Build source summary ──
+    source_summary = {}
+    for _, articles in all_results:
+        for a in articles:
+            s = a.get("source", "Unknown")
+            source_summary[s] = source_summary.get(s, 0) + 1
+
     elapsed = f"{int(time.time() - start)}s"
 
-    # ── Save data for website ──────────────────────────────────────────────
+    # ── Save data ──
     print()
-    save_articles_for_website(all_results, {"elapsed": elapsed})
+    save_articles_for_website(all_results, {"elapsed": elapsed}, source_summary)
 
-    # ── Build & send Telegram messages ─────────────────────────────────────
+    # ── Print source diversity report ──
+    print()
+    print(f"  📚 SOURCE DIVERSITY REPORT — {len(source_summary)} unique sources contributed:")
+    sorted_sources = sorted(source_summary.items(), key=lambda x: -x[1])
+    for src, count in sorted_sources[:15]:
+        bar = "█" * count
+        print(f"     {src[:30]:<30} {bar} {count}")
+    if len(sorted_sources) > 15:
+        rest = sum(c for _, c in sorted_sources[15:])
+        print(f"     ... and {len(sorted_sources) - 15} more sources ({rest} articles)")
+
+    # ── Build & send Telegram ──
     print()
     print("  📨 Building Telegram message(s)...")
     messages = build_compact_message(all_results, {"elapsed": elapsed})
@@ -707,11 +862,10 @@ def main():
             print(f"     ❌ {i}/{len(messages)} — {err}")
         time.sleep(0.5)
 
-    # ── Mark this slot complete (dedup) ────────────────────────────────────
     if delivered > 0:
         mark_run_complete()
 
-    # ── Summary ────────────────────────────────────────────────────────────
+    # ── Summary ──
     successful = sum(1 for _, a in all_results if a)
     total_articles = sum(len(a) for _, a in all_results)
     total_links = sum(1 for _, ar in all_results for a in ar if is_valid_url(a.get("url", "")))
@@ -724,6 +878,7 @@ def main():
     print(f"  │  Domains successful: {successful:2d}                 │")
     print(f"  │  Articles found:     {total_articles:2d}                 │")
     print(f"  │  Articles w/ links:  {total_links:2d}                 │")
+    print(f"  │  Unique sources:     {len(source_summary):2d}                 │")
     print(f"  │  Messages sent:      {delivered:2d}/{len(messages):<2d}              │")
     print(f"  │  Total runtime:      {elapsed:<7}            │")
     print("  └─────────────────────────────────────────┘")

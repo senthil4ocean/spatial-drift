@@ -146,14 +146,20 @@
     font-style: italic; margin-top: 4px;
   }
   .header-meta {
-    text-align: right; font-size: 13px; color: var(--text-2);
+    text-align: right; font-size: 14px; color: var(--text-2);
     line-height: 1.5;
   }
-  .header-meta .date {
-    font-weight: 700; color: var(--text); font-size: 14px;
+  .header-meta .stats {
+    display: inline-flex; align-items: baseline; gap: 8px;
   }
-  .header-meta .stats { margin-top: 4px; }
-  .header-meta .stats span { color: var(--accent); font-weight: 700; }
+  .header-meta .stats .label {
+    font-size: 11px; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--text-3);
+    font-weight: 700;
+  }
+  .header-meta .stats #head-update {
+    color: var(--accent); font-weight: 700; font-size: 15px;
+  }
 
   /* ═════════════════════ NAV BAR ═════════════════════ */
   .nav-bar {
@@ -777,9 +783,10 @@
       <div class="tagline">Explore · Analyze · Anticipate</div>
     </div>
     <div class="header-meta">
-        Last update: <span id="head-update">—</span><br>
-        <span id="head-articles">0</span> articles &nbsp;·&nbsp;
-        </div>
+      <div class="stats">
+        <span class="label">Last update:</span>
+        <span id="head-update">—</span>
+      </div>
     </div>
   </div>
 </header>
@@ -1175,9 +1182,6 @@ function updateLiveClock() {
   const stripTime = document.getElementById('strip-time');
   if (stripDate) stripDate.textContent = dateStr;
   if (stripTime) stripTime.textContent = timeStr;
-
-  const headDate = document.getElementById('head-date');
-  if (headDate) headDate.textContent = dateStr.toUpperCase();
 }
 updateLiveClock();
 setInterval(updateLiveClock, 1000);
@@ -1219,17 +1223,18 @@ function render() {
 
 function renderHeader() {
   const d = state.data;
-  document.getElementById('head-articles').textContent = d.stats.total_articles;
-  document.getElementById('head-domains').textContent = d.stats.domains_with_news + '/' + d.stats.domains_total;
-
-  // Last update — convert from generated_iso to user's local time
+  const el = document.getElementById('head-update');
   if (d.generated_iso) {
     const local = new Date(d.generated_iso);
-    const t = local.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit', hour12: true });
-    const dd = local.toLocaleDateString(undefined, { day: 'numeric', month: 'short' });
-    document.getElementById('head-update').textContent = `${t}, ${dd}`;
+    const datePart = local.toLocaleDateString(undefined, {
+      weekday: 'short', day: 'numeric', month: 'short', year: 'numeric'
+    });
+    const timePart = local.toLocaleTimeString(undefined, {
+      hour: '2-digit', minute: '2-digit', hour12: true
+    });
+    el.textContent = `${datePart} · ${timePart}`;
   } else {
-    document.getElementById('head-update').textContent = 'awaiting first run';
+    el.textContent = 'awaiting first run';
   }
 }
 

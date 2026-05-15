@@ -92,7 +92,7 @@ MAX_RETRIES_PER_TOPIC  = 3
 MAX_TOKENS             = 4096
 TELEGRAM_MSG_LIMIT     = 4000
 DELAY_BETWEEN_DOMAINS  = 8
-RECENCY_WINDOW_DAYS    = 30   # widened from 14 for better coverage
+RECENCY_WINDOW_DAYS    = 7    # weekly run — pull only past week's news
 MAX_PER_SOURCE         = 2    # source-diversity cap
 
 # Output paths
@@ -108,7 +108,7 @@ ARTICLES_FILES = [
 LAST_RUN_FILE = DATA_DIR / "last_run.txt"
 
 IST = timezone(timedelta(hours=5, minutes=30))
-TARGET_SLOTS = [(7, 0)]   # single daily run at 7:00 AM IST
+TARGET_SLOTS = [(7, 23)]  # weekly Saturday run at 7:23 AM IST
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -678,7 +678,7 @@ def build_compact_message(all_results: list, run_meta: dict) -> list:
         f"🌐 <b>SPATIAL DRIFT</b>\n"
         f"<i>Tap any title to open the article.</i>\n"
         f"<i>Visit dashboard for full summaries + LinkedIn/blog generator.</i>\n"
-        f"<i>Next brief tomorrow at 7:00 AM IST.</i>"
+        f"<i>Next brief next Saturday at 7:23 AM IST.</i>"
     )
 
     full_message = header + "\n".join(topic_blocks) + footer
@@ -860,7 +860,7 @@ def main():
 
     print()
     print("╔══════════════════════════════════════════════╗")
-    print("║   SPATIAL DRIFT v6.1 — Daily Alert           ║")
+    print("║   SPATIAL DRIFT v6.1 — Weekly Alert          ║")
     print("║   Global Authoritative Sourcing              ║")
     print("╚══════════════════════════════════════════════╝")
     print(f"  Run started:  {ts.strftime('%Y-%m-%d %I:%M:%S %p IST')}")

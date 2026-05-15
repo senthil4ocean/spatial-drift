@@ -114,11 +114,13 @@
   }
   .top-strip a { color: var(--header-text); opacity: 0.85; }
   .top-strip a:hover { opacity: 1; text-decoration: underline; }
-  .top-strip .left, .top-strip .right { display: flex; gap: 16px; align-items: center; }
+  .top-strip .left, .top-strip .right { display: flex; gap: 12px; align-items: center; }
+  .top-strip .strip-sep { opacity: 0.5; font-weight: 400; }
   .theme-toggle {
     background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
     color: var(--header-text); padding: 3px 12px; border-radius: 3px;
     font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    font-family: 'Times New Roman', Times, serif; cursor: pointer;
   }
   .theme-toggle:hover { background: rgba(255,255,255,0.2); }
 
@@ -376,24 +378,6 @@
     margin-top: 2px;
   }
 
-  /* domain quick links */
-  .domain-jump {
-    display: flex; flex-direction: column; gap: 4px;
-  }
-  .domain-jump a {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 7px 10px; border-radius: 2px;
-    color: var(--text); font-size: 14px;
-    transition: all 0.1s;
-    background: transparent;
-  }
-  .domain-jump a:hover { background: var(--hover); color: var(--accent-2); text-decoration: none; }
-  .domain-jump a .count {
-    font-size: 12px; color: var(--text-3);
-    background: var(--bg-alt); padding: 1px 7px; border-radius: 10px;
-  }
-  .domain-jump a.active { background: var(--tag-bg); color: var(--accent); font-weight: 700; }
-
   /* quick actions */
   .qa-buttons {
     display: flex; flex-direction: column; gap: 8px;
@@ -404,34 +388,119 @@
     font-size: 14px; text-align: left; border-radius: 2px;
     transition: all 0.1s;
     display: flex; align-items: center; gap: 8px;
+    width: 100%; font-family: 'Times New Roman', Times, serif;
   }
   .qa-btn:hover { background: var(--hover); border-color: var(--accent); }
   .qa-btn .ico { color: var(--accent); font-weight: 700; }
 
+  /* Content Studio sidebar */
+  .cs-hint {
+    font-size: 12.5px; color: var(--text-3);
+    margin-bottom: 12px; font-style: italic;
+  }
+  .cs-buttons {
+    display: flex; flex-direction: column; gap: 6px;
+    margin-bottom: 12px;
+  }
+  .cs-btn {
+    width: 100%; padding: 11px 12px;
+    background: var(--panel-alt); border: 1px solid var(--line);
+    color: var(--text); font-size: 14px; font-weight: 700;
+    text-align: left; border-radius: 2px;
+    display: flex; align-items: center; gap: 10px;
+    transition: all 0.12s;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  .cs-btn:hover {
+    background: var(--accent); color: var(--header-text);
+    border-color: var(--accent); transform: translateX(2px);
+  }
+  .cs-btn .cs-num {
+    color: var(--accent-3); font-size: 18px; font-weight: 700;
+  }
+  .cs-btn:hover .cs-num { color: var(--header-text); }
+  .cs-key-btn, .cs-refresh-btn {
+    margin-top: 6px; font-size: 13px; padding: 8px 12px;
+  }
+
   /* stats card */
   .stat-line {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 6px 0; font-size: 14px;
+    padding: 8px 6px; font-size: 14px;
     border-bottom: 1px dotted var(--line);
+    width: 100%; background: transparent; border-left: none;
+    border-right: none; border-top: none;
+    color: var(--text);
+    font-family: 'Times New Roman', Times, serif;
   }
   .stat-line:last-child { border-bottom: none; }
   .stat-line .label { color: var(--text-2); }
   .stat-line .val { color: var(--accent); font-weight: 700; }
+  .stat-clickable {
+    cursor: pointer; text-align: left;
+    transition: background 0.1s, padding 0.1s;
+  }
+  .stat-clickable:hover {
+    background: var(--hover); padding-left: 10px;
+  }
+  .stat-clickable:hover .label { color: var(--accent-2); }
 
   /* ═════════════════════ FOOTER ═════════════════════ */
   .footer {
     background: var(--bg-alt); border-top: 1px solid var(--line);
-    padding: 28px 0; margin-top: 48px;
+    padding: 18px 0; margin-top: 48px;
     font-size: 13px; color: var(--text-3);
   }
   .footer-inner {
     max-width: 1280px; margin: 0 auto; padding: 0 20px;
-    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
   }
-  .footer-brand {
-    font-weight: 700; color: var(--text); font-size: 14px;
+  .footer-tagline {
+    font-size: 13px; color: var(--text-2);
+    font-style: italic;
   }
-  .footer-brand .accent { color: var(--accent-3); }
+  .sources-btn {
+    background: var(--panel-alt); border: 1px solid var(--line-2);
+    color: var(--text-2); padding: 6px 14px;
+    font-size: 12px; letter-spacing: 0.08em;
+    border-radius: 3px;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer; transition: all 0.12s;
+  }
+  .sources-btn:hover {
+    background: var(--accent); color: var(--header-text);
+    border-color: var(--accent);
+  }
+
+  /* Sources modal grid */
+  .sources-body { padding: 18px 22px 22px; background: var(--panel); overflow-y: auto; max-height: 70vh; }
+  .sources-intro {
+    font-size: 13.5px; color: var(--text-2); line-height: 1.6;
+    margin-bottom: 18px; font-style: italic;
+  }
+  .sources-grid {
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .sources-domain-block {
+    border: 1px solid var(--line); border-radius: 3px;
+    background: var(--panel-alt); padding: 12px 14px;
+  }
+  .sources-domain-title {
+    font-size: 13px; font-weight: 700; color: var(--accent);
+    margin-bottom: 6px; padding-bottom: 5px;
+    border-bottom: 1px solid var(--line);
+    letter-spacing: 0.04em;
+  }
+  .sources-source-list {
+    font-size: 12.5px; color: var(--text-2); line-height: 1.7;
+  }
+  .sources-source-list .src-pill {
+    display: inline-block; padding: 1px 8px;
+    background: var(--tag-bg); color: var(--tag-text);
+    border-radius: 10px; margin: 2px 3px;
+    font-size: 11.5px;
+  }
 
   /* ═════════════════════ STUDIO MODAL ═════════════════════ */
   .modal-overlay {
@@ -583,6 +652,78 @@
   }
   .key-hints a { color: var(--accent-2); }
 
+  /* ── Article Picker modal (Content Studio sidebar flow) ── */
+  .picker-body { padding: 16px 18px 20px; background: var(--panel); overflow-y: auto; max-height: 70vh; }
+  .picker-search-wrap {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 14px; margin-bottom: 16px;
+    border: 1px solid var(--line-2); border-radius: 999px;
+    background: var(--bg-alt);
+  }
+  .picker-search-wrap input {
+    flex: 1; border: none; outline: none; background: transparent;
+    font-size: 14px; color: var(--text); font-family: 'Times New Roman', Times, serif;
+  }
+  .picker-section { margin-bottom: 18px; }
+  .picker-section:last-child { margin-bottom: 0; }
+  .picker-section-title {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--accent);
+    padding-bottom: 8px; margin-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+  }
+  .picker-list { display: flex; flex-direction: column; gap: 6px; }
+  .picker-item {
+    padding: 10px 12px; background: var(--panel-alt);
+    border: 1px solid var(--line); border-radius: 3px;
+    cursor: pointer; transition: all 0.12s;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: left; width: 100%; color: var(--text);
+  }
+  .picker-item:hover {
+    background: var(--hover); border-color: var(--accent);
+    transform: translateX(2px);
+  }
+  .picker-item-title {
+    font-size: 14px; font-weight: 700; line-height: 1.35;
+    color: var(--text); margin-bottom: 4px;
+  }
+  .picker-item:hover .picker-item-title { color: var(--accent-2); }
+  .picker-item-meta {
+    font-size: 11px; color: var(--text-3);
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .picker-item-meta .src { color: var(--accent); font-weight: 700; }
+  .picker-empty {
+    padding: 24px; text-align: center; color: var(--text-3);
+    font-style: italic; font-size: 13px;
+  }
+
+  /* ── Highlights detail modal ── */
+  .highlights-body { padding: 16px 18px 20px; background: var(--panel); overflow-y: auto; max-height: 70vh; }
+  .highlights-list { display: flex; flex-direction: column; gap: 8px; }
+  .highlights-row {
+    display: block; padding: 12px 14px;
+    background: var(--panel-alt); border: 1px solid var(--line);
+    border-radius: 3px; text-decoration: none; color: var(--text);
+    transition: all 0.12s;
+  }
+  .highlights-row:hover {
+    background: var(--hover); border-color: var(--accent);
+    text-decoration: none;
+  }
+  .highlights-row .h-title {
+    font-size: 14px; font-weight: 700; color: var(--text);
+    line-height: 1.4; margin-bottom: 5px;
+  }
+  .highlights-row:hover .h-title { color: var(--accent-2); }
+  .highlights-row .h-meta {
+    font-size: 11px; color: var(--text-3);
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .highlights-row .h-meta .src { color: var(--accent); font-weight: 700; }
+  .highlights-row .h-meta .arrow { margin-left: auto; color: var(--accent-2); }
+
   /* ═════════════════════ LOADING / EMPTY ═════════════════════ */
   .loading-full, .empty-full {
     padding: 80px 24px; text-align: center;
@@ -617,16 +758,13 @@
 <!-- ═══════════ TOP STRIP ═══════════ -->
 <div class="top-strip">
   <div class="top-strip-inner">
-    <div class="left">
-      <span id="strip-date">—</span>
-      <span>|</span>
-      <span id="strip-time">—</span>
-    </div>
+    <div class="left"></div>
     <div class="right">
-      <a href="#feed">All Articles</a>
-      <a href="https://www.sciencedaily.com/news/earth_climate/" target="_blank" rel="noopener">Science Daily</a>
-      <a href="#" id="strip-key">🔑 API Key</a>
       <button class="theme-toggle" id="theme-toggle">◐ Theme</button>
+      <span class="strip-sep">|</span>
+      <span id="strip-date">—</span>
+      <span class="strip-sep">|</span>
+      <span id="strip-time">—</span>
     </div>
   </div>
 </div>
@@ -703,34 +841,29 @@
         </div>
       </div>
 
-      <!-- Domain Jump -->
+      <!-- Content Studio (sidebar) — replaces Quick Actions -->
       <div class="sidebar-box">
-        <div class="sidebar-title">Browse Domains</div>
+        <div class="sidebar-title">Content Studio</div>
         <div class="sidebar-body">
-          <div class="domain-jump" id="domain-jump"></div>
-        </div>
-      </div>
-
-      <!-- Quick Actions -->
-      <div class="sidebar-box">
-        <div class="sidebar-title">Quick Actions</div>
-        <div class="sidebar-body">
-          <div class="qa-buttons">
-            <button class="qa-btn" id="qa-refresh"><span class="ico">↻</span> Refresh Data</button>
-            <button class="qa-btn" id="qa-generate"><span class="ico">✎</span> Generate from Top Article</button>
-            <button class="qa-btn" id="qa-key"><span class="ico">🔑</span> Set API Key</button>
+          <p class="cs-hint">Pick what to create from your articles.</p>
+          <div class="cs-buttons">
+            <button class="cs-btn" data-cs="brief"><span class="cs-num">①</span> Overview Briefing</button>
+            <button class="cs-btn" data-cs="linkedin"><span class="cs-num">②</span> LinkedIn Post</button>
+            <button class="cs-btn" data-cs="blog"><span class="cs-num">③</span> Blog Post</button>
           </div>
+          <button class="qa-btn cs-key-btn" id="qa-key"><span class="ico">🔑</span> Set API Key</button>
+          <button class="qa-btn cs-refresh-btn" id="qa-refresh"><span class="ico">↻</span> Refresh Data</button>
         </div>
       </div>
 
-      <!-- Today's Highlights -->
+      <!-- Today's Highlights — rows clickable to show matching articles -->
       <div class="sidebar-box">
         <div class="sidebar-title">Today's Highlights</div>
         <div class="sidebar-body">
-          <div class="stat-line"><span class="label">Research articles</span><span class="val" id="stat-research">0</span></div>
-          <div class="stat-line"><span class="label">Discoveries</span><span class="val" id="stat-discovery">0</span></div>
-          <div class="stat-line"><span class="label">Technology</span><span class="val" id="stat-technology">0</span></div>
-          <div class="stat-line"><span class="label">Live links</span><span class="val" id="stat-links">0</span></div>
+          <button class="stat-line stat-clickable" data-stat="research"><span class="label">Research articles</span><span class="val" id="stat-research">0</span></button>
+          <button class="stat-line stat-clickable" data-stat="discovery"><span class="label">Discoveries</span><span class="val" id="stat-discovery">0</span></button>
+          <button class="stat-line stat-clickable" data-stat="technology"><span class="label">Technology</span><span class="val" id="stat-technology">0</span></button>
+          <button class="stat-line stat-clickable" data-stat="links"><span class="label">Live links</span><span class="val" id="stat-links">0</span></button>
         </div>
       </div>
 
@@ -742,16 +875,24 @@
 <!-- ═══════════ FOOTER ═══════════ -->
 <footer class="footer">
   <div class="footer-inner">
-    <div>
-      <div class="footer-brand">Spatial <span class="accent">Drift</span></div>
-      <div>Geospatial Intelligence · AI-Powered</div>
-    </div>
-    <div style="text-align:right;">
-      <div>Sources include Science Daily, Reuters, Nature, ESA, NASA, ISRO</div>
-      <div>Updated 4× daily · <a href="https://www.sciencedaily.com" target="_blank" rel="noopener">Science Daily</a></div>
-    </div>
+    <div class="footer-tagline">AI-Powered Geospatial Intelligence</div>
+    <button class="sources-btn" id="sources-btn">📚 Sources</button>
   </div>
 </footer>
+
+<!-- ═══════════ SOURCES MODAL ═══════════ -->
+<div class="modal-overlay" id="sources-overlay">
+  <div class="modal" style="max-width:680px;">
+    <div class="modal-header">
+      <span class="modal-title">📚 Trusted Sources</span>
+      <button class="modal-close" id="sources-close">×</button>
+    </div>
+    <div class="sources-body">
+      <p class="sources-intro">SPATIAL DRIFT aggregates news from 113+ authoritative sources across 9 geospatial domains. Coverage spans peer-reviewed journals, space agencies, geological surveys, climate organizations, industry publications, and mainstream news.</p>
+      <div class="sources-grid" id="sources-grid"></div>
+    </div>
+  </div>
+</div>
 
 <!-- ═══════════ STUDIO MODAL ═══════════ -->
 <div class="modal-overlay" id="studio-overlay">
@@ -770,6 +911,43 @@
     <div class="modal-footer">
       <button class="modal-btn alt" id="studio-regen">↻ Regenerate</button>
       <button class="modal-btn" id="studio-copy">⎘ Copy to Clipboard</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ ARTICLE PICKER MODAL (Content Studio) ═══════════ -->
+<div class="modal-overlay" id="picker-overlay">
+  <div class="modal" style="max-width:680px;">
+    <div class="modal-header">
+      <span class="modal-title" id="picker-title">✎ Pick an article</span>
+      <button class="modal-close" id="picker-close">×</button>
+    </div>
+    <div class="picker-body">
+      <div class="picker-search-wrap">
+        <span class="search-icon">⌕</span>
+        <input id="picker-search" type="text" placeholder="Filter articles by title or domain…" />
+      </div>
+      <div class="picker-section" id="picker-recent-section" style="display:none;">
+        <div class="picker-section-title">Recently Read (last 5)</div>
+        <div class="picker-list" id="picker-recent-list"></div>
+      </div>
+      <div class="picker-section">
+        <div class="picker-section-title" id="picker-all-title">All Articles</div>
+        <div class="picker-list" id="picker-all-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ HIGHLIGHTS DETAIL MODAL ═══════════ -->
+<div class="modal-overlay" id="highlights-overlay">
+  <div class="modal" style="max-width:680px;">
+    <div class="modal-header">
+      <span class="modal-title" id="highlights-title">Articles</span>
+      <button class="modal-close" id="highlights-close">×</button>
+    </div>
+    <div class="highlights-body">
+      <div class="highlights-list" id="highlights-list"></div>
     </div>
   </div>
 </div>
@@ -842,6 +1020,9 @@ const state = {
   outputType: "brief",
   generated: "",
   generating: false,
+  pickerFilter: "",
+  // Last 5 articles the user clicked through to source. Persists across sessions.
+  recentReads: JSON.parse(localStorage.getItem("sd_recent_reads") || "[]"),
   // API key is NEVER hardcoded here — a key in a public file gets
   // auto-revoked by Anthropic's scanners within minutes.
   // It is entered once per browser session via the key modal,
@@ -849,6 +1030,32 @@ const state = {
   // and never committed to the repo.
   apiKey: sessionStorage.getItem("sd_api_key") || "",
 };
+
+/* ═══════════════════════════════════════════════════
+   RECENT READS TRACKING (last 5 articles clicked)
+═══════════════════════════════════════════════════ */
+function addToRecent(article) {
+  if (!article || !article.title) return;
+  // Keep a slim version (no domain prefix duplication, no oversize blobs)
+  const slim = {
+    title: article.title,
+    summary: article.summary || "",
+    source: article.source || "",
+    date: article.date || "",
+    url: article.url || "",
+    significance: article.significance || "",
+    _domain: article._domain || "",
+    _readAt: Date.now(),
+  };
+  // Remove existing entry with same title (so it bubbles to top)
+  state.recentReads = state.recentReads.filter(r => r.title !== slim.title);
+  state.recentReads.unshift(slim);
+  // Cap at 5
+  state.recentReads = state.recentReads.slice(0, 5);
+  try {
+    localStorage.setItem("sd_recent_reads", JSON.stringify(state.recentReads));
+  } catch (e) { /* localStorage full or disabled — silently continue */ }
+}
 
 /* ═══════════════════════════════════════════════════
    CONTENT GENERATION PROMPTS
@@ -1009,7 +1216,6 @@ function render() {
   renderHeader();
   renderFeed();
   renderTrending();
-  renderDomainJump();
   renderHighlights();
   bindNavEvents();
 }
@@ -1062,6 +1268,7 @@ function renderFeed() {
 
   // ── FEATURED article: first article from first non-empty domain ──
   const featured = allArts[0];
+  const featHasUrl = isValidUrl(featured.url);
 
   let html = `
     <div class="featured">
@@ -1071,12 +1278,14 @@ function renderFeed() {
       </div>
       <div class="featured-content">
         <div class="featured-domain">${esc(featured._domain || '')}</div>
-        <h2 class="featured-title" data-i="0">${esc(featured.title)}</h2>
+        ${featHasUrl
+          ? `<a class="featured-title-link" href="${escAttr(featured.url)}" target="_blank" rel="noopener" data-recent="${escAttr(featured.title)}"><h2 class="featured-title">${esc(featured.title)}</h2></a>`
+          : `<h2 class="featured-title">${esc(featured.title)}</h2>`}
         <p class="featured-summary">${esc(featured.summary || '')}</p>
         <div class="featured-meta">
           <span><strong style="color:var(--accent)">${esc(featured.source || 'Unknown')}</strong></span>
           ${featured.significance ? `<span style="color:var(--accent-3); font-style:italic;">${esc(featured.significance)}</span>` : ''}
-          ${isValidUrl(featured.url) ? `<a href="${escAttr(featured.url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="margin-left:auto;">Read source →</a>` : ''}
+          ${featHasUrl ? `<a href="${escAttr(featured.url)}" target="_blank" rel="noopener" data-recent="${escAttr(featured.title)}" style="margin-left:auto;">Open source →</a>` : ''}
         </div>
       </div>
     </div>`;
@@ -1096,13 +1305,16 @@ function renderFeed() {
     if (articles.length === 0) {
       html += `<div class="domain-empty">No fresh items this cycle.</div>`;
     } else {
-      // Skip the featured article in its own domain section to avoid duplication
       articles.forEach((a) => {
-        if (a === featured) return; // skip the featured one
-        const idx = allArts.indexOf(allArts.find(x => x.title === a.title && x._domain === dom.label));
+        if (a === featured) return;
         const hasUrl = isValidUrl(a.url);
+        // Entire card is a link when URL exists; falls back to non-clickable card otherwise.
+        const openTag = hasUrl
+          ? `<a class="article article-link" href="${escAttr(a.url)}" target="_blank" rel="noopener" data-recent="${escAttr(a.title)}">`
+          : `<article class="article">`;
+        const closeTag = hasUrl ? `</a>` : `</article>`;
         html += `
-          <article class="article" data-i="${idx}">
+          ${openTag}
             <span class="article-tag">${esc(dom.label)}</span>
             <h3 class="article-title">${esc(a.title)}</h3>
             <p class="article-summary">${esc(a.summary || '')}</p>
@@ -1111,9 +1323,9 @@ function renderFeed() {
               <span class="src">${esc(a.source || 'Unknown')}</span>
               <span class="pipe">|</span>
               <span>${esc(a.date || '')}</span>
-              ${hasUrl ? `<a href="${escAttr(a.url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Read source →</a>` : ''}
+              ${hasUrl ? `<span class="art-open-hint">Open source →</span>` : ''}
             </div>
-          </article>`;
+          ${closeTag}`;
       });
     }
     html += `</div></section>`;
@@ -1121,14 +1333,13 @@ function renderFeed() {
 
   feed.innerHTML = html;
 
-  // bind article click events
-  feed.querySelectorAll("[data-i]").forEach(el => {
-    el.onclick = (e) => {
-      if (e.target.tagName === "A") return;
-      const i = parseInt(el.getAttribute("data-i"), 10);
-      state.selectedArticle = allArts[i];
-      openStudio();
-    };
+  // Track recent reads — when any source link is clicked, remember it for the studio picker
+  feed.querySelectorAll('[data-recent]').forEach(el => {
+    el.addEventListener('click', () => {
+      const title = el.getAttribute('data-recent');
+      const article = allArts.find(x => x.title === title);
+      if (article) addToRecent(article);
+    });
   });
 }
 
@@ -1140,38 +1351,21 @@ function renderTrending() {
     ul.innerHTML = `<li style="color:var(--text-3); font-style:italic;">No articles yet</li>`;
     return;
   }
-  ul.innerHTML = top.map((a, i) => `
-    <li>
-      <a data-trend-i="${i}">
-        <span class="trend-num">${i + 1}.</span>${esc(a.title.slice(0, 80))}${a.title.length > 80 ? '…' : ''}
-        <div class="trend-meta">${esc(a._domain)}</div>
-      </a>
-    </li>`).join('');
-  ul.querySelectorAll('[data-trend-i]').forEach(el => {
-    el.onclick = () => {
-      const i = parseInt(el.getAttribute('data-trend-i'), 10);
-      state.selectedArticle = top[i];
-      openStudio();
-    };
-  });
-}
-
-function renderDomainJump() {
-  const wrap = document.getElementById('domain-jump');
-  const total = state.data.stats.total_articles;
-  let html = `<a class="${state.activeDomain==='all'?'active':''}" data-d="all">All Articles <span class="count">${total}</span></a>`;
-  state.data.domains.forEach(d => {
-    const active = state.activeDomain === d.label ? 'active' : '';
-    html += `<a class="${active}" data-d="${esc(d.label)}">${esc(d.label)} <span class="count">${d.count}</span></a>`;
-  });
-  wrap.innerHTML = html;
-  wrap.querySelectorAll('[data-d]').forEach(a => {
-    a.onclick = () => {
-      state.activeDomain = a.getAttribute('data-d');
-      syncNav();
-      renderFeed();
-      renderDomainJump();
-    };
+  ul.innerHTML = top.map((a, i) => {
+    const hasUrl = isValidUrl(a.url);
+    const inner = `<span class="trend-num">${i + 1}.</span>${esc(a.title.slice(0, 80))}${a.title.length > 80 ? '…' : ''}<div class="trend-meta">${esc(a._domain)}</div>`;
+    if (hasUrl) {
+      return `<li><a href="${escAttr(a.url)}" target="_blank" rel="noopener" data-recent="${escAttr(a.title)}">${inner}</a></li>`;
+    }
+    return `<li><span class="no-link">${inner}</span></li>`;
+  }).join('');
+  // Track clicks on Top Stories source links into recent reads
+  ul.querySelectorAll('[data-recent]').forEach(el => {
+    el.addEventListener('click', () => {
+      const title = el.getAttribute('data-recent');
+      const art = top.find(x => x.title === title);
+      if (art) addToRecent(art);
+    });
   });
 }
 
@@ -1209,7 +1403,6 @@ function bindNavEvents() {
       state.activeDomain = btn.getAttribute('data-filter');
       syncNav();
       renderFeed();
-      renderDomainJump();
       document.querySelector('.main-wrap').scrollIntoView({behavior:'smooth', block:'start'});
     };
   });
@@ -1222,6 +1415,10 @@ function openStudio() {
   const a = state.selectedArticle;
   if (!a) return;
   document.getElementById('studio-source').innerHTML = `<strong>From:</strong> ${esc(a.title)}`;
+  // Sync tab highlight to current outputType (set by the sidebar picker)
+  document.querySelectorAll('.modal-tab').forEach(t => {
+    t.classList.toggle('active', t.getAttribute('data-type') === state.outputType);
+  });
   document.getElementById('studio-overlay').classList.add('show');
   state.generated = "";
   generateContent();
@@ -1363,7 +1560,6 @@ function closeKeyModal() {
 
 document.getElementById('qa-key').onclick = openKeyModal;
 document.getElementById('key-close').onclick = closeKeyModal;
-document.getElementById('strip-key').onclick = (e) => { e.preventDefault(); openKeyModal(); };
 document.getElementById('key-overlay').onclick = (e) => {
   if (e.target.id === 'key-overlay') closeKeyModal();
 };
@@ -1402,14 +1598,292 @@ document.getElementById('key-input').addEventListener('keydown', (e) => {
 });
 
 /* ═══════════════════════════════════════════════════
-   QUICK ACTIONS
+   SIDEBAR ACTIONS
 ═══════════════════════════════════════════════════ */
 document.getElementById('qa-refresh').onclick = () => loadArticles();
-document.getElementById('qa-generate').onclick = () => {
-  const all = state.data?.domains.flatMap(d => d.articles.map(a => ({...a, _domain: d.label})));
-  if (all && all.length) {
-    state.selectedArticle = all[0];
-    openStudio();
+
+// Content Studio sidebar buttons — open the article picker
+document.querySelectorAll('.cs-btn').forEach(btn => {
+  btn.onclick = () => {
+    const type = btn.getAttribute('data-cs');
+    openPicker(type);
+  };
+});
+
+/* ═══════════════════════════════════════════════════
+   ARTICLE PICKER (Content Studio flow)
+═══════════════════════════════════════════════════ */
+function openPicker(outputType) {
+  state.outputType = outputType;
+  state.pickerFilter = "";
+  const titles = {
+    brief:    "① Pick an article for Overview Briefing",
+    linkedin: "② Pick an article for LinkedIn Post",
+    blog:     "③ Pick an article for Blog Post",
+  };
+  document.getElementById('picker-title').textContent = titles[outputType] || "Pick an article";
+  document.getElementById('picker-search').value = "";
+  renderPicker();
+  document.getElementById('picker-overlay').classList.add('show');
+  setTimeout(() => document.getElementById('picker-search').focus(), 100);
+}
+function closePicker() {
+  document.getElementById('picker-overlay').classList.remove('show');
+}
+document.getElementById('picker-close').onclick = closePicker;
+document.getElementById('picker-overlay').onclick = (e) => {
+  if (e.target.id === 'picker-overlay') closePicker();
+};
+document.getElementById('picker-search').oninput = (e) => {
+  state.pickerFilter = e.target.value;
+  renderPicker();
+};
+
+function renderPicker() {
+  if (!state.data) return;
+  const q = (state.pickerFilter || '').toLowerCase().trim();
+
+  // ── Recent reads section ──
+  const recentSection = document.getElementById('picker-recent-section');
+  const recentList = document.getElementById('picker-recent-list');
+  const recents = state.recentReads.filter(a =>
+    !q || (a.title || "").toLowerCase().includes(q) ||
+          (a._domain || "").toLowerCase().includes(q) ||
+          (a.source || "").toLowerCase().includes(q)
+  );
+  if (recents.length > 0) {
+    recentSection.style.display = '';
+    recentList.innerHTML = recents.map((a, i) => renderPickerItem(a, 'recent-' + i)).join('');
+    recentList.querySelectorAll('[data-pidx]').forEach(el => {
+      el.onclick = () => {
+        const idx = parseInt(el.getAttribute('data-pidx').split('-')[1], 10);
+        pickArticleAndGenerate(recents[idx]);
+      };
+    });
+  } else {
+    recentSection.style.display = 'none';
+  }
+
+  // ── All articles (filtered by active domain in main view) ──
+  const allTitle = document.getElementById('picker-all-title');
+  const domainScope = state.activeDomain === "all" ? "All Articles" : `Articles in ${state.activeDomain}`;
+  allTitle.textContent = domainScope;
+
+  const domains = state.activeDomain === "all"
+    ? state.data.domains
+    : state.data.domains.filter(d => d.label === state.activeDomain);
+  const all = [];
+  domains.forEach(dom => {
+    dom.articles.forEach(a => all.push({ ...a, _domain: dom.label }));
+  });
+  const filtered = q
+    ? all.filter(a =>
+        (a.title || "").toLowerCase().includes(q) ||
+        (a.summary || "").toLowerCase().includes(q) ||
+        (a._domain || "").toLowerCase().includes(q) ||
+        (a.source || "").toLowerCase().includes(q))
+    : all;
+
+  const list = document.getElementById('picker-all-list');
+  if (filtered.length === 0) {
+    list.innerHTML = `<div class="picker-empty">No articles match your filter.</div>`;
+    return;
+  }
+  list.innerHTML = filtered.map((a, i) => renderPickerItem(a, 'all-' + i)).join('');
+  list.querySelectorAll('[data-pidx]').forEach(el => {
+    el.onclick = () => {
+      const idx = parseInt(el.getAttribute('data-pidx').split('-')[1], 10);
+      pickArticleAndGenerate(filtered[idx]);
+    };
+  });
+}
+function renderPickerItem(a, idx) {
+  return `
+    <button class="picker-item" data-pidx="${esc(idx)}">
+      <div class="picker-item-title">${esc(a.title)}</div>
+      <div class="picker-item-meta">
+        <span class="src">${esc(a.source || 'Unknown')}</span>
+        &nbsp;·&nbsp;<span>${esc(a._domain || '')}</span>
+        &nbsp;·&nbsp;<span>${esc(a.date || '')}</span>
+      </div>
+    </button>`;
+}
+function pickArticleAndGenerate(article) {
+  closePicker();
+  state.selectedArticle = article;
+  state.generated = "";
+  openStudio();
+}
+
+/* ═══════════════════════════════════════════════════
+   TODAY'S HIGHLIGHTS — clickable rows
+═══════════════════════════════════════════════════ */
+const HIGHLIGHT_PATTERNS = {
+  research:   { label: 'Research articles', regex: /\b(research|study|paper|findings?|scientist|published|university)\b/i },
+  discovery:  { label: 'Discoveries',        regex: /\b(discover|first|new|breakthrough|unveil|reveal|found)\b/i },
+  technology: { label: 'Technology',         regex: /\b(satellite|technology|launch|deploy|sensor|AI|platform|tool|system)\b/i },
+  links:      { label: 'Live links',         regex: null },
+};
+
+document.querySelectorAll('.stat-clickable').forEach(btn => {
+  btn.onclick = () => {
+    const which = btn.getAttribute('data-stat');
+    openHighlights(which);
+  };
+});
+
+function openHighlights(which) {
+  const cfg = HIGHLIGHT_PATTERNS[which];
+  if (!cfg || !state.data) return;
+  const arts = state.data.domains.flatMap(d => d.articles.map(a => ({...a, _domain: d.label})));
+  const matches = which === 'links'
+    ? arts.filter(a => isValidUrl(a.url))
+    : arts.filter(a => cfg.regex.test((a.title || "") + " " + (a.summary || "")));
+
+  document.getElementById('highlights-title').textContent = `${cfg.label} (${matches.length})`;
+  const list = document.getElementById('highlights-list');
+  if (matches.length === 0) {
+    list.innerHTML = `<div class="picker-empty">No matching articles in this cycle.</div>`;
+  } else {
+    list.innerHTML = matches.map(a => {
+      const hasUrl = isValidUrl(a.url);
+      const inner = `
+        <div class="h-title">${esc(a.title)}</div>
+        <div class="h-meta">
+          <span class="src">${esc(a.source || 'Unknown')}</span>
+          &nbsp;·&nbsp;<span>${esc(a._domain || '')}</span>
+          &nbsp;·&nbsp;<span>${esc(a.date || '')}</span>
+          ${hasUrl ? '<span class="arrow"> · Open source →</span>' : ''}
+        </div>`;
+      if (hasUrl) {
+        return `<a class="highlights-row" href="${escAttr(a.url)}" target="_blank" rel="noopener" data-recent="${escAttr(a.title)}">${inner}</a>`;
+      }
+      return `<div class="highlights-row">${inner}</div>`;
+    }).join('');
+    // Track clicks from highlights modal into recent reads
+    list.querySelectorAll('[data-recent]').forEach(el => {
+      el.addEventListener('click', () => {
+        const t = el.getAttribute('data-recent');
+        const art = matches.find(x => x.title === t);
+        if (art) addToRecent(art);
+      });
+    });
+  }
+  document.getElementById('highlights-overlay').classList.add('show');
+}
+function closeHighlights() {
+  document.getElementById('highlights-overlay').classList.remove('show');
+}
+document.getElementById('highlights-close').onclick = closeHighlights;
+document.getElementById('highlights-overlay').onclick = (e) => {
+  if (e.target.id === 'highlights-overlay') closeHighlights();
+};
+
+/* ═══════════════════════════════════════════════════
+   SOURCES MODAL (footer)
+═══════════════════════════════════════════════════ */
+// Per-domain trusted source pool, mirrors the Python script.
+const TRUSTED_SOURCES = {
+  "🛰️ Remote Sensing & Earth Observation": [
+    "Nature", "Science", "Remote Sensing of Environment",
+    "IEEE Transactions on Geoscience and Remote Sensing", "MDPI Remote Sensing",
+    "ISPRS Journal of Photogrammetry and Remote Sensing",
+    "NASA", "ESA", "ISRO", "JAXA", "USGS", "NOAA", "Copernicus", "CNES", "DLR",
+    "Planet Labs", "Maxar Technologies", "Airbus Defence and Space",
+    "SpaceNews", "Geospatial World", "GIM International", "Eos (AGU)",
+    "Reuters", "BBC Science", "Phys.org", "ScienceDaily"
+  ],
+  "🗺️ GIS & Geospatial Technology": [
+    "Esri", "Geospatial World", "GIM International", "Directions Magazine",
+    "International Journal of Geographical Information Science",
+    "Cartography and Geographic Information Science", "Transactions in GIS",
+    "MIT Technology Review", "TechCrunch", "IEEE Spectrum",
+    "Google Maps Platform", "Microsoft Planetary Computer",
+    "OpenStreetMap Foundation", "QGIS", "OGC",
+    "Reuters", "Phys.org", "ScienceDaily"
+  ],
+  "🌡️ Climatology & Atmospheric Science": [
+    "Nature Climate Change", "Science", "Nature Geoscience", "PNAS",
+    "Geophysical Research Letters", "Atmospheric Chemistry and Physics",
+    "Journal of Climate", "Climate Dynamics",
+    "IPCC", "WMO", "NOAA", "NASA Climate", "ECMWF",
+    "UK Met Office", "Copernicus Climate Change Service",
+    "Reuters", "BBC Science", "AP News", "Phys.org", "ScienceDaily",
+    "Carbon Brief", "Inside Climate News"
+  ],
+  "🌊 Oceanography & Marine Science": [
+    "Nature", "Nature Geoscience", "Science",
+    "Journal of Geophysical Research: Oceans", "Ocean Science",
+    "Limnology and Oceanography", "Marine Geology",
+    "NOAA", "NASA Earth Science", "Scripps Institution of Oceanography",
+    "Woods Hole Oceanographic Institution", "WMO",
+    "Reuters", "BBC Science", "AP News", "Phys.org",
+    "Eos (AGU)", "ScienceDaily", "Smithsonian Ocean"
+  ],
+  "🏔️ Plate Tectonics & Seismology": [
+    "Nature Geoscience", "Science", "Geophysical Research Letters",
+    "Seismological Research Letters", "Earth and Planetary Science Letters",
+    "Journal of Geophysical Research: Solid Earth",
+    "USGS Earthquake Hazards", "EMSC", "IRIS", "GFZ Potsdam",
+    "GNS Science", "Geoscience Australia",
+    "Reuters", "BBC Science", "AP News", "Phys.org", "ScienceDaily", "Eos (AGU)"
+  ],
+  "🌋 Volcanology": [
+    "Nature Geoscience", "Science", "Journal of Volcanology and Geothermal Research",
+    "Bulletin of Volcanology",
+    "USGS Volcano Hazards", "Smithsonian Global Volcanism Program",
+    "INGV", "Icelandic Met Office", "VolcanoDiscovery",
+    "JMA", "Indonesian PVMBG", "Philippine PHIVOLCS",
+    "Reuters", "BBC Science", "AP News", "Phys.org", "ScienceDaily", "Eos (AGU)"
+  ],
+  "⛏️ Mining & Mineral Resources": [
+    "Mining.com", "Mining Magazine", "Mining Journal", "Mining Weekly",
+    "Reuters Mining", "Bloomberg Metals & Mining", "S&P Global Market Intelligence",
+    "USGS Mineral Resources", "BGS", "Geological Survey of Canada", "Geoscience Australia",
+    "Nature Geoscience", "Economic Geology", "Ore Geology Reviews",
+    "Financial Times Mining", "Wall Street Journal", "Phys.org", "ScienceDaily"
+  ],
+  "🪨 Geology & Geomorphology": [
+    "Nature Geoscience", "Geology (GSA)", "Earth and Planetary Science Letters",
+    "Science", "Geological Society of America Bulletin",
+    "Quaternary Science Reviews", "Journal of Sedimentary Research",
+    "USGS", "BGS", "Geological Survey of Canada", "Geoscience Australia", "GFZ Potsdam",
+    "Reuters", "BBC Science", "Smithsonian", "National Geographic",
+    "Phys.org", "ScienceDaily", "Eos (AGU)"
+  ],
+  "🚀 Space & Geodesy": [
+    "SpaceNews", "Spaceflight Now", "Ars Technica Space", "The Space Review",
+    "NASA", "ESA", "ISRO", "JAXA", "CNES", "DLR", "CSA", "Roscosmos",
+    "SpaceX", "Blue Origin", "Rocket Lab",
+    "Reuters", "BBC Science", "AP News", "Nature Astronomy",
+    "Sky and Telescope", "Phys.org", "ScienceDaily"
+  ]
+};
+
+function renderSourcesGrid() {
+  const grid = document.getElementById('sources-grid');
+  let html = "";
+  for (const [domain, sources] of Object.entries(TRUSTED_SOURCES)) {
+    html += `<div class="sources-domain-block">
+      <div class="sources-domain-title">${esc(domain)} <span style="color:var(--text-3); font-weight:400; font-size:11px;">· ${sources.length} sources</span></div>
+      <div class="sources-source-list">
+        ${sources.map(s => `<span class="src-pill">${esc(s)}</span>`).join('')}
+      </div>
+    </div>`;
+  }
+  grid.innerHTML = html;
+}
+
+document.getElementById('sources-btn').onclick = () => {
+  renderSourcesGrid();
+  document.getElementById('sources-overlay').classList.add('show');
+};
+document.getElementById('sources-close').onclick = () => {
+  document.getElementById('sources-overlay').classList.remove('show');
+};
+document.getElementById('sources-overlay').onclick = (e) => {
+  if (e.target.id === 'sources-overlay') {
+    document.getElementById('sources-overlay').classList.remove('show');
   }
 };
 

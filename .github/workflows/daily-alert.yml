@@ -1,14 +1,20 @@
-name: 🌍 Spatial Drift — Daily Alert
+name: 🌍 Spatial Drift — Weekly Alert
 
 on:
-  # ── Runs ONCE per day at 7:00 AM IST ──────────────────────────────────────
-  # 7:00 AM IST = 01:30 UTC (IST is UTC+5:30)
-  # GitHub cron is "best effort" and can lag 5-30 min, so we add a single
-  # backup trigger 30 min later. The script's time-windowed dedup
-  # (last_run.txt) ensures only ONE message fires per day.
+  # ── Runs ONCE per week — Saturday morning, off-peak IST ───────────────────
+  # Time chosen to dodge GitHub's load-balancer queueing:
+  #   - "Saturday" = lighter day for Actions traffic
+  #   - Minute :23 instead of :00/:30 = avoids the busiest cron timeslots
+  #
+  # 7:23 AM IST = 01:53 UTC  (IST is UTC+5:30)
+  # Cron weekday: 6 = Saturday
+  #
+  # A backup cron fires 40 minutes later in case the primary lagged.
+  # The script's time-windowed dedup (last_run.txt) ensures only ONE
+  # Telegram message goes out per Saturday morning.
   schedule:
-    - cron: "30 1 * * *"   # 07:00 AM IST (primary)
-    - cron: "0  2 * * *"   # 07:30 AM IST (backup, in case primary lags)
+    - cron: "53 1 * * 6"   # Saturday  07:23 AM IST (primary, off-peak minute)
+    - cron: "33 2 * * 6"   # Saturday  08:03 AM IST (backup, in case primary lags)
 
   # Manual trigger from Actions tab — always runs to completion
   workflow_dispatch:

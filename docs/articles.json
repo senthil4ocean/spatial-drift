@@ -1,36 +1,38 @@
 {
-  "generated_at_ist": "2026-05-14 15:02:02 IST",
-  "generated_at_utc": "2026-05-14T09:32:02.318322+00:00",
-  "generated_iso": "2026-05-14T15:02:02.318295+05:30",
-  "display_date": "Thursday, 14 May 2026",
-  "display_time": "03:02 PM IST",
+  "generated_at_ist": "2026-05-15 07:41:50 IST",
+  "generated_at_utc": "2026-05-15T02:11:50.520522+00:00",
+  "generated_iso": "2026-05-15T07:41:50.520484+05:30",
+  "display_date": "Friday, 15 May 2026",
+  "display_time": "07:41 AM IST",
   "stats": {
-    "total_articles": 23,
+    "total_articles": 24,
     "domains_total": 9,
     "domains_with_news": 4,
-    "unique_sources": 19,
-    "elapsed": "803s"
+    "unique_sources": 21,
+    "elapsed": "778s"
   },
   "source_summary": {
-    "The Defense News": 1,
+    "Bellingcat": 1,
     "SpaceNews": 1,
+    "The Next Web": 1,
     "Stadia Maps": 1,
-    "NASA Science": 2,
-    "eoPortal": 1,
     "The Defense Post": 1,
-    "ScienceDaily": 2,
-    "NOAA Chemical Sciences Laboratory": 1,
+    "Via Satellite": 1,
+    "Science Daily": 2,
     "Nature Climate Change": 1,
-    "Severe Weather Europe": 1,
-    "Science": 1,
-    "Nature Communications": 2,
+    "IPCC": 1,
+    "NASA Science": 1,
+    "Eos": 1,
+    "USGS Hawaiian Volcano Observatory": 1,
+    "University of Copenhagen": 1,
     "Fox News": 1,
-    "USGS Volcano Hazards Program": 1,
+    "Alaska Volcano Observatory": 1,
     "Kobe University": 1,
-    "Icelandic Meteorological Office": 1,
+    "GFZ Helmholtz Centre for Geosciences": 1,
     "Spaceflight Now": 2,
-    "geodesy.science": 1,
-    "ESA": 1
+    "Wikipedia": 2,
+    "ISDC": 1,
+    "CNN": 1
   },
   "domains": [
     {
@@ -38,52 +40,52 @@
       "count": 6,
       "articles": [
         {
-          "title": "U.S. Sanctions Three Chinese Satellite Firms for Iran Intelligence Support",
-          "summary": "The U.S. State Department imposed sanctions on Chinese satellite companies accused of providing Iran with imagery and geospatial intelligence during Operation Epic Fury.",
-          "source": "The Defense News",
-          "date": "May 13, 2026",
-          "significance": "Demonstrates growing geopolitical risks in commercial satellite data sharing and defense implications",
-          "url": "https://www.thedefensenews.com/news-details/US-Sanctions-Three-Chinese-Satellite-Firms-Accused-of-Providing-Iran-Intelligence-During-Operation-Epic-Fury/"
+          "title": "Satellite Imagery Shows Ongoing Demolitions Across Southern Lebanon",
+          "summary": "Bellingcat analysis of Planet Labs imagery reveals extensive damage to 46 out of 54 towns in southern Lebanon's IDF Yellow Line, with destruction occurring during recent ceasefire period.",
+          "source": "Bellingcat",
+          "date": "14 May 2026",
+          "significance": "Demonstrates Planet Labs' critical role in conflict monitoring and humanitarian analysis for geospatial intelligence professionals",
+          "url": "https://www.bellingcat.com/news/2026/05/14/satellite-imagery-shows-ongoing-demolitions-across-southern-lebanon/"
         },
         {
-          "title": "Special Operations Forces Test Mobile Satellite Imagery Platform",
-          "summary": "U.S. Special Operations Command evaluates SkyFi's mobile platform for direct access to commercial satellite imagery on handheld Android tactical devices.",
+          "title": "Special Operations Forces Test Mobile Platform for Direct Satellite Imagery Access",
+          "summary": "US Special Operations Command evaluates SkyFi's mobile software platform for direct commercial satellite imagery access on Android Tactical Assault Kit devices.",
           "source": "SpaceNews",
-          "date": "May 11, 2026",
-          "significance": "Shows tactical edge applications of commercial Earth observation data for military operations",
+          "date": "11 May 2026",
+          "significance": "Shows military adoption of commercial satellite data for tactical operations, expanding earth observation market applications",
           "url": "https://spacenews.com/special-operations-forces-test-mobile-platform-for-direct-satellite-imagery-access/"
         },
         {
-          "title": "Stadia Maps Launches Major 2026 Satellite Imagery Update",
-          "summary": "The update expands 30cm-resolution coverage to 37 million square kilometers with seamless country-wide mosaics for Japan, Nigeria, Mexico, UAE, and Eastern South Africa.",
+          "title": "Planet Labs Launches Three More Pelican Satellites as $900M Backlog Drives First Profitable Year",
+          "summary": "Planet Labs achieved first profitable year with $81.3M quarterly revenue and launched Pelican 7-9 satellites, planning 30cm resolution second-generation constellation by late 2026.",
+          "source": "The Next Web",
+          "date": "3 May 2026",
+          "significance": "Major milestone showing commercial earth observation sustainability with high-resolution constellation expansion for enhanced monitoring",
+          "url": "https://thenextweb.com/news/planet-labs-pelican-satellite-earth-observation"
+        },
+        {
+          "title": "2026 Satellite Imagery Update: 37 Million km² at 30cm Resolution",
+          "summary": "Stadia Maps expands Alidade Satellite coverage to 37 million km² at 30cm resolution, adding seamless country-wide mosaics for Japan, Nigeria, Mexico, UAE, and Eastern South Africa.",
           "source": "Stadia Maps",
-          "date": "April 27, 2026",
-          "significance": "Significant improvement in global high-resolution imagery availability for urban planning and logistics",
+          "date": "27 April 2026",
+          "significance": "Demonstrates commercial satellite data democratization with massive high-resolution coverage for mapping and planning applications",
           "url": "https://stadiamaps.com/news/2026-satellite-imagery-update/"
         },
         {
-          "title": "NASA CSDA Program Announces Eight New Commercial Data Agreements",
-          "summary": "NASA signed agreements with Capella, ICEYE, MDA, Umbra, Airbus, Planet, and Vantor for expanded access to multispectral and SAR data.",
-          "source": "NASA Science",
-          "date": "March 18, 2026",
-          "significance": "Major expansion of NASA's commercial satellite data partnerships enhancing Earth science capabilities",
-          "url": "https://science.nasa.gov/science-research/earth-science/csda-program-announces-eight-new-data-agreements/"
-        },
-        {
-          "title": "ICEYE Launches New Real-Time Deforestation Monitoring Tool",
-          "summary": "ICEYE introduced SAR-based tool to detect illegal forest clearing in near real-time through cloud cover, initially covering the Amazon Basin.",
-          "source": "eoPortal",
-          "date": "March 4, 2026",
-          "significance": "Breakthrough in all-weather forest monitoring capabilities with immediate law enforcement applications",
-          "url": "https://www.eoportal.org/satellite-missions/iceye-constellation"
-        },
-        {
-          "title": "BlackSky Secures $25M Multi-Year Defense Contract",
-          "summary": "BlackSky Technology secured a contract with an international defense customer for satellite imagery and AI-based analytics services using Gen-3 satellites.",
+          "title": "BlackSky Secures $25M Deal for Satellite Imagery, Analytics Services",
+          "summary": "BlackSky Technology secured multi-year $25M contract with international defense customer for high-resolution imagery from Gen-3 satellites with AI-based Spectra analytics platform.",
           "source": "The Defense Post",
-          "date": "April 23, 2026",
-          "significance": "Growing demand for commercial satellite intelligence in international defense markets",
+          "date": "23 April 2026",
+          "significance": "Highlights growing defense demand for AI-enhanced commercial satellite services with guaranteed access and reduced latency capabilities",
           "url": "https://thedefensepost.com/2026/04/23/blacksky-satellite-imagery-analytics-services/"
+        },
+        {
+          "title": "Swedish Armed Forces Sign Sovereign Satellite Deals with Planet and ICEYE",
+          "summary": "Sweden signs multi-year contracts with Planet Labs and ICEYE for constellation of 10 military reconnaissance satellites starting 2026, four years ahead of original schedule.",
+          "source": "Via Satellite",
+          "date": "12 January 2026",
+          "significance": "Shows European nations securing sovereign earth observation capabilities through commercial partnerships for national security applications",
+          "url": "https://www.satellitetoday.com/government-military/2026/01/12/swedish-armed-forces-sign-sovereign-satellite-deals-with-planet-and-iceye/"
         }
       ]
     },
@@ -97,52 +99,52 @@
       "count": 6,
       "articles": [
         {
-          "title": "New Study Reveals Surprising Slowdown in Nature's Species Turnover Despite Climate Acceleration",
-          "summary": "Despite accelerating global warming, a massive global study shows species turnover has slowed by about one-third since the 1970s, suggesting ecosystems are losing biodiversity needed for self-renewal.",
-          "source": "ScienceDaily",
-          "date": "February 18, 2026",
-          "significance": "Reveals unexpected ecosystem behavior that challenges climate change impact predictions",
-          "url": "https://www.sciencedaily.com/releases/2026/02/260217005714.htm"
+          "title": "Antarctic Ice Melting Below: Hidden Threats Far Worse Than Expected",
+          "summary": "Scientists uncover accelerated Antarctic ice loss from hidden channels beneath ice shelves. Deep underwater erosion could dramatically increase sea level rise predictions.",
+          "source": "Science Daily",
+          "date": "10 May 2026",
+          "significance": "Major implications for coastal communities and sea level projections worldwide",
+          "url": "https://www.sciencedaily.com/news/earth_climate/climate/"
         },
         {
-          "title": "NOAA Study Unravels Complex Methane-Hydroxyl Feedback Loop Driving Recent Atmospheric Changes",
-          "summary": "New research shows changes in atmospheric methane cannot be understood by emissions alone, revealing a dynamic interplay between emissions, atmospheric chemistry, and feedbacks that strengthen methane accumulation.",
-          "source": "NOAA Chemical Sciences Laboratory",
-          "date": "January 20, 2026",
-          "significance": "Critical for understanding methane's role as second-largest greenhouse gas contributor",
-          "url": "https://csl.noaa.gov/news/2026/437_0120.html"
-        },
-        {
-          "title": "Nature Climate Change: AI Foundation Models Could Revolutionize Cross-Disciplinary Climate Research",
-          "summary": "Scientists argue that advanced artificial intelligence frameworks, specifically foundation models, offer unprecedented opportunities to unify climate risks, societal responses and decision-making across disciplines.",
+          "title": "Nature Study: Microplastics in Atmosphere Exceed Black Carbon Climate Impact",
+          "summary": "Research published in Nature Climate Change shows airborne microplastics add 1.34 W/m² radiative forcing. Impact exceeds black carbon by factor of 4.7, reshaping atmospheric science models.",
           "source": "Nature Climate Change",
-          "date": "April 28, 2026",
-          "significance": "Breakthrough approach to integrating complex climate knowledge for better policy decisions",
-          "url": "https://www.nature.com/articles/s41558-026-02624-x"
+          "date": "4 May 2026",
+          "significance": "Forces revision of climate models and atmospheric chemistry understanding globally",
+          "url": "https://www.nature.com/subjects/atmospheric-science"
         },
         {
-          "title": "Super El Niño Developing for 2026: Record-Breaking Intensity Expected to Reshape Global Weather",
-          "summary": "Latest forecasts show a rapidly developing Super El Niño trending toward record-breaking strength, driven by massive oceanic Kelvin waves that will trigger major atmospheric resets and global weather pattern shifts.",
-          "source": "Severe Weather Europe",
-          "date": "May 7, 2026",
-          "significance": "Major climate pattern shift affecting seasonal forecasts and extreme weather globally",
-          "url": "https://www.severe-weather.eu/long-range-2/super-el-nino-2026-record-breaking-intensity-forecast-weather-impacts-united-states-canada-europe-fa/"
+          "title": "IPCC Opens Cities Climate Report Review: Second-Order Draft Released",
+          "summary": "Intergovernmental Panel releases draft Special Report on Climate Change and Cities for expert review. First-ever dedicated IPCC report on urban climate challenges.",
+          "source": "IPCC",
+          "date": "8 May 2026",
+          "significance": "Critical guidance for urban adaptation strategies affecting billions of people",
+          "url": "https://www.ipcc.ch/2026/05/08/ipcc-srcities-second-order-draft-review/"
         },
         {
-          "title": "Science Magazine: Breakthrough Study Explains Methane Surge During Early 2020s Using Multiple Data Sources",
-          "summary": "Comprehensive analysis using satellite data, atmospheric observations, and advanced modeling reveals that 83% of methane growth variations were driven by hydroxyl radical changes, with remaining effects from wetland emissions.",
-          "source": "Science",
-          "date": "February 5, 2026",
-          "significance": "Definitive explanation of recent methane trends crucial for climate mitigation strategies",
-          "url": "https://www.science.org/doi/10.1126/science.adx8262"
+          "title": "NASA Aircraft Study Reveals Stratospheric Nanoparticles Drive 90% of Reactions",
+          "summary": "WB-57 high-altitude measurements show tiny particles control massive portion of atmospheric chemistry. Published findings reshape understanding of stratospheric processes.",
+          "source": "NASA Science",
+          "date": "1 May 2026",
+          "significance": "Transforms atmospheric chemistry models and ozone depletion research",
+          "url": "https://science.nasa.gov/blogs/science-news/2026/05/01/nasa-aircraft-studies-atmospheric-particles/"
         },
         {
-          "title": "Nature Communications: Global Methane Emissions Rebounded in 2024 Despite Atmospheric Growth Slowdown",
-          "summary": "Satellite analysis reveals wetland emissions strongly rebounded in 2024, offsetting atmospheric sink recovery and highlighting how natural fluctuations can mask global methane mitigation progress.",
-          "source": "Nature Communications",
-          "date": "May 7, 2026",
-          "significance": "Key insights into methane budget dynamics affecting international climate agreements",
-          "url": "https://www.nature.com/articles/s41467-026-72764-3"
+          "title": "Atlantic Ocean Current System Weakening Detected Across Multiple Latitudes",
+          "summary": "Scientists find strong evidence of Atlantic meridional overturning circulation decline. Western boundary measurements show weakening at four different latitudes over 20 years.",
+          "source": "Science Daily",
+          "date": "10 May 2026",
+          "significance": "Critical implications for global weather patterns and European climate stability",
+          "url": "https://www.sciencedaily.com/news/earth_climate/climate/"
+        },
+        {
+          "title": "El Niño Emergence Predicted: Record-Breaking Climate Impacts Expected",
+          "summary": "NOAA forecasts 61% chance of El Niño by July 2026. Scientists warn of amplified extreme weather due to 1.5°C baseline warming since pre-industrial times.",
+          "source": "Eos",
+          "date": "12 May 2026",
+          "significance": "Global wildfire seasons, heat waves, and droughts could reach unprecedented intensity",
+          "url": "https://eos.org/research-and-developments/2026-has-already-broken-climate-records-el-nino-could-break-more"
         }
       ]
     },
@@ -161,52 +163,52 @@
       "count": 6,
       "articles": [
         {
-          "title": "Mount Dukono Eruption Kills 3 Hikers in Indonesia's Restricted Zone",
-          "summary": "A powerful volcanic eruption at Mount Dukono on May 8 killed three hikers, including two Singaporeans, who entered a restricted area despite safety warnings.",
-          "source": "Fox News",
-          "date": "9 May 2026",
-          "significance": "Demonstrates ongoing volcanic hazards and importance of monitoring restricted zones around active Indonesian volcanoes",
-          "url": "https://www.foxnews.com/world/three-hikers-killed-climbing-restricted-indonesian-volcano-create-online-content-police-say"
-        },
-        {
-          "title": "Scientists Discover Volcanic Eruptions Can Destroy Atmospheric Methane",
-          "summary": "New research reveals the 2022 Hunga Tonga eruption created chlorine particles that broke down methane, offering potential climate engineering insights.",
-          "source": "ScienceDaily",
-          "date": "10 May 2026",
-          "significance": "Breakthrough finding could lead to new atmospheric methane reduction strategies for climate change mitigation",
-          "url": "https://www.sciencedaily.com/releases/2026/05/260509210640.htm"
-        },
-        {
-          "title": "Kilauea Volcano Prepares for Episode 47 Eruption in Hawaii",
-          "summary": "USGS Hawaiian Volcano Observatory forecasts next lava fountaining episode between May 12-14 after sustained summit inflation.",
-          "source": "USGS Volcano Hazards Program",
-          "date": "12 May 2026",
-          "significance": "Real-time eruption forecasting demonstrates advances in volcanic prediction capabilities for major shield volcanoes",
+          "title": "Kilauea Volcano Episode 47 Expected to Begin Soon After Ongoing Summit Inflation",
+          "summary": "Episode 47 lava fountaining at Kilauea summit is forecast to begin between May 13-14, with continued inflation and strong glow observed at both north and south vents.",
+          "source": "USGS Hawaiian Volcano Observatory",
+          "date": "May 13, 2026",
+          "significance": "Real-time eruption forecasting demonstrates predictive capabilities for one of world's most active volcanoes",
           "url": "https://www.usgs.gov/volcanoes/kilauea/volcano-updates"
         },
         {
-          "title": "Revolutionary Jerk Detection Method Forecasts 92% of Volcanic Eruptions",
-          "summary": "A new seismic technique successfully predicted volcanic eruptions 1-8 hours in advance during 10 years of testing at La Reunion volcano.",
-          "source": "Nature Communications",
-          "date": "15 March 2026",
-          "significance": "Major advancement in volcanic early warning systems could dramatically improve hazard mitigation globally",
-          "url": "https://www.sciencedaily.com/releases/2026/03/260315004411.htm"
+          "title": "Volcanic Eruption Cloud Unexpectedly Destroys Atmospheric Methane",
+          "summary": "Hunga Tonga eruption created reactive chlorine particles that broke down methane pollution, revealing potential climate benefits from volcanic atmospheric chemistry.",
+          "source": "University of Copenhagen",
+          "date": "May 10, 2026",
+          "significance": "New atmospheric cleaning mechanism could inspire industrial methane removal technologies",
+          "url": "https://www.sciencedaily.com/releases/2026/05/260509210640.htm"
         },
         {
-          "title": "Japan's Kikai Caldera Supervolcano Magma Chamber Recharging After 7,300 Years",
-          "summary": "Seismic imaging reveals new magma accumulation beneath the site of the Holocene's most powerful eruption, with implications for future supervolcano behavior.",
+          "title": "Mount Dukono Eruption Kills Three Hikers in Restricted Indonesia Zone",
+          "summary": "Explosive eruption sent ash column 6 miles high, killing three people including two Singaporeans who entered restricted area despite safety warnings.",
+          "source": "Fox News",
+          "date": "May 8, 2026",
+          "significance": "Highlights critical importance of respecting volcanic hazard zones and monitoring restricted access areas",
+          "url": "https://www.foxnews.com/world/three-hikers-killed-climbing-restricted-indonesian-volcano-create-online-content-police-say"
+        },
+        {
+          "title": "Alaska's Mount Kupreanof Elevated to Yellow Alert After Increased Seismic Activity",
+          "summary": "Alaska Volcano Observatory raised alert level to ADVISORY after detecting sustained seismic activity and volcanic gas emissions from magmatic intrusion.",
+          "source": "Alaska Volcano Observatory",
+          "date": "May 12, 2026",
+          "significance": "Demonstrates real-time volcano monitoring capabilities in remote regions with limited instrumentation",
+          "url": "https://volcanoes.usgs.gov/hans-public/notice/DOI-USGS-AVO-2026-05-11T22:22:27+00:00"
+        },
+        {
+          "title": "Japanese Supervolcano Kikai Caldera Refilling with New Magma After 7,300 Years",
+          "summary": "Seismic imaging reveals large magma reservoir rebuilding beneath Japan's most explosive Holocene eruption site, with newly injected rather than leftover magma.",
           "source": "Kobe University",
-          "date": "29 March 2026",
-          "significance": "Critical research for understanding supervolcano reactivation cycles and long-term volcanic hazard assessment",
-          "url": "https://www.sciencedaily.com/releases/2026/03/260329222930.htm"
+          "date": "March 29, 2026",
+          "significance": "Critical insights into supervolcano recharging cycles relevant to Yellowstone and Toba hazard assessment",
+          "url": "https://phys.org/news/2026-03-japan-giant-caldera-volcano-refilling.html"
         },
         {
-          "title": "Iceland's Svartsengi Magma Reservoir Reaches Record 26 Million Cubic Meters",
-          "summary": "Icelandic Met Office reports highest magma accumulation since eruption series began, with next Reykjanes Peninsula eruption likely in coming weeks.",
-          "source": "Icelandic Meteorological Office",
-          "date": "10 May 2026",
-          "significance": "Demonstrates real-time volcanic monitoring capabilities and cyclic eruption prediction in active rift systems",
-          "url": "https://en.vedur.is/about-imo/news/earthquake-in-brennisteinsfjoll-faster-subsidence-in-krysuvik-and-continued-magma-accumulation-at-svartsengi"
+          "title": "New Jerk Detection Method Predicts 92% of Volcanic Eruptions with Hours of Warning",
+          "summary": "Breakthrough technique using single seismometer detected subtle magma movements, successfully forecasting eruptions at La Reunion volcano with up to 8 hours advance notice.",
+          "source": "GFZ Helmholtz Centre for Geosciences",
+          "date": "March 15, 2026",
+          "significance": "Revolutionary early warning system could transform eruption prediction capabilities globally",
+          "url": "https://www.sciencedaily.com/releases/2026/03/260315004411.htm"
         }
       ]
     },
@@ -222,47 +224,55 @@
     },
     {
       "label": "🚀 Space & Geodesy",
-      "count": 5,
+      "count": 6,
       "articles": [
         {
-          "title": "SpaceX Launches Intelligence Satellites for National Reconnaissance Office",
-          "summary": "SpaceX successfully launched NROL-172 mission on May 11, deploying multiple intelligence-gathering satellites for the National Reconnaissance Office using Falcon 9, enhancing geospatial intelligence capabilities.",
+          "title": "SpaceX Targets May 19 for Starship Version 3 Debut at New Launch Pad",
+          "summary": "SpaceX announced its first launch of the upgraded Starship V3 rocket from newly constructed Launch Pad 2, featuring more powerful Raptor 3 engines and enhanced heat shield technology.",
           "source": "Spaceflight Now",
-          "date": "11 May 2026",
-          "significance": "NRO constellation provides greater revisit rates, increased coverage, and includes electro-optical, radar, and relay satellites for geospatial intelligence systems.",
+          "date": "May 12, 2026",
+          "significance": "First test of next-generation Starship architecture critical for lunar Artemis missions and future Mars exploration programs",
+          "url": "https://spaceflightnow.com/2026/05/12/spacex-targets-may-19-for-debut-of-starship-super-heavy-version-3-launch-pad-2/"
+        },
+        {
+          "title": "SpaceX Launches Intelligence Satellites for National Reconnaissance Office",
+          "summary": "A Falcon 9 rocket successfully deployed classified satellites as part of the NRO's 'proliferated architecture' intelligence-gathering constellation from Vandenberg Space Force Base.",
+          "source": "Spaceflight Now",
+          "date": "May 11, 2026",
+          "significance": "Enhances national security Earth observation capabilities through advanced proliferated satellite architecture deployment",
           "url": "https://spaceflightnow.com/2026/05/11/live-coverage-spacex-to-launch-intelligence-gathering-satellites-for-the-national-reconnaissance-office/"
         },
         {
-          "title": "SpaceX Launches Final GPS III Satellite for U.S. Space Force",
-          "summary": "The U.S. Space Force completed its GPS III satellite constellation with the April 21 launch of GPS III SV10 'Hedy Lamar,' marking the end of the GPS III block program.",
-          "source": "Spaceflight Now",
-          "date": "21 April 2026",
-          "significance": "Completes GPS III constellation enhancing global positioning accuracy and reliability, laying foundation for next-generation GPS IIIF satellites.",
-          "url": "https://spaceflightnow.com/2026/04/21/live-coverage-spacex-to-launch-final-gps-iii-satellite-for-the-u-s-space-force/"
+          "title": "German ICARUS Initiative Launches Animal Migration Tracking Constellation",
+          "summary": "The first operational satellites of the ICARUS 2.0 constellation, named RAVEN, were launched to track global animal migrations from space using advanced IoT technology.",
+          "source": "Wikipedia",
+          "date": "May 3, 2026",
+          "significance": "Revolutionary biodiversity monitoring system enabling real-time wildlife tracking for climate and ecosystem research applications",
+          "url": "https://en.wikipedia.org/wiki/2026_in_spaceflight"
         },
         {
-          "title": "GGOS Unified Analysis Workshop Defines Essential Geodetic Variables",
-          "summary": "International geodesy community gathered in Munich for the GGOS/IERS workshop to establish Essential Geodetic Variables framework, including GNSS satellite orbits, clocks, and Earth gravity field parameters.",
-          "source": "geodesy.science",
-          "date": "5-6 March 2026",
-          "significance": "Standardizes geodetic products and services globally, improving interoperability between space geodetic techniques and Earth observation systems.",
-          "url": "https://geodesy.science/wp-content/uploads/UAW2026_program.pdf"
+          "title": "ESA-China SMILE Mission Prepares for Solar Wind Study Launch",
+          "summary": "ESA and Chinese Academy of Sciences prepare joint heliophysics mission SMILE to study dynamic interactions between solar wind and Earth's magnetosphere.",
+          "source": "Wikipedia",
+          "date": "May 2026",
+          "significance": "Critical space weather research mission improving prediction of geomagnetic storms affecting GPS, power grids, and satellite operations",
+          "url": "https://en.wikipedia.org/wiki/2026_in_spaceflight"
         },
         {
-          "title": "ESA Announces Busy 2026 Mission Schedule Including SMILE and PLATO",
-          "summary": "European Space Agency outlined major 2026 launches including SMILE solar wind mission in May and PLATO exoplanet hunter in Q4, plus Hera asteroid arrival in November.",
-          "source": "ESA",
-          "date": "15 December 2025",
-          "significance": "SMILE will provide first complete view of Earth's magnetosphere interaction with solar wind; PLATO will hunt Earth-sized exoplanets in habitable zones.",
-          "url": "https://www.esa.int/About_Us/Corporate_news/ESA_s_highlights_for_2026"
+          "title": "NASA Mars Sample Return Program Cancelled as Focus Shifts to Human Exploration",
+          "summary": "Congressional spending bill effectively ended NASA's multi-billion dollar Mars Sample Return program in favor of prioritizing human Mars exploration technologies.",
+          "source": "ISDC",
+          "date": "April 12, 2026",
+          "significance": "Major shift in Mars exploration strategy redirecting resources toward crewed missions while China advances its Tianwen-3 sample return",
+          "url": "https://isdc.nss.org/latest-news/mars-exploration-roadmap-and-commercial-innovation-in-2026/"
         },
         {
-          "title": "NASA Begins Implementation for ESA's Rosalind Franklin Mars Mission",
-          "summary": "NASA approved the Rosalind Franklin Support and Augmentation project implementation, with SpaceX Falcon Heavy selected to launch the ESA Mars rover mission no earlier than late 2028.",
-          "source": "NASA Science",
-          "date": "16 April 2026",
-          "significance": "Represents major international collaboration for Mars exploration, with NASA providing critical launch and mission support for European rover technology.",
-          "url": "https://science.nasa.gov/blogs/mars-rosa/2026/04/16/nasa-begins-implementation-for-esas-rosalind-franklin-mission-to-mars/"
+          "title": "NASA Announces New Mars Fission Reactor Mission and Lunar Base Plans",
+          "summary": "NASA unveiled SR-1 Freedom mission to test nuclear reactor technology on Mars while reshaping Gateway space station plans to focus on lunar surface operations.",
+          "source": "CNN",
+          "date": "March 24, 2026",
+          "significance": "Advances nuclear power systems essential for sustained lunar presence and eventual Mars missions beyond Earth's magnetosphere protection",
+          "url": "https://www.cnn.com/2026/03/24/science/nasa-ignition-mars-spacecraft-moon-base"
         }
       ]
     }

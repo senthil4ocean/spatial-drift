@@ -1,36 +1,38 @@
 {
-  "generated_at_ist": "2026-05-16 10:43:10 IST",
-  "generated_at_utc": "2026-05-16T05:13:10.558003+00:00",
-  "generated_iso": "2026-05-16T10:43:10.557976+05:30",
-  "display_date": "Saturday, 16 May 2026",
-  "display_time": "10:43 AM IST",
+  "generated_at_ist": "2026-05-23 11:09:26 IST",
+  "generated_at_utc": "2026-05-23T05:39:26.962811+00:00",
+  "generated_iso": "2026-05-23T11:09:26.962436+05:30",
+  "display_date": "Saturday, 23 May 2026",
+  "display_time": "11:09 AM IST",
   "stats": {
-    "total_articles": 23,
+    "total_articles": 24,
     "domains_total": 9,
     "domains_with_news": 4,
-    "unique_sources": 19,
-    "elapsed": "723s"
+    "unique_sources": 21,
+    "elapsed": "737s"
   },
   "source_summary": {
     "Business Wire": 1,
-    "PRNewswire": 1,
-    "NASA Earthdata": 1,
-    "eoPortal": 1,
-    "SpaceNews": 1,
-    "NASA Science": 2,
-    "Nature Climate Change": 1,
-    "Nature Communications": 2,
-    "Nature": 1,
-    "IPCC": 1,
-    "NOAA Climate Prediction Center": 1,
-    "USGS Hawaiian Volcano Observatory": 1,
-    "Alaska Volcano Observatory": 1,
-    "ScienceDaily": 2,
-    "VolcanoDiscovery": 1,
-    "Journal of Volcanology and Geothermal Research": 1,
-    "ESA": 1,
-    "Spaceflight Now": 2,
-    "Wikipedia": 1
+    "Copernicus Data Space Ecosystem": 2,
+    "NASA Science": 1,
+    "MDPI Remote Sensing": 1,
+    "Stadia Maps": 1,
+    "UN News": 1,
+    "IPCC": 2,
+    "Manila Bulletin": 1,
+    "EurekAlert": 1,
+    "WHO": 1,
+    "Science": 2,
+    "Nature Communications": 1,
+    "JPL": 1,
+    "The Conversation": 1,
+    "Communications Earth & Environment": 1,
+    "Morningstar": 1,
+    "Junior Mining Network": 1,
+    "U.S. Department of State": 1,
+    "International Mining": 1,
+    "Bloomberg": 1,
+    "Global Mining Review": 1
   },
   "domains": [
     {
@@ -38,52 +40,52 @@
       "count": 6,
       "articles": [
         {
-          "title": "Planet Labs Releases First Light from Pelican Satellites Including Sweden's First Sovereign Satellite",
-          "summary": "Planet Labs launched three AI-enabled Pelican satellites in May 2026, capturing 50 cm resolution imagery across six multispectral bands. Images were taken of Sweden, China, and Nigeria within days of the May 3 launch.",
+          "title": "Planet Labs Releases First Light from Latest Pelican Launch Including Sweden's First Sovereign Satellite",
+          "summary": "Planet Labs successfully launched three Pelican satellites on May 3, 2026, including Sweden's first sovereign satellite. The AI-enabled satellites capture 50cm resolution imagery across six multispectral bands.",
           "source": "Business Wire",
           "date": "14 May 2026",
-          "significance": "Demonstrates rapid satellite commissioning with multi-band AI-enabled imaging capabilities for defense applications",
+          "significance": "Expands global Earth observation capabilities with AI-enabled satellites providing high-resolution multispectral imagery",
           "url": "https://www.businesswire.com/news/home/20260514665846/en/Planet-Releases-First-Light-from-Latest-Pelican-Launch-Including-Imagery-from-Swedens-First-Sovereign-Satellite"
         },
         {
-          "title": "ICEYE Delivers MikroSAR System to Polish Armed Forces in Record 12 Months",
-          "summary": "ICEYE completed the fastest operational satellite program deployment globally, delivering four SAR satellites with 25 cm resolution to Poland's military. System provides all-weather reconnaissance capabilities.",
-          "source": "PRNewswire",
+          "title": "Sentinel-2A Extension Campaign Prolonged Until End of 2026",
+          "summary": "ESA announced the extension of Sentinel-2A operations through December 31, 2026, enhancing the availability of Sentinel-2 measurements beyond the nominal two-satellite constellation.",
+          "source": "Copernicus Data Space Ecosystem",
           "date": "15 May 2026",
-          "significance": "Sets new benchmark for sovereign satellite program deployment speed while demonstrating commercial SAR capabilities",
-          "url": "https://www.prnewswire.com/news-releases/iceye-delivers-mikrosar-system-to-polish-armed-forces-in-under-12-months-302773631.html"
+          "significance": "Maintains enhanced global monitoring capacity with extended Sentinel-2A operations for land surface observation",
+          "url": "https://dataspace.copernicus.eu/news/2026-5-15-sentinel-2a-extension-campaign-prolonged-until-end-2026"
         },
         {
-          "title": "NASA CSDA Program Announces Eight New Commercial Satellite Data Agreements",
-          "summary": "NASA's Commercial Satellite Data Acquisition program signed agreements with seven commercial partners to expand Earth observation data coverage. The deals provide multispectral and SAR data for environmental monitoring.",
-          "source": "NASA Earthdata",
-          "date": "2 January 2026",
-          "significance": "Expands NASA's access to commercial remote sensing data for enhanced Earth System Science research capabilities",
-          "url": "https://www.earthdata.nasa.gov/news/nasas-csda-program-announces-eight-new-data-agreements"
-        },
-        {
-          "title": "ICEYE Launches Deforestation Monitoring Tool Using SAR for Amazon Basin",
-          "summary": "ICEYE deployed a new near real-time SAR-based deforestation monitoring system that detects illegal forest clearing through cloud cover. The tool currently covers the Amazon with plans for Congo Basin expansion.",
-          "source": "eoPortal",
-          "date": "4 March 2026",
-          "significance": "Demonstrates SAR technology's unique ability to monitor environmental changes through weather obstacles",
-          "url": "https://www.eoportal.org/satellite-missions/iceye-constellation"
-        },
-        {
-          "title": "Ukrainian Forces Test Direct Satellite Tasking with Handheld Devices",
-          "summary": "Vantor (formerly Maxar Intelligence) successfully tested frontline troops using handheld devices to directly task commercial imaging satellites. The experiment bypassed traditional intelligence workflows for near real-time battlefield imagery.",
-          "source": "SpaceNews",
-          "date": "5 May 2026",
-          "significance": "Revolutionary approach to battlefield intelligence delivery that could transform military satellite imagery workflows",
-          "url": "https://spacenews.com/ukrainian-forces-test-direct-to-device-satellite-imagery-for-frontline-troops/"
-        },
-        {
-          "title": "New Landsat Research Shows Harmonized Processing Methods for Multisensor Analysis",
-          "summary": "Recent publications demonstrate harmonized Tasseled Cap transformation coefficients for Landsat 8 and 9 sensors, enabling seamless multisensor analysis. Studies include spatiotemporal deep learning integration for land cover mapping.",
+          "title": "NASA Scientists Develop Faster Forest Loss Detection System Using Multi-Satellite Data",
+          "summary": "NASA researchers created a new system combining data from multiple Earth-observing satellites to identify forest clearing up to 100 days earlier than current methods by using SAR and optical data integration.",
           "source": "NASA Science",
-          "date": "April 2026",
-          "significance": "Advances standardized processing techniques for long-term Earth observation data continuity and cross-sensor compatibility",
-          "url": "https://science.nasa.gov/mission/landsat/publications/"
+          "date": "6 May 2026",
+          "significance": "Breakthrough in early deforestation detection enabling faster conservation response and environmental monitoring",
+          "url": "https://science.nasa.gov/earth/earth-observatory/faster-detection-of-forest-loss/"
+        },
+        {
+          "title": "MDPI Remote Sensing Publishes Breakthrough Urban Heat Island Research Using Dynamic World Shannon Entropy",
+          "summary": "New research published May 21, 2026 demonstrates scale-sensitive indicators for urban heat island intensity analysis across seven Romanian cities using satellite-derived surface heterogeneity measures.",
+          "source": "MDPI Remote Sensing",
+          "date": "21 May 2026",
+          "significance": "Advances urban climate monitoring capabilities through innovative entropy-based analysis of satellite imagery",
+          "url": "https://www.mdpi.com/journal/remotesensing"
+        },
+        {
+          "title": "Copernicus Browser Introduces 19 New Earth Observation Highlights with Multi-Source Imagery",
+          "summary": "The Copernicus Data Space Ecosystem launched 19 new visualization highlights across seven themes, featuring satellite data from diverse sources including comparison capabilities for temporal change analysis.",
+          "source": "Copernicus Data Space Ecosystem",
+          "date": "7 May 2026",
+          "significance": "Enhances public access to Earth observation data with improved visualization tools for environmental monitoring",
+          "url": "https://dataspace.copernicus.eu/news/2026-5-7-introducing-19-new-highlights-copernicus-browser"
+        },
+        {
+          "title": "Stadia Maps Releases 37 Million km² of 30cm Resolution Satellite Imagery Update",
+          "summary": "Stadia Maps announced a major satellite imagery update featuring 37 million square kilometers at 30cm resolution, with seamless country-wide mosaics for Japan, Nigeria, Mexico, UAE, and Eastern South Africa.",
+          "source": "Stadia Maps",
+          "date": "12 May 2026",
+          "significance": "Provides unprecedented high-resolution global coverage for urban planning, infrastructure assessment, and precision mapping",
+          "url": "https://stadiamaps.com/blog/2026-satellite-imagery-update/"
         }
       ]
     },
@@ -97,52 +99,52 @@
       "count": 6,
       "articles": [
         {
-          "title": "Microplastics Contribute Significant Atmospheric Warming, New Study Shows",
-          "summary": "Research published in Nature Climate Change reveals that airborne microplastic and nanoplastic particles can produce climate warming effects equivalent to 16.2% of black carbon forcing, with regional effects reaching 4.7 times higher than local black carbon in some areas.",
-          "source": "Nature Climate Change",
-          "date": "4 May 2026",
-          "significance": "First major study quantifying microplastics' direct climate warming effects, revealing an overlooked driver of global temperature rise",
-          "url": "https://www.nature.com/articles/s41558-026-02620-1"
+          "title": "UN backs historic World Court climate ruling with 141 votes",
+          "summary": "The UN General Assembly endorsed the International Court of Justice's climate obligations ruling with 141 votes in favor, formally affirming states' legal responsibility to protect against climate change.",
+          "source": "UN News",
+          "date": "20 May 2026",
+          "significance": "Sets binding legal precedent forcing climate action worldwide - major shift for geospatial climate monitoring and compliance frameworks",
+          "url": "https://news.un.org/en/story/2026/05/1167561"
         },
         {
-          "title": "Volcanic Eruption Accidentally Destroys Methane in Atmosphere, Scientists Report",
-          "summary": "University of Copenhagen researchers discover that the 2022 Hunga Tonga volcano eruption generated formaldehyde that removed 900 megagrams of methane daily from the atmosphere, suggesting new possibilities for climate intervention technologies.",
-          "source": "Nature Communications",
-          "date": "9 May 2026",
-          "significance": "Breakthrough finding shows natural methane removal process that could inspire artificial climate solutions to reduce warming",
-          "url": "https://www.sciencedaily.com/releases/2026/05/260509210640.htm"
-        },
-        {
-          "title": "Species Turnover Slows by One-Third Despite Accelerating Climate Change",
-          "summary": "Queen Mary University study published in Nature Communications finds ecosystems are changing more slowly than expected as global warming accelerates, with species turnover declining across habitats from birds to ocean floor communities.",
-          "source": "Nature Communications",
-          "date": "14 May 2026",
-          "significance": "Reveals ecosystem biodiversity loss may be stalling nature's self-renewal mechanisms more than climate velocity suggests",
-          "url": "https://www.sciencedaily.com/releases/2026/02/260217005714.htm"
-        },
-        {
-          "title": "Trump Administration Moves to Dismantle National Center for Atmospheric Research",
-          "summary": "Universities managing NCAR filed lawsuit to prevent federal government from breaking up the Boulder-based climate research institution, which officials call the global 'mothership' of climate science and a crucial resource for weather prediction models.",
-          "source": "Nature",
-          "date": "8 May 2026",
-          "significance": "Major threat to global climate science infrastructure could impact decades of atmospheric research and weather forecasting capabilities",
-          "url": "https://www.nature.com/articles/d41586-026-01501-z"
-        },
-        {
-          "title": "IPCC Opens Expert Review for Cities Climate Change Report",
-          "summary": "The Intergovernmental Panel on Climate Change invites government representatives and experts to review the second-order draft of its Special Report on Climate Change and Cities from May 8 to July 3, following over 32,000 comments on the first draft.",
+          "title": "IPCC opens expert review for Climate Change and Cities special report",
+          "summary": "The Intergovernmental Panel on Climate Change launched global expert review of its second draft on climate change impacts in urban areas, marking a critical milestone for AR7.",
           "source": "IPCC",
           "date": "8 May 2026",
-          "significance": "Critical IPCC assessment will guide urban climate adaptation strategies as cities face mounting climate risks worldwide",
+          "significance": "First major IPCC urban climate assessment - critical for geospatial urban planning and adaptation strategies",
           "url": "https://www.ipcc.ch/2026/05/08/ipcc-srcities-second-order-draft-review/"
         },
         {
-          "title": "El Niño Watch Issued as ENSO Conditions Shift from La Niña",
-          "summary": "NOAA Climate Prediction Center announces 82% probability of El Niño emerging in May-July 2026 period, with 96% chance of continuation through winter 2026-27, marking transition from current weak La Niña conditions affecting global weather patterns.",
-          "source": "NOAA Climate Prediction Center",
-          "date": "14 May 2026",
-          "significance": "El Niño emergence could intensify global temperatures and extreme weather events during 2026-27, affecting agriculture and disasters worldwide",
-          "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml"
+          "title": "IPCC authors gather in Nassau for climate impacts assessment",
+          "summary": "Over 200 authors from 90 countries met in the Bahamas to develop the first draft of Working Group II's assessment on climate impacts, adaptation and vulnerabilities for AR7.",
+          "source": "IPCC",
+          "date": "18 May 2026",
+          "significance": "Major milestone in AR7 development - will define climate risk mapping standards for the next decade",
+          "url": "https://www.ipcc.ch/2026/05/18/pr-wgii-ar7-lamii-nassau/"
+        },
+        {
+          "title": "Scientists retire worst-case climate scenario as implausible",
+          "summary": "Climate scientists are dropping the RCP8.5 scenario from future assessments as renewable energy progress makes extreme warming projections unrealistic.",
+          "source": "Manila Bulletin",
+          "date": "20 May 2026",
+          "significance": "Fundamentally changes climate projection frameworks - affects all geospatial climate modeling and risk assessment protocols",
+          "url": "https://mb.com.ph/2026/05/20/the-worst-climate-future-is-less-likely-but-the-best-one-is-slipping-away-scientists-say"
+        },
+        {
+          "title": "New isotope method reveals higher global methane emissions",
+          "summary": "International researchers combined satellite data with isotope analysis to create more accurate methane emission tracking, finding higher emissions than previously estimated.",
+          "source": "EurekAlert",
+          "date": "12 May 2026",
+          "significance": "Revolutionary methane tracking method - enables precise source attribution for geospatial emission monitoring systems",
+          "url": "https://www.eurekalert.org/news-releases/1128354"
+        },
+        {
+          "title": "WHO launches climate health partnerships plan for 2025-2028",
+          "summary": "The World Health Organization published its comprehensive advocacy plan positioning health at the center of global climate action, with focus on air pollution and energy poverty.",
+          "source": "WHO",
+          "date": "18 May 2026",
+          "significance": "Links health data to climate geospatial analysis - creates new frameworks for environmental health mapping",
+          "url": "https://www.who.int/philippines/news/detail-global/18-05-2026-who-launches-advocacy--communications-and-partnerships-plan-on-the-health-response-to-climate-change--air-pollution-and-energy-poverty"
         }
       ]
     },
@@ -153,67 +155,116 @@
     },
     {
       "label": "🏔️ Plate Tectonics & Seismology",
-      "count": 0,
-      "articles": []
-    },
-    {
-      "label": "🌋 Volcanology",
       "count": 6,
       "articles": [
         {
-          "title": "Kilauea's Episode 47 Ends After 9-Hour Lava Fountaining",
-          "summary": "Episode 47 of Kilauea's ongoing summit eruption ended abruptly at 12:27 a.m. HST on May 15, 2026, after 9 continuous hours of lava fountaining reaching up to 650 feet high from the north vent.",
-          "source": "USGS Hawaiian Volcano Observatory",
-          "date": "15 May 2026",
-          "significance": "Latest episode in Kilauea's current eruption sequence demonstrates ongoing volcanic activity at world's most monitored volcano",
-          "url": "https://www.usgs.gov/volcanoes/kilauea/volcano-updates"
+          "title": "Scientists Confirm Earth's Plates Were Moving 3.5 Billion Years Ago",
+          "summary": "Researchers discover oldest direct evidence of tectonic plate movement, showing Earth was geologically dynamic much earlier than previously thought.",
+          "source": "Science",
+          "date": "21 March 2026",
+          "significance": "Revolutionary finding challenges assumptions about when plate tectonics began, with implications for early life evolution",
+          "url": "https://www.sciencedaily.com/releases/2026/03/260321012636.htm"
         },
         {
-          "title": "Alaska's Mount Kupreanof Raised to Advisory Level Due to Volcanic Unrest",
-          "summary": "Mount Kupreanof volcano on Alaska Peninsula elevated to YELLOW/ADVISORY status due to sustained seismic activity and sulfur dioxide gas emissions over recent months.",
-          "source": "Alaska Volcano Observatory",
-          "date": "12 May 2026",
-          "significance": "First known heightened activity at previously quiet stratovolcano indicates possible magmatic intrusion beneath",
-          "url": "https://volcanoes.usgs.gov/hans-public/notice/DOI-USGS-AVO-2026-05-11T22:22:27+00:00"
+          "title": "Machine Learning Reveals New Patterns in Pre-Earthquake Activity",
+          "summary": "New AI approach identifies critical clustering patterns that precede large earthquakes, offering potential for improved forecasting systems.",
+          "source": "Nature Communications",
+          "date": "4 May 2026",
+          "significance": "Could revolutionize earthquake prediction by detecting subtle precursory patterns invisible to traditional analysis",
+          "url": "https://www.nature.com/subjects/seismology"
         },
         {
-          "title": "Volcano Cloud from 2022 Tonga Eruption Found to Destroy Atmospheric Methane",
-          "summary": "University of Copenhagen researchers discovered that the 2022 Hunga Tonga volcano eruption created reactive chlorine that destroyed methane in the atmosphere, offering new insights for climate change mitigation.",
-          "source": "ScienceDaily",
-          "date": "10 May 2026",
-          "significance": "Breakthrough discovery shows volcanic processes can clean atmospheric methane, potentially informing climate engineering",
-          "url": "https://www.sciencedaily.com/releases/2026/05/260509210640.htm"
+          "title": "Predictable Earthquake Cycles Discovered on Ocean Transform Faults",
+          "summary": "Research reveals how structural barriers create regular seismic schedules on oceanic transform faults, with magnitude 6 earthquakes every 5 years.",
+          "source": "Science",
+          "date": "14 May 2026",
+          "significance": "First evidence of predictable earthquake timing in marine environments, advancing tsunami risk assessment",
+          "url": "https://www.science.org/doi/10.1126/science.ady6190"
         },
         {
-          "title": "Philippines' Mayon Volcano Generates Large Pyroclastic Density Current",
-          "summary": "Mayon Volcano produced significant pyroclastic flows on May 13, 2026, with lava collapse feeding ash plumes that descended the southwestern slopes at Mi-isi Gully.",
-          "source": "VolcanoDiscovery",
-          "date": "13 May 2026",
-          "significance": "Ongoing hazardous activity at one of Philippines' most dangerous volcanoes under Alert Level 3",
-          "url": "https://www.youtube.com/watch?v=0WObN-nvGrw"
+          "title": "NASA's GUARDIAN System Successfully Detects Real-Time Tsunami Wave",
+          "summary": "New satellite-based technology caught tsunami propagation following Kamchatka earthquake, providing crucial early warning capabilities.",
+          "source": "JPL",
+          "date": "23 March 2026",
+          "significance": "Major breakthrough for tsunami early warning, potentially providing 80 minutes advance notice to coastal communities",
+          "url": "https://overlookhorizon.com/see-nasas-guardian-catch-a-tsunami/"
         },
         {
-          "title": "Journal Research: New 3D Framework Studies Hydrothermal Dome Weakening",
-          "summary": "Scientists developed new 3D models combining geophysical and mechanical data to study how hydrothermal alteration weakens volcanic domes and affects collapse scenarios.",
-          "source": "Journal of Volcanology and Geothermal Research",
-          "date": "13 March 2026",
-          "significance": "Advanced modeling helps predict dome collapse hazards at La Soufriere de Guadeloupe and similar volcanic systems",
-          "url": "https://hal.science/hal-05550998v1"
+          "title": "Fault Creep vs Stick-Slip Mechanics Critical for Tsunami Risk Assessment",
+          "summary": "New research explains why some faults creep gradually while others generate massive earthquakes, crucial for understanding tsunami generation.",
+          "source": "The Conversation",
+          "date": "4 May 2026",
+          "significance": "Essential for evaluating future earthquake and tsunami risks in subduction zones worldwide",
+          "url": "https://theconversation.com/topics/seismology-148"
         },
         {
-          "title": "New Jerk Detection System Successfully Predicts 92% of Volcanic Eruptions",
-          "summary": "A novel seismic detection method called Jerk successfully forecast 92% of eruptions at La Reunion's Piton de la Fournaise volcano over a decade-long test, giving up to 8 hours warning.",
-          "source": "ScienceDaily",
-          "date": "5 days ago",
-          "significance": "Revolutionary early warning system could transform volcanic hazard monitoring globally with minimal equipment needs",
-          "url": "https://www.sciencedaily.com/releases/2026/03/260315004411.htm"
+          "title": "Ancient Thermal State Changes Reveal Early Plate Tectonic Evolution",
+          "summary": "Study of North China Craton shows transition from ancient warm subduction to modern cold plate tectonics during Paleoproterozoic era.",
+          "source": "Communications Earth & Environment",
+          "date": "31 December 2025",
+          "significance": "Provides new framework for understanding how modern plate tectonic systems evolved from ancient geodynamic processes",
+          "url": "https://www.nature.com/articles/s43247-025-03131-1"
         }
       ]
     },
     {
-      "label": "⛏️ Mining & Mineral Resources",
+      "label": "🌋 Volcanology",
       "count": 0,
       "articles": []
+    },
+    {
+      "label": "⛏️ Mining & Mineral Resources",
+      "count": 6,
+      "articles": [
+        {
+          "title": "First Mining Commences 2026 Drilling Campaign with Indigenous Partnership at Duparquet Gold Project",
+          "summary": "First Mining Gold Corp. launched its 2026 drilling campaign at the Duparquet Project in Quebec, signing a milestone partnership with Indigenous drilling company Forage Anicinape for year-long exploration activities.",
+          "source": "Morningstar",
+          "date": "May 21, 2026",
+          "significance": "Demonstrates integration of Indigenous partnerships in modern mining operations and continued gold exploration investment",
+          "url": "https://www.morningstar.com/news/pr-newswire/20260521va60666/first-mining-commences-2026-drilling-campaign-and-signs-milestone-drilling-partnership-with-forage-anicinape-at-the-duparquet-gold-project"
+        },
+        {
+          "title": "DPM Metals Reports High-Grade Intercepts from Deep Prospect at Chelopech Mine",
+          "summary": "DPM Metals announced significant high-grade drilling results from the Wedge Zone Deep prospect, located 250 metres below existing mine infrastructure, with mineral resource estimate expected by year-end 2026.",
+          "source": "Junior Mining Network",
+          "date": "May 20, 2026",
+          "significance": "Showcases successful deep exploration extending mine life and resource base through advanced underground drilling techniques",
+          "url": "https://www.juniorminingnetwork.com/junior-miner-news.html"
+        },
+        {
+          "title": "Trump Administration Announces $14.8 Billion Critical Minerals Investment Package",
+          "summary": "The 2026 Critical Minerals Ministerial saw announcement of unprecedented US government financing, including $400 million for Arkansas lithium extraction and $350 million for Australia cobalt production.",
+          "source": "U.S. Department of State",
+          "date": "February 5, 2026",
+          "significance": "Marks major geopolitical shift toward domestic critical mineral supply chain security and reduced Chinese dependency",
+          "url": "https://www.state.gov/releases/office-of-the-spokesperson/2026/02/2026-critical-minerals-ministerial"
+        },
+        {
+          "title": "Fleet Space Technologies Revolutionizes Mineral Exploration with AI-Powered Seismic Technology",
+          "summary": "Fleet Space opened new global headquarters and launched advanced seismic exploration capabilities, enabling meter-scale precision subsurface imaging for mineral discovery through their ExoSphere platform.",
+          "source": "International Mining",
+          "date": "February 25, 2026",
+          "significance": "Represents breakthrough in exploration technology reducing environmental impact while improving discovery success rates",
+          "url": "https://im-mining.com/2026/02/25/agile-geoscience-unlocks-lundin-golds-fruta-del-norte-exploration/"
+        },
+        {
+          "title": "Bloomberg Analysis Reveals Critical Shortage in Heavy Rare Earth Supply Outside China",
+          "summary": "New analysis shows countries outside China will meet less than 20% of dysprosium and terbium demand by 2035, despite $2.8 billion in Q1 2026 investment in alternative supply chains.",
+          "source": "Bloomberg",
+          "date": "May 2026",
+          "significance": "Highlights persistent strategic vulnerability in defense and clean energy supply chains despite massive diversification efforts",
+          "url": "https://www.bloomberg.com/graphics/2026-us-china-heavy-rare-earth-magnets-defense/"
+        },
+        {
+          "title": "Global Mining Review Confirms Industry Leaders for World Mining Congress 2026 in Peru",
+          "summary": "World Mining Congress 2026 announced participation of Newmont CEO Natascha Viljoen and other industry leaders for the June event in Lima, focusing on sustainable mining innovations and global supply challenges.",
+          "source": "Global Mining Review",
+          "date": "May 2026",
+          "significance": "Signals industry focus on sustainability and innovation as mining adapts to energy transition demands and ESG requirements",
+          "url": "https://www.globalminingreview.com/"
+        }
+      ]
     },
     {
       "label": "🪨 Geology & Geomorphology",
@@ -222,49 +273,8 @@
     },
     {
       "label": "🚀 Space & Geodesy",
-      "count": 5,
-      "articles": [
-        {
-          "title": "ESA-China SMILE Mission Set for Launch on May 19 to Study Earth's Magnetosphere",
-          "summary": "The joint European-Chinese SMILE mission launches today on a Vega-C rocket to study how Earth responds to solar wind using X-ray and ultraviolet cameras.",
-          "source": "ESA",
-          "date": "May 19, 2026",
-          "significance": "First mission to observe Earth's magnetosphere in X-ray, revolutionizing space weather research",
-          "url": "https://www.esa.int/Science_Exploration/Space_Science/Smile/Smile_set_to_launch_on_19_May"
-        },
-        {
-          "title": "NASA's Psyche Spacecraft Completes Critical Mars Gravity Assist at 2,800 Miles",
-          "summary": "Psyche spacecraft successfully performed a gravity assist flyby of Mars on May 15, passing 2,800 miles from the surface to boost speed for its asteroid rendezvous in 2029.",
-          "source": "NASA Science",
-          "date": "May 15, 2026",
-          "significance": "Demonstrates precision navigation for deep space missions and asteroid belt exploration",
-          "url": "https://science.nasa.gov/blogs/psyche/2026/05/08/nasas-psyche-mission-to-fly-by-mars-for-gravity-assist/"
-        },
-        {
-          "title": "SpaceX Launches Intelligence Satellites for National Reconnaissance Office",
-          "summary": "Falcon 9 rocket successfully deployed spy satellites for the NRO's proliferated architecture constellation from Vandenberg Space Force Base on May 11.",
-          "source": "Spaceflight Now",
-          "date": "May 11, 2026",
-          "significance": "Enhances global surveillance capabilities with optical, radar, and communications satellites",
-          "url": "https://spaceflightnow.com/2026/05/11/live-coverage-spacex-to-launch-intelligence-gathering-satellites-for-the-national-reconnaissance-office/"
-        },
-        {
-          "title": "SpaceX Targets May 19 for Debut of Starship Version 3 from New Launch Pad",
-          "summary": "SpaceX prepares for the first test flight of its upgraded Starship V3 rocket with enhanced Raptor 3 engines from the newly constructed Launch Pad 2.",
-          "source": "Spaceflight Now",
-          "date": "May 12, 2026",
-          "significance": "Major advancement toward lunar missions with improved thrust and heat shield technology",
-          "url": "https://spaceflightnow.com/2026/05/12/spacex-targets-may-19-for-debut-of-starship-super-heavy-version-3-launch-pad-2/"
-        },
-        {
-          "title": "ESA Launches First GNSS Augmentation Constellation Satellites for LEO-PNT",
-          "summary": "Two Celeste satellites launched on Rocket Lab's Electron rocket began delivering navigation signals on April 8, marking start of European GNSS enhancement system.",
-          "source": "Wikipedia",
-          "date": "March 28, 2026",
-          "significance": "Improves GPS accuracy and resilience through low Earth orbit constellation technology",
-          "url": "https://en.wikipedia.org/wiki/2026_in_spaceflight"
-        }
-      ]
+      "count": 0,
+      "articles": []
     }
   ]
 }

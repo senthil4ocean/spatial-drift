@@ -1,35 +1,40 @@
 {
-  "generated_at_ist": "2026-05-30 11:18:59 IST",
-  "generated_at_utc": "2026-05-30T05:48:59.205734+00:00",
-  "generated_iso": "2026-05-30T11:18:59.205703+05:30",
-  "display_date": "Saturday, 30 May 2026",
-  "display_time": "11:18 AM IST",
+  "generated_at_ist": "2026-06-06 11:26:06 IST",
+  "generated_at_utc": "2026-06-06T05:56:06.660562+00:00",
+  "generated_iso": "2026-06-06T11:26:06.660527+05:30",
+  "display_date": "Saturday, 06 June 2026",
+  "display_time": "11:26 AM IST",
   "stats": {
-    "total_articles": 22,
+    "total_articles": 28,
     "domains_total": 9,
-    "domains_with_news": 4,
-    "unique_sources": 18,
-    "elapsed": "768s"
+    "domains_with_news": 5,
+    "unique_sources": 23,
+    "elapsed": "849s"
   },
   "source_summary": {
-    "Phys.org": 1,
-    "The Defense News": 1,
-    "SpaceNews": 2,
+    "USGS": 2,
+    "Bloomberg": 1,
+    "The Defense Post": 1,
+    "NASA": 2,
     "Stadia Maps": 1,
-    "NASA Science": 2,
-    "CNBC": 1,
-    "Google Maps Platform": 1,
-    "EurekAlert!": 1,
-    "Home Business Magazine": 1,
-    "NextGIS": 1,
-    "CARTO": 1,
-    "Hawaii County Government": 1,
-    "Nature Communications": 2,
-    "Scientific American": 1,
+    "IEEE GRSS": 1,
+    "NASA Science": 1,
+    "Highways Today": 1,
+    "Google Research": 1,
+    "MalaGIS": 1,
+    "Commercial Observer": 1,
     "CNN": 1,
-    "arXiv": 1,
+    "ScienceDaily": 3,
+    "University of Miami": 1,
+    "Mongabay": 1,
+    "Washington Times": 1,
+    "KPBS": 1,
+    "USGS Hawaiian Volcano Observatory": 1,
+    "Icelandic Meteorological Office": 1,
+    "The World Now": 1,
+    "ESA": 1,
     "Spaceflight Now": 2,
-    "NPR": 1
+    "Wikipedia": 1
   },
   "domains": [
     {
@@ -37,52 +42,52 @@
       "count": 6,
       "articles": [
         {
-          "title": "Amazon-Cerrado Transition Zone Devastation Revealed Through AI-Powered Satellite Analysis",
-          "summary": "International team uses 35 years of Landsat data with AI to reveal 493,000 km² of damage in critical Amazon buffer zone. Slow vegetation recovery after fires shows ecosystem degradation.",
-          "source": "Phys.org",
-          "date": "26 May 2026",
-          "significance": "First comprehensive multi-decade assessment of Amazon-Cerrado transition zone shows unprecedented ecosystem damage",
-          "url": "https://phys.org/news/2026-05-experts-ai-satellite-images-reveal.html"
+          "title": "USGS Seeks Input on Landsat 10 Mission Operations Architecture for 2031 Launch",
+          "summary": "USGS released a Request for Information on May 7, 2026, seeking industry input on the Landsat 10 Mission Operations Center and flight operations architecture to support the next generation ground system operations.",
+          "source": "USGS",
+          "date": "2 days ago",
+          "significance": "Critical infrastructure planning for next-generation Landsat continuity mission with 2031 launch target",
+          "url": "https://www.usgs.gov/latest-landsat-newsletter/latest-landsat-june-2026"
         },
         {
-          "title": "China's Nuclear Aircraft Carrier Construction Advances Rapidly According to Satellite Monitoring",
-          "summary": "Satellite imagery confirms rapid progress on China's Type 004 nuclear-powered aircraft carrier at Dalian Shipyard. Hull sections assembled into recognizable 286-meter structure.",
-          "source": "The Defense News",
-          "date": "29 May 2026",
-          "significance": "Real-time military intelligence through satellite surveillance capabilities demonstrates naval construction monitoring",
-          "url": "https://www.thedefensenews.com/Satellite-Imagery-Shows-Rapid-Construction-Progress-on-Chinas-First-Nuclear-Powered-Aircraft-Carrier/"
+          "title": "Planet Labs Raises Revenue Forecast to $441M Following Defense Contract Surge",
+          "summary": "Planet Labs reported record quarterly sales and raised full-year guidance to $425-441 million, driven by strong demand from defense and government customers for satellite imaging services.",
+          "source": "Bloomberg",
+          "date": "1 day ago",
+          "significance": "Major revenue milestone showing increasing government adoption of commercial satellite imagery capabilities",
+          "url": "https://www.bloomberg.com/news/articles/2026-06-04/planet-labs-raises-outlook-as-war-drives-earth-imaging-demand"
         },
         {
-          "title": "NRO Awards Historic $4+ Billion Commercial Satellite Imagery Contracts",
-          "summary": "Maxar, Planet Labs, and BlackSky receive 10-year contracts for satellite imagery services to US intelligence agencies. Largest commercial imagery procurement in NRO history.",
-          "source": "SpaceNews",
-          "date": "25 May 2026",
-          "significance": "Massive government investment in commercial satellite data indicates growing reliance on private Earth observation",
-          "url": "https://spacenews.com/blacksky-maxar-planet-win-10-year-nro-contracts-for-satellite-imagery/"
+          "title": "BlackSky Secures $25M Multi-Year Contract for AI-Enhanced Satellite Analytics",
+          "summary": "BlackSky Technology secured a $25 million multi-year contract with an international defense customer for high-resolution satellite imagery and AI-based analytics services, including maritime domain awareness.",
+          "source": "The Defense Post",
+          "date": "April 28, 2026",
+          "significance": "Growing trend of AI integration in commercial satellite services for defense applications",
+          "url": "https://thedefensepost.com/2026/04/23/blacksky-satellite-imagery-analytics-services/"
         },
         {
-          "title": "Stadia Maps Expands 30cm Satellite Coverage to 37 Million km² in 2026 Update",
-          "summary": "Company adds seamless 30cm-resolution imagery for Japan, Nigeria, Mexico, UAE, and Eastern South Africa. Full refresh of 1.5m global dataset from latest SPOT layer.",
+          "title": "NASA CSDA Program Announces Eight New Commercial Earth Observation Data Agreements",
+          "summary": "NASA's Commercial Satellite Data Acquisition program announced eight new agreements with seven commercial partners to expand multispectral and SAR data coverage for NASA's Earth science research and applications.",
+          "source": "NASA",
+          "date": "January 2, 2026",
+          "significance": "Expanding public-private partnerships bringing commercial EO data into NASA's scientific research programs",
+          "url": "https://www.earthdata.nasa.gov/news/nasas-csda-program-announces-eight-new-data-agreements"
+        },
+        {
+          "title": "Stadia Maps Launches 37 Million km² of 30cm Resolution Satellite Imagery Coverage",
+          "summary": "Stadia Maps released 37 million km² of 30cm-resolution satellite imagery with seamless country-wide mosaics for Japan, Nigeria, Mexico, UAE, and Eastern South Africa, plus refreshed 1.5m global coverage.",
           "source": "Stadia Maps",
-          "date": "26 May 2026",
-          "significance": "High-resolution commercial satellite data becomes more accessible for urban planning and infrastructure applications",
+          "date": "April 27, 2026",
+          "significance": "Major expansion of ultra-high resolution commercial imagery enabling precision applications like urban planning and infrastructure assessment",
           "url": "https://stadiamaps.com/blog/2026-satellite-imagery-update/"
         },
         {
-          "title": "SAR and Optical Fusion Enables Forest Loss Detection 100 Days Earlier",
-          "summary": "NASA scientists develop new system combining multiple satellite sensors to identify tropical deforestation up to 100 days earlier than current methods using SAR C- and L-band data.",
-          "source": "NASA Science",
-          "date": "6 April 2026",
-          "significance": "Breakthrough in early deforestation detection could revolutionize forest conservation and carbon monitoring",
-          "url": "https://science.nasa.gov/earth/earth-observatory/faster-detection-of-forest-loss/"
-        },
-        {
-          "title": "Planet Labs Implements Indefinite Imagery Restrictions for Middle East Conflict Zone",
-          "summary": "US satellite company switches to case-by-case image release for Iran and conflict regions following government request. Unprecedented restrictions on commercial satellite data access.",
-          "source": "CNBC",
-          "date": "5 April 2026",
-          "significance": "Highlights tension between commercial Earth observation transparency and national security considerations",
-          "url": "https://www.cnbc.com/2026/04/05/satellite-firm-planet-labs-to-indefinitely-withhold-iran-war-images.html"
+          "title": "EarthVision 2026 Workshop Advances AI Integration in Remote Sensing for Climate Goals",
+          "summary": "The EarthVision workshop at CVPR 2026 showcased developments in machine learning for Earth observation, focusing on self-supervised learning, multi-sensor fusion, and automated scene interpretation for sustainability applications.",
+          "source": "IEEE GRSS",
+          "date": "5 days ago",
+          "significance": "Highlighting rapid advancement of AI techniques for automated interpretation of diverse satellite sensor data",
+          "url": "https://www.grss-ieee.org/events/earthvision-2026/"
         }
       ]
     },
@@ -92,51 +97,51 @@
       "articles": [
         {
           "title": "NASA's Prithvi Becomes First AI Geospatial Foundation Model In Orbit",
-          "summary": "NASA and IBM's Prithvi AI model successfully deployed to International Space Station platforms, enabling real-time Earth observation and geospatial analysis from space for the first time.",
+          "summary": "NASA and IBM's open-source Prithvi AI model successfully deployed aboard the International Space Station, enabling real-time Earth observation analysis for flood mapping, disaster monitoring, and crop prediction.",
           "source": "NASA Science",
           "date": "May 13, 2026",
-          "significance": "Breakthrough in space-based geospatial AI enables autonomous satellite data processing and real-time Earth monitoring",
+          "significance": "First space-deployed geospatial AI opens new frontiers for real-time satellite data analysis",
           "url": "https://science.nasa.gov/science-research/ai-foundation-model-in-orbit/"
         },
         {
-          "title": "Google Maps Platform Launches Agentic AI Tools for Enterprise Geospatial Applications",
-          "summary": "Google unveiled Maps Agentic UI Toolkit and expanded grounding capabilities, allowing AI agents to generate interactive maps from text and anchor reasoning in real-world spatial data.",
-          "source": "Google Maps Platform",
-          "date": "May 19, 2026",
-          "significance": "Major advancement in AI-powered mapping interfaces democratizes location intelligence for enterprise applications",
-          "url": "https://mapsplatform.google.com/resources/blog/powering-the-next-era-of-agentic-experiences-announcing-new-grounding-capabilities/"
+          "title": "VertiGIS Completes £87m Acquisition of 1Spatial to Expand Global GIS Reach",
+          "summary": "Major consolidation in geospatial sector as VertiGIS acquires UK-based 1Spatial, combining application-layer GIS workflows with advanced location data governance for infrastructure and utilities.",
+          "source": "Highways Today",
+          "date": "June 4, 2026",
+          "significance": "Industry consolidation accelerates, signaling focus on integrated data quality platforms",
+          "url": "https://highways.today/2026/05/02/vertigis-1spatial-acquisition/"
         },
         {
-          "title": "New AI Framework Transforms Paper Drawings Into 3D Digital Twins",
-          "summary": "Researchers developed DBAL-YOLO framework achieving 98.8% precision in converting non-digital engineering drawings to Building Information Models for smart city construction.",
-          "source": "EurekAlert!",
-          "date": "February 24, 2026",
-          "significance": "Enables rapid digitization of legacy building infrastructure for modern digital twin platforms and smart city systems",
-          "url": "https://www.eurekalert.org/news-releases/1117571"
+          "title": "USGS Releases Landsat 10 Spacecraft Proposal and Mission Operations RFI",
+          "summary": "Major milestone for next-generation Earth observation as USGS opens bidding for Landsat 10 spacecraft and requests industry input on mission operations architecture.",
+          "source": "USGS",
+          "date": "June 4, 2026",
+          "significance": "Next-gen satellite technology promises enhanced spatial resolution for precision monitoring",
+          "url": "https://www.usgs.gov/latest-landsat-newsletter/latest-landsat-june-2026"
         },
         {
-          "title": "Digital Twin Technology For Urban Planning Reaches Maturity in 2026",
-          "summary": "Real-time digital twins now power major metropolises with 6G-ready infrastructure enabling millisecond latency for live urban simulation and planning decisions.",
-          "source": "Home Business Magazine",
-          "date": "May 29, 2026",
-          "significance": "Digital twins become primary operating system for modern cities, revolutionizing infrastructure planning and management",
-          "url": "https://homebusinessmag.com/businesses/ai/digital-twin-for-urban-planning/"
+          "title": "Google Unveils Earth AI with Geospatial Foundation Models for Crisis Response",
+          "summary": "Google launches Earth AI platform combining state-of-the-art geospatial models with Gemini-powered reasoning agents for flood prediction, disaster response, and vulnerability assessment.",
+          "source": "Google Research",
+          "date": "Recent",
+          "significance": "Multimodal AI reasoning transforms how we analyze global environmental challenges",
+          "url": "https://research.google/blog/google-earth-ai-unlocking-geospatial-insights-with-foundation-models-and-cross-modal-reasoning/"
         },
         {
-          "title": "QGIS Basemap Ecosystem Major Updates Released April 2026",
-          "summary": "QuickMapServices plugin now includes vector tiles by default while QTiles 2 enables custom offline basemap rendering for field data collection workflows.",
-          "source": "NextGIS",
-          "date": "April 2026",
-          "significance": "Significant improvements in open-source GIS workflows for both connected and offline geospatial data collection",
-          "url": "https://nextgis.com/blog/basemaps-in-2026/"
+          "title": "QGIS 4.0 Release Delayed to February 2026 for Qt6 Migration",
+          "summary": "Major open-source GIS platform postpones 4.0 release to ensure smooth transition to Qt6, with first LTR version 4.2 scheduled for October 2026.",
+          "source": "MalaGIS",
+          "date": "3 days ago",
+          "significance": "Qt6 migration represents fundamental architecture upgrade for world's most popular open GIS",
+          "url": "https://geo.malagis.com/qgis-delayed-new-release-scheduled-for-february-2026.html"
         },
         {
-          "title": "CARTO Becomes First Agentic GIS Partner in Google's Gemini Enterprise Marketplace",
-          "summary": "Location intelligence platform integrates with Google Cloud's AI agent system, enabling spatial data analysis within enterprise AI workflows at scale.",
-          "source": "CARTO",
-          "date": "April 29, 2026",
-          "significance": "Establishes location intelligence as core component of enterprise AI strategies across major cloud platforms",
-          "url": "https://carto.com/blog/google-cloud-next-26-geospatial-ai-takeaways/"
+          "title": "EagleView Launches Horizon Agentic Geospatial Intelligence Engine for Real Estate",
+          "summary": "Rochester-based aerial imagery company introduces GeoAI engine enabling text-based analysis across property portfolios, leveraging 25 years of verified property data and deep learning models.",
+          "source": "Commercial Observer",
+          "date": "April 21, 2026",
+          "significance": "Conversational AI democratizes complex geospatial analysis for mainstream business users",
+          "url": "https://commercialobserver.com/2026/04/geospatial-technology-eagleview-ai/"
         }
       ]
     },
@@ -147,67 +152,108 @@
     },
     {
       "label": "🌊 Oceanography & Marine Science",
-      "count": 0,
-      "articles": []
-    },
-    {
-      "label": "🏔️ Plate Tectonics & Seismology",
       "count": 6,
       "articles": [
         {
-          "title": "Hawaii Island Emergency Declaration Following 6.0 Magnitude Earthquake",
-          "summary": "Hawaii County declared a local emergency following a magnitude 6.0 earthquake that struck near Honaunau-Napoopoo on May 22, causing infrastructure damage and power outages.",
-          "source": "Hawaii County Government",
-          "date": "27 May 2026",
-          "significance": "Shows immediate seismic hazard response and infrastructure vulnerability assessment in volcanic regions",
-          "url": "https://www.hawaiicounty.gov/Home/Components/News/News/4531/720"
-        },
-        {
-          "title": "Breakthrough in Earthquake Forecasting Using Machine Learning Clustering",
-          "summary": "New unsupervised machine learning approach identifies distinctive precursory patterns in earthquake activity before major events, revealing critical space-time clustering.",
-          "source": "Nature Communications",
-          "date": "5 May 2026",
-          "significance": "Revolutionary advance in earthquake prediction capabilities with potential for real-time early warning systems",
-          "url": "https://www.nature.com/subjects/seismology"
-        },
-        {
-          "title": "Ancient Evidence of Plate Tectonics Found in 3.5 Billion-Year-Old Rocks",
-          "summary": "Harvard researchers discovered earliest direct evidence of tectonic plate motion using paleomagnetic data from Western Australia and South Africa, pushing back plate tectonics by 500 million years.",
-          "source": "Scientific American",
-          "date": "21 March 2026",
-          "significance": "Fundamentally reshapes understanding of early Earth dynamics and implications for life evolution and planetary habitability",
-          "url": "https://www.scientificamerican.com/article/when-did-plate-tectonics-on-earth-begin-new-research-finds-some-of-the/"
-        },
-        {
-          "title": "Japan Issues Megaquake Advisory After 7.7 Magnitude Tremor and Tsunami Warning",
-          "summary": "Japanese authorities warned of heightened megaquake risk following a powerful earthquake off Iwate Prefecture that triggered widespread tsunami alerts and evacuations.",
+          "title": "Trump Administration Dismantles Ocean Monitoring System at Critical Climate Moment",
+          "summary": "The Ocean Observatories Initiative, a $386 million network of 900+ ocean sensors monitoring AMOC and marine ecosystems, is being dismantled by 2027 under budget cuts.",
           "source": "CNN",
-          "date": "20 April 2026",
-          "significance": "Demonstrates advanced earthquake sequencing analysis and real-time hazard assessment for cascading seismic events",
-          "url": "https://www.cnn.com/2026/04/20/world/earthquake-tsunami-warning-japan-intl"
+          "date": "3 June 2026",
+          "significance": "Loss of real-time ocean monitoring disrupts climate prediction and fisheries management worldwide",
+          "url": "https://www.cnn.com/2026/06/03/climate/ocean-monitoring-system-amoc-trump-administration"
         },
         {
-          "title": "New Stress Evolution Monitoring Method Reveals Earthquake Preparation Signals",
-          "summary": "Scientists developed a passive technique to remotely monitor stress changes in fault systems using seismic noise analysis, successfully detecting precursory patterns in major earthquakes.",
-          "source": "arXiv",
-          "date": "Recent 2026",
-          "significance": "Opens new observational window into earthquake nucleation processes with potential for short-term forecasting advances",
-          "url": "https://arxiv.org/pdf/2509.00268"
+          "title": "Rising Seas Could Drown Mangroves and Release Vast Carbon Stores",
+          "summary": "University of Exeter study finds mangrove forests' carbon storage capacity will decline over next century despite temporary accumulation in some areas.",
+          "source": "ScienceDaily",
+          "date": "5 June 2026",
+          "significance": "Challenges carbon sequestration strategies and coastal protection planning in tropical regions",
+          "url": "https://www.sciencedaily.com/releases/2026/06/260604044238.htm"
         },
         {
-          "title": "Mars Interior Structure Revealed Through InSight Mission Seismic Analysis",
-          "summary": "Comprehensive review of InSight mission findings details Mars' core size constraints, mantle structure discoveries, and meteoroid impact rates using four years of seismic data.",
-          "source": "Nature Communications",
-          "date": "May 2026",
-          "significance": "Establishes foundational framework for planetary seismology and comparative planetology research beyond Earth",
-          "url": "https://www.nature.com/articles/s41467-026-72080-w"
+          "title": "Scientists Confirm Critical Atlantic Ocean Current Is Weakening",
+          "summary": "New direct observational evidence shows the AMOC has been declining at four latitudes over two decades, validating model predictions of potential collapse.",
+          "source": "University of Miami",
+          "date": "28 April 2026",
+          "significance": "Provides strongest evidence yet of AMOC decline, critical for weather forecasting and sea level planning",
+          "url": "https://news.miami.edu/rosenstiel/stories/2026/04/a-critical-atlantic-ocean-current-shows-two-decade-slowdown-study-finds.html"
+        },
+        {
+          "title": "Marine Heat Waves Drive Large-Scale Humid Heat Waves on Land",
+          "summary": "Rising sea surface temperatures are causing 50-64% of increased humid heat waves, especially in tropics, with effects reaching 1,000km inland.",
+          "source": "Mongabay",
+          "date": "10 April 2026",
+          "significance": "Links ocean warming to terrestrial climate extremes, affecting public health risk assessments",
+          "url": "https://news.mongabay.com/2026/04/tropics-take-the-brunt-as-hotter-oceans-drive-large-scale-humid-heat-waves-study/"
+        },
+        {
+          "title": "Ocean Observatories Initiative to Be Shut Down by 2027",
+          "summary": "National Science Foundation announces dismantling of real-time ocean monitoring network spanning Pacific and Atlantic, ending decade-long climate data collection.",
+          "source": "Washington Times",
+          "date": "2 June 2026",
+          "significance": "Eliminates crucial oceanographic data for fisheries management and climate modeling",
+          "url": "https://www.washingtontimes.com/news/2026/jun/2/scientists-lose-critical-climate-record-ocean-observatory-go-dark/"
+        },
+        {
+          "title": "Two Marine Heat Waves Tracked Off Pacific Coast May Merge",
+          "summary": "Scientists monitoring separate heat waves with temperatures 3-4°F above normal along West Coast and offshore Pacific, with potential for convergence.",
+          "source": "KPBS",
+          "date": "6 May 2026",
+          "significance": "Could amplify marine ecosystem impacts and influence El Niño development later in 2026",
+          "url": "https://www.kpbs.org/news/environment/2026/05/06/scientists-tracking-two-marine-heat-waves-off-the-pacific-coast"
         }
       ]
     },
     {
-      "label": "🌋 Volcanology",
+      "label": "🏔️ Plate Tectonics & Seismology",
       "count": 0,
       "articles": []
+    },
+    {
+      "label": "🌋 Volcanology",
+      "count": 5,
+      "articles": [
+        {
+          "title": "Kilauea Episode 48 Sets New Record for Most Frequent Volcanic Fountaining Episodes",
+          "summary": "Kilauea's 48th fountaining episode on June 1 set a new record for the most episodic eruptions ever recorded at a single volcano. The 9-hour eruption produced 650-foot lava fountains and 24,000-foot ash plumes.",
+          "source": "USGS Hawaiian Volcano Observatory",
+          "date": "June 1, 2026",
+          "significance": "Historic milestone showing unprecedented episodic activity patterns in modern volcanology",
+          "url": "https://www.usgs.gov/volcanoes/kilauea/volcano-updates"
+        },
+        {
+          "title": "Scientists Discover Tiny 'Jerk' Signal That Predicts Volcanic Eruptions 92% of Time",
+          "summary": "New detection method using single seismometer can forecast eruptions up to 8 hours in advance. System successfully predicted 92% of eruptions at La Reunion's Piton de la Fournaise over 10 years.",
+          "source": "ScienceDaily",
+          "date": "March 15, 2026",
+          "significance": "Revolutionary breakthrough in eruption forecasting could transform global volcanic monitoring",
+          "url": "https://www.sciencedaily.com/releases/2026/03/260315004411.htm"
+        },
+        {
+          "title": "Iceland's Svartsengi Magma Chamber Reaches Critical 26.6 Million Cubic Meters",
+          "summary": "Magma accumulation beneath Iceland's Reykjanes Peninsula has reached highest levels recorded before previous eruptions. New eruption considered very likely as pressure builds.",
+          "source": "Icelandic Meteorological Office",
+          "date": "May 10, 2026",
+          "significance": "Real-time monitoring shows imminent volcanic threat to critical infrastructure near Reykjavik",
+          "url": "https://en.vedur.is/about-imo/news/earthquake-in-brennisteinsfjoll-faster-subsidence-in-krysuvik-and-continued-magma-accumulation-at-svartsengi"
+        },
+        {
+          "title": "Volcanic Eruption Cloud Unexpectedly Destroys Atmospheric Methane",
+          "summary": "University of Copenhagen researchers found that Hunga Tonga eruption created reactive chlorine particles that destroyed methane. Discovery could lead to new climate change mitigation strategies.",
+          "source": "ScienceDaily",
+          "date": "May 10, 2026",
+          "significance": "Unexpected atmospheric chemistry finding reveals potential new approach to greenhouse gas reduction",
+          "url": "https://www.sciencedaily.com/releases/2026/05/260509210640.htm"
+        },
+        {
+          "title": "Indonesia's Mount Dukono Eruption Kills Three Hikers Including Two Singaporeans",
+          "summary": "Recent volcanic eruption at Mount Dukono resulted in three fatalities with rescue efforts ongoing. Authorities have ordered closure of hiking entry points due to continued volcanic activity.",
+          "source": "The World Now",
+          "date": "June 4, 2026",
+          "significance": "Tragic reminder of volcanic hazards to international tourism and need for improved safety protocols",
+          "url": "https://www.the-world-now.com/volcano-eruptions-today"
+        }
+      ]
     },
     {
       "label": "⛏️ Mining & Mineral Resources",
@@ -221,39 +267,47 @@
     },
     {
       "label": "🚀 Space & Geodesy",
-      "count": 4,
+      "count": 5,
       "articles": [
         {
-          "title": "Blue Origin's New Glenn Rocket Explodes During Cape Canaveral Testing",
-          "summary": "Blue Origin's New Glenn rocket exploded on the launch pad at Cape Canaveral during a static fire test on May 28. No injuries were reported but debris warnings were issued for nearby beaches.",
+          "title": "ESA-China SMILE Heliophysics Mission Successfully Launches to Study Earth's Magnetosphere",
+          "summary": "The Solar wind Magnetosphere Ionosphere Link Explorer launched on May 19, 2026, via Vega-C rocket from Kourou, marking the first jointly designed, implemented, and operated mission between ESA and China.",
+          "source": "ESA",
+          "date": "May 19, 2026",
+          "significance": "Enables unprecedented X-ray imaging of Earth's magnetic field interactions with solar wind for space weather research",
+          "url": "https://www.esa.int/Science_Exploration/Space_Science/Smile/Smile_lifts_off_on_quest_to_reveal_Earth_s_invisible_shield_against_the_solar_wind"
+        },
+        {
+          "title": "NASA Artemis II Crew Achieves Historic Human Distance Record During Lunar Flyby",
+          "summary": "Four astronauts completed humanity's first lunar flyby since Apollo 17, reaching 252,706 miles from Earth on April 6, 2026, during their 10-day mission around the Moon.",
+          "source": "NASA",
+          "date": "April 11, 2026",
+          "significance": "Validates deep space navigation and life support systems critical for future lunar surface operations and Mars missions",
+          "url": "https://www.nasa.gov/news-release/nasa-welcomes-record-setting-artemis-ii-moonfarers-back-to-earth/"
+        },
+        {
+          "title": "Blue Origin New Glenn Rocket Explodes During Pre-Launch Testing at Cape Canaveral",
+          "summary": "A New Glenn rocket erupted in a massive fireball during static fire testing on May 28, 2026, destroying the vehicle and causing significant damage to Launch Complex-36 infrastructure.",
           "source": "Spaceflight Now",
-          "date": "29 May 2026",
-          "significance": "Major setback for commercial launch industry and Amazon Leo satellite deployment timeline",
+          "date": "May 29, 2026",
+          "significance": "Major setback for commercial heavy-lift capabilities and NASA Artemis program lunar lander delivery timeline",
           "url": "https://spaceflightnow.com/2026/05/29/blue-origins-new-glenn-rocket-explodes-during-prelaunch-testing-at-cape-canaveral/"
         },
         {
-          "title": "ESA-China SMILE Mission Successfully Launches to Study Earth's Magnetosphere",
-          "summary": "The joint European-Chinese SMILE spacecraft launched May 19 on a Vega-C rocket to provide the first global X-ray images of Earth's magnetic shield. Scientific operations begin in September 2026.",
-          "source": "SpaceNews",
-          "date": "19 May 2026",
-          "significance": "Revolutionary space weather monitoring capabilities for protecting satellites and power grids",
-          "url": "https://spacenews.com/esa-china-smile-mission-lifts-off-to-deliver-first-global-images-of-earths-magnetosphere/"
-        },
-        {
-          "title": "NASA Unveils Nearly $1 Billion Investment in Moon Base Infrastructure",
-          "summary": "NASA announced major contracts for lunar terrain vehicles and cargo missions to establish permanent presence on lunar South Pole. Phase One extends through 2029 with robotic missions beginning late 2026.",
+          "title": "SpaceX Deploys 50th Starlink Mission of 2026 Expanding Global Satellite Constellation",
+          "summary": "SpaceX achieved another milestone with its 50th Starlink mission of 2026, continuing rapid expansion of its low Earth orbit broadband internet constellation using Falcon 9 rockets.",
           "source": "Spaceflight Now",
-          "date": "27 May 2026",
-          "significance": "Critical infrastructure development for sustained human lunar presence and Mars mission preparation",
-          "url": "https://spaceflightnow.com/2026/05/27/nasa-outlines-nearly-1-billion-investment-into-initial-moon-base-missions/"
+          "date": "May 30, 2026",
+          "significance": "Demonstrates sustained commercial launch cadence supporting global internet infrastructure from space",
+          "url": "https://spaceflightnow.com/"
         },
         {
-          "title": "China Launches Shenzhou 23 with First Hong Kong Astronaut to Space Station",
-          "summary": "China launched three astronauts to Tiangong space station on May 24, including Lai Ka-ying, the first astronaut from Hong Kong. One crew member will stay for a full year in preparation for 2030 lunar missions.",
-          "source": "NPR",
-          "date": "25 May 2026",
-          "significance": "Advances China's space station operations and lunar mission readiness with international crew diversity",
-          "url": "https://www.npr.org/2026/05/25/g-s1-124179/china-launches-shenzhou-23-spacecraft"
+          "title": "China Advances Space Station Operations with Shenzhou 23 Crew Mission Launch",
+          "summary": "China launched its first crewed spaceflight of 2026 with Shenzhou 23 on May 24, following the Tianzhou 10 cargo resupply mission to the Tiangong space station on May 11.",
+          "source": "Wikipedia",
+          "date": "May 24, 2026",
+          "significance": "Continues China's independent human spaceflight capabilities and orbital laboratory operations for scientific research",
+          "url": "https://en.wikipedia.org/wiki/2026_in_spaceflight"
         }
       ]
     }

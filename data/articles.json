@@ -1,488 +1,57 @@
 {
-  "generated_at_ist": "2026-06-13 11:39:05 IST",
-  "generated_at_utc": "2026-06-13T06:09:05.853177+00:00",
-  "generated_iso": "2026-06-13T11:39:05.852799+05:30",
-  "display_date": "Saturday, 13 June 2026",
+  "generated_at_ist": "2026-06-20 11:39:30 IST",
+  "generated_at_utc": "2026-06-20T06:09:30.359656+00:00",
+  "generated_iso": "2026-06-20T11:39:30.359284+05:30",
+  "display_date": "Saturday, 20 June 2026",
   "display_time": "11:39 AM IST",
   "stats": {
-    "total_articles": 48,
+    "total_articles": 0,
     "domains_total": 9,
-    "domains_with_news": 8,
-    "unique_sources": 38,
-    "elapsed": "369s"
+    "domains_with_news": 0,
+    "unique_sources": 0,
+    "elapsed": "289s"
   },
-  "source_summary": {
-    "Copernicus Data Space Ecosystem": 1,
-    "U.S. Geological Survey": 1,
-    "ESA Sentinel Online": 1,
-    "Stadia Maps": 1,
-    "The Defense Post": 1,
-    "NASA Earthdata": 1,
-    "Google Research": 1,
-    "IBTimes": 1,
-    "BigDATAwire": 1,
-    "USGS": 2,
-    "Breaking Defense": 1,
-    "QGIS": 1,
-    "Live Science": 1,
-    "Nature Climate Change": 2,
-    "UNEP": 1,
-    "Carbon Brief": 1,
-    "List25": 1,
-    "BBC Science Focus Magazine": 1,
-    "Phys.org": 1,
-    "Scripps Institution of Oceanography": 1,
-    "ScienceDaily": 6,
-    "NOAA Ocean Exploration": 1,
-    "Al Jazeera": 1,
-    "Nature": 1,
-    "Nature Communications": 3,
-    "Sci.News": 1,
-    "The Watchers": 1,
-    "Nomad Lawyer": 1,
-    "Icelandic Met Office": 1,
-    "PR Newswire": 1,
-    "Yahoo Finance": 1,
-    "StockTitan": 1,
-    "Mining Weekly": 1,
-    "Junior Mining Network": 1,
-    "CIM Magazine": 1,
-    "Nature Geoscience": 2,
-    "Smithsonian Magazine": 1,
-    "Scientific American": 1
-  },
+  "source_summary": {},
   "domains": [
     {
       "label": "🛰️ Remote Sensing & Earth Observation",
-      "count": 6,
-      "articles": [
-        {
-          "title": "Copernicus Sentinel-2 Night-Time Dataset Released with 56 Acquisitions",
-          "summary": "ESA releases Sentinel-2 night-time imagery dataset from December 2025 campaign, comprising 56 acquisitions including both sensor-geometry and orthorectified products.",
-          "source": "Copernicus Data Space Ecosystem",
-          "date": "3 June 2026",
-          "significance": "Enables new nighttime Earth observation capabilities for urban studies and emergency response applications.",
-          "url": "https://dataspace.copernicus.eu/news/2026-6-3-copernicus-sentinel-2-night-time-campaign-dataset"
-        },
-        {
-          "title": "USGS Highlights Landsat 10 WRS-3 System with 265 Orbital Paths",
-          "summary": "Latest Landsat newsletter reveals Landsat 10's enhanced spatial resolution and new Worldwide Reference System (WRS-3) with 265 orbital paths, up from 233 in WRS-2.",
-          "source": "U.S. Geological Survey",
-          "date": "4 June 2026",
-          "significance": "Major advancement in global land monitoring capabilities with improved precision for environmental tracking.",
-          "url": "https://www.usgs.gov/latest-landsat-newsletter/latest-landsat-june-2026"
-        },
-        {
-          "title": "Sentinel-1D User Data Opening Begins After Successful Launch",
-          "summary": "ESA confirms Sentinel-1D satellite data availability through Copernicus Data Space Ecosystem starting April 17, following successful November 2025 launch.",
-          "source": "ESA Sentinel Online",
-          "date": "17 April 2026",
-          "significance": "Restores full dual-satellite SAR capabilities for all-weather Earth monitoring and disaster response.",
-          "url": "https://sentinels.copernicus.eu/-/sentinel-1d-user-data-opening-from-17-april-2026"
-        },
-        {
-          "title": "Stadia Maps Expands 30cm Satellite Imagery to 37 Million km²",
-          "summary": "New satellite imagery update delivers 37 million km² at 30cm resolution with seamless country-wide mosaics for Japan, Nigeria, Mexico, UAE, and Eastern South Africa.",
-          "source": "Stadia Maps",
-          "date": "27 April 2026",
-          "significance": "Ultra-high resolution coverage enables vehicle-level detail for urban planning and precision agriculture applications.",
-          "url": "https://stadiamaps.com/blog/2026-satellite-imagery-update/"
-        },
-        {
-          "title": "BlackSky Secures $25M Multi-Year Defense Contract for AI Analytics",
-          "summary": "BlackSky Technology lands major defense contract providing high-resolution satellite imagery from Gen-3 constellation with 35cm resolution and AI-based analysis tools.",
-          "source": "The Defense Post",
-          "date": "23 April 2026",
-          "significance": "Demonstrates growing commercial satellite intelligence market and AI integration in Earth observation workflows.",
-          "url": "https://thedefensepost.com/2026/04/23/blacksky-satellite-imagery-analytics-services/"
-        },
-        {
-          "title": "NASA Launches Earth Observation Needs Survey for Federal Agencies",
-          "summary": "Satellite Needs Working Group opens biennial survey on May 18, 2026 to assess Earth observation requirements across civilian federal agencies for mission support.",
-          "source": "NASA Earthdata",
-          "date": "27 April 2026",
-          "significance": "Shapes future Earth observation mission priorities and technology development for operational applications.",
-          "url": "https://www.earthdata.nasa.gov/news/feature-articles/kicking-off-development-new-earth-observation-solutions"
-        }
-      ]
+      "count": 0,
+      "articles": []
     },
     {
       "label": "🗺️ GIS & Geospatial Technology",
-      "count": 6,
-      "articles": [
-        {
-          "title": "Google Earth AI Unlocks Geospatial Insights with Foundation Models for Real-World Understanding",
-          "summary": "Google introduces Earth AI family of geospatial AI models and reasoning agents providing actionable insights grounded in real-world understanding. Early access available for Remote Sensing Foundations, Population Dynamics, and Geospatial Reasoning.",
-          "source": "Google Research",
-          "date": "3 June 2026",
-          "significance": "Major tech breakthrough democratizes geospatial AI analysis for enterprise applications",
-          "url": "https://research.google/blog/google-earth-ai-unlocking-geospatial-insights-with-foundation-models-and-cross-modal-reasoning/"
-        },
-        {
-          "title": "Japan's Space Data Cuts Malaysia 3D City Model Costs by 94% Using Satellite AI",
-          "summary": "Japanese space technology company Space Data completed digital twin demonstration project using satellite data and AI under Project PLATEAU, dramatically reducing 3D urban modeling costs.",
-          "source": "IBTimes",
-          "date": "4 June 2026",
-          "significance": "Breakthrough cost reduction for digital twin creation using space-based geospatial intelligence",
-          "url": "https://jp.ibtimes.com/space-data-builds-malaysia-digital-twin-cutting-3d-city-model-costs-94-101443"
-        },
-        {
-          "title": "WPP Integrates Google Earth AI into Agentic Marketing Platform for Hyper-Local Intelligence",
-          "summary": "WPP becomes first media company to integrate Earth AI geospatial intelligence into its marketing platform, enabling real-time consumer behavior prediction based on traffic and environmental factors.",
-          "source": "BigDATAwire",
-          "date": "23 April 2026",
-          "significance": "First commercial deployment bridging geospatial AI and marketing analytics at scale",
-          "url": "https://www.hpcwire.com/bigdatawire/this-just-in/wpp-brings-google-earth-ai-geospatial-data-into-agentic-marketing-platform/"
-        },
-        {
-          "title": "USGS Landsat 10 Advances Spatial Resolution for Enhanced Environmental Monitoring",
-          "summary": "Latest Landsat newsletter details enhanced spatial resolution capabilities and new Worldwide Reference System with 265 orbital paths, supporting more precise water quality and vegetation monitoring.",
-          "source": "USGS",
-          "date": "4 June 2026",
-          "significance": "Next-generation Earth observation capabilities will improve global environmental analysis",
-          "url": "https://www.usgs.gov/latest-landsat-newsletter/latest-landsat-june-2026"
-        },
-        {
-          "title": "AI Reshapes Geospatial Intelligence at GEOINT 2026 Conference",
-          "summary": "Artificial intelligence rapidly transforms the geospatial intelligence landscape with new commercial satellite contracts and AI explainability focus at this year's GEOINT gathering.",
-          "source": "Breaking Defense",
-          "date": "7 June 2026",
-          "significance": "Defense and intelligence community accelerating AI adoption for space-based GEOINT",
-          "url": "https://breakingdefense.com/2026/06/how-ai-is-shaping-the-future-of-geospatial-intelligence/"
-        },
-        {
-          "title": "QGIS 4.0 Released with Vector Tile Basemaps and Improved OpenStreetMap Integration",
-          "summary": "Major QGIS upgrade includes Qt6 framework, vector tile basemaps from OpenStreetMap VersaTiles, and enhanced QuickMapServices plugin with contributor pack included by default.",
-          "source": "QGIS",
-          "date": "6 March 2026",
-          "significance": "Open-source GIS advances with modern vector tile technology and streamlined basemap access",
-          "url": "https://nextgis.com/blog/basemaps-in-2026/"
-        }
-      ]
+      "count": 0,
+      "articles": []
     },
     {
       "label": "🌡️ Climatology & Atmospheric Science",
-      "count": 6,
-      "articles": [
-        {
-          "title": "El Niño officially begins, could be among strongest ever recorded",
-          "summary": "NOAA declares El Niño underway with 63% chance to rank among the largest events since 1950, bringing global temperature increases and disrupted weather patterns worldwide.",
-          "source": "Live Science",
-          "date": "12 June 2026",
-          "significance": "Super El Niño events dramatically alter global climate patterns, affecting agricultural yields and extreme weather forecasting",
-          "url": "https://www.livescience.com/planet-earth/weather/el-nino-is-officially-here-and-will-be-among-the-strongest-ever-recorded-noaa-announces"
-        },
-        {
-          "title": "Global early warning system predicts biodiversity exposure to extreme heat",
-          "summary": "Scientists develop system to forecast extreme temperature risks for over 30,000 vertebrate species 1-9 months in advance, enabling proactive conservation.",
-          "source": "Nature Climate Change",
-          "date": "8 June 2026",
-          "significance": "First global early warning system for biodiversity heat stress enables targeted conservation efforts before species mortality",
-          "url": "https://www.nature.com/articles/s41558-026-02642-9"
-        },
-        {
-          "title": "Warming freshwater methane emissions accelerate despite bacterial consumption",
-          "summary": "New study shows methane-oxidizing bacteria cannot increase consumption rates enough to counter warming-enhanced methane production in lakes and rivers.",
-          "source": "Nature Climate Change",
-          "date": "5 June 2026",
-          "significance": "Reveals critical feedback loop where warming freshwater systems become increasingly potent methane sources despite natural mitigation",
-          "url": "https://www.nature.com/nclimate/articles?year=2026"
-        },
-        {
-          "title": "UN declares urgent climate action as global temperatures near records",
-          "summary": "World Environment Day 2026 highlights near-record temperatures and inevitable 1.5°C overshoot, with past eleven years being hottest on record.",
-          "source": "UNEP",
-          "date": "5 June 2026",
-          "significance": "Official confirmation of accelerating climate impacts demands immediate adaptation planning for geospatial infrastructure",
-          "url": "https://www.unep.org/news-and-stories/press-release/planet-swelters-world-environment-day-2026-focuses-urgent-climate"
-        },
-        {
-          "title": "Atlantic Ocean current monitoring at risk as El Niño strengthens",
-          "summary": "Critical AMOC monitoring systems face funding threats while new El Niño event begins, potentially affecting global climate regulation predictions.",
-          "source": "Carbon Brief",
-          "date": "12 June 2026",
-          "significance": "Loss of AMOC monitoring would blind climate models to major ocean circulation changes affecting regional temperature predictions",
-          "url": "https://www.carbonbrief.org/debriefed-12-june-2026-el-nino-begins-cop31-hosts-eye-electrification-atlantic-current-monitoring-at-risk/"
-        },
-        {
-          "title": "Scientists detect cosmic ray with atmospheric implications",
-          "summary": "June 2026 research reveals startling discoveries about high-energy cosmic ray interactions with Earth's atmosphere, potentially affecting climate modeling.",
-          "source": "List25",
-          "date": "11 June 2026",
-          "significance": "Cosmic ray-atmosphere interactions could influence cloud formation and climate models require atmospheric chemistry updates",
-          "url": "https://list25.com/25-fascinating-discoveries-scientists-made/"
-        }
-      ]
+      "count": 0,
+      "articles": []
     },
     {
       "label": "🌊 Oceanography & Marine Science",
-      "count": 6,
-      "articles": [
-        {
-          "title": "Atlantic Ocean Current System Weakening Faster Than Expected, Scientists Warn",
-          "summary": "New research suggests the Atlantic Meridional Overturning Circulation could weaken by 51% by 2100, far more than previously estimated. The slowdown could alter weather patterns globally and accelerate US coastline sea level rise.",
-          "source": "BBC Science Focus Magazine",
-          "date": "May 12, 2026",
-          "significance": "Critical ocean system collapse could trigger major climate disruptions across Northern Hemisphere",
-          "url": "https://www.sciencefocus.com/news/amoc-weakening-faster-than-we-thought"
-        },
-        {
-          "title": "Satellite Data Reveal Southern Ocean Vertical Currents Diving 3,000 Feet Below Surface",
-          "summary": "Using high-resolution satellite data and robotic underwater gliders, scientists discovered vertical ocean currents in the Southern Ocean are more violent and reach much deeper than previously realized.",
-          "source": "Phys.org",
-          "date": "June 10, 2026",
-          "significance": "Deep ocean circulation patterns affect global heat and carbon transport mechanisms",
-          "url": "https://phys.org/news/2026-06-satellite-reveal-southern-ocean-vertical.html"
-        },
-        {
-          "title": "Scientists Produce Powerhouse Pigment Behind Octopus Camouflage",
-          "summary": "Scripps researchers have successfully produced the specialized pigments that enable octopus camouflage abilities, opening new possibilities for biotechnology applications.",
-          "source": "Scripps Institution of Oceanography",
-          "date": "June 4, 2026",
-          "significance": "Marine biology breakthrough could lead to new materials for underwater robotics and surveillance",
-          "url": "https://scripps.ucsd.edu/news"
-        },
-        {
-          "title": "Coral Ecosystems Host Unique Microbe Communities With Medical Potential",
-          "summary": "International research team discovered each coral species hosts its own distinct community of microbes that produce chemicals with strong potential for medicine and biotechnology applications.",
-          "source": "ScienceDaily",
-          "date": "May 8, 2026",
-          "significance": "Hidden marine biodiversity could unlock new pharmaceutical compounds and therapeutic treatments",
-          "url": "https://www.sciencedaily.com/releases/2026/05/260506225229.htm"
-        },
-        {
-          "title": "Scientists Fully Explain Sea Level Rise Acceleration for First Time",
-          "summary": "International climate researchers solved the puzzle behind accelerating global sea level rise over the past six decades. Thermal expansion is the biggest factor, with melting ice contributing increasingly more water.",
-          "source": "ScienceDaily",
-          "date": "May 22, 2026",
-          "significance": "Complete understanding of sea level drivers enables better coastal planning and risk assessment",
-          "url": "https://www.sciencedaily.com/releases/2026/05/260522023116.htm"
-        },
-        {
-          "title": "NOAA Ocean Exploration Begins Major Pacific Deep-Sea Mapping Mission",
-          "summary": "NOAA Ship Okeanos Explorer and Exploration Vessel Nautilus launch comprehensive mapping and exploration programs across central and western Pacific Ocean from June through October 2026.",
-          "source": "NOAA Ocean Exploration",
-          "date": "June 16, 2026",
-          "significance": "Large-scale ocean floor mapping will reveal previously unknown seafloor features and habitats",
-          "url": "https://oceanexplorer.noaa.gov/livestreams/"
-        }
-      ]
+      "count": 0,
+      "articles": []
     },
     {
       "label": "🏔️ Plate Tectonics & Seismology",
-      "count": 6,
-      "articles": [
-        {
-          "title": "Massive 7.8 Earthquake Devastates Philippines, Triggers Pacific-Wide Tsunami Alerts",
-          "summary": "A powerful magnitude 7.8 earthquake struck off Mindanao, Philippines, killing at least 46 people and triggering tsunami warnings across Asia. Over 3,860 aftershocks have been recorded.",
-          "source": "Al Jazeera",
-          "date": "8 June 2026",
-          "significance": "Major subduction zone event demonstrates tsunami hazard potential and aftershock sequence analysis",
-          "url": "https://www.aljazeera.com/news/2026/6/8/tsunami-warnings-issued-after-8-2-magnitude-earthquake-off-philippines"
-        },
-        {
-          "title": "Earth's Earliest Plate Tectonics Evidence Found in 3.5-Billion-Year-Old Australian Rocks",
-          "summary": "Harvard researchers published in Science the oldest direct evidence of plate movement, pushing back the timeline of active tectonics by 500 million years.",
-          "source": "ScienceDaily",
-          "date": "21 March 2026",
-          "significance": "Fundamental breakthrough in understanding early Earth dynamics and implications for habitability",
-          "url": "https://www.sciencedaily.com/releases/2026/03/260321012636.htm"
-        },
-        {
-          "title": "Machine Learning Breakthrough: DAS Technology Enables 4-Second Earthquake Magnitude Detection",
-          "summary": "Nature Communications reports a new AI model using distributed acoustic sensing can identify M≥5.4 earthquakes in just 4 seconds, revolutionizing early warning systems.",
-          "source": "Nature",
-          "date": "3 June 2026",
-          "significance": "Game-changing technology for earthquake early warning and real-time seismic monitoring",
-          "url": "https://www.nature.com/subjects/seismology"
-        },
-        {
-          "title": "Pacific Northwest Subduction Zone Shows Active Breakup, Forming New Microplates",
-          "summary": "Columbia researchers document the Juan de Fuca plate actively tearing apart beneath the Pacific Northwest, creating unprecedented insights into subduction dynamics.",
-          "source": "ScienceDaily",
-          "date": "29 April 2026",
-          "significance": "Critical implications for Cascadia seismic hazard assessment and subduction zone mechanics",
-          "url": "https://www.sciencedaily.com/releases/2026/04/260429232851.htm"
-        },
-        {
-          "title": "Hydraulic Fracturing Precursors: Elevated Vp/Vs Ratios Predict Induced Earthquakes",
-          "summary": "New research in Nature Communications reveals elevated seismic velocity ratios before M>3 hydraulic fracturing earthquakes, offering new hazard mitigation strategies.",
-          "source": "Nature Communications",
-          "date": "3 June 2026",
-          "significance": "Breakthrough for predicting and mitigating induced seismicity in energy operations",
-          "url": "https://www.nature.com/subjects/seismology"
-        },
-        {
-          "title": "Climate-Tectonics Link: Plate Movements Drove 540 Million Years of Climate Change",
-          "summary": "University of Melbourne study in Communications Earth & Environment shows tectonic plate movements, not volcanism, controlled major climate shifts over geological time.",
-          "source": "Sci.News",
-          "date": "20 January 2026",
-          "significance": "Fundamental revision of climate-tectonic interactions with implications for future climate modeling",
-          "url": "https://www.sci.news/space/carbon-cycle-plate-tectonics-14496.html"
-        }
-      ]
+      "count": 0,
+      "articles": []
     },
     {
       "label": "🌋 Volcanology",
-      "count": 6,
-      "articles": [
-        {
-          "title": "Shiveluch Volcano Sends 12-Km Ash Plume, Red Aviation Alert Issued",
-          "summary": "Russia's Shiveluch volcano on Kamchatka Peninsula erupted explosively on June 6, sending ash to 12 kilometers altitude and triggering highest aviation alerts.",
-          "source": "The Watchers",
-          "date": "June 6, 2026",
-          "significance": "Major aviation hazard disrupting North Pacific air routes, demonstrates ongoing volcanic threat to global transportation networks",
-          "url": "https://watchers.news/2026/06/06/explosive-eruption-at-sheveluch-sends-ash-to-12-km-39-400-feet-red-aviation-code-issued-russia/"
-        },
-        {
-          "title": "Sakurajima Volcano Erupts, Paralyzes Kagoshima Tourism",
-          "summary": "Major Sakurajima eruption on June 7 blanketed Kagoshima City in volcanic ash, forcing flight cancellations and widespread tourism disruptions.",
-          "source": "Nomad Lawyer",
-          "date": "June 7, 2026",
-          "significance": "Showcases volcanic impact on urban areas and tourism infrastructure in one of Japan's most active volcanic regions",
-          "url": "https://www.nomadlawyer.org/sakurajima-volcano-eruption-kagoshima-ashfall-tourism-disruption-june-2026"
-        },
-        {
-          "title": "Kilauea Volcano Episode 49 Predicted for June 13-15",
-          "summary": "Hawaiian Volcano Observatory forecasts new lava fountaining episode at Kilauea based on summit inflation models and continuing magma accumulation.",
-          "source": "USGS",
-          "date": "June 12, 2026",
-          "significance": "Real-time volcanic forecasting success demonstrating advances in eruption prediction capabilities",
-          "url": "https://www.usgs.gov/programs/VHP/volcano-updates"
-        },
-        {
-          "title": "Iceland's Svartsengi System Accumulates 26.6 Million Cubic Meters of Magma",
-          "summary": "Latest model calculations show continued magma accumulation beneath Svartsengi since July 2025 eruption, with steady ground uplift continuing.",
-          "source": "Icelandic Met Office",
-          "date": "May 26, 2026",
-          "significance": "Critical pre-eruption monitoring data for Reykjanes Peninsula volcanic system affecting European aviation routes",
-          "url": "https://en.vedur.is/about-imo/news/earthquake-in-brennisteinsfjoll-faster-subsidence-in-krysuvik-and-continued-magma-accumulation-at-svartsengi"
-        },
-        {
-          "title": "Volcano Cloud Destroys Atmospheric Methane in Climate Discovery",
-          "summary": "Scientists tracking Hunga Tonga eruption cloud discovered continuous methane destruction process lasting over a week, revealing new climate mechanism.",
-          "source": "Nature Communications",
-          "date": "May 9, 2026",
-          "significance": "Breakthrough finding shows volcanic eruptions can help reduce greenhouse gases, changing climate impact models",
-          "url": "https://www.sciencedaily.com/releases/2026/05/260509210640.htm"
-        },
-        {
-          "title": "New Volcano Eruption Prediction Method Achieves 92% Success Rate",
-          "summary": "Scientists developed 'Jerk' detection technique using single seismometer, successfully forecasting 92% of 24 eruptions at La Reunion observatory.",
-          "source": "Nature Communications",
-          "date": "March 15, 2026",
-          "significance": "Major advancement in volcanic hazard mitigation with potential to save lives through improved early warning systems",
-          "url": "https://www.sciencedaily.com/releases/2026/03/260315004411.htm"
-        }
-      ]
+      "count": 0,
+      "articles": []
     },
     {
       "label": "⛏️ Mining & Mineral Resources",
-      "count": 6,
-      "articles": [
-        {
-          "title": "Terra AI raises $20M Series A to accelerate mineral exploration using artificial intelligence",
-          "summary": "Terra AI, an AI platform for subsurface uncertainty in mineral development, secured $20M led by Khosla Ventures and BHP Ventures to enhance geological modeling.",
-          "source": "PR Newswire",
-          "date": "June 3, 2026",
-          "significance": "AI breakthrough could dramatically reduce drilling costs and accelerate discovery of critical mineral deposits",
-          "url": "https://www.prnewswire.com/apac/news-releases/terra-ai-raises-20m-to-accelerate-mineral-and-reservoir-exploration-to-meet-global-critical-mineral-and-energy-demands-302789719.html"
-        },
-        {
-          "title": "Noble Mineral announces Phase 2 summer exploration programs on Quebec critical minerals projects",
-          "summary": "Noble Mineral will explore its Chapiteau and Mehmet rare earth properties in Quebec and Labrador using helicopter-supported surface programs this month.",
-          "source": "Yahoo Finance",
-          "date": "June 8, 2026",
-          "significance": "First North American rare earth exploration campaign in premier REE district with historic high-grade results",
-          "url": "https://finance.yahoo.com/sectors/energy/articles/noble-mineral-exploration-inc-announces-113000859.html"
-        },
-        {
-          "title": "U.S. GoldMining outlines 2026 Whistler drilling program with $2B NPV project valuation",
-          "summary": "U.S. GoldMining began 2026 exploration at its Whistler Gold-Copper Project in Alaska, supported by record copper futures and regional infrastructure developments.",
-          "source": "StockTitan",
-          "date": "June 9, 2026",
-          "significance": "Major Alaska copper-gold project advances amid copper price surge and $89M federal power infrastructure investment",
-          "url": "https://www.stocktitan.net/news/USGO/u-s-gold-mining-provides-updates-on-the-2026-exploration-program-and-ds9tvt595os8.html"
-        },
-        {
-          "title": "Manhattan Uranium identifies new drilling targets in Saskatchewan uranium district",
-          "summary": "Manhattan Uranium announced new exploration targets for planned drilling in Saskatchewan's uranium-rich Athabasca Basin region.",
-          "source": "Mining Weekly",
-          "date": "June 4, 2026",
-          "significance": "New uranium targets emerge in world's highest-grade uranium district as nuclear energy demand accelerates",
-          "url": "https://www.miningweekly.com/article/magazine-round-up-05-june-2026-2026-06-05"
-        },
-        {
-          "title": "Ero Copper confirms high-grade continuity at Furnas with significant step-out intercepts",
-          "summary": "Ero Copper reported assay results from 24,000 meters of exploration drilling at the Furnas Copper-Gold Project in Brazil's Carajás Mineral Province.",
-          "source": "Junior Mining Network",
-          "date": "June 10, 2026",
-          "significance": "Major copper discovery extension in Brazil's premier mining district demonstrates resource expansion potential",
-          "url": "https://www.juniorminingnetwork.com/junior-miner-news.html"
-        },
-        {
-          "title": "Canadian mining education program launches to address critical labor shortages",
-          "summary": "Collège Boréal launched new Construction Engineering Technician Civil and Mining program in Timmins to address mining industry workforce needs.",
-          "source": "CIM Magazine",
-          "date": "June 5, 2026",
-          "significance": "Strategic workforce development initiative addresses critical mining skills gap as sector expansion accelerates",
-          "url": "https://magazine.cim.org/en/news/2026/weekly-mining-news-recap-june-5/"
-        }
-      ]
+      "count": 0,
+      "articles": []
     },
     {
       "label": "🪨 Geology & Geomorphology",
-      "count": 6,
-      "articles": [
-        {
-          "title": "Giant Hidden Fan-Shaped Basin Network Discovered Beneath East Antarctic Ice Sheet",
-          "summary": "Researchers discovered a vast fan-shaped geological structure hidden beneath East Antarctica, revealing several well-known subglacial features are actually part of one massive connected system.",
-          "source": "Nature Geoscience",
-          "date": "11 June 2026",
-          "significance": "Could reshape understanding of Antarctic ice sheet stability and influence future climate projections",
-          "url": "https://scitechdaily.com/vast-hidden-structure-discovered-under-miles-of-ice-in-east-antarctica/"
-        },
-        {
-          "title": "Scientists Confirm 90-Kilometer Deep Utah Earthquake From 1979",
-          "summary": "Researchers confirmed a mysterious Utah earthquake first detected in 1979 occurred nearly 90 kilometers underground, far deeper than previously thought possible beneath continents.",
-          "source": "ScienceDaily",
-          "date": "3 June 2026",
-          "significance": "Challenges understanding of deep continental earthquake mechanisms and crustal structure models",
-          "url": "https://www.sciencedaily.com/news/earth_climate/geology/"
-        },
-        {
-          "title": "Antarctic Ice Sheet Sensitivity to Climate Change Revealed Through Million-Year Analysis",
-          "summary": "A study suggests Antarctica's ice sheet hit a climate tipping point about one million years ago, making it far more reactive to temperature and CO2 changes.",
-          "source": "ScienceDaily",
-          "date": "29 May 2026",
-          "significance": "Provides crucial insights into future ice sheet response under different climate scenarios",
-          "url": "https://www.sciencedaily.com/news/earth_climate/geology/"
-        },
-        {
-          "title": "Stonehenge Altar Stone Origin Mystery: Glacier Transport vs Human Effort Debate",
-          "summary": "Ice flow modeling and geological analyses suggest glaciers possibly carried the stone partway during the last Ice Age, though scientists say this scenario is unlikely.",
-          "source": "Smithsonian Magazine",
-          "date": "11 June 2026",
-          "significance": "Advances understanding of glacial transport mechanisms and ancient monument construction methods",
-          "url": "https://www.smithsonianmag.com/tag/geology/"
-        },
-        {
-          "title": "Oceanic Intraplate Volcanism Origins Traced to Deep Mantle Plumes",
-          "summary": "Data-constrained numerical simulations show most oceanic intraplate volcanism, including seamounts far from hotspots, originates from deep-rooted mantle plumes.",
-          "source": "Nature Geoscience",
-          "date": "11 June 2026",
-          "significance": "Revolutionizes understanding of global volcanism and mantle dynamics beyond traditional hotspot theory",
-          "url": "https://www.nature.com/ngeo/articles"
-        },
-        {
-          "title": "Philippines Magnitude 7.8 Earthquake at Subduction Zone Analyzed",
-          "summary": "The magnitude 7.8 earthquake that hit the Philippines occurred at a subduction zone capable of producing the largest possible earthquakes.",
-          "source": "Scientific American",
-          "date": "8 June 2026",
-          "significance": "Critical for seismic hazard assessment and understanding megathrust earthquake potential in Pacific Ring of Fire",
-          "url": "https://www.scientificamerican.com/geology/"
-        }
-      ]
+      "count": 0,
+      "articles": []
     },
     {
       "label": "🚀 Space & Geodesy",

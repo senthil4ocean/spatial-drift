@@ -365,7 +365,7 @@ def nearest_slot_label(ts: datetime) -> str:
 def call_anthropic(system_prompt: str, user_msg: str, use_search: bool = True,
                    retries: int = MAX_RETRIES_PER_TOPIC) -> dict:
     payload = {
-        "model": "claude-sonnet-4-20250514",
+        "model": "claude-sonnet-4-6",
         "max_tokens": MAX_TOKENS,
         "system": system_prompt,
         "messages": [{"role": "user", "content": user_msg}],

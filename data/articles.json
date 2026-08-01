@@ -1,15 +1,15 @@
 {
-  "generated_at_ist": "2026-08-01 10:36:57 IST",
-  "generated_at_utc": "2026-08-01T05:06:57.245319+00:00",
-  "generated_iso": "2026-08-01T10:36:57.244668+05:30",
+  "generated_at_ist": "2026-08-01 13:11:41 IST",
+  "generated_at_utc": "2026-08-01T07:41:41.712300+00:00",
+  "generated_iso": "2026-08-01T13:11:41.711802+05:30",
   "display_date": "Saturday, 01 August 2026",
-  "display_time": "10:36 AM IST",
+  "display_time": "01:11 PM IST",
   "stats": {
     "total_articles": 0,
     "domains_total": 9,
     "domains_with_news": 0,
     "unique_sources": 0,
-    "elapsed": "292s"
+    "elapsed": "290s"
   },
   "source_summary": {},
   "domains": [

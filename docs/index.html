@@ -177,6 +177,12 @@
     font-weight: 700;
   }
   .nav-global.active { border-color: #10b981; }
+  /* Disaster nav item highlight — red, urgency signal */
+  .nav-disaster {
+    border: 1px solid color-mix(in srgb, #dc2626 45%, transparent);
+    font-weight: 700;
+  }
+  .nav-disaster.active { border-color: #dc2626; }
   .theme-toggle {
     background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
     color: var(--header-text); padding: 3px 12px; border-radius: 3px;
@@ -885,19 +891,15 @@
 <nav class="nav-bar">
   <div class="nav-inner">
     <button class="nav-item active" data-filter="all">All</button>
-    <button class="nav-item" data-filter="🛰️ Remote Sensing & Earth Observation">Remote Sensing</button>
-    <button class="nav-item" data-filter="🗺️ GIS & Geospatial Technology">GIS</button>
+    <button class="nav-item" data-filter="🛰️ Remote Sensing & GIS">Remote Sensing & GIS</button>
     <button class="nav-item" data-filter="🌡️ Climatology & Atmospheric Science">Climatology</button>
     <button class="nav-item" data-filter="🌊 Oceanography & Marine Science">Oceanography</button>
     <button class="nav-item" data-filter="🏔️ Plate Tectonics & Seismology">Tectonics</button>
     <button class="nav-item" data-filter="🌋 Volcanology">Volcanology</button>
-    <button class="nav-item" data-filter="⛏️ Mining & Mineral Resources">Mining</button>
-    <button class="nav-item" data-filter="🪨 Geology & Geomorphology">Geology</button>
+    <button class="nav-item" data-filter="⛏️ Mining & Geology">Mining & Geology</button>
     <button class="nav-item" data-filter="🚀 Space & Geodesy">Space</button>
-    <button class="nav-item" data-filter="🌿 Environmental Monitoring & Biodiversity">Environment</button>
-    <button class="nav-item" data-filter="🏙️ Urban & Infrastructure Geospatial">Urban</button>
-    <button class="nav-item" data-filter="🌾 Precision Agriculture & Food Security">Agriculture</button>
     <button class="nav-item" data-filter="🧊 Cryosphere & Polar Science">Cryosphere</button>
+    <button class="nav-item nav-disaster" data-filter="🆘 Disaster & Hazard Monitoring">🆘 Disasters</button>
     <button class="nav-item nav-india" data-filter="🇮🇳 India">🇮🇳 India</button>
     <button class="nav-item nav-global" data-filter="🌐 Global Geospatial Intelligence">🌐 Global</button>
     <div class="nav-spacer"></div>
@@ -1929,24 +1931,21 @@ document.getElementById('highlights-overlay').onclick = (e) => {
 ═══════════════════════════════════════════════════ */
 // Per-domain trusted source pool, mirrors the Python script.
 const TRUSTED_SOURCES = {
-  "🛰️ Remote Sensing & Earth Observation": [
+  "🛰️ Remote Sensing & GIS": [
     "Nature", "Science", "Remote Sensing of Environment",
     "IEEE Transactions on Geoscience and Remote Sensing", "MDPI Remote Sensing",
     "ISPRS Journal of Photogrammetry and Remote Sensing",
-    "NASA", "ESA", "ISRO", "JAXA", "USGS", "NOAA", "Copernicus", "CNES", "DLR",
-    "KARI (Korea Aerospace Research Institute)", "CNSA (China National Space Administration)", "Roscosmos",
-    "Planet Labs", "Maxar Technologies", "Airbus Defence and Space",
-    "SpaceNews", "Geospatial World", "GIM International", "Eos (AGU)",
-    "Reuters", "BBC Science", "Phys.org", "ScienceDaily"
-  ],
-  "🗺️ GIS & Geospatial Technology": [
-    "Esri", "Geospatial World", "GIM International", "Directions Magazine",
     "International Journal of Geographical Information Science",
     "Cartography and Geographic Information Science", "Transactions in GIS",
-    "MIT Technology Review", "TechCrunch", "IEEE Spectrum",
-    "Google Maps Platform", "Microsoft Planetary Computer",
+    "NASA", "ESA", "ISRO", "JAXA", "USGS", "NOAA", "Copernicus",
+    "CNES", "DLR", "KARI (Korea Aerospace Research Institute)",
+    "CNSA (China National Space Administration)", "Roscosmos",
+    "Planet Labs", "Maxar Technologies", "Airbus Defence and Space",
+    "Esri", "Google Maps Platform", "Microsoft Planetary Computer",
     "OpenStreetMap Foundation", "QGIS", "OGC (Open Geospatial Consortium)",
-    "Reuters", "Phys.org", "ScienceDaily"
+    "SpaceNews", "Geospatial World", "GIM International", "Directions Magazine",
+    "Eos (AGU)", "MIT Technology Review", "TechCrunch", "IEEE Spectrum",
+    "Reuters", "BBC Science", "Phys.org", "ScienceDaily"
   ],
   "🌡️ Climatology & Atmospheric Science": [
     "Nature Climate Change", "Science", "Nature Geoscience", "PNAS",
@@ -1988,22 +1987,18 @@ const TRUSTED_SOURCES = {
     "GNS Science (NZ)", "Geoscience Australia",
     "Reuters", "BBC Science", "AP News", "Phys.org", "ScienceDaily", "Eos (AGU)"
   ],
-  "⛏️ Mining & Mineral Resources": [
+  "⛏️ Mining & Geology": [
     "Mining.com", "Mining Magazine", "Mining Journal", "Mining Weekly",
     "Reuters Mining", "Bloomberg Metals & Mining", "S&P Global Market Intelligence",
     "USGS Mineral Resources", "BGS (British Geological Survey)",
     "Geological Survey of Canada", "Geoscience Australia",
     "KIGAM (Korea Institute of Geoscience and Mineral Resources)",
+    "Geological Survey of Japan (GSJ)", "China Geological Survey",
     "Nature Geoscience", "Economic Geology", "Ore Geology Reviews",
-    "Financial Times Mining", "Wall Street Journal",
-    "Phys.org", "ScienceDaily"
-  ],
-  "🪨 Geology & Geomorphology": [
-    "Nature Geoscience", "Geology (GSA)", "Earth and Planetary Science Letters",
-    "Science", "Geological Society of America Bulletin",
+    "Geology (GSA)", "Earth and Planetary Science Letters",
+    "Geological Society of America Bulletin",
     "Quaternary Science Reviews", "Journal of Sedimentary Research",
-    "USGS", "BGS", "Geological Survey of Canada", "Geoscience Australia",
-    "GFZ Potsdam", "Geological Survey of Japan (GSJ)", "China Geological Survey",
+    "Financial Times Mining", "Wall Street Journal",
     "Reuters", "BBC Science", "Smithsonian", "National Geographic",
     "Phys.org", "ScienceDaily", "Eos (AGU)"
   ],
@@ -2016,34 +2011,6 @@ const TRUSTED_SOURCES = {
     "Reuters", "BBC Science", "AP News", "Nature Astronomy",
     "Sky and Telescope", "Phys.org", "ScienceDaily"
   ],
-  "🌿 Environmental Monitoring & Biodiversity": [
-    "Nature", "Science", "Nature Ecology & Evolution",
-    "Global Change Biology", "Remote Sensing of Environment",
-    "Environmental Research Letters", "One Earth",
-    "NASA Earthdata", "USGS", "ESA", "Copernicus", "FAO",
-    "UNEP", "Global Forest Watch", "World Resources Institute",
-    "IUCN", "WWF Science", "Mongabay",
-    "Reuters", "BBC Science", "AP News", "Phys.org", "ScienceDaily", "Eos (AGU)"
-  ],
-  "🏙️ Urban & Infrastructure Geospatial": [
-    "Nature Cities", "Urban Climate", "Landscape and Urban Planning",
-    "ISPRS Journal of Photogrammetry and Remote Sensing",
-    "International Journal of Geographical Information Science",
-    "MIT Technology Review", "IEEE Spectrum",
-    "UN-Habitat", "World Bank Urban", "European Environment Agency",
-    "Esri", "Geospatial World", "GIM International",
-    "Reuters", "BBC Science", "AP News", "CityLab (Bloomberg)",
-    "Phys.org", "ScienceDaily"
-  ],
-  "🌾 Precision Agriculture & Food Security": [
-    "Nature Food", "Nature Plants", "Science", "PNAS",
-    "Remote Sensing of Environment", "Field Crops Research",
-    "Agricultural and Forest Meteorology",
-    "FAO", "CGIAR", "USDA", "Copernicus Global Land Service",
-    "NASA Harvest", "GEOGLAM (Global Agriculture Monitoring)",
-    "Reuters", "BBC Science", "AP News",
-    "AgFunder News", "Phys.org", "ScienceDaily"
-  ],
   "🧊 Cryosphere & Polar Science": [
     "Nature Geoscience", "Nature Climate Change", "Science",
     "The Cryosphere", "Journal of Glaciology",
@@ -2052,6 +2019,28 @@ const TRUSTED_SOURCES = {
     "NCAR", "Alfred Wegener Institute", "Norwegian Polar Institute",
     "British Antarctic Survey", "Scott Polar Research Institute",
     "Reuters", "BBC Science", "AP News", "Phys.org", "ScienceDaily", "Eos (AGU)"
+  ],
+  "🆘 Disaster & Hazard Monitoring": [
+    "UNDRR (UN Office for Disaster Risk Reduction)", "ReliefWeb",
+    "GDACS (Global Disaster Alert and Coordination System)",
+    "IFRC (International Federation of Red Cross)",
+    "WHO Health Emergencies", "IAEA (radiation/nuclear incidents)",
+    "OCHA (UN Office for the Coordination of Humanitarian Affairs)",
+    "NDMA India (National Disaster Management Authority)",
+    "FEMA (US Federal Emergency Management Agency)",
+    "JMA (Japan Meteorological Agency)",
+    "China Earthquake Administration", "NEMA (Nigeria)",
+    "Philippine PHIVOLCS", "Indonesian BNPB",
+    "Emergency Management Australia", "NEMA (New Zealand)",
+    "Defesa Civil Brasil",
+    "USGS Earthquake Hazards", "EMSC", "GNS Science (NZ)",
+    "Copernicus Emergency Management Service", "NASA Disasters Program",
+    "NOAA National Hurricane Center",
+    "Reuters", "AP News", "BBC Science", "Al Jazeera",
+    "Xinhua Science", "RIA Novosti Science", "NHK World Science",
+    "Yonhap News Science", "Agência Brasil", "Agencia EFE Science",
+    "Down to Earth", "The Hindu",
+    "Phys.org", "ScienceDaily"
   ],
   "🇮🇳 India": [
     "ISRO", "NRSC (National Remote Sensing Centre)", "Survey of India",
@@ -2086,8 +2075,6 @@ const TRUSTED_SOURCES = {
     "Caribbean Community Climate Change Centre",
     "Al Jazeera Science", "Reuters", "AP News", "Phys.org"
   ]
-};
-
 };
 
 function renderSourcesGrid() {

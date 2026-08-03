@@ -2,7 +2,7 @@
 ╔═══════════════════════════════════════════════════════╗
 ║        SPATIAL DRIFT — Daily Intelligence Alert        ║
 ║        Explore. Analyze. Anticipate.                   ║
-║        v6.1 — Global Authoritative Sourcing            ║
+║        v6.3 — Global Authoritative Sourcing            ║
 ╚═══════════════════════════════════════════════════════╝
 
 CONFIRMATION OF SOURCE STRATEGY
@@ -129,6 +129,23 @@ SOURCE_ALIASES = {
     "spc": "Pacific Community (SPC)",
     "sopac": "Pacific Islands Applied Geoscience Commission (SOPAC)",
     "sprep": "Secretariat of the Pacific Regional Environment Programme (SPREP)",
+    # Disaster & hazard agencies
+    "undrr": "UNDRR (UN Office for Disaster Risk Reduction)",
+    "gdacs": "GDACS (Global Disaster Alert and Coordination System)",
+    "ifrc": "IFRC (International Federation of Red Cross)",
+    "red cross": "IFRC (International Federation of Red Cross)",
+    "iaea": "IAEA (radiation/nuclear incidents)",
+    "ocha": "OCHA (UN Office for the Coordination of Humanitarian Affairs)",
+    "ndma": "NDMA India (National Disaster Management Authority)",
+    "ndma india": "NDMA India (National Disaster Management Authority)",
+    "fema": "FEMA (US Federal Emergency Management Agency)",
+    "bnpb": "Indonesian BNPB",
+    "bnpb indonesia": "Indonesian BNPB",
+    "phivolcs": "Philippine PHIVOLCS",
+    "nhc": "NOAA National Hurricane Center",
+    "national hurricane center": "NOAA National Hurricane Center",
+    "copernicus ems": "Copernicus Emergency Management Service",
+    "defesa civil": "Defesa Civil Brasil",
 }
 
 def normalise_source(name: str) -> str:
@@ -248,21 +265,21 @@ def validate_urls(articles: list) -> list:
     return checked
 
 # ── Configuration ──────────────────────────────────────────────────────────────
-MAX_ARTICLES_PER_TOPIC = 6
-MAX_RETRIES_PER_TOPIC  = 3
-MAX_TOKENS             = 4096
+MAX_ARTICLES_PER_TOPIC = 5    # fortnightly edition — slightly richer per domain
+MAX_RETRIES_PER_TOPIC  = 1    # was 3 — cuts wasted retries on failed domains
+MAX_TOKENS             = 2200 # was 4096 — Haiku needs less headroom
 TELEGRAM_MSG_LIMIT     = 4000
-DELAY_BETWEEN_DOMAINS  = 8
-RECENCY_WINDOW_DAYS    = 7    # weekly run — pull only past week's news
+DELAY_BETWEEN_DOMAINS  = 6    # was 8 — fewer domains now, can move a bit faster
+RECENCY_WINDOW_DAYS    = 14   # fortnightly run — pull past 2 weeks' news
 MAX_PER_SOURCE         = 2    # source-diversity cap
 URL_CHECK_TIMEOUT      = 6    # seconds for HTTP head check per URL
-MODEL_NAME             = "claude-sonnet-4-6"
+MODEL_NAME             = "claude-haiku-4-5-20251001"  # cost-optimised for news aggregation
 
 # Output paths
 ROOT_DIR    = Path(__file__).parent
 DATA_DIR    = ROOT_DIR / "data"
 DOCS_DIR    = ROOT_DIR / "docs"
-ARCHIVE_DIR = DATA_DIR / "archive"   # Fix 3: weekly historical snapshots
+ARCHIVE_DIR = DATA_DIR / "archive"   # Fix 3: fortnightly historical snapshots
 DATA_DIR.mkdir(exist_ok=True)
 DOCS_DIR.mkdir(exist_ok=True)
 ARCHIVE_DIR.mkdir(exist_ok=True)
@@ -273,7 +290,7 @@ ARTICLES_FILES = [
 LAST_RUN_FILE = DATA_DIR / "last_run.txt"
 
 IST = timezone(timedelta(hours=5, minutes=30))
-TARGET_SLOTS = [(7, 23)]  # weekly Saturday run at 7:23 AM IST
+TARGET_SLOTS = [(7, 23)]  # fortnightly Saturday run at 7:23 AM IST
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -281,47 +298,36 @@ TARGET_SLOTS = [(7, 23)]  # weekly Saturday run at 7:23 AM IST
 # ═══════════════════════════════════════════════════════════════════════════════
 
 TOPICS = [
-    # ── DOMAIN 1 ────────────────────────────────────────────────────────────────
+    # ── DOMAIN 1: MERGED (Remote Sensing + GIS) ──────────────────────────────────
     {
         "emoji": "🛰️",
-        "label": "Remote Sensing & Earth Observation",
+        "label": "Remote Sensing & GIS",
         "keywords": (
             "satellite imagery, earth observation, LiDAR, SAR, hyperspectral, "
             "multispectral, Sentinel, Landsat, Planet Labs, Maxar, ICEYE, optical sensing, "
-            "radar interferometry, InSAR, change detection, image classification"
-        ),
-        "trusted_sources": [
-            "Nature", "Science", "Remote Sensing of Environment",
-            "IEEE Transactions on Geoscience and Remote Sensing", "MDPI Remote Sensing",
-            "ISPRS Journal of Photogrammetry and Remote Sensing",
-            "NASA", "ESA", "ISRO", "JAXA", "USGS", "NOAA", "Copernicus",
-            "CNES", "DLR", "KARI (Korea Aerospace Research Institute)",
-            "CNSA (China National Space Administration)", "Roscosmos",
-            "Planet Labs", "Maxar Technologies", "Airbus Defence and Space",
-            "SpaceNews", "Geospatial World", "GIM International", "Eos (AGU)",
-            "Reuters", "BBC Science", "Phys.org", "ScienceDaily",
-        ],
-    },
-    # ── DOMAIN 2 ────────────────────────────────────────────────────────────────
-    {
-        "emoji": "🗺️",
-        "label": "GIS & Geospatial Technology",
-        "keywords": (
+            "radar interferometry, InSAR, change detection, image classification, "
             "GIS, geospatial AI, digital twin, spatial analysis, ArcGIS, QGIS, "
             "3D city model, OpenStreetMap, geocoding, location intelligence, "
             "geospatial cloud, spatial data infrastructure, web mapping"
         ),
         "trusted_sources": [
-            "Esri", "Geospatial World", "GIM International", "Directions Magazine",
+            "Nature", "Science", "Remote Sensing of Environment",
+            "IEEE Transactions on Geoscience and Remote Sensing", "MDPI Remote Sensing",
+            "ISPRS Journal of Photogrammetry and Remote Sensing",
             "International Journal of Geographical Information Science",
             "Cartography and Geographic Information Science", "Transactions in GIS",
-            "MIT Technology Review", "TechCrunch", "IEEE Spectrum",
-            "Google Maps Platform", "Microsoft Planetary Computer",
+            "NASA", "ESA", "ISRO", "JAXA", "USGS", "NOAA", "Copernicus",
+            "CNES", "DLR", "KARI (Korea Aerospace Research Institute)",
+            "CNSA (China National Space Administration)", "Roscosmos",
+            "Planet Labs", "Maxar Technologies", "Airbus Defence and Space",
+            "Esri", "Google Maps Platform", "Microsoft Planetary Computer",
             "OpenStreetMap Foundation", "QGIS", "OGC (Open Geospatial Consortium)",
-            "Reuters", "Phys.org", "ScienceDaily",
+            "SpaceNews", "Geospatial World", "GIM International", "Directions Magazine",
+            "Eos (AGU)", "MIT Technology Review", "TechCrunch", "IEEE Spectrum",
+            "Reuters", "BBC Science", "Phys.org", "ScienceDaily",
         ],
     },
-    # ── DOMAIN 3 ────────────────────────────────────────────────────────────────
+    # ── DOMAIN 2 ────────────────────────────────────────────────────────────────
     {
         "emoji": "🌡️",
         "label": "Climatology & Atmospheric Science",
@@ -342,7 +348,7 @@ TOPICS = [
             "Carbon Brief", "Inside Climate News",
         ],
     },
-    # ── DOMAIN 4 ────────────────────────────────────────────────────────────────
+    # ── DOMAIN 3 ────────────────────────────────────────────────────────────────
     {
         "emoji": "🌊",
         "label": "Oceanography & Marine Science",
@@ -363,7 +369,7 @@ TOPICS = [
             "Eos (AGU)", "ScienceDaily", "Smithsonian Ocean",
         ],
     },
-    # ── DOMAIN 5 ────────────────────────────────────────────────────────────────
+    # ── DOMAIN 4 ────────────────────────────────────────────────────────────────
     {
         "emoji": "🏔️",
         "label": "Plate Tectonics & Seismology",
@@ -383,7 +389,7 @@ TOPICS = [
             "Eos (AGU)",
         ],
     },
-    # ── DOMAIN 6 ────────────────────────────────────────────────────────────────
+    # ── DOMAIN 5 ────────────────────────────────────────────────────────────────
     {
         "emoji": "🌋",
         "label": "Volcanology",
@@ -403,14 +409,17 @@ TOPICS = [
             "Eos (AGU)",
         ],
     },
-    # ── DOMAIN 7 ────────────────────────────────────────────────────────────────
+    # ── DOMAIN 6: MERGED (Mining + Geology) ──────────────────────────────────────
     {
         "emoji": "⛏️",
-        "label": "Mining & Mineral Resources",
+        "label": "Mining & Geology",
         "keywords": (
             "mining, mineral exploration, critical minerals, lithium, cobalt, "
             "rare earth elements, copper, nickel, uranium, sustainable mining, "
-            "deep sea mining, battery metals, mineral mapping"
+            "deep sea mining, battery metals, mineral mapping, "
+            "geology, geological discovery, rock formation, stratigraphy, "
+            "paleoclimate, sedimentology, mineralogy, geochronology, geomorphology, "
+            "landslide, soil erosion, river geomorphology"
         ),
         "trusted_sources": [
             "Mining.com", "Mining Magazine", "Mining Journal", "Mining Weekly",
@@ -418,32 +427,17 @@ TOPICS = [
             "USGS Mineral Resources", "BGS (British Geological Survey)",
             "Geological Survey of Canada", "Geoscience Australia",
             "KIGAM (Korea Institute of Geoscience and Mineral Resources)",
+            "Geological Survey of Japan (GSJ)", "China Geological Survey",
             "Nature Geoscience", "Economic Geology", "Ore Geology Reviews",
-            "Financial Times Mining", "Wall Street Journal",
-            "Phys.org", "ScienceDaily",
-        ],
-    },
-    # ── DOMAIN 8 ────────────────────────────────────────────────────────────────
-    {
-        "emoji": "🪨",
-        "label": "Geology & Geomorphology",
-        "keywords": (
-            "geology, geological discovery, rock formation, stratigraphy, "
-            "paleoclimate, sedimentology, mineralogy, geochronology, geomorphology, "
-            "landslide, soil erosion, river geomorphology"
-        ),
-        "trusted_sources": [
-            "Nature Geoscience", "Geology (GSA)", "Earth and Planetary Science Letters",
-            "Science", "Geological Society of America Bulletin",
+            "Geology (GSA)", "Earth and Planetary Science Letters",
+            "Geological Society of America Bulletin",
             "Quaternary Science Reviews", "Journal of Sedimentary Research",
-            "USGS", "BGS", "Geological Survey of Canada", "Geoscience Australia",
-            "GFZ Potsdam", "Geological Survey of Japan (GSJ)",
-            "China Geological Survey",
+            "Financial Times Mining", "Wall Street Journal",
             "Reuters", "BBC Science", "Smithsonian", "National Geographic",
             "Phys.org", "ScienceDaily", "Eos (AGU)",
         ],
     },
-    # ── DOMAIN 9 ────────────────────────────────────────────────────────────────
+    # ── DOMAIN 7 ────────────────────────────────────────────────────────────────
     {
         "emoji": "🚀",
         "label": "Space & Geodesy",
@@ -462,66 +456,7 @@ TOPICS = [
             "Sky and Telescope", "Phys.org", "ScienceDaily",
         ],
     },
-    # ── DOMAIN 10: NEW ──────────────────────────────────────────────────────────
-    {
-        "emoji": "🌿",
-        "label": "Environmental Monitoring & Biodiversity",
-        "keywords": (
-            "deforestation, land cover change, biodiversity mapping, NDVI, "
-            "ecosystem services, habitat loss, wetland monitoring, carbon stocks, "
-            "species distribution, conservation mapping, forest fire detection"
-        ),
-        "trusted_sources": [
-            "Nature", "Science", "Nature Ecology & Evolution",
-            "Global Change Biology", "Remote Sensing of Environment",
-            "Environmental Research Letters", "One Earth",
-            "NASA Earthdata", "USGS", "ESA", "Copernicus", "FAO",
-            "UNEP", "Global Forest Watch", "World Resources Institute",
-            "IUCN", "WWF Science",
-            "Reuters", "BBC Science", "AP News", "Mongabay",
-            "Phys.org", "ScienceDaily", "Eos (AGU)",
-        ],
-    },
-    # ── DOMAIN 11: NEW ──────────────────────────────────────────────────────────
-    {
-        "emoji": "🏙️",
-        "label": "Urban & Infrastructure Geospatial",
-        "keywords": (
-            "smart city, urban digital twin, urban heat island, city mapping, "
-            "infrastructure monitoring, 3D building model, urban sprawl, "
-            "LiDAR urban, night light satellite, transportation network mapping"
-        ),
-        "trusted_sources": [
-            "Nature Cities", "Urban Climate", "Landscape and Urban Planning",
-            "ISPRS Journal of Photogrammetry and Remote Sensing",
-            "International Journal of Geographical Information Science",
-            "MIT Technology Review", "IEEE Spectrum",
-            "UN-Habitat", "World Bank Urban", "European Environment Agency",
-            "Esri", "Geospatial World", "GIM International",
-            "Reuters", "BBC Science", "AP News", "CityLab (Bloomberg)",
-            "Phys.org", "ScienceDaily",
-        ],
-    },
-    # ── DOMAIN 12: NEW ──────────────────────────────────────────────────────────
-    {
-        "emoji": "🌾",
-        "label": "Precision Agriculture & Food Security",
-        "keywords": (
-            "precision agriculture, crop mapping, soil monitoring, AgriSAR, "
-            "food security, drought monitoring, crop yield forecast, "
-            "smart farming, agricultural drone, NDVI crop, irrigation mapping"
-        ),
-        "trusted_sources": [
-            "Nature Food", "Nature Plants", "Science", "PNAS",
-            "Remote Sensing of Environment", "Field Crops Research",
-            "Agricultural and Forest Meteorology",
-            "FAO", "CGIAR", "USDA", "Copernicus Global Land Service",
-            "NASA Harvest", "GEOGLAM (Global Agriculture Monitoring)",
-            "Reuters", "BBC Science", "AP News",
-            "AgFunder News", "Phys.org", "ScienceDaily",
-        ],
-    },
-    # ── DOMAIN 13: NEW ──────────────────────────────────────────────────────────
+    # ── DOMAIN 8 ────────────────────────────────────────────────────────────────
     {
         "emoji": "🧊",
         "label": "Cryosphere & Polar Science",
@@ -541,7 +476,55 @@ TOPICS = [
             "ScienceDaily", "Eos (AGU)",
         ],
     },
-    # ── DOMAIN 14: INDIA (renamed) ───────────────────────────────────────────────
+    # ── DOMAIN 9: NEW — DISASTER & HAZARD MONITORING ─────────────────────────────
+    {
+        "emoji": "🆘",
+        "label": "Disaster & Hazard Monitoring",
+        "keywords": (
+            "landslide, flood, drought, cyclone, hurricane, typhoon, storm surge, "
+            "earthquake disaster, tsunami, wildfire, forest fire, "
+            "radiation leak, nuclear accident, industrial disaster, chemical spill, "
+            "dam failure, mudslide, avalanche, disaster response, emergency management, "
+            "humanitarian crisis, disaster risk reduction, early warning system, "
+            # Non-English disaster terms — native scripts for broader coverage
+            "inondation catastrophe, terremoto desastre, überschwemmung katastrophe, "
+            "洪水 灾害, 地震 災害, 홍수 재난, наводнение бедствие, "
+            "बाढ़ आपदा, चक्रवात आपदा"
+        ),
+        "trusted_sources": [
+            # Disaster-specific / multilateral bodies
+            "UNDRR (UN Office for Disaster Risk Reduction)", "ReliefWeb",
+            "GDACS (Global Disaster Alert and Coordination System)",
+            "IFRC (International Federation of Red Cross)",
+            "WHO Health Emergencies", "IAEA (radiation/nuclear incidents)",
+            "OCHA (UN Office for the Coordination of Humanitarian Affairs)",
+            # National disaster management agencies
+            "NDMA India (National Disaster Management Authority)",
+            "FEMA (US Federal Emergency Management Agency)",
+            "JMA (Japan Meteorological Agency)",
+            "China Earthquake Administration", "NEMA (Nigeria)",
+            "Philippine PHIVOLCS", "Indonesian BNPB",
+            "Emergency Management Australia", "NEMA (New Zealand)",
+            "Defesa Civil Brasil",
+            # Scientific / monitoring
+            "USGS Earthquake Hazards", "EMSC", "GNS Science (NZ)",
+            "Copernicus Emergency Management Service", "NASA Disasters Program",
+            "NOAA National Hurricane Center",
+            # Global + regional news
+            "Reuters", "AP News", "BBC Science", "Al Jazeera",
+            "Xinhua Science", "RIA Novosti Science", "NHK World Science",
+            "Yonhap News Science", "Agência Brasil", "Agencia EFE Science",
+            "Down to Earth", "The Hindu",
+            "Phys.org", "ScienceDaily",
+        ],
+        "translate_to_english": True,
+        "region_tags": [
+            "India", "Japan", "China", "Korea", "Russia",
+            "Southeast Asia", "Latin America", "Africa", "Global",
+        ],
+        "lang_tag": "multi",
+    },
+    # ── DOMAIN 10: INDIA ─────────────────────────────────────────────────────────
     {
         "emoji": "🇮🇳",
         "label": "India",
@@ -553,82 +536,63 @@ TOPICS = [
             "satellite imagery India, coastal mapping India"
         ),
         "trusted_sources": [
-            # Indian national agencies
             "ISRO", "NRSC (National Remote Sensing Centre)", "Survey of India",
             "Ministry of Science and Technology India",
             "National Informatics Centre India",
-            # Indian media — English
             "The Hindu", "Times of India", "Hindustan Times",
             "Down to Earth", "The Wire Science", "India Today Science",
             "Economic Times Tech", "Business Standard Tech", "Livemint",
-            # Indian geospatial / industry
             "Geospatial World", "GIM International",
             "GeoIntelligence India", "Geospatial Media India",
-            # Pan-India agencies
             "PIB (Press Information Bureau)", "NITI Aayog",
         ],
         "translate_to_english": False,
         "region_tags": ["India"],
         "lang_tag": "en",
     },
-    # ── DOMAIN 15: GLOBAL MULTILINGUAL (new) ─────────────────────────────────────
+    # ── DOMAIN 11: GLOBAL MULTILINGUAL ────────────────────────────────────────────
     {
         "emoji": "🌐",
         "label": "Global Geospatial Intelligence",
         "keywords": (
-            # Russia / Eastern Europe
             "геопространственные данные Россия, Роскосмос, ДЗЗ Россия, "
             "спутниковые снимки, российская картография, "
-            # China
             "遥感 中国, 地理信息系统 中国, 北斗导航, 高分系列卫星, 自然资源部, "
-            # Japan
             "地理空間情報 日本, JAXA 衛星, 国土地理院, リモートセンシング 日本, "
-            # Korea
             "지리정보 한국, KOMPSAT, 국토정보공사, 원격탐사 한국, "
-            # Australia / NZ / Pacific
             "geospatial Australia, Geoscience Australia, LINZ New Zealand, "
             "Pacific islands mapping, Pacific geospatial, Great Barrier Reef mapping, "
             "ocean territory Australia, remote sensing Oceania, "
-            # South America
             "sensoriamento remoto América do Sul, INPE Brasil, Embrapa geoespacial, "
             "geografía CONAE Argentina, IGM Chile, cartografia Venezuela, "
             "geomática Colombia, teledetección Perú, "
-            # Islands worldwide
             "small island developing states SIDS geospatial, "
             "Caribbean mapping, Pacific island remote sensing, "
             "island coastal erosion mapping, atoll sea level rise"
         ),
         "trusted_sources": [
-            # Russia (translate to English)
             "Roscosmos", "Роскосмос (Roscosmos)", "SCANEX (Russia)",
             "RIA Novosti Science", "TASS Science",
-            # China (translate to English)
             "CNSA (China National Space Administration)",
             "Chinese Academy of Sciences", "Ministry of Natural Resources China",
             "Xinhua Science", "China Daily Science", "Journal of Remote Sensing China",
             "National Geomatics Center of China",
-            # Japan (translate to English)
             "JAXA", "Geospatial Information Authority of Japan (GSI)",
             "Geological Survey of Japan (GSJ)", "JAMSTEC",
             "NHK World Science", "Japan Times Science",
-            # Korea (translate to English)
             "KARI (Korea Aerospace Research Institute)",
             "NGII (National Geographic Information Institute Korea)",
             "KIGAM (Korea Institute of Geoscience and Mineral Resources)",
             "Yonhap News Science",
-            # Australia / Oceania
             "Geoscience Australia", "CSIRO", "Bureau of Meteorology Australia",
             "LINZ (Land Information New Zealand)", "NIWA (NZ)",
             "Pacific Community (SPC)", "The Conversation Australia",
-            # South America
             "INPE Brazil", "Embrapa Territorial",
             "CONAE (Argentina)", "IGM Chile", "Agencia EFE Science",
             "Agência Brasil", "El País Ciencia",
-            # Islands / SIDS
             "Pacific Islands Applied Geoscience Commission (SOPAC)",
             "Caribbean Community Climate Change Centre",
             "Secretariat of the Pacific Regional Environment Programme (SPREP)",
-            # Multilingual tier 1
             "Nature Geoscience", "Reuters", "AP News",
         ],
         "translate_to_english": True,
@@ -941,6 +905,17 @@ def fetch_topic(topic: dict, run_token: str) -> list:
             "\nFor Pacific/Island nations: search SOPAC, SPREP, Pacific Community, Caribbean."
             "\nFor Australia/NZ: search Geoscience Australia, CSIRO, LINZ, NIWA."
         )
+        if "Disaster" in label:
+            lang_note += (
+                "\nDISASTER-SPECIFIC: Cover natural hazards (landslides, floods, "
+                "droughts, cyclones/hurricanes/typhoons, storm surges, earthquakes, "
+                "tsunamis, wildfires) AND man-made disasters (radiation/nuclear "
+                "leaks, industrial accidents, chemical spills, dam failures) from "
+                "ANY country. Prioritize events with confirmed casualties, "
+                "displacement, or infrastructure damage. Search GDACS, ReliefWeb, "
+                "and national disaster agencies (NDMA India, FEMA, BNPB Indonesia, "
+                "PHIVOLCS Philippines) alongside mainstream news in every language."
+            )
 
     # ── PASS 1: web search ──
     user_msg = f"""Find the latest news articles for this geospatial domain.
@@ -1104,7 +1079,7 @@ def build_compact_message(all_results: list, run_meta: dict) -> list:
         f"🌐 <b>SPATIAL DRIFT</b>\n"
         f"<i>Tap any title to open the article.</i>\n"
         f"<i>Visit dashboard for full summaries + LinkedIn/blog generator.</i>\n"
-        f"<i>Next brief next Saturday at 7:23 AM IST.</i>"
+        f"<i>Next brief in 2 weeks — Saturday at 7:23 AM IST.</i>"
     )
 
     full_message = header + "\n".join(topic_blocks) + footer
@@ -1295,7 +1270,7 @@ def main():
 
     print()
     print("╔══════════════════════════════════════════════╗")
-    print("║   SPATIAL DRIFT v6.2 — Weekly Alert          ║")
+    print("║   SPATIAL DRIFT v6.3 — Fortnightly Alert     ║")
     print("║   Global Authoritative Sourcing              ║")
     print("╚══════════════════════════════════════════════╝")
     print(f"  Run started:  {ts.strftime('%Y-%m-%d %I:%M:%S %p IST')}")

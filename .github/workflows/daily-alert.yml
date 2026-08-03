@@ -1,7 +1,13 @@
-name: 🌍 Spatial Drift — Weekly Alert
+name: 🌍 Spatial Drift — Fortnightly Alert
 
 on:
-  # ── Runs ONCE per week — Saturday morning, off-peak IST ───────────────────
+  # ── Runs every TWO WEEKS — 1st & 3rd Saturday of the month, off-peak IST ──
+  # Cron has no native "every N weeks" operator, so fortnightly is approximated
+  # by firing on Saturdays that fall in day-of-month 1-7 (always catches the
+  # 1st Saturday) OR 15-21 (always catches the 3rd Saturday). This lands on a
+  # ~14-day cadence for most months; occasionally 21 or 28 days depending on
+  # how the calendar falls — acceptable drift for a fortnightly brief.
+  #
   # Time chosen to dodge GitHub's load-balancer queueing:
   #   - "Saturday" = lighter day for Actions traffic
   #   - Minute :23 instead of :00/:30 = avoids the busiest cron timeslots
@@ -11,10 +17,10 @@ on:
   #
   # A backup cron fires 40 minutes later in case the primary lagged.
   # The script's time-windowed dedup (last_run.txt) ensures only ONE
-  # Telegram message goes out per Saturday morning.
+  # Telegram message goes out per scheduled Saturday morning.
   schedule:
-    - cron: "53 1 * * 6"   # Saturday  07:23 AM IST (primary, off-peak minute)
-    - cron: "33 2 * * 6"   # Saturday  08:03 AM IST (backup, in case primary lags)
+    - cron: "53 1 1-7,15-21 * 6"   # 1st & 3rd Saturday  07:23 AM IST (primary)
+    - cron: "33 2 1-7,15-21 * 6"   # 1st & 3rd Saturday  08:03 AM IST (backup)
 
   # Manual trigger from Actions tab — always runs to completion
   workflow_dispatch:
@@ -32,7 +38,7 @@ permissions:
 
 jobs:
   send-geospatial-brief:
-    name: Fetch & Deliver Daily Brief
+    name: Fetch & Deliver Fortnightly Brief
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
@@ -78,7 +84,7 @@ jobs:
             -H "x-api-key: $ANTHROPIC_API_KEY" \
             -H "anthropic-version: 2023-06-01" \
             -H "content-type: application/json" \
-            -d '{"model":"claude-sonnet-4-6","max_tokens":1,"messages":[{"role":"user","content":"hi"}]}')
+            -d '{"model":"claude-haiku-4-5-20251001","max_tokens":1,"messages":[{"role":"user","content":"hi"}]}')
           echo "API responded with HTTP $HTTP_CODE"
           if [ "$HTTP_CODE" = "200" ]; then
             echo "✅ API key is valid."

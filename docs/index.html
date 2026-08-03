@@ -116,6 +116,67 @@
   .top-strip a:hover { opacity: 1; text-decoration: underline; }
   .top-strip .left, .top-strip .right { display: flex; gap: 12px; align-items: center; }
   .top-strip .strip-sep { opacity: 0.5; font-weight: 400; }
+  .strip-portfolio-link {
+    color: var(--header-text); opacity: 0.85;
+    font-size: 12px; letter-spacing: 0.08em;
+    text-decoration: none; font-weight: 700;
+    transition: opacity 0.15s;
+  }
+  .strip-portfolio-link:hover { opacity: 1; text-decoration: underline; }
+
+  /* ── Language selector dropdown ── */
+  .lang-selector {
+    position: relative;
+    display: inline-block;
+  }
+  .lang-btn {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
+    color: var(--header-text); padding: 3px 10px;
+    border-radius: 3px; cursor: pointer;
+    font-size: 12px; letter-spacing: 0.05em;
+    font-family: inherit; transition: background 0.15s;
+  }
+  .lang-btn:hover { background: rgba(255,255,255,0.22); }
+  .lang-flag { font-size: 14px; }
+  .lang-chevron { font-size: 9px; opacity: 0.7; }
+  .lang-dropdown {
+    display: none; position: absolute; top: calc(100% + 6px); right: 0;
+    background: var(--panel); border: 1px solid var(--line-2);
+    border-radius: 4px; min-width: 160px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    list-style: none; margin: 0; padding: 4px 0;
+    z-index: 200;
+  }
+  .lang-dropdown.open { display: block; }
+  .lang-option {
+    padding: 8px 14px; font-size: 13px; color: var(--text);
+    cursor: pointer; transition: background 0.1s;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .lang-option:hover { background: var(--hover); }
+  .lang-option.lang-active {
+    color: var(--accent); font-weight: 700;
+    background: var(--tag-bg);
+  }
+
+  .lang-option.lang-divider {
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--text-3); padding: 6px 14px 3px; cursor: default;
+    background: transparent; pointer-events: none;
+  }
+  /* India nav item highlight */
+  .nav-india {
+    border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+    font-weight: 700;
+  }
+  .nav-india.active { border-color: var(--accent); }
+  /* Global nav item highlight */
+  .nav-global {
+    border: 1px solid color-mix(in srgb, #10b981 40%, transparent);
+    font-weight: 700;
+  }
+  .nav-global.active { border-color: #10b981; }
   .theme-toggle {
     background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
     color: var(--header-text); padding: 3px 12px; border-radius: 3px;
@@ -764,8 +825,37 @@
 <!-- ═══════════ TOP STRIP ═══════════ -->
 <div class="top-strip">
   <div class="top-strip-inner">
-    <div class="left"></div>
+    <div class="left">
+      <a href="https://senthil4ocean.github.io/Portfolio-Website/" class="strip-portfolio-link">← Portfolio</a>
+    </div>
     <div class="right">
+      <!-- Language selector dropdown -->
+      <div class="lang-selector" id="lang-selector">
+        <button class="lang-btn" id="lang-btn" aria-haspopup="listbox" aria-expanded="false">
+          <span class="lang-flag" id="lang-flag">🌐</span>
+          <span class="lang-label" id="lang-label">English</span>
+          <span class="lang-chevron">▾</span>
+        </button>
+        <ul class="lang-dropdown" id="lang-dropdown" role="listbox">
+          <li class="lang-option lang-active" data-lang="all" role="option">🌐 All Regions</li>
+          <li class="lang-option lang-divider" role="separator">— Regions —</li>
+          <li class="lang-option" data-lang="in"  role="option">🇮🇳 India</li>
+          <li class="lang-option" data-lang="ru"  role="option">🇷🇺 Russia</li>
+          <li class="lang-option" data-lang="zh"  role="option">🇨🇳 China</li>
+          <li class="lang-option" data-lang="ja"  role="option">🇯🇵 Japan</li>
+          <li class="lang-option" data-lang="ko"  role="option">🇰🇷 Korea</li>
+          <li class="lang-option" data-lang="au"  role="option">🇦🇺 Australia / NZ</li>
+          <li class="lang-option" data-lang="sa"  role="option">🌎 South America</li>
+          <li class="lang-option" data-lang="isl" role="option">🏝️ Islands &amp; Pacific</li>
+          <li class="lang-option lang-divider" role="separator">— Languages —</li>
+          <li class="lang-option" data-lang="en"  role="option">🇬🇧 English</li>
+          <li class="lang-option" data-lang="fr"  role="option">🇫🇷 French</li>
+          <li class="lang-option" data-lang="de"  role="option">🇩🇪 German</li>
+          <li class="lang-option" data-lang="es"  role="option">🇪🇸 Spanish</li>
+          <li class="lang-option" data-lang="pt"  role="option">🇧🇷 Portuguese</li>
+        </ul>
+      </div>
+      <span class="strip-sep">|</span>
       <button class="theme-toggle" id="theme-toggle">◐ Theme</button>
       <span class="strip-sep">|</span>
       <span id="strip-date">—</span>
@@ -804,6 +894,12 @@
     <button class="nav-item" data-filter="⛏️ Mining & Mineral Resources">Mining</button>
     <button class="nav-item" data-filter="🪨 Geology & Geomorphology">Geology</button>
     <button class="nav-item" data-filter="🚀 Space & Geodesy">Space</button>
+    <button class="nav-item" data-filter="🌿 Environmental Monitoring & Biodiversity">Environment</button>
+    <button class="nav-item" data-filter="🏙️ Urban & Infrastructure Geospatial">Urban</button>
+    <button class="nav-item" data-filter="🌾 Precision Agriculture & Food Security">Agriculture</button>
+    <button class="nav-item" data-filter="🧊 Cryosphere & Polar Science">Cryosphere</button>
+    <button class="nav-item nav-india" data-filter="🇮🇳 India">🇮🇳 India</button>
+    <button class="nav-item nav-global" data-filter="🌐 Global Geospatial Intelligence">🌐 Global</button>
     <div class="nav-spacer"></div>
     <div class="search-wrap">
       <span class="search-icon">⌕</span>
@@ -1020,6 +1116,7 @@ const state = {
   data: null,
   activeDomain: "all",
   filterText: "",
+  activeLang: "all",   // language filter: "all" | "en" | "in" | "fr" | "de" | "es" | "pt"
   selectedArticle: null,
   outputType: "brief",
   generated: "",
@@ -1251,10 +1348,56 @@ function renderFeed() {
     (a.title || "").toLowerCase().includes(q) ||
     (a.summary || "").toLowerCase().includes(q);
 
+  // language / region filter
+  // Region codes map to domain labels OR source patterns OR lang fields
+  const filterLang = a => {
+    if (state.activeLang === 'all') return true;
+    const dom = (a._domain || '').toLowerCase();
+    const src = (a.source || '').toLowerCase();
+    const lang = (a.lang || 'en').toLowerCase();
+    switch (state.activeLang) {
+      // Region-based: show the dedicated domain
+      case 'in':  return dom.includes('india');
+      case 'isl': return dom.includes('global geospatial') &&
+                         (src.includes('pacific') || src.includes('caribbean') ||
+                          src.includes('island') || src.includes('sopac') ||
+                          src.includes('sprep') || src.includes('spc'));
+      // Region-based AND lang-based hybrids
+      case 'ru':  return lang === 'ru' || src.includes('roscosmos') ||
+                         src.includes('ria novosti') || src.includes('tass') ||
+                         src.includes('scanex');
+      case 'zh':  return lang === 'zh' || src.includes('cnsa') ||
+                         src.includes('xinhua') || src.includes('chinese academy') ||
+                         src.includes('ministry of natural resources china');
+      case 'ja':  return lang === 'ja' || src.includes('jaxa') ||
+                         src.includes('gsi') || src.includes('gsj') ||
+                         src.includes('jamstec') || src.includes('nhk') ||
+                         src.includes('japan times');
+      case 'ko':  return lang === 'ko' || src.includes('kari') ||
+                         src.includes('ngii') || src.includes('kigam') ||
+                         src.includes('yonhap');
+      case 'au':  return lang === 'en-au' || src.includes('geoscience australia') ||
+                         src.includes('csiro') || src.includes('bureau of meteorology') ||
+                         src.includes('linz') || src.includes('niwa') ||
+                         src.includes('the conversation australia');
+      case 'sa':  return lang === 'es' || lang === 'pt' ||
+                         src.includes('inpe') || src.includes('conae') ||
+                         src.includes('igm chile') || src.includes('embrapa') ||
+                         src.includes('agência brasil') || src.includes('el país');
+      // Pure language codes
+      case 'fr':  return lang === 'fr';
+      case 'de':  return lang === 'de';
+      case 'es':  return lang === 'es';
+      case 'pt':  return lang === 'pt';
+      case 'en':  return lang === 'en' || lang === '';
+      default: return true;
+    }
+  };
+
   // collect all filtered articles
   const allArts = [];
   domains.forEach(dom => {
-    dom.articles.filter(filterArt).forEach(a => {
+    dom.articles.filter(filterArt).filter(a => filterLang({...a, _domain: dom.label})).forEach(a => {
       allArts.push({ ...a, _domain: dom.label });
     });
   });
@@ -1791,6 +1934,7 @@ const TRUSTED_SOURCES = {
     "IEEE Transactions on Geoscience and Remote Sensing", "MDPI Remote Sensing",
     "ISPRS Journal of Photogrammetry and Remote Sensing",
     "NASA", "ESA", "ISRO", "JAXA", "USGS", "NOAA", "Copernicus", "CNES", "DLR",
+    "KARI (Korea Aerospace Research Institute)", "CNSA (China National Space Administration)", "Roscosmos",
     "Planet Labs", "Maxar Technologies", "Airbus Defence and Space",
     "SpaceNews", "Geospatial World", "GIM International", "Eos (AGU)",
     "Reuters", "BBC Science", "Phys.org", "ScienceDaily"
@@ -1801,7 +1945,7 @@ const TRUSTED_SOURCES = {
     "Cartography and Geographic Information Science", "Transactions in GIS",
     "MIT Technology Review", "TechCrunch", "IEEE Spectrum",
     "Google Maps Platform", "Microsoft Planetary Computer",
-    "OpenStreetMap Foundation", "QGIS", "OGC",
+    "OpenStreetMap Foundation", "QGIS", "OGC (Open Geospatial Consortium)",
     "Reuters", "Phys.org", "ScienceDaily"
   ],
   "🌡️ Climatology & Atmospheric Science": [
@@ -1810,6 +1954,8 @@ const TRUSTED_SOURCES = {
     "Journal of Climate", "Climate Dynamics",
     "IPCC", "WMO", "NOAA", "NASA Climate", "ECMWF",
     "UK Met Office", "Copernicus Climate Change Service",
+    "Bureau of Meteorology Australia", "Japan Meteorological Agency",
+    "China Meteorological Administration",
     "Reuters", "BBC Science", "AP News", "Phys.org", "ScienceDaily",
     "Carbon Brief", "Inside Climate News"
   ],
@@ -1819,6 +1965,7 @@ const TRUSTED_SOURCES = {
     "Limnology and Oceanography", "Marine Geology",
     "NOAA", "NASA Earth Science", "Scripps Institution of Oceanography",
     "Woods Hole Oceanographic Institution", "WMO",
+    "JAMSTEC", "NIWA (NZ)", "CSIRO",
     "Reuters", "BBC Science", "AP News", "Phys.org",
     "Eos (AGU)", "ScienceDaily", "Smithsonian Ocean"
   ],
@@ -1827,39 +1974,120 @@ const TRUSTED_SOURCES = {
     "Seismological Research Letters", "Earth and Planetary Science Letters",
     "Journal of Geophysical Research: Solid Earth",
     "USGS Earthquake Hazards", "EMSC", "IRIS", "GFZ Potsdam",
-    "GNS Science", "Geoscience Australia",
+    "GNS Science (NZ)", "Geoscience Australia",
+    "JMA (Japan Met Agency)", "China Earthquake Networks Center",
+    "KIGAM (Korea Institute of Geoscience and Mineral Resources)",
     "Reuters", "BBC Science", "AP News", "Phys.org", "ScienceDaily", "Eos (AGU)"
   ],
   "🌋 Volcanology": [
     "Nature Geoscience", "Science", "Journal of Volcanology and Geothermal Research",
     "Bulletin of Volcanology",
-    "USGS Volcano Hazards", "Smithsonian Global Volcanism Program",
-    "INGV", "Icelandic Met Office", "VolcanoDiscovery",
-    "JMA", "Indonesian PVMBG", "Philippine PHIVOLCS",
+    "USGS Volcano Hazards Program", "Smithsonian Global Volcanism Program",
+    "INGV (Italy)", "Icelandic Met Office", "VolcanoDiscovery",
+    "JMA (Japan Met Agency)", "Indonesian PVMBG", "Philippine PHIVOLCS",
+    "GNS Science (NZ)", "Geoscience Australia",
     "Reuters", "BBC Science", "AP News", "Phys.org", "ScienceDaily", "Eos (AGU)"
   ],
   "⛏️ Mining & Mineral Resources": [
     "Mining.com", "Mining Magazine", "Mining Journal", "Mining Weekly",
     "Reuters Mining", "Bloomberg Metals & Mining", "S&P Global Market Intelligence",
-    "USGS Mineral Resources", "BGS", "Geological Survey of Canada", "Geoscience Australia",
+    "USGS Mineral Resources", "BGS (British Geological Survey)",
+    "Geological Survey of Canada", "Geoscience Australia",
+    "KIGAM (Korea Institute of Geoscience and Mineral Resources)",
     "Nature Geoscience", "Economic Geology", "Ore Geology Reviews",
-    "Financial Times Mining", "Wall Street Journal", "Phys.org", "ScienceDaily"
+    "Financial Times Mining", "Wall Street Journal",
+    "Phys.org", "ScienceDaily"
   ],
   "🪨 Geology & Geomorphology": [
     "Nature Geoscience", "Geology (GSA)", "Earth and Planetary Science Letters",
     "Science", "Geological Society of America Bulletin",
     "Quaternary Science Reviews", "Journal of Sedimentary Research",
-    "USGS", "BGS", "Geological Survey of Canada", "Geoscience Australia", "GFZ Potsdam",
+    "USGS", "BGS", "Geological Survey of Canada", "Geoscience Australia",
+    "GFZ Potsdam", "Geological Survey of Japan (GSJ)", "China Geological Survey",
     "Reuters", "BBC Science", "Smithsonian", "National Geographic",
     "Phys.org", "ScienceDaily", "Eos (AGU)"
   ],
   "🚀 Space & Geodesy": [
     "SpaceNews", "Spaceflight Now", "Ars Technica Space", "The Space Review",
     "NASA", "ESA", "ISRO", "JAXA", "CNES", "DLR", "CSA", "Roscosmos",
+    "CNSA (China National Space Administration)",
+    "KARI (Korea Aerospace Research Institute)",
     "SpaceX", "Blue Origin", "Rocket Lab",
     "Reuters", "BBC Science", "AP News", "Nature Astronomy",
     "Sky and Telescope", "Phys.org", "ScienceDaily"
+  ],
+  "🌿 Environmental Monitoring & Biodiversity": [
+    "Nature", "Science", "Nature Ecology & Evolution",
+    "Global Change Biology", "Remote Sensing of Environment",
+    "Environmental Research Letters", "One Earth",
+    "NASA Earthdata", "USGS", "ESA", "Copernicus", "FAO",
+    "UNEP", "Global Forest Watch", "World Resources Institute",
+    "IUCN", "WWF Science", "Mongabay",
+    "Reuters", "BBC Science", "AP News", "Phys.org", "ScienceDaily", "Eos (AGU)"
+  ],
+  "🏙️ Urban & Infrastructure Geospatial": [
+    "Nature Cities", "Urban Climate", "Landscape and Urban Planning",
+    "ISPRS Journal of Photogrammetry and Remote Sensing",
+    "International Journal of Geographical Information Science",
+    "MIT Technology Review", "IEEE Spectrum",
+    "UN-Habitat", "World Bank Urban", "European Environment Agency",
+    "Esri", "Geospatial World", "GIM International",
+    "Reuters", "BBC Science", "AP News", "CityLab (Bloomberg)",
+    "Phys.org", "ScienceDaily"
+  ],
+  "🌾 Precision Agriculture & Food Security": [
+    "Nature Food", "Nature Plants", "Science", "PNAS",
+    "Remote Sensing of Environment", "Field Crops Research",
+    "Agricultural and Forest Meteorology",
+    "FAO", "CGIAR", "USDA", "Copernicus Global Land Service",
+    "NASA Harvest", "GEOGLAM (Global Agriculture Monitoring)",
+    "Reuters", "BBC Science", "AP News",
+    "AgFunder News", "Phys.org", "ScienceDaily"
+  ],
+  "🧊 Cryosphere & Polar Science": [
+    "Nature Geoscience", "Nature Climate Change", "Science",
+    "The Cryosphere", "Journal of Glaciology",
+    "Geophysical Research Letters", "Polar Research",
+    "NASA Cryosphere", "NSIDC (National Snow and Ice Data Center)",
+    "NCAR", "Alfred Wegener Institute", "Norwegian Polar Institute",
+    "British Antarctic Survey", "Scott Polar Research Institute",
+    "Reuters", "BBC Science", "AP News", "Phys.org", "ScienceDaily", "Eos (AGU)"
+  ],
+  "🇮🇳 India": [
+    "ISRO", "NRSC (National Remote Sensing Centre)", "Survey of India",
+    "Ministry of Science and Technology India", "National Informatics Centre India",
+    "The Hindu", "Times of India", "Hindustan Times",
+    "Down to Earth", "The Wire Science", "India Today Science",
+    "Economic Times Tech", "Business Standard Tech", "Livemint",
+    "Geospatial World", "GIM International",
+    "GeoIntelligence India", "Geospatial Media India",
+    "PIB (Press Information Bureau)", "NITI Aayog"
+  ],
+  "🌐 Global Geospatial Intelligence": [
+    "Roscosmos", "RIA Novosti Science", "TASS Science", "SCANEX (Russia)",
+    "CNSA (China National Space Administration)", "Chinese Academy of Sciences",
+    "Ministry of Natural Resources China", "Xinhua Science",
+    "National Geomatics Center of China", "Journal of Remote Sensing China",
+    "JAXA", "Geospatial Information Authority of Japan (GSI)",
+    "Geological Survey of Japan (GSJ)", "JAMSTEC",
+    "NHK World Science", "Japan Times Science",
+    "KARI (Korea Aerospace Research Institute)",
+    "NGII (National Geographic Information Institute Korea)",
+    "KIGAM (Korea Institute of Geoscience and Mineral Resources)",
+    "Yonhap News Science",
+    "Geoscience Australia", "CSIRO", "Bureau of Meteorology Australia",
+    "LINZ (Land Information New Zealand)", "NIWA (NZ)",
+    "The Conversation Australia",
+    "INPE Brazil", "Embrapa Territorial", "CONAE (Argentina)", "IGM Chile",
+    "Agência Brasil", "El País Ciencia", "Agencia EFE Science",
+    "Pacific Community (SPC)",
+    "Pacific Islands Applied Geoscience Commission (SOPAC)",
+    "Secretariat of the Pacific Regional Environment Programme (SPREP)",
+    "Caribbean Community Climate Change Centre",
+    "Al Jazeera Science", "Reuters", "AP News", "Phys.org"
   ]
+};
+
 };
 
 function renderSourcesGrid() {
@@ -1896,6 +2124,83 @@ document.getElementById('search-input').oninput = (e) => {
   state.filterText = e.target.value;
   renderFeed();
 };
+
+/* ═══════════════════════════════════════════════════
+   LANGUAGE SELECTOR
+═══════════════════════════════════════════════════ */
+const LANG_META = {
+  all: { flag: '🌐', label: 'All Regions' },
+  in:  { flag: '🇮🇳', label: 'India' },
+  ru:  { flag: '🇷🇺', label: 'Russia' },
+  zh:  { flag: '🇨🇳', label: 'China' },
+  ja:  { flag: '🇯🇵', label: 'Japan' },
+  ko:  { flag: '🇰🇷', label: 'Korea' },
+  au:  { flag: '🇦🇺', label: 'Australia / NZ' },
+  sa:  { flag: '🌎', label: 'South America' },
+  isl: { flag: '🏝️', label: 'Islands & Pacific' },
+  en:  { flag: '🇬🇧', label: 'English' },
+  fr:  { flag: '🇫🇷', label: 'French' },
+  de:  { flag: '🇩🇪', label: 'German' },
+  es:  { flag: '🇪🇸', label: 'Spanish' },
+  pt:  { flag: '🇧🇷', label: 'Portuguese' },
+};
+
+const langBtn      = document.getElementById('lang-btn');
+const langDropdown = document.getElementById('lang-dropdown');
+const langFlag     = document.getElementById('lang-flag');
+const langLabel    = document.getElementById('lang-label');
+
+langBtn.onclick = (e) => {
+  e.stopPropagation();
+  const isOpen = langDropdown.classList.toggle('open');
+  langBtn.setAttribute('aria-expanded', isOpen);
+};
+
+// Close on outside click
+document.addEventListener('click', () => {
+  langDropdown.classList.remove('open');
+  langBtn.setAttribute('aria-expanded', 'false');
+});
+
+langDropdown.querySelectorAll('.lang-option').forEach(opt => {
+  opt.onclick = (e) => {
+    e.stopPropagation();
+    const lang = opt.getAttribute('data-lang');
+    state.activeLang = lang;
+    // Update button display
+    const meta = LANG_META[lang] || LANG_META.all;
+    langFlag.textContent = meta.flag;
+    langLabel.textContent = meta.label;
+    // Update active state
+    langDropdown.querySelectorAll('.lang-option').forEach(o => o.classList.remove('lang-active'));
+    opt.classList.add('lang-active');
+    // Close dropdown and re-render
+    langDropdown.classList.remove('open');
+    langBtn.setAttribute('aria-expanded', 'false');
+    // If a region-specific domain exists, auto-switch nav to it
+    const REGION_DOMAIN_MAP = {
+      'in':  '🇮🇳 India',
+      'isl': '🌐 Global Geospatial Intelligence',
+      'ru':  '🌐 Global Geospatial Intelligence',
+      'zh':  '🌐 Global Geospatial Intelligence',
+      'ja':  '🌐 Global Geospatial Intelligence',
+      'ko':  '🌐 Global Geospatial Intelligence',
+      'au':  '🌐 Global Geospatial Intelligence',
+      'sa':  '🌐 Global Geospatial Intelligence',
+    };
+    const targetDomain = REGION_DOMAIN_MAP[lang];
+    if (targetDomain) {
+      state.activeDomain = targetDomain;
+      syncNav();
+    } else if (lang === 'all' &&
+               (state.activeDomain === '🇮🇳 India' ||
+                state.activeDomain === '🌐 Global Geospatial Intelligence')) {
+      state.activeDomain = 'all';
+      syncNav();
+    }
+    renderFeed();
+  };
+});
 
 /* ═══════════════════════════════════════════════════
    UTILS

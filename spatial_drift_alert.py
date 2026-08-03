@@ -58,6 +58,86 @@ ANTHROPIC_API_KEY  = os.environ.get("ANTHROPIC_API_KEY",  "").strip()
 TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
 TELEGRAM_CHAT_ID   = os.environ.get("TELEGRAM_CHAT_ID",   "").strip()
 
+# ── Source name normalisation — maps common variants to canonical names ─────
+# Prevents the 2-per-source cap from being bypassed by minor name differences
+SOURCE_ALIASES = {
+    "reuters science": "Reuters",
+    "reuters health": "Reuters",
+    "bbc news science": "BBC Science",
+    "bbc news": "BBC Science",
+    "associated press": "AP News",
+    "ap": "AP News",
+    "phys org": "Phys.org",
+    "science daily": "ScienceDaily",
+    "agu eos": "Eos (AGU)",
+    "eos agu": "Eos (AGU)",
+    "nasa earth science": "NASA",
+    "nasa climate": "NASA",
+    "nasa earthdata": "NASA",
+    "usgs earthquake hazards": "USGS",
+    "usgs mineral resources": "USGS",
+    "usgs volcano hazards": "USGS",
+    "usgs volcano hazards program": "USGS",
+    "smithsonian global volcanism program": "Smithsonian GVP",
+    "smithsonian gvp": "Smithsonian GVP",
+    "smithsonian ocean": "Smithsonian",
+    "nature geoscience": "Nature Geoscience",
+    "nature climate change": "Nature Climate Change",
+    "nature astronomy": "Nature Astronomy",
+    "ieee tgrs": "IEEE Transactions on Geoscience and Remote Sensing",
+    "esa copernicus": "Copernicus",
+    "copernicus climate change service": "Copernicus",
+    "isro india": "ISRO",
+    "times of india science": "Times of India",
+    "the hindu science": "The Hindu",
+    "hindustan times tech": "Hindustan Times",
+    "down to earth india": "Down to Earth",
+    "le monde science": "Le Monde",
+    "süddeutsche zeitung": "Süddeutsche Zeitung",
+    # Russia
+    "ria novosti": "RIA Novosti Science",
+    "tass": "TASS Science",
+    "роскосмос": "Roscosmos",
+    # China
+    "xinhua": "Xinhua Science",
+    "xinhua news agency": "Xinhua Science",
+    "china national space administration": "CNSA (China National Space Administration)",
+    "chinese academy of sciences": "Chinese Academy of Sciences",
+    # Japan
+    "japan aerospace exploration agency": "JAXA",
+    "gsi japan": "Geospatial Information Authority of Japan (GSI)",
+    "geological survey japan": "Geological Survey of Japan (GSJ)",
+    "nhk world": "NHK World Science",
+    "japan times": "Japan Times Science",
+    # Korea
+    "kari": "KARI (Korea Aerospace Research Institute)",
+    "ngii": "NGII (National Geographic Information Institute Korea)",
+    "kigam": "KIGAM (Korea Institute of Geoscience and Mineral Resources)",
+    "yonhap": "Yonhap News Science",
+    # Australia / NZ
+    "csiro": "CSIRO",
+    "bom australia": "Bureau of Meteorology Australia",
+    "bureau of meteorology": "Bureau of Meteorology Australia",
+    "linz": "LINZ (Land Information New Zealand)",
+    "niwa": "NIWA (NZ)",
+    # South America
+    "inpe": "INPE Brazil",
+    "conae argentina": "CONAE (Argentina)",
+    "igm chile": "IGM Chile",
+    "agência brasil": "Agência Brasil",
+    # Islands / Pacific
+    "spc": "Pacific Community (SPC)",
+    "sopac": "Pacific Islands Applied Geoscience Commission (SOPAC)",
+    "sprep": "Secretariat of the Pacific Regional Environment Programme (SPREP)",
+}
+
+def normalise_source(name: str) -> str:
+    """Return canonical source name; preserves original if no alias found."""
+    if not name:
+        return name
+    key = name.strip().lower()
+    return SOURCE_ALIASES.get(key, name.strip())
+
 
 def _check_credentials():
     """Fail fast with a clear message if any required secret is missing."""
@@ -86,6 +166,87 @@ def _check_credentials():
         print("      Re-create the secret cleanly if the run fails with 401.")
         print()
 
+
+# ── FIX 1: Model deprecation early-warning ─────────────────────────────────
+
+def _check_model_valid():
+    """Send a minimal 1-token call to confirm the model name is still active.
+    Catches HTTP 404 'model not found' BEFORE wasting the full 9-domain loop.
+    Prints a clear action message and exits if the model is retired."""
+    print(f"  🔍 Validating model '{MODEL_NAME}'...")
+    try:
+        r = requests.post(
+            "https://api.anthropic.com/v1/messages",
+            headers={
+                "x-api-key": ANTHROPIC_API_KEY,
+                "anthropic-version": "2023-06-01",
+                "content-type": "application/json",
+            },
+            json={
+                "model": MODEL_NAME,
+                "max_tokens": 1,
+                "messages": [{"role": "user", "content": "hi"}],
+            },
+            timeout=20,
+        )
+        if r.status_code == 404:
+            print()
+            print(f"  ❌ MODEL RETIRED: '{MODEL_NAME}' returned HTTP 404.")
+            print(f"     Anthropic has deprecated this model snapshot.")
+            print()
+            print(f"  ACTION REQUIRED:")
+            print(f"     1. Visit https://docs.anthropic.com/en/api/models")
+            print(f"     2. Find the current claude-sonnet model string")
+            print(f"     3. Update MODEL_NAME in spatial_drift_alert.py")
+            print(f"     4. Update model in docs/index.html (Content Studio)")
+            print(f"     5. Update model in daily-alert.yml (validation curl)")
+            print()
+            raise SystemExit(f"Model '{MODEL_NAME}' is retired. Update MODEL_NAME and redeploy.")
+        elif r.status_code == 401:
+            print()
+            print(f"  ❌ API KEY REJECTED (HTTP 401). Key may be revoked or credit balance is $0.")
+            print(f"     Visit https://console.anthropic.com → API Keys and Billing.")
+            raise SystemExit("Invalid API key. Check console.anthropic.com.")
+        elif r.status_code == 200:
+            print(f"  ✅ Model '{MODEL_NAME}' confirmed active.")
+        else:
+            print(f"  ⚠️  Unexpected HTTP {r.status_code} from model check — proceeding cautiously.")
+    except SystemExit:
+        raise
+    except Exception as e:
+        print(f"  ⚠️  Model pre-check failed ({e}) — proceeding anyway.")
+
+
+# ── FIX 2: URL validation via HTTP HEAD check ──────────────────────────────
+
+def validate_urls(articles: list) -> list:
+    """Fire HEAD requests on each article URL. Mark broken URLs as empty
+    so the website and Telegram don't show dead links. Runs after fetch_topic."""
+    if not articles:
+        return articles
+    checked = []
+    for a in articles:
+        url = a.get("url", "")
+        if not is_valid_url(url):
+            checked.append(a)
+            continue
+        try:
+            resp = requests.head(
+                url,
+                timeout=URL_CHECK_TIMEOUT,
+                allow_redirects=True,
+                headers={"User-Agent": "SpatialDrift/1.0 (+https://senthil4ocean.github.io/spatial-drift/)"},
+            )
+            if resp.status_code in (404, 410):
+                print(f"        🔗 URL dead ({resp.status_code}), cleared: {url[:60]}")
+                a = {**a, "url": ""}
+            # 200, 301, 302, 403 (paywalled), 429 (rate-limited) are all fine — URL exists
+        except Exception:
+            # Network timeout or connection error — keep URL as-is rather than wrongly clearing
+            pass
+        checked.append(a)
+    return checked
+
 # ── Configuration ──────────────────────────────────────────────────────────────
 MAX_ARTICLES_PER_TOPIC = 6
 MAX_RETRIES_PER_TOPIC  = 3
@@ -94,13 +255,17 @@ TELEGRAM_MSG_LIMIT     = 4000
 DELAY_BETWEEN_DOMAINS  = 8
 RECENCY_WINDOW_DAYS    = 7    # weekly run — pull only past week's news
 MAX_PER_SOURCE         = 2    # source-diversity cap
+URL_CHECK_TIMEOUT      = 6    # seconds for HTTP head check per URL
+MODEL_NAME             = "claude-sonnet-4-6"
 
 # Output paths
-ROOT_DIR  = Path(__file__).parent
-DATA_DIR  = ROOT_DIR / "data"
-DOCS_DIR  = ROOT_DIR / "docs"
+ROOT_DIR    = Path(__file__).parent
+DATA_DIR    = ROOT_DIR / "data"
+DOCS_DIR    = ROOT_DIR / "docs"
+ARCHIVE_DIR = DATA_DIR / "archive"   # Fix 3: weekly historical snapshots
 DATA_DIR.mkdir(exist_ok=True)
 DOCS_DIR.mkdir(exist_ok=True)
+ARCHIVE_DIR.mkdir(exist_ok=True)
 ARTICLES_FILES = [
     DATA_DIR / "articles.json",
     DOCS_DIR / "articles.json",
@@ -116,27 +281,36 @@ TARGET_SLOTS = [(7, 23)]  # weekly Saturday run at 7:23 AM IST
 # ═══════════════════════════════════════════════════════════════════════════════
 
 TOPICS = [
+    # ── DOMAIN 1 ────────────────────────────────────────────────────────────────
     {
         "emoji": "🛰️",
         "label": "Remote Sensing & Earth Observation",
-        "keywords": "satellite imagery, earth observation, LiDAR, SAR, hyperspectral, multispectral, Sentinel, Landsat, Planet Labs, Maxar, ICEYE, optical sensing",
+        "keywords": (
+            "satellite imagery, earth observation, LiDAR, SAR, hyperspectral, "
+            "multispectral, Sentinel, Landsat, Planet Labs, Maxar, ICEYE, optical sensing, "
+            "radar interferometry, InSAR, change detection, image classification"
+        ),
         "trusted_sources": [
-            # Peer-reviewed
             "Nature", "Science", "Remote Sensing of Environment",
             "IEEE Transactions on Geoscience and Remote Sensing", "MDPI Remote Sensing",
             "ISPRS Journal of Photogrammetry and Remote Sensing",
-            # Agencies / data providers
-            "NASA", "ESA", "ISRO", "JAXA", "USGS", "NOAA", "Copernicus", "CNES", "DLR",
+            "NASA", "ESA", "ISRO", "JAXA", "USGS", "NOAA", "Copernicus",
+            "CNES", "DLR", "KARI (Korea Aerospace Research Institute)",
+            "CNSA (China National Space Administration)", "Roscosmos",
             "Planet Labs", "Maxar Technologies", "Airbus Defence and Space",
-            # News / industry
             "SpaceNews", "Geospatial World", "GIM International", "Eos (AGU)",
             "Reuters", "BBC Science", "Phys.org", "ScienceDaily",
         ],
     },
+    # ── DOMAIN 2 ────────────────────────────────────────────────────────────────
     {
         "emoji": "🗺️",
         "label": "GIS & Geospatial Technology",
-        "keywords": "GIS, geospatial AI, digital twin, spatial analysis, ArcGIS, QGIS, 3D city model, OpenStreetMap, geocoding, location intelligence",
+        "keywords": (
+            "GIS, geospatial AI, digital twin, spatial analysis, ArcGIS, QGIS, "
+            "3D city model, OpenStreetMap, geocoding, location intelligence, "
+            "geospatial cloud, spatial data infrastructure, web mapping"
+        ),
         "trusted_sources": [
             "Esri", "Geospatial World", "GIM International", "Directions Magazine",
             "International Journal of Geographical Information Science",
@@ -147,101 +321,323 @@ TOPICS = [
             "Reuters", "Phys.org", "ScienceDaily",
         ],
     },
+    # ── DOMAIN 3 ────────────────────────────────────────────────────────────────
     {
         "emoji": "🌡️",
         "label": "Climatology & Atmospheric Science",
-        "keywords": "climate change, global warming, atmospheric science, IPCC, methane, CO2, heatwave, sea ice, cyclone, ENSO, jet stream, climate model",
+        "keywords": (
+            "climate change, global warming, atmospheric science, IPCC, methane, "
+            "CO2, heatwave, sea ice, cyclone, ENSO, jet stream, climate model, "
+            "aerosol, ozone, precipitation extremes, climate attribution"
+        ),
         "trusted_sources": [
             "Nature Climate Change", "Science", "Nature Geoscience", "PNAS",
             "Geophysical Research Letters", "Atmospheric Chemistry and Physics",
             "Journal of Climate", "Climate Dynamics",
             "IPCC", "WMO", "NOAA", "NASA Climate", "ECMWF",
             "UK Met Office", "Copernicus Climate Change Service",
+            "Bureau of Meteorology Australia", "Japan Meteorological Agency",
+            "China Meteorological Administration",
             "Reuters", "BBC Science", "AP News", "Phys.org", "ScienceDaily",
             "Carbon Brief", "Inside Climate News",
         ],
     },
+    # ── DOMAIN 4 ────────────────────────────────────────────────────────────────
     {
         "emoji": "🌊",
         "label": "Oceanography & Marine Science",
-        "keywords": "oceanography, sea level rise, ocean temperature, marine ecosystems, coral reef, ocean currents, deep sea, salinity, AMOC, thermohaline",
+        "keywords": (
+            "oceanography, sea level rise, ocean temperature, marine ecosystems, "
+            "coral reef, ocean currents, deep sea, salinity, AMOC, thermohaline, "
+            "ocean acidification, Pacific, Indian Ocean, Arctic Ocean"
+        ),
         "trusted_sources": [
             "Nature", "Nature Geoscience", "Science",
             "Journal of Geophysical Research: Oceans", "Ocean Science",
             "Limnology and Oceanography", "Marine Geology",
             "NOAA", "NASA Earth Science", "Scripps Institution of Oceanography",
             "Woods Hole Oceanographic Institution", "WMO",
+            "JAMSTEC (Japan Agency for Marine-Earth Science and Technology)",
+            "NIWA (NZ)", "CSIRO Australia",
             "Reuters", "BBC Science", "AP News", "Phys.org",
             "Eos (AGU)", "ScienceDaily", "Smithsonian Ocean",
         ],
     },
+    # ── DOMAIN 5 ────────────────────────────────────────────────────────────────
     {
         "emoji": "🏔️",
         "label": "Plate Tectonics & Seismology",
-        "keywords": "earthquake, seismology, plate tectonics, fault, subduction, mantle, GPS geodesy, seismic activity, tsunami warning",
+        "keywords": (
+            "earthquake, seismology, plate tectonics, fault, subduction, mantle, "
+            "GPS geodesy, seismic activity, tsunami warning, crustal deformation"
+        ),
         "trusted_sources": [
             "Nature Geoscience", "Science", "Geophysical Research Letters",
             "Seismological Research Letters", "Earth and Planetary Science Letters",
             "Journal of Geophysical Research: Solid Earth",
             "USGS Earthquake Hazards", "EMSC", "IRIS", "GFZ Potsdam",
             "GNS Science (NZ)", "Geoscience Australia",
+            "JMA (Japan Met Agency)", "China Earthquake Networks Center",
+            "KIGAM (Korea Institute of Geoscience and Mineral Resources)",
             "Reuters", "BBC Science", "AP News", "Phys.org", "ScienceDaily",
             "Eos (AGU)",
         ],
     },
+    # ── DOMAIN 6 ────────────────────────────────────────────────────────────────
     {
         "emoji": "🌋",
         "label": "Volcanology",
-        "keywords": "volcanic eruption, volcano monitoring, lava flow, magma, ash plume, pyroclastic, volcanic gas, caldera, Smithsonian GVP",
+        "keywords": (
+            "volcanic eruption, volcano monitoring, lava flow, magma, ash plume, "
+            "pyroclastic, volcanic gas, caldera, Smithsonian GVP, "
+            "ring of fire, volcanic hazard"
+        ),
         "trusted_sources": [
             "Nature Geoscience", "Science", "Journal of Volcanology and Geothermal Research",
             "Bulletin of Volcanology",
             "USGS Volcano Hazards Program", "Smithsonian Global Volcanism Program",
             "INGV (Italy)", "Icelandic Met Office", "VolcanoDiscovery",
             "JMA (Japan Met Agency)", "Indonesian PVMBG", "Philippine PHIVOLCS",
+            "GNS Science (NZ)", "Geoscience Australia",
             "Reuters", "BBC Science", "AP News", "Phys.org", "ScienceDaily",
             "Eos (AGU)",
         ],
     },
+    # ── DOMAIN 7 ────────────────────────────────────────────────────────────────
     {
         "emoji": "⛏️",
         "label": "Mining & Mineral Resources",
-        "keywords": "mining, mineral exploration, critical minerals, lithium, cobalt, rare earth elements, copper, nickel, uranium, sustainable mining",
+        "keywords": (
+            "mining, mineral exploration, critical minerals, lithium, cobalt, "
+            "rare earth elements, copper, nickel, uranium, sustainable mining, "
+            "deep sea mining, battery metals, mineral mapping"
+        ),
         "trusted_sources": [
             "Mining.com", "Mining Magazine", "Mining Journal", "Mining Weekly",
             "Reuters Mining", "Bloomberg Metals & Mining", "S&P Global Market Intelligence",
             "USGS Mineral Resources", "BGS (British Geological Survey)",
             "Geological Survey of Canada", "Geoscience Australia",
+            "KIGAM (Korea Institute of Geoscience and Mineral Resources)",
             "Nature Geoscience", "Economic Geology", "Ore Geology Reviews",
             "Financial Times Mining", "Wall Street Journal",
             "Phys.org", "ScienceDaily",
         ],
     },
+    # ── DOMAIN 8 ────────────────────────────────────────────────────────────────
     {
         "emoji": "🪨",
         "label": "Geology & Geomorphology",
-        "keywords": "geology, geological discovery, rock formation, stratigraphy, paleoclimate, sedimentology, mineralogy, geochronology, geomorphology",
+        "keywords": (
+            "geology, geological discovery, rock formation, stratigraphy, "
+            "paleoclimate, sedimentology, mineralogy, geochronology, geomorphology, "
+            "landslide, soil erosion, river geomorphology"
+        ),
         "trusted_sources": [
             "Nature Geoscience", "Geology (GSA)", "Earth and Planetary Science Letters",
             "Science", "Geological Society of America Bulletin",
             "Quaternary Science Reviews", "Journal of Sedimentary Research",
             "USGS", "BGS", "Geological Survey of Canada", "Geoscience Australia",
-            "GFZ Potsdam",
+            "GFZ Potsdam", "Geological Survey of Japan (GSJ)",
+            "China Geological Survey",
             "Reuters", "BBC Science", "Smithsonian", "National Geographic",
             "Phys.org", "ScienceDaily", "Eos (AGU)",
         ],
     },
+    # ── DOMAIN 9 ────────────────────────────────────────────────────────────────
     {
         "emoji": "🚀",
         "label": "Space & Geodesy",
-        "keywords": "satellite launch, space mission, earth observation satellite, geodesy, GNSS, GPS, reference frame, ITRF, GRACE, lunar mission, Mars mission",
+        "keywords": (
+            "satellite launch, space mission, earth observation satellite, geodesy, "
+            "GNSS, GPS, reference frame, ITRF, GRACE, lunar mission, Mars mission, "
+            "satellite constellation, commercial space"
+        ),
         "trusted_sources": [
             "SpaceNews", "Spaceflight Now", "Ars Technica Space", "The Space Review",
             "NASA", "ESA", "ISRO", "JAXA", "CNES", "DLR", "CSA", "Roscosmos",
+            "CNSA (China National Space Administration)",
+            "KARI (Korea Aerospace Research Institute)",
             "SpaceX", "Blue Origin", "Rocket Lab",
             "Reuters", "BBC Science", "AP News", "Nature Astronomy",
             "Sky and Telescope", "Phys.org", "ScienceDaily",
         ],
+    },
+    # ── DOMAIN 10: NEW ──────────────────────────────────────────────────────────
+    {
+        "emoji": "🌿",
+        "label": "Environmental Monitoring & Biodiversity",
+        "keywords": (
+            "deforestation, land cover change, biodiversity mapping, NDVI, "
+            "ecosystem services, habitat loss, wetland monitoring, carbon stocks, "
+            "species distribution, conservation mapping, forest fire detection"
+        ),
+        "trusted_sources": [
+            "Nature", "Science", "Nature Ecology & Evolution",
+            "Global Change Biology", "Remote Sensing of Environment",
+            "Environmental Research Letters", "One Earth",
+            "NASA Earthdata", "USGS", "ESA", "Copernicus", "FAO",
+            "UNEP", "Global Forest Watch", "World Resources Institute",
+            "IUCN", "WWF Science",
+            "Reuters", "BBC Science", "AP News", "Mongabay",
+            "Phys.org", "ScienceDaily", "Eos (AGU)",
+        ],
+    },
+    # ── DOMAIN 11: NEW ──────────────────────────────────────────────────────────
+    {
+        "emoji": "🏙️",
+        "label": "Urban & Infrastructure Geospatial",
+        "keywords": (
+            "smart city, urban digital twin, urban heat island, city mapping, "
+            "infrastructure monitoring, 3D building model, urban sprawl, "
+            "LiDAR urban, night light satellite, transportation network mapping"
+        ),
+        "trusted_sources": [
+            "Nature Cities", "Urban Climate", "Landscape and Urban Planning",
+            "ISPRS Journal of Photogrammetry and Remote Sensing",
+            "International Journal of Geographical Information Science",
+            "MIT Technology Review", "IEEE Spectrum",
+            "UN-Habitat", "World Bank Urban", "European Environment Agency",
+            "Esri", "Geospatial World", "GIM International",
+            "Reuters", "BBC Science", "AP News", "CityLab (Bloomberg)",
+            "Phys.org", "ScienceDaily",
+        ],
+    },
+    # ── DOMAIN 12: NEW ──────────────────────────────────────────────────────────
+    {
+        "emoji": "🌾",
+        "label": "Precision Agriculture & Food Security",
+        "keywords": (
+            "precision agriculture, crop mapping, soil monitoring, AgriSAR, "
+            "food security, drought monitoring, crop yield forecast, "
+            "smart farming, agricultural drone, NDVI crop, irrigation mapping"
+        ),
+        "trusted_sources": [
+            "Nature Food", "Nature Plants", "Science", "PNAS",
+            "Remote Sensing of Environment", "Field Crops Research",
+            "Agricultural and Forest Meteorology",
+            "FAO", "CGIAR", "USDA", "Copernicus Global Land Service",
+            "NASA Harvest", "GEOGLAM (Global Agriculture Monitoring)",
+            "Reuters", "BBC Science", "AP News",
+            "AgFunder News", "Phys.org", "ScienceDaily",
+        ],
+    },
+    # ── DOMAIN 13: NEW ──────────────────────────────────────────────────────────
+    {
+        "emoji": "🧊",
+        "label": "Cryosphere & Polar Science",
+        "keywords": (
+            "Arctic, Antarctic, ice sheet, permafrost, glacier retreat, sea ice extent, "
+            "polar science, ice core, cryosphere, Greenland ice, "
+            "polar expedition, frozen ground thaw"
+        ),
+        "trusted_sources": [
+            "Nature Geoscience", "Nature Climate Change", "Science",
+            "The Cryosphere", "Journal of Glaciology",
+            "Geophysical Research Letters", "Polar Research",
+            "NASA Cryosphere", "NSIDC (National Snow and Ice Data Center)",
+            "NCAR", "Alfred Wegener Institute", "Norwegian Polar Institute",
+            "British Antarctic Survey", "Scott Polar Research Institute",
+            "Reuters", "BBC Science", "AP News", "Phys.org",
+            "ScienceDaily", "Eos (AGU)",
+        ],
+    },
+    # ── DOMAIN 14: INDIA (renamed) ───────────────────────────────────────────────
+    {
+        "emoji": "🇮🇳",
+        "label": "India",
+        "keywords": (
+            "geospatial India, GIS India, ISRO, remote sensing India, "
+            "NRSC National Remote Sensing Centre, Survey of India, "
+            "SVAMITVA drone mapping, PM Gati Shakti, land records India, "
+            "cadastral mapping India, geospatial policy India, "
+            "satellite imagery India, coastal mapping India"
+        ),
+        "trusted_sources": [
+            # Indian national agencies
+            "ISRO", "NRSC (National Remote Sensing Centre)", "Survey of India",
+            "Ministry of Science and Technology India",
+            "National Informatics Centre India",
+            # Indian media — English
+            "The Hindu", "Times of India", "Hindustan Times",
+            "Down to Earth", "The Wire Science", "India Today Science",
+            "Economic Times Tech", "Business Standard Tech", "Livemint",
+            # Indian geospatial / industry
+            "Geospatial World", "GIM International",
+            "GeoIntelligence India", "Geospatial Media India",
+            # Pan-India agencies
+            "PIB (Press Information Bureau)", "NITI Aayog",
+        ],
+        "translate_to_english": False,
+        "region_tags": ["India"],
+        "lang_tag": "en",
+    },
+    # ── DOMAIN 15: GLOBAL MULTILINGUAL (new) ─────────────────────────────────────
+    {
+        "emoji": "🌐",
+        "label": "Global Geospatial Intelligence",
+        "keywords": (
+            # Russia / Eastern Europe
+            "геопространственные данные Россия, Роскосмос, ДЗЗ Россия, "
+            "спутниковые снимки, российская картография, "
+            # China
+            "遥感 中国, 地理信息系统 中国, 北斗导航, 高分系列卫星, 自然资源部, "
+            # Japan
+            "地理空間情報 日本, JAXA 衛星, 国土地理院, リモートセンシング 日本, "
+            # Korea
+            "지리정보 한국, KOMPSAT, 국토정보공사, 원격탐사 한국, "
+            # Australia / NZ / Pacific
+            "geospatial Australia, Geoscience Australia, LINZ New Zealand, "
+            "Pacific islands mapping, Pacific geospatial, Great Barrier Reef mapping, "
+            "ocean territory Australia, remote sensing Oceania, "
+            # South America
+            "sensoriamento remoto América do Sul, INPE Brasil, Embrapa geoespacial, "
+            "geografía CONAE Argentina, IGM Chile, cartografia Venezuela, "
+            "geomática Colombia, teledetección Perú, "
+            # Islands worldwide
+            "small island developing states SIDS geospatial, "
+            "Caribbean mapping, Pacific island remote sensing, "
+            "island coastal erosion mapping, atoll sea level rise"
+        ),
+        "trusted_sources": [
+            # Russia (translate to English)
+            "Roscosmos", "Роскосмос (Roscosmos)", "SCANEX (Russia)",
+            "RIA Novosti Science", "TASS Science",
+            # China (translate to English)
+            "CNSA (China National Space Administration)",
+            "Chinese Academy of Sciences", "Ministry of Natural Resources China",
+            "Xinhua Science", "China Daily Science", "Journal of Remote Sensing China",
+            "National Geomatics Center of China",
+            # Japan (translate to English)
+            "JAXA", "Geospatial Information Authority of Japan (GSI)",
+            "Geological Survey of Japan (GSJ)", "JAMSTEC",
+            "NHK World Science", "Japan Times Science",
+            # Korea (translate to English)
+            "KARI (Korea Aerospace Research Institute)",
+            "NGII (National Geographic Information Institute Korea)",
+            "KIGAM (Korea Institute of Geoscience and Mineral Resources)",
+            "Yonhap News Science",
+            # Australia / Oceania
+            "Geoscience Australia", "CSIRO", "Bureau of Meteorology Australia",
+            "LINZ (Land Information New Zealand)", "NIWA (NZ)",
+            "Pacific Community (SPC)", "The Conversation Australia",
+            # South America
+            "INPE Brazil", "Embrapa Territorial",
+            "CONAE (Argentina)", "IGM Chile", "Agencia EFE Science",
+            "Agência Brasil", "El País Ciencia",
+            # Islands / SIDS
+            "Pacific Islands Applied Geoscience Commission (SOPAC)",
+            "Caribbean Community Climate Change Centre",
+            "Secretariat of the Pacific Regional Environment Programme (SPREP)",
+            # Multilingual tier 1
+            "Nature Geoscience", "Reuters", "AP News",
+        ],
+        "translate_to_english": True,
+        "region_tags": [
+            "Russia", "China", "Japan", "Korea",
+            "Australia", "New Zealand", "Pacific Islands",
+            "South America", "Caribbean", "Island Nations",
+        ],
+        "lang_tag": "multi",
     },
 ]
 
@@ -264,6 +660,9 @@ ABSOLUTE REQUIREMENTS:
 4. REAL URLs: Every article URL must come from your actual web_search results — never fabricate.
 5. DIFFERENT SOURCES: At most {MAX_PER_SOURCE} articles from any single source. Aim for {MAX_ARTICLES_PER_TOPIC}
    articles from {MAX_ARTICLES_PER_TOPIC} different publishers.
+6. LANGUAGE: If you find articles in French, German, Spanish, Portuguese, or any other language,
+   translate the title, summary, and significance fields into clear English. Keep the original
+   source name and URL. Add a "lang" field with the original language code (e.g. "fr", "de", "es").
 
 SEARCH STRATEGY:
 - Run at least 3-4 different web_searches with varied keywords and source hints
@@ -281,12 +680,13 @@ Plain text only inside JSON strings.
 
 SCHEMA:
 {{
-  "title": "Plain text headline, max 100 chars",
-  "summary": "1-2 sentence summary in plain text",
-  "source": "Real publication name (e.g., 'Nature', 'Reuters', 'NASA', 'USGS', 'BBC Science')",
+  "title": "Plain text headline in English, max 100 chars",
+  "summary": "1-2 sentence summary in English",
+  "source": "Real publication name (e.g., 'Nature', 'Reuters', 'ISRO', 'Le Monde')",
   "date": "Specific recent date like '8 May 2026' or '3 days ago'",
   "url": "https://... — REAL URL from web_search results",
-  "significance": "Plain text, max 120 chars, why geospatial pros should care"
+  "significance": "Plain text in English, max 120 chars, why geospatial pros should care",
+  "lang": "en"  // original language code — "en", "fr", "de", "es", "pt", "hi" etc.
 }}
 
 Output the JSON array and nothing else."""
@@ -365,7 +765,7 @@ def nearest_slot_label(ts: datetime) -> str:
 def call_anthropic(system_prompt: str, user_msg: str, use_search: bool = True,
                    retries: int = MAX_RETRIES_PER_TOPIC) -> dict:
     payload = {
-        "model": "claude-sonnet-4-6",
+        "model": MODEL_NAME,
         "max_tokens": MAX_TOKENS,
         "system": system_prompt,
         "messages": [{"role": "user", "content": user_msg}],
@@ -512,21 +912,43 @@ def best_url_match(title: str, search_urls: list) -> str:
 def fetch_topic(topic: dict, run_token: str) -> list:
     """Fetch news for one domain. Pass 1 = web_search across diverse sources.
     Pass 2 = knowledge fallback if web returns empty."""
-    label = topic["label"]
+    label    = topic["label"]
     keywords = topic["keywords"]
-    sources = topic["trusted_sources"]
+    sources  = topic["trusted_sources"]
+    translate = topic.get("translate_to_english", False)
+    regions   = topic.get("region_tags", [])
 
     ts = now_ist()
     today_str = ts.strftime("%d %B %Y")
-    sources_str = ", ".join(sources[:18])  # cap displayed list
+    sources_str = ", ".join(sources[:20])
 
-    # ── PASS 1: web search with diverse sourcing ──
+    # Extra instruction for multi-language domains
+    lang_note = ""
+    if translate:
+        regions_str = ', '.join(regions) if regions else 'Global'
+        lang_note = (
+            f"\nREGIONS TO COVER: {regions_str}"
+            "\nIMPORTANT: Search in local languages too:"
+            "\n  Russian: use Cyrillic keywords, search ru-language sites"
+            "\n  Chinese: use Chinese characters, search CNSA/CAS/Xinhua"
+            "\n  Japanese: use Japanese characters, search JAXA/GSI/NHK"
+            "\n  Korean: use Hangul keywords, search KARI/NGII/Yonhap"
+            "\n  Spanish: search INPE/CONAE/IGM Chile and regional sites"
+            "\n  Portuguese: search Agência Brasil, Portuguese universities"
+            "\nFor each non-English article found, TRANSLATE title/summary/significance"
+            " into clear English. Keep original URL and source name."
+            " Set the 'lang' field to the ISO code: ru/zh/ja/ko/es/pt/fr/de/id/ar/other."
+            "\nFor Pacific/Island nations: search SOPAC, SPREP, Pacific Community, Caribbean."
+            "\nFor Australia/NZ: search Geoscience Australia, CSIRO, LINZ, NIWA."
+        )
+
+    # ── PASS 1: web search ──
     user_msg = f"""Find the latest news articles for this geospatial domain.
 
 DOMAIN: {label}
 KEYWORDS: {keywords}
 DATE WINDOW: Past {RECENCY_WINDOW_DAYS} days (today is {today_str})
-RUN ID: {run_token}  (use this to vary your searches and avoid cached results)
+RUN ID: {run_token}  (use this to vary your searches and avoid cached results){lang_note}
 
 GLOBAL TRUSTED SOURCES (pull from AS MANY DIFFERENT ONES as possible):
 {sources_str}
@@ -546,7 +968,7 @@ EVERY article needs a real URL from web_search."""
     articles = []
     search_urls = []
     try:
-        print(f"        🔍 Pass 1: web search across {len(sources)} trusted sources...")
+        print(f"        🔍 Pass 1: web search across {len(sources)} trusted sources{' (multi-language)' if translate else ''}...")
         api_data = call_anthropic(NEWS_SYSTEM_PROMPT, user_msg, use_search=True)
         raw_text = extract_response_text(api_data)
         articles = extract_json_array(raw_text) if raw_text else []
@@ -583,10 +1005,11 @@ Return as JSON array per schema."""
         obj = {
             "title":        clean_text(a.get("title", "")),
             "summary":      clean_text(a.get("summary", "")),
-            "source":       clean_text(a.get("source", "")),
+            "source":       normalise_source(clean_text(a.get("source", ""))),
             "date":         clean_text(a.get("date", "")),
             "significance": clean_text(a.get("significance", "")),
             "url":          str(a.get("url", "")).strip(),
+            "lang":         str(a.get("lang", "en")).strip().lower()[:5],
         }
         if not is_valid_url(obj["url"]) and search_urls:
             obj["url"] = best_url_match(obj["title"], search_urls) or ""
@@ -597,6 +1020,9 @@ Return as JSON array per schema."""
             continue
         seen_sources[src_key] = seen_sources.get(src_key, 0) + 1
         cleaned.append(obj)
+
+    # ── Fix 2: HTTP HEAD check — remove dead links ──
+    cleaned = validate_urls(cleaned)
 
     # ── Log source diversity ──
     if cleaned:
@@ -756,13 +1182,13 @@ def save_articles_for_website(all_results: list, run_meta: dict, source_summary:
         "display_date":       ts.strftime("%A, %d %B %Y"),
         "display_time":       ts.strftime("%I:%M %p IST"),
         "stats": {
-            "total_articles":   sum(len(a) for _, a in all_results),
-            "domains_total":    len(all_results),
+            "total_articles":    sum(len(a) for _, a in all_results),
+            "domains_total":     len(all_results),
             "domains_with_news": sum(1 for _, a in all_results if a),
-            "unique_sources":   len(source_summary),
-            "elapsed":          run_meta.get("elapsed", "—"),
+            "unique_sources":    len(source_summary),
+            "elapsed":           run_meta.get("elapsed", "—"),
         },
-        "source_summary": source_summary,  # which sources contributed how many articles
+        "source_summary": source_summary,
         "domains": [
             {"label": label, "count": len(articles), "articles": articles}
             for label, articles in all_results
@@ -770,9 +1196,18 @@ def save_articles_for_website(all_results: list, run_meta: dict, source_summary:
     }
     try:
         text = json.dumps(payload, ensure_ascii=False, indent=2)
+
+        # Current week files (always overwrite)
         for path in ARTICLES_FILES:
             path.write_text(text, encoding="utf-8")
             print(f"  💾 Wrote {payload['stats']['total_articles']} articles → {path.name}")
+
+        # Fix 3: Weekly archive snapshot — never overwritten
+        archive_name = f"articles-{ts.strftime('%Y-%m-%d')}.json"
+        archive_path = ARCHIVE_DIR / archive_name
+        archive_path.write_text(text, encoding="utf-8")
+        print(f"  📦 Archived → data/archive/{archive_name}")
+
     except Exception as e:
         print(f"  ⚠️  Could not save articles.json: {e}")
 
@@ -860,7 +1295,7 @@ def main():
 
     print()
     print("╔══════════════════════════════════════════════╗")
-    print("║   SPATIAL DRIFT v6.1 — Weekly Alert          ║")
+    print("║   SPATIAL DRIFT v6.2 — Weekly Alert          ║")
     print("║   Global Authoritative Sourcing              ║")
     print("╚══════════════════════════════════════════════╝")
     print(f"  Run started:  {ts.strftime('%Y-%m-%d %I:%M:%S %p IST')}")
@@ -870,6 +1305,9 @@ def main():
 
     # Verify all required secrets are present before doing any work
     _check_credentials()
+
+    # Fix 1: Confirm model is active before running the full 10-domain loop
+    _check_model_valid()
 
     if should_skip_this_run():
         return

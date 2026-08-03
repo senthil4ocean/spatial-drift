@@ -1,336 +1,629 @@
 {
-  "generated_at_ist": "2026-08-03 16:22:11 IST",
-  "generated_at_utc": "2026-08-03T10:52:11.591763+00:00",
-  "generated_iso": "2026-08-03T16:22:11.591735+05:30",
+  "generated_at_ist": "2026-08-03 17:32:12 IST",
+  "generated_at_utc": "2026-08-03T12:02:12.572570+00:00",
+  "generated_iso": "2026-08-03T17:32:12.572518+05:30",
   "display_date": "Monday, 03 August 2026",
-  "display_time": "04:22 PM IST",
+  "display_time": "05:32 PM IST",
   "stats": {
-    "total_articles": 24,
-    "domains_total": 15,
-    "domains_with_news": 4,
-    "unique_sources": 23,
-    "elapsed": "620s"
+    "total_articles": 55,
+    "domains_total": 11,
+    "domains_with_news": 11,
+    "unique_sources": 50,
+    "elapsed": "311s"
   },
   "source_summary": {
-    "European Commission / Copernicus Programme": 1,
-    "NASA / USGS": 1,
-    "SpaceNews": 1,
-    "Copernicus Data Space Ecosystem (ESA)": 1,
-    "Open Access Government": 1,
-    "Avionews": 1,
-    "Esri (BigDATAwire / HPCwire)": 1,
-    "Overture Maps Foundation": 1,
+    "NPR": 1,
     "Esri ArcGIS Blog": 1,
-    "Frontiers in Education": 1,
-    "GIM International": 1,
-    "Open Geospatial Consortium (OGC)": 1,
-    "UN News": 1,
+    "Stadia Maps": 1,
+    "Copernicus Data Space Ecosystem": 1,
+    "Skyline Global": 1,
+    "Nature": 2,
     "WMO": 1,
-    "The National": 1,
-    "Climate Change News": 1,
-    "Copernicus Climate Change Service (C3S / ECMWF)": 1,
-    "Severe Weather Europe": 1,
-    "ECO Magazine / Bigelow Laboratory for Ocean Sciences": 1,
-    "World Meteorological Organization (WMO)": 1,
-    "Phys.org": 2,
-    "The Washington Post": 1,
-    "Met Office (UK)": 1
+    "ScienceDaily": 2,
+    "Copernicus": 1,
+    "Euronews": 1,
+    "NOAA Pacific Marine Environmental Laboratory": 1,
+    "Frontiers in Marine Science": 1,
+    "NOAA Ocean Exploration": 1,
+    "ScienceAlert": 1,
+    "The Watchers / USGS / EMSC": 1,
+    "U.S. Geological Survey (USGS)": 1,
+    "U.S. Geological Survey (USGS) Yellowstone Volcano Observatory": 1,
+    "Seismological Research Letters (SSA)": 1,
+    "Nature Geoscience": 2,
+    "Colombian Geological Service / VolcanoDiscovery": 1,
+    "USGS": 2,
+    "USGS Hawaiian Volcano Observatory": 1,
+    "INGV / VolcanoDiscovery": 1,
+    "MINING.COM": 1,
+    "Mining Weekly": 1,
+    "Kalkine Media": 1,
+    "Rare Earth Mining": 1,
+    "Deseret News": 1,
+    "Foreign Policy Journal": 1,
+    "Arianespace Newsroom": 1,
+    "Barchart/Globe Newswire": 1,
+    "PhysOrg": 1,
+    "ArXiv": 1,
+    "Phys.org": 1,
+    "Met Office": 1,
+    "Nature Communications": 1,
+    "Wikipedia / Japan Meteorological Agency": 1,
+    "Lynnwood Times": 1,
+    "The Watchers": 1,
+    "Khao Sod English": 1,
+    "ANTARA News": 1,
+    "ISRO": 2,
+    "News On Air": 1,
+    "Science India Magazine": 1,
+    "ESRI India": 1,
+    "CSIRO": 1,
+    "SpaceNews": 1,
+    "Prokosmos": 1,
+    "JAXA": 1,
+    "CARICOOS": 1
   },
   "domains": [
     {
-      "label": "🛰️ Remote Sensing & Earth Observation",
-      "count": 6,
+      "label": "🛰️ Remote Sensing & GIS",
+      "count": 5,
       "articles": [
         {
-          "title": "ESA FLEX and Copernicus Sentinel-3C Arrive at Spaceport Ahead of Sept. 14 Launch",
-          "summary": "Two Earth observation satellites — ESA's vegetation fluorescence explorer FLEX and Copernicus Sentinel-3C — have arrived at Europe's Spaceport in French Guiana and are undergoing final pre-launch preparations for a joint Vega-C liftoff scheduled for 14 September 2026. Sentinel-3C will measure oceans, land, ice and atmosphere, while FLEX will map global plant photosynthetic activity using a Fluorescence Imaging Spectrometer.",
-          "source": "European Commission / Copernicus Programme",
-          "date": "30 July 2026",
-          "significance": "Sentinel-3C ensures long-term EO data continuity; FLEX opens a new hyperspectral window on global vegetation health.",
-          "url": "https://defence-industry-space.ec.europa.eu/countdown-launch-copernicus-sentinel-3c-takes-flight-14-september-2026-07-30_en",
-          "lang": "en"
-        },
-        {
-          "title": "NASA Releases Formal RFP for Landsat 10 Spacecraft, Proposals Due Aug. 13",
-          "summary": "NASA has issued the final Request for Proposal for the Landsat 10 spacecraft, available via SAM.gov as of July 14, 2026, with proposals due August 13. The satellite will fly at 653 km in a sun-synchronous orbit using a new Worldwide Reference System (WRS-3) and carry the Landsat Instrument Suite (LandIS), targeting a launch readiness date no later than December 2031.",
-          "source": "NASA / USGS",
-          "date": "17 July 2026",
-          "significance": "Landsat 10 RFP marks a key procurement milestone for multispectral EO data continuity critical to land-change monitoring worldwide.",
-          "url": "https://www.usgs.gov/landsat-missions/news/nasa-releases-landsat-10-spacecraft-request-proposal",
-          "lang": "en"
-        },
-        {
-          "title": "Vantor (formerly Maxar) Launches WorldView 3D: Daily-Refresh 3D Satellite Mapping at 15 cm Resolution",
-          "summary": "Vantor unveiled WorldView 3D on July 1, 2026 — a commercial-first satellite tasking service delivering updated 3D terrain models within 24 hours, drawing on a 10-satellite fleet imaging Earth at 30 cm resolution. The product offers a Rapid tier (50 cm, 4 m 3D accuracy) and an HD tier (15 cm, 3 m accuracy), designed for autonomous systems, intelligence analysis, and tactical operations.",
-          "source": "SpaceNews",
-          "date": "1 July 2026",
-          "significance": "First commercial on-demand 3D satellite product at daily cadence; redefines rapid change detection and geospatial intelligence delivery.",
-          "url": "https://spacenews.com/vantor-offers-up-to-date-imagery-with-worldview-3d/",
-          "lang": "en"
-        },
-        {
-          "title": "Copernicus Sentinel-3B OLCI Calibration Notice Flags Product Degradation Window",
-          "summary": "The Copernicus Data Space Ecosystem issued an operational notice on July 30, 2026, warning users that a Sentinel-3B OLCI S09 calibration event planned for August 5 will cause a brief degradation of OLCI ocean-colour products. The notice provides precise UTC sensing-time windows affected, supporting downstream data pipelines in flagging impacted scenes.",
-          "source": "Copernicus Data Space Ecosystem (ESA)",
-          "date": "30 July 2026",
-          "significance": "Operational calibration notices are critical for analysts relying on Sentinel-3 ocean-colour and land-surface data for time-series accuracy.",
-          "url": "https://dataspace.copernicus.eu/news/2026-7-30-copernicus-sentinel-3b-unavailability-notice-olci-s09-calibration-planned-05-august",
-          "lang": "en"
-        },
-        {
-          "title": "Open Access Government: Copernicus Sentinel-3C Set for September Launch to Strengthen Earth Monitoring",
-          "summary": "A detailed preview of the forthcoming Sentinel-3C satellite confirms its September 14, 2026 launch aboard Vega-C alongside FLEX. The article highlights the satellite's instruments — OLCI, SLSTR, and SAR altimeter — which will measure sea surface temperature, ocean colour, sea level, and land cover, with operational management transferring to EUMETSAT post-commissioning.",
-          "source": "Open Access Government",
+          "title": "Google pauses AI satellite images, after fears of deepfakes in the sky",
+          "summary": "Google removed an AI-generated satellite imagery feature from Google Earth within 24 hours of launch due to concerns about deepfakes and misuse of synthetic Earth observation data for disinformation.",
+          "source": "NPR",
           "date": "31 July 2026",
-          "significance": "Provides mission context for geospatial professionals preparing data workflows to ingest Sentinel-3C ocean and land surface products from late 2026.",
-          "url": "https://www.openaccessgovernment.org/copernicus-sentinel-3c-expected-launch-september-helping-monitor-earth/212693/",
+          "significance": "Critical for geospatial professionals concerned with satellite data integrity and AI-generated imagery authentication in remote sensing workflows.",
+          "url": "https://www.npr.org/2026/07/31/nx-s1-5914652/google-pauses-ai-satellite-images-after-fears-of-deepfakes-in-the-sky",
           "lang": "en"
         },
         {
-          "title": "Avionews: Avio Confirms Vega-C VV30 Mission to Launch Sentinel-3C and FLEX on 14 September 2026",
-          "summary": "Italian launch provider Avio confirmed that the VV30 Vega-C mission will lift off from Kourou at 22:21 local time on September 14, 2026, deploying both Sentinel-3C and ESA's FLEX fluorescence explorer into sun-synchronous orbit at approximately 820 km altitude. The dual launch marks Avio's eighth Vega-C flight overall and a key step for European Earth observation infrastructure.",
-          "source": "Avionews",
-          "date": "30 July 2026",
-          "significance": "Confirms precise launch timeline for two new EO sensors, enabling geospatial data engineers to plan ingestion pipelines and calibration schedules.",
-          "url": "https://www.avionews.it/en/item/1270173-avio-to-launch-copernicus-sentinel-3c-and-flex-satellites.html",
-          "lang": "en"
-        }
-      ]
-    },
-    {
-      "label": "🗺️ GIS & Geospatial Technology",
-      "count": 6,
-      "articles": [
-        {
-          "title": "Esri Launches ArcGIS Velocity for ArcGIS Enterprise, Bringing Real-Time GIS On-Premises",
-          "summary": "Esri released ArcGIS Velocity for ArcGIS Enterprise as generally available for self-hosted deployments on Windows and Linux, enabling real-time IoT and streaming analytics inside secure, firewall-protected environments. The launch unifies real-time GIS workflows across ArcGIS Online and self-hosted Enterprise for government, public safety, and logistics sectors.",
-          "source": "Esri (BigDATAwire / HPCwire)",
-          "date": "13 July 2026",
-          "significance": "GIS teams can now run Velocity streaming analytics fully on-premises — critical for regulated industries requiring air-gapped or private-cloud deployments.",
-          "url": "https://www.hpcwire.com/bigdatawire/this-just-in/esri-introduces-arcgis-velocity-for-arcgis-enterprise-to-power-real-time-gis-operations/",
-          "lang": "en"
-        },
-        {
-          "title": "Overture Maps Foundation Hits 50 Members as Open Spatial Data Becomes AI Grounding Layer",
-          "summary": "Overture Maps Foundation announced it has reached 50 members — nearly double its 2024 count — as industries converge on open spatial data to anchor AI systems in the real world. Its Global Entity Reference System (GERS) assigns stable identifiers to every place and boundary, preventing LLMs and AI agents from hallucinating locations.",
-          "source": "Overture Maps Foundation",
-          "date": "13 July 2026",
-          "significance": "GERS is emerging as a de-facto spatial identity layer for AI pipelines — GIS practitioners integrating LLMs must understand how it anchors real-world entity resolution.",
-          "url": "https://overturemaps.org/announcements/2026/overture-maps-foundation-reaches-50-members-as-industry-converges-on-open-data-to-ground-ai/",
-          "lang": "en"
-        },
-        {
-          "title": "ArcGIS World Imagery Adds Nearmap 20cm Urban Aerial Coverage for 200 Metro Areas",
-          "summary": "As of July 2026, Esri's ArcGIS Living Atlas World Imagery is integrating Nearmap 20 cm vertical imagery with regular refresh cycles for 200 metropolitan areas across the US, Canada, Australia, and New Zealand, alongside a new Airbus satellite data partnership. The update significantly raises the baseline resolution available to ArcGIS users for geospatial AI and feature extraction workflows.",
+          "title": "What's New in World Imagery - July 2026",
+          "summary": "Esri announced major updates to World Imagery including 30cm resolution Airbus basemaps for 2,000 cities, Nearmap 20cm vertical imagery for 200 metro areas, and Vantor's 30cm global digital twin basemap capabilities.",
           "source": "Esri ArcGIS Blog",
           "date": "July 2026",
-          "significance": "Sub-20cm regularly refreshed aerial imagery in Living Atlas raises the bar for AI-driven feature extraction, change detection, and urban digital twin accuracy.",
+          "significance": "Major satellite imagery infrastructure update affecting global GIS platforms and digital twin applications with improved 30cm resolution coverage.",
           "url": "https://www.esri.com/arcgis-blog/products/arcgis-living-atlas/imagery/whats-new-in-world-imagery-july-2026",
           "lang": "en"
         },
         {
-          "title": "Frontiers Study: AI-Enhanced GIS Risks Deepening North-South Spatial Knowledge Gaps",
-          "summary": "A peer-reviewed Frontiers in Education study finds that AI-enhanced spatial tools — including ML-based remote sensing and LLM-assisted GIS — are expanding analytical capabilities while simultaneously introducing algorithmic bias and data extractivism that disadvantage Global South researchers. The paper calls for investment in sovereign spatial data infrastructure and AI literacy frameworks.",
-          "source": "Frontiers in Education",
-          "date": "30 June 2026",
-          "significance": "Highlights equity and bias risks embedded in geospatial AI tools — essential reading for GIS practitioners designing inclusive and ethical spatial data systems.",
-          "url": "https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2026.1905279/full",
+          "title": "2026 Satellite Imagery Update: 37M km² at 30cm Resolution",
+          "summary": "Stadia Maps expanded Alidade Satellite to 37 million km² of 30cm-resolution imagery with seamless mosaics for Japan, Nigeria, Mexico, UAE, and Eastern South Africa, reducing average image age to 1.6 years.",
+          "source": "Stadia Maps",
+          "date": "2 July 2026",
+          "significance": "Landmark expansion of globally accessible high-resolution satellite basemaps enabling urban planning, insurance, and logistics applications.",
+          "url": "https://stadiamaps.com/blog/2026-satellite-imagery-update/",
           "lang": "en"
         },
         {
-          "title": "GIM International 2026 Survey: 78% of UK GIS Professionals Say Demand Outpaces Team Capacity",
-          "summary": "A new survey published by GIM International reveals that 78% of UK geospatial and GIS professionals report that requests for geospatial outputs are arriving faster than their teams can support, reflecting the growing strategic value of — and pressure on — the profession. The annual global survey also highlights the accelerating shift from data acquisition to real-time decision support roles.",
-          "source": "GIM International",
-          "date": "July 2026",
-          "significance": "Capacity and talent gaps are the top operational risk for GIS teams in 2026 — automation and AI tooling investments need to address throughput, not just accuracy.",
-          "url": "https://www.gim-international.com/news",
+          "title": "Copernicus Sentinel-3B unavailability notice for the OLCI S09 calibration planned on 05 August",
+          "summary": "Copernicus reported planned OLCI products degradation during Sentinel-3B calibration on 5 August 2026 with minimal operational disruption expected.",
+          "source": "Copernicus Data Space Ecosystem",
+          "date": "30 July 2026",
+          "significance": "Critical operational notice for Earth observation practitioners relying on Copernicus Sentinel-3 data for land and ocean monitoring.",
+          "url": "https://dataspace.copernicus.eu/news/2026-7-30-copernicus-sentinel-3b-unavailability-notice-olci-s09-calibration-planned-05-august",
           "lang": "en"
         },
         {
-          "title": "OGC Launches Testbed-22 Call for Sponsors Focused on Geospatial Interoperability",
-          "summary": "The Open Geospatial Consortium issued a Call for Sponsors for its Testbed-22 initiative, with proposals due by 3 September 2026, targeting advances in geospatial interoperability standards and next-generation spatial data infrastructure. The OGC simultaneously kept open a parallel Call for Participation in its Federated Maritime Spatial Data Infrastructure (FMSDI) Pilot, due 24 August 2026.",
-          "source": "Open Geospatial Consortium (OGC)",
-          "date": "21 July 2026",
-          "significance": "Testbed-22 will shape the next generation of OGC API and SDI standards — vendors and agencies should monitor closely to align platform roadmaps with emerging norms.",
-          "url": "https://www.ogc.org/standards/",
+          "title": "What Is a Geospatial Digital Twin and How Is It Built?",
+          "summary": "Skyline Global published guidance on building geospatial digital twins combining location, 3D context, operational data via AI with emphasis on data accuracy, security, and real-time integration.",
+          "source": "Skyline Global",
+          "date": "19 July 2026",
+          "significance": "Foundational framework for modern GIS practitioners implementing AI-driven digital twin systems using remote sensing and spatial data integration.",
+          "url": "https://www.skylinesoft.com/geospatial-digital-twin/",
           "lang": "en"
         }
       ]
     },
     {
       "label": "🌡️ Climatology & Atmospheric Science",
-      "count": 6,
+      "count": 5,
       "articles": [
         {
-          "title": "UN Climate Chief: 'The Climate Alarm Is Blaring from Every Direction'",
-          "summary": "UN Climate Change Executive Secretary Simon Stiell sounded a global alarm as record-breaking wildfires burn across Europe — over 250,000 hectares scorched in 2026 — while North Africa nears 49°C and Japan logs its longest-ever 40°C heat streak. The statement warns that cascading disasters are now the lived reality for billions.",
-          "source": "UN News",
-          "date": "28 July 2026",
-          "significance": "Authoritative UN signal linking simultaneous extreme events globally; critical context for climate attribution and hazard mapping.",
-          "url": "https://news.un.org/en/story/2026/07/1168042",
+          "title": "El Niño set to be largest on record by 'mind-blowing margin'",
+          "summary": "Forecasters predict a record-breaking El Niño event will combine with global warming to push global temperatures in 2027 to new heights, with significant impacts on precipitation and extreme weather patterns worldwide.",
+          "source": "Nature",
+          "date": "23 July 2026",
+          "significance": "Major ENSO event forecast with profound implications for global temperature, precipitation, and extreme weather—critical for geospatial climate modeling and weather prediction.",
+          "url": "https://www.nature.com/articles/d41586-026-02293-y",
           "lang": "en"
         },
         {
-          "title": "WMO Global Seasonal Climate Update: Strong El Niño Targeting 2.9°C Anomaly by October 2026",
-          "summary": "The WMO's flagship August–October 2026 seasonal outlook, based on a multi-model ensemble, forecasts a rapid intensification of El Niño with sea surface temperature anomalies reaching approximately 2.9°C in the Niño 3.4 region — peaking in November — alongside a developing positive Indian Ocean Dipole.",
+          "title": "Flash droughts cause greater maize yield losses than slow droughts",
+          "summary": "Research published in Nature reveals flash droughts cause disproportionate agricultural losses through intensified atmospheric aridity during critical growth stages, based on US yield records and reanalysis data.",
+          "source": "Nature",
+          "date": "29 July 2026",
+          "significance": "Demonstrates compound drought-heat extremes as emerging climate hazard affecting crop production—essential for assessing climate impacts on food security and adaptation strategies.",
+          "url": "",
+          "lang": "en"
+        },
+        {
+          "title": "Global Seasonal Climate Update for August-September-October 2026",
+          "summary": "WMO's official seasonal outlook forecasts rapid development toward strong El Niño conditions (2.9°C anomaly), positive Indian Ocean Dipole, and above-normal temperatures globally, with high forecast confidence.",
           "source": "WMO",
           "date": "31 July 2026",
-          "significance": "Authoritative ENSO and IOD seasonal forecast directly affecting global precipitation, tropical cyclone tracks, and drought-flood risk modeling.",
+          "significance": "Authoritative climate outlook guiding global decision-making on seasonal forecasts, extreme weather preparedness, and regional climate impacts across ocean-atmosphere systems.",
           "url": "https://wmo.int/resources/publication-series/global-seasonal-climate-update/gscu-aso2026",
           "lang": "en"
         },
         {
-          "title": "Europe's Wildfires Up to 20 Times More Likely Due to Climate Change, Attribution Study Finds",
-          "summary": "A rapid attribution analysis finds that the extreme fire-weather conditions driving Europe's catastrophic 2026 wildfire season were ten to hundreds of times more likely than in 2003, with projections showing fire weather will grow more frequent, intense, and widespread with further warming.",
-          "source": "The National",
-          "date": "30 July 2026",
-          "significance": "Key climate attribution result quantifying anthropogenic signal in wildfire risk — essential for insurance, land-use, and emergency management geospatial models.",
-          "url": "https://www.thenationalnews.com/news/europe/2026/07/30/europes-wildfires-up-to-20-times-more-likely-due-to-climate-change",
+          "title": "Earth's waters running out of oxygen as deoxygenation accelerates",
+          "summary": "Scientists warn that oxygen is disappearing from oceans, lakes, rivers and coastal waters at alarming rates, threatening aquatic life and weakening natural climate regulation processes.",
+          "source": "ScienceDaily",
+          "date": "20 July 2026",
+          "significance": "Critical atmospheric-oceanic interaction showing widespread deoxygenation linked to warming and pollution—affects biogeochemical cycles, climate feedback loops, and ecosystem services.",
+          "url": "https://www.sciencedaily.com/releases/2026/07/260719035939.htm",
           "lang": "en"
         },
         {
-          "title": "As Fires Rage Across Europe, Ministers and UN Chiefs Demand Faster Emissions Cuts",
-          "summary": "The UN Secretary-General and foreign ministers from the UK, France, and Spain directly attributed the deadly wildfires engulfing Europe to climate change, citing methane — which traps 80 times more heat than CO2 over 20 years — as a major driver, and called for accelerated fossil fuel phase-out ahead of COP31.",
-          "source": "Climate Change News",
-          "date": "31 July 2026",
-          "significance": "High-level policy signal linking methane emissions, climate attribution, and extreme fire events — relevant to emissions monitoring and geospatial risk governance.",
-          "url": "https://www.climatechangenews.com/2026/07/31/un-chief-warns-climate-crisis-in-overdrive-as-el-nino-threatens-to-fuel-the-fire/",
-          "lang": "en"
-        },
-        {
-          "title": "Copernicus: June 2026 Was Hottest June Ever for Western Europe, Second Warmest Globally",
-          "summary": "C3S/ECMWF confirmed June 2026 as the hottest June on record for western Europe and the second warmest globally, driven by record-high sea surface temperatures and a climate system that ECMWF describes as 'continuing to accumulate heat', with rapid succession of heatwaves from May onward.",
-          "source": "Copernicus Climate Change Service (C3S / ECMWF)",
-          "date": "9 July 2026",
-          "significance": "ERA5-based benchmark climate bulletin — essential reference data for heatwave attribution, SST anomaly mapping, and European climate model validation.",
-          "url": "https://climate.copernicus.eu/copernicus-record-heatwave-brings-hottest-june-western-europe-during-second-warmest-june-globally",
-          "lang": "en"
-        },
-        {
-          "title": "Super El Niño Forecast Pushes Toward Record Strength as Winter 2026/2027 Jet Stream Signals Emerge",
-          "summary": "Updated long-range ensemble models from ECMWF, NOAA, and BOM now align on the 2026 Super El Niño trending toward record intensity, potentially surpassing the 1877–78 event, with the emerging event already reorganizing the global jet stream and threatening amplified winter patterns across North America and Europe.",
-          "source": "Severe Weather Europe",
-          "date": "28 July 2026",
-          "significance": "Multi-model ENSO forecast synthesis with jet stream impact analysis — high value for seasonal forecasting, agricultural planning, and extreme weather preparedness mapping.",
-          "url": "",
+          "title": "Reuters launches Climate Monitor powered by Copernicus data",
+          "summary": "Reuters and the Copernicus Climate Change Service unveiled an interactive climate monitoring tool enabling users to compare current global temperatures with historical records in real-time.",
+          "source": "Copernicus",
+          "date": "2 July 2026",
+          "significance": "Combines satellite-based atmospheric observations with data analytics for operational climate monitoring—supports geospatial climate intelligence and informed policy decisions.",
+          "url": "https://climate.copernicus.eu/reuters-launches-climate-monitor-tool-powered-copernicus-climate-change-service-data",
           "lang": "en"
         }
       ]
     },
     {
       "label": "🌊 Oceanography & Marine Science",
-      "count": 6,
+      "count": 5,
       "articles": [
         {
-          "title": "Bigelow Lab Develops Satellite Remote Sensing Tools to Track Zooplankton from Space",
-          "summary": "Researchers at Bigelow Laboratory for Ocean Sciences are developing algorithms that detect zooplankton swarms from orbit by identifying astaxanthin, the red pigment naturally found in copepods like Calanus finmarchicus via ocean color satellites. The breakthrough could transform global ocean ecosystem monitoring and help predict endangered North Atlantic right whale movements.",
-          "source": "ECO Magazine / Bigelow Laboratory for Ocean Sciences",
-          "date": "28 July 2026",
-          "significance": "New satellite-based marine bio-monitoring method extends ocean color remote sensing to higher trophic levels, critical for ecosystem mapping.",
-          "url": "https://ecomagazine.com/news/research/bigelow-laboratory-develops-satellite-tools-to-track-zooplankton-from-space",
+          "title": "Record-high ocean heat could fuel sea level rise and extreme weather",
+          "summary": "Global sea surface temperatures reached record highs of 21.0°C on June 21, beating previous records and indicating oceans entering uncharted territory. Tiny temperature shifts can havoc on marine ecosystems and trigger extreme weather events.",
+          "source": "Euronews",
+          "date": "1 July 2026",
+          "significance": "Critical indicator of ocean warming accelerating sea level rise and marine ecosystem disruption; essential for climate monitoring and policy decisions.",
+          "url": "https://www.euronews.com/2026/07/01/record-high-ocean-heat-could-fuel-sea-level-rise-and-extreme-weather-on-land",
           "lang": "en"
         },
         {
-          "title": "WMO: Ocean Warming, Marine Heatwaves and Sea Level Rise Pose Increasing Risk in South-West Pacific",
-          "summary": "A new World Meteorological Organization report released July 7 finds the South-West Pacific had its second warmest year on record in 2025, with marine heatwaves covering the most extensive area ever observed in a non-El Nino year. The report warns that a developing El Nino in 2026 could dramatically worsen ocean heat stress and sea level threats for low-lying island nations.",
-          "source": "World Meteorological Organization (WMO)",
-          "date": "7 July 2026",
-          "significance": "Official WMO regional climate assessment quantifies Pacific ocean heat and SLR risks — essential baseline for coastal geospatial risk modeling.",
-          "url": "https://wmo.int/news/media-centre/ocean-warming-marine-heatwaves-and-sea-level-rise-pose-increasing-risk-south-west-pacific-region",
+          "title": "NOAA sets sail on landmark West Coast Ocean Acidification survey",
+          "summary": "NOAA Ocean Acidification Program embarked on West Coast Ocean Acidification mission on July 20, 2026, from San Diego aboard R/V Sikuliaq. The cruise adds crucial observations to long-term monitoring of ocean acidification impacts on marine resources.",
+          "source": "NOAA Pacific Marine Environmental Laboratory",
+          "date": "20 July 2026",
+          "significance": "Real-time monitoring of ocean pH changes affecting shellfish and coastal fisheries; validates critical forecast models for ecosystem management.",
+          "url": "https://www.pmel.noaa.gov/news-and-media/highlights/noaa-scientists-set-sail-landmark-west-coast-ocean-acidification-survey",
           "lang": "en"
         },
         {
-          "title": "Greenland Meltwater Adds to AMOC Weakening, But Updated Model Finds No Tipping Point in Sight",
-          "summary": "A new study published in Science Advances finds that including Greenland meltwater in a CMIP6-class climate model projects roughly 10% additional AMOC weakening by 2100 and up to 40% by 2300 under high emissions, but no abrupt collapse through 2300. The finding revises earlier alarm over near-term AMOC tipping, though the long-term weakening signal remains robust.",
-          "source": "Phys.org",
-          "date": "4 July 2026",
-          "significance": "Updated AMOC collapse timeline reframes risk windows for thermohaline-driven sea level and climate-pattern shifts across the North Atlantic.",
-          "url": "https://phys.org/news/2026-07-greenland-meltwater-amoc-weakening-sight.html",
+          "title": "Underwater drones discover coral reefs off Benin, long presumed dead",
+          "summary": "A thriving mesophotic coral ecosystem was rediscovered off Benin's coast 60 years after initial documentation. Researchers used sonar surveys and underwater drones to identify an ecosystem teeming with coral species and reef fish.",
+          "source": "Frontiers in Marine Science",
+          "date": "19 July 2026",
+          "significance": "Demonstrates resilience of deep-water coral ecosystems and importance of exploring understudied West African continental shelves for marine conservation.",
+          "url": "https://www.frontiersin.org/news/2026/07/20/underwater-drones-coral-reefs-benin-presumed-dead-teeming-life-frontiers-marine-science",
           "lang": "en"
         },
         {
-          "title": "Massive Pacific Marine Heatwave Eight Times the Size of the US Threatens Storms and Extreme Heat",
-          "summary": "A record-scale marine heatwave stretching from the Philippines to the California coast and down to Peru — more than eight times the area of the contiguous United States — is intensifying across the Pacific Ocean in early July 2026. Forecasters warn the event is likely to fuel severe storms and prolonged extreme heat across North America as El Nino conditions deepen.",
-          "source": "The Washington Post",
-          "date": "5 July 2026",
-          "significance": "Real-time Pacific SST anomaly data at this spatial scale directly informs storm track forecasting and coastal hazard geospatial risk models.",
-          "url": "https://www.washingtonpost.com/weather/2026/07/05/pacific-ocean-is-running-fever-why-thats-an-ominous-sign/",
+          "title": "Deep-sea exploration in Cook Islands underway",
+          "summary": "NOAA Ocean Exploration and Cook Islands Seabed Minerals Authority conducting 26-day expedition from July 19-August 13 aboard NOAA Ship Okeanos Explorer. Remotely operated vehicles exploring abyssal plains and Manihiki Plateau to characterize deep seafloor habitats and ecosystems.",
+          "source": "NOAA Ocean Exploration",
+          "date": "19 July 2026",
+          "significance": "Live exploration of poorly-mapped abyssal ecosystems and seabed resources; supports ocean governance and environmental impact assessment for deep-sea regions.",
+          "url": "https://oceanexplorer.noaa.gov/okeanos/",
           "lang": "en"
         },
         {
-          "title": "Ocean Acidification Emerging as a Planetary Signal Linking Carbon Emissions to Earth's Deep-Time Memory",
-          "summary": "A new study in Earth-Science Reviews argues that ocean acidification is no longer just a marine biology concern — it is a planet-scale geochemical signal recording how human CO2 emissions are altering Earth's long-term carbon cycle through deep-ocean circulation, sedimentary buffering, and lithospheric feedbacks. The research maps global surface ocean pH trends from 1985 to 2024.",
-          "source": "Phys.org",
-          "date": "14 July 2026",
-          "significance": "Global pH trend mapping from 1985-2024 provides a new geospatial layer linking surface chemistry to deep Earth system feedbacks.",
-          "url": "https://phys.org/news/2026-07-ocean-acidification-emerging-planetary-linking.html",
-          "lang": "en"
-        },
-        {
-          "title": "Met Office Confirms Record-Breaking Global Sea Surface Temperatures and Extreme UK Marine Heatwave",
-          "summary": "Copernicus and the UK Met Office confirmed in early July 2026 that global sea surface temperatures surpassed previous seasonal records set in 2023 and 2024, following the formal WMO declaration of El Nino on 2 June 2026. UK coastal waters are experiencing a rapidly intensifying marine heatwave classified as strong to severe, with scientists warning of potential mass-mortality events for marine species.",
-          "source": "Met Office (UK)",
-          "date": "3 July 2026",
-          "significance": "Record global SST confirmation by Copernicus/Met Office provides authoritative spatial baseline for monitoring marine ecosystem stress worldwide.",
-          "url": "https://www.metoffice.gov.uk/about-us/news-and-media/media-centre/weather-and-climate-news/2026/long-lasting-uk-marine-heatwave-likely-to-reach-extreme-levels-next-week",
+          "title": "Coral reefs presumed dead have been found teeming with life",
+          "summary": "ScienceAlert reports the rediscovery of a deep-water coral garden off Benin with eight coral types and eight fish species. Mesophotic coral ecosystems may serve as refuges from warming surface waters and remain least-explored marine habitats.",
+          "source": "ScienceAlert",
+          "date": "31 July 2026",
+          "significance": "Highlights potential climate refugia in deep-water coral gardens; underscores urgent need to map and protect understudied mesophotic ecosystems.",
+          "url": "https://www.sciencealert.com/coral-reefs-presumed-dead-have-been-found-teeming-with-life",
           "lang": "en"
         }
       ]
     },
     {
       "label": "🏔️ Plate Tectonics & Seismology",
-      "count": 0,
-      "articles": []
+      "count": 5,
+      "articles": [
+        {
+          "title": "M7.3 Earthquake Strikes Offshore Chiapas, Mexico",
+          "summary": "Major 7.3 magnitude earthquake occurred offshore Chiapas, Mexico on July 17, 2026, with tsunami waves recorded. The shallow strike-slip faulting event affected millions of people across Mexico and Guatemala.",
+          "source": "The Watchers / USGS / EMSC",
+          "date": "17 July 2026",
+          "significance": "Major subduction zone event demonstrating plate boundary seismicity; crucial for understanding Cocos-Caribbean plate interaction and tsunami hazard assessment for geospatial risk models.",
+          "url": "https://watchers.news/2026/07/17/major-m7-3-earthquake-hits-offshore-chiapas-mexico-hazardous-tsunami-waves-forecast/",
+          "lang": "en"
+        },
+        {
+          "title": "M6.8 Earthquake South of Kumamoto, Japan",
+          "summary": "Strong 6.8 magnitude earthquake struck south of Kumamoto in Kyushu on July 28, 2026, caused by shallow strike-slip faulting with extensive damage. Approximately 1.2 million people experienced very strong shaking.",
+          "source": "U.S. Geological Survey (USGS)",
+          "date": "28 July 2026",
+          "significance": "Strike-slip faulting in Philippine Sea plate context; demonstrates complex crustal deformation and shallow earthquake hazard in active subduction margin affecting major population centers.",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000tgb9",
+          "lang": "en"
+        },
+        {
+          "title": "Yellowstone Seismic Activity Remains at Background Levels",
+          "summary": "Yellowstone Caldera experienced 68 located earthquakes during July 2026, with largest magnitude 3.3. Deformation measurements show no significant uplift of north caldera rim since January 2026.",
+          "source": "U.S. Geological Survey (USGS) Yellowstone Volcano Observatory",
+          "date": "1 August 2026",
+          "significance": "Intraplate seismicity monitoring critical for understanding magmatic and hydrothermal systems; GPS geodesy deformation data essential for volcanic-seismic hazard forecasting.",
+          "url": "https://volcanoes.usgs.gov/hans-public/volcano/wy1",
+          "lang": "en"
+        },
+        {
+          "title": "Environmental Seismology Focus Section Published",
+          "summary": "Seismological Research Letters published July 2026 focus section on environmental seismology covering distributed acoustic sensing, anthropogenic seismicity, and emerging sensor technologies for crustal monitoring.",
+          "source": "Seismological Research Letters (SSA)",
+          "date": "July 2026",
+          "significance": "Advances in distributed acoustic sensing (DAS) and fiber-optic seismic monitoring provide new geospatial data streams for crustal deformation and fault monitoring networks.",
+          "url": "https://pubs.geoscienceworld.org/ssa/srl/article/97/4/2201/732149/Preface-to-the-Focus-Section-on-Environmental",
+          "lang": "en"
+        },
+        {
+          "title": "Oceanic Intraplate Volcanism Linked to Plate Tectonics",
+          "summary": "Nature Geoscience published research suggesting most oceanic intraplate volcanism is influenced by plate tectonics and whole-mantle dynamics, advancing understanding of geodynamic processes.",
+          "source": "Nature Geoscience",
+          "date": "9 July 2026",
+          "significance": "Mantle dynamics and plate tectonics integration essential for understanding intraplate seismicity patterns and volcanic-seismic interactions on global geospatial scales.",
+          "url": "https://www.nature.com/ngeo.rss",
+          "lang": "en"
+        }
+      ]
     },
     {
       "label": "🌋 Volcanology",
-      "count": 0,
-      "articles": []
+      "count": 5,
+      "articles": [
+        {
+          "title": "Puracé Volcano Colombia Alert Raised to Orange",
+          "summary": "Colombia's Geological Service (SGC) raised Puracé volcano alert from yellow to orange on August 1, 2026, following unprecedented increases in seismic activity and volcanic gas emissions since July 20. Monitoring shows SO2 emissions at 4200 tonnes/day and ash columns up to 3400m above the summit.",
+          "source": "Colombian Geological Service / VolcanoDiscovery",
+          "date": "2 August 2026",
+          "significance": "Highest monitored gas and seismic levels since 1993; critical test of real-time volcanic hazard monitoring systems for Ring of Fire volcano near major population centers.",
+          "url": "https://colombiaone.com/2026/08/02/purace-volcano-in-colombia-reaches-phase-of-highest-probability-of-eruptive-activity/",
+          "lang": "en"
+        },
+        {
+          "title": "Great Sitkin Volcano Continues Slow Lava Eruption",
+          "summary": "USGS Alaska Volcano Observatory reports slow lava effusion continues within Great Sitkin's summit crater as of August 2, 2026. The eruption began in July 2021 with lava flows filling most of the summit crater and advancing into valleys below.",
+          "source": "USGS",
+          "date": "2 August 2026",
+          "significance": "Long-term effusive eruption in subduction zone provides data on lava dome growth dynamics and monitoring challenges in remote Aleutian Islands location.",
+          "url": "https://www.usgs.gov/programs/VHP/volcano-updates",
+          "lang": "en"
+        },
+        {
+          "title": "Kilauea Volcano Forecasts Next Eruption Episode",
+          "summary": "Hawaiian Volcano Observatory reports Kīlauea paused from summit eruption with reinflation indicating another episode forecast between August 6-13, 2026. Previous episode 52 produced 500-foot lava fountains and ash plumes reaching 19,000 feet.",
+          "source": "USGS Hawaiian Volcano Observatory",
+          "date": "2 August 2026",
+          "significance": "Forecasting intermittent Halemaʻumaʻu summit eruptions enables hazard mitigation planning and validates monitoring network recovery from recent power outages.",
+          "url": "https://www.usgs.gov/volcanoes/kilauea/volcano-updates",
+          "lang": "en"
+        },
+        {
+          "title": "Stromboli Italy Maintains Medium-High Explosive Activity",
+          "summary": "Italy's INGV reported ordinary Strombolian activity at Stromboli during July 20-26, 2026, with explosions from both North and Central-South crater areas at medium-high intensity, ejecting lapilli and bombs less than 150m above vents.",
+          "source": "INGV / VolcanoDiscovery",
+          "date": "30 July 2026",
+          "significance": "Continuous Strombolian activity at Europe's most active volcano feeds global understanding of basaltic eruption mechanics and tourism risk management.",
+          "url": "https://www.volcanodiscovery.com/volcano-activity/news/322443/Volcanic-activity-worldwide-31-Jul-2026-Etna-volcano-Stromboli-Santiaguito-Fuego-Krakatau-Mera.html",
+          "lang": "en"
+        },
+        {
+          "title": "Yellowstone Caldera Remains at Background Activity",
+          "summary": "USGS Yellowstone Volcano Observatory reports 68 earthquakes in July 2026 (max M3.3) with no significant caldera deformation. New seismic monitoring station installation began in Upper Geyser Basin to enhance surveillance.",
+          "source": "USGS",
+          "date": "1 August 2026",
+          "significance": "Long-term baseline monitoring of caldera unrest provides critical reference data for supereruption forecasting and hydrothermal explosion hazard assessment.",
+          "url": "https://volcanoes.usgs.gov/hans-public/volcano/wy1",
+          "lang": "en"
+        }
+      ]
     },
     {
-      "label": "⛏️ Mining & Mineral Resources",
-      "count": 0,
-      "articles": []
-    },
-    {
-      "label": "🪨 Geology & Geomorphology",
-      "count": 0,
-      "articles": []
+      "label": "⛏️ Mining & Geology",
+      "count": 5,
+      "articles": [
+        {
+          "title": "Zimbabwe half-year lithium exports up 230%",
+          "summary": "Zimbabwe exported lithium products worth $782 million in the first half of 2026, up 230% from $237 million in the same period last year. The mineral now ranks third in Zimbabwe's mineral export revenue behind gold and platinum group metals.",
+          "source": "MINING.COM",
+          "date": "31 July 2026",
+          "significance": "Critical for understanding lithium supply dynamics and emerging market processing capabilities reshaping battery metals supply chains.",
+          "url": "https://www.mining.com/web/zimbabwe-half-year-lithium-exports-up-230",
+          "lang": "en"
+        },
+        {
+          "title": "Coal mine explosion in Pakistan kills at least 32 miners",
+          "summary": "A methane gas explosion at a coal mine in Balochistan province killed at least 32 miners, with rescue operations ongoing. The incident highlights persistent safety challenges in Pakistan's mining sector.",
+          "source": "Mining Weekly",
+          "date": "30 July 2026",
+          "significance": "Underscores mining safety and operational risks in key mineral-producing regions affecting global supply continuity.",
+          "url": "",
+          "lang": "en"
+        },
+        {
+          "title": "Lux Copper announces major copper-zinc discovery in Alaska",
+          "summary": "Lux Copper Corp. has unveiled a strategic discovery of high-grade copper-zinc in Alaska's Ambler Mining District and plans a fully-funded maiden drilling program in August 2026.",
+          "source": "Kalkine Media",
+          "date": "July 2026",
+          "significance": "New tier-1 mineral discovery in North America strengthens critical minerals supply diversification and exploration outlook for copper-zinc systems.",
+          "url": "https://kalkinemedia.com.au/news/announcements/lux-copper-corp-unveils-major-copper-zinc-discovery-in-alaskas-ambler-mining-district-with-maiden-drilling-set-for-august-2026",
+          "lang": "en"
+        },
+        {
+          "title": "Rare earth market outlook: China's H2 quota sets August catalyst",
+          "summary": "July 2026 rare earth prices surged broadly with China's H2 mining quota announcement pending—the single most significant open catalyst for August. Heavy rare earth and light rare earth complexes showed coordinated gains.",
+          "source": "Rare Earth Mining",
+          "date": "1 July 2026",
+          "significance": "China's rare earth policy decisions directly impact global critical minerals supply chains and geopolitical competitive positioning.",
+          "url": "https://rare-earth-mining.com/rare-earth-market-outlook-july-2026/",
+          "lang": "en"
+        },
+        {
+          "title": "White Mesa Mill expands rare earth processing capacity",
+          "summary": "Energy Fuels' White Mesa Mill in Utah has advanced from pilot production to commercial-scale heavy rare earth processing, producing 1,000 tons annually and positioning itself as one of just three US rare earth processing facilities.",
+          "source": "Deseret News",
+          "date": "30 July 2026",
+          "significance": "Strategic US domestic processing capacity challenges China's 85% global rare earth processing dominance, advancing mineral supply security.",
+          "url": "https://www.deseret.com/business/2026/07/30/white-mesa-mill-utah-expands-process-heavy-rare-earth-minerals-energy-fuels-china/",
+          "lang": "en"
+        }
+      ]
     },
     {
       "label": "🚀 Space & Geodesy",
-      "count": 0,
-      "articles": []
-    },
-    {
-      "label": "🌿 Environmental Monitoring & Biodiversity",
-      "count": 0,
-      "articles": []
-    },
-    {
-      "label": "🏙️ Urban & Infrastructure Geospatial",
-      "count": 0,
-      "articles": []
-    },
-    {
-      "label": "🌾 Precision Agriculture & Food Security",
-      "count": 0,
-      "articles": []
+      "count": 5,
+      "articles": [
+        {
+          "title": "AST SpaceMobile Launches BlueBird 11, 12, 13 Satellites",
+          "summary": "AST SpaceMobile successfully launched three next-generation BlueBird satellites on August 5, 2026, aboard a SpaceX Falcon 9 from Cape Canaveral. The Block 2 satellites feature enhanced phased arrays (2,400 sq ft) and deliver nearly double the peak download speeds compared to initial BlueBird satellites, advancing the direct-to-device broadband constellation.",
+          "source": "Foreign Policy Journal",
+          "date": "2 August 2026",
+          "significance": "Commercial satellite constellation scaling demonstrates rapid LEO deployment and positioning accuracy advancements for global broadband networks.",
+          "url": "https://www.foreignpolicyjournal.com/2026/08/02/ast-spacemobile-nasdaq-asts-accelerates-bluebird-constellation-with-new-satellite-launch-targets-22-stock-upside/",
+          "lang": "en"
+        },
+        {
+          "title": "Arianespace to Launch MTG-I2 Weather Satellite on August 27, 2026",
+          "summary": "Arianespace will place the Meteosat Third Generation Imager 2 (MTG-I2) satellite into geostationary orbit on August 27, 2026, aboard Ariane 62. This next-generation weather satellite will provide rapid scanning imagery every 2.5 minutes for Europe and North Africa, improving severe weather detection and forecasting.",
+          "source": "Arianespace Newsroom",
+          "date": "20 July 2026",
+          "significance": "Advanced earth observation satellite with high-resolution imaging capabilities critical for geodesy applications and weather monitoring reference frames.",
+          "url": "https://newsroom.arianespace.com/arianespace-to-launch-weather-satellite-mtg-i2-on-ariane-6s-first-mission-to-geostationary-orbit-on-august-27-2026/?lang=eng",
+          "lang": "en"
+        },
+        {
+          "title": "Rocket Lab Deploys Korean NEONSAT-1A Earth Observation Satellite",
+          "summary": "Rocket Lab successfully launched its 81st Electron rocket in late January 2026, deploying NEONSAT-1A, an advanced earth observation satellite for South Korea's future NEONSAT constellation. The mission demonstrates rapid responsive launch capabilities for specialized earth observation missions monitoring natural disasters and security.",
+          "source": "Barchart/Globe Newswire",
+          "date": "29 January 2026",
+          "significance": "Small-satellite earth observation constellation development advances geodetic monitoring and disaster response capabilities in Asia-Pacific.",
+          "url": "https://www.barchart.com/story/news/37312673/mission-success-rocket-lab-launches-korean-earth-imaging-satellite-completes-2nd-launch-in-8-days",
+          "lang": "en"
+        },
+        {
+          "title": "NASA Selects Two Earth System Explorers Missions for Development",
+          "summary": "NASA announced selection of two Earth System Explorers missions advancing to the next phase of development, including science missions designed to measure conditions affecting land and sea transportation corridors and terrain. Each mission estimated at $355 million with launch dates no earlier than 2030.",
+          "source": "PhysOrg",
+          "date": "11 February 2026",
+          "significance": "Government investment in next-generation earth observation satellites for precise geospatial measurements and geodetic reference frame improvements.",
+          "url": "https://phys.org/news/2026-02-nasa-earth-explorers-missions.html",
+          "lang": "en"
+        },
+        {
+          "title": "VLBI Observations Advance ITRF and Geodetic Reference Frame Accuracy",
+          "summary": "Recent research demonstrates comprehensive VLBI observations of Galileo satellites with the AuScope array to improve the International Terrestrial Reference Frame (ITRF). The work addresses current limitations in achieving 1mm accuracy targets and explores space-tie concepts for multi-technique integration in geodesy.",
+          "source": "ArXiv",
+          "date": "26 March 2026",
+          "significance": "Space geodesy advancement through multi-constellation GNSS and VLBI integration critical for maintaining global reference frames underpinning all geospatial applications.",
+          "url": "https://arxiv.org/pdf/2603.16955",
+          "lang": "en"
+        }
+      ]
     },
     {
       "label": "🧊 Cryosphere & Polar Science",
-      "count": 0,
-      "articles": []
+      "count": 5,
+      "articles": [
+        {
+          "title": "Antarctic storms becoming more frequent and intense, affecting sea ice",
+          "summary": "Recent research from the University of Otago shows that increasing winter storminess in the Southern Ross Sea is significantly affecting land-fast sea ice formation, with stormy winters taking notably longer for ice to develop.",
+          "source": "Phys.org",
+          "date": "29 July 2026",
+          "significance": "Critical for sea ice monitoring and climate models; demonstrates accelerating Antarctic cryosphere destabilization affecting regional circulation patterns.",
+          "url": "https://phys.org/news/2026-07-antarctic-storms-frequent-intense-affecting.html",
+          "lang": "en"
+        },
+        {
+          "title": "Arctic sea ice extent reaches fourth-lowest on record, with Atlantic margins exceptionally low",
+          "summary": "Met Office analysis shows Arctic sea ice extent at 9.07 million sq km on July 8, 2026, fourth-lowest on record, with exceptionally low ice along Atlantic margins despite near-average retreat rates elsewhere.",
+          "source": "Met Office",
+          "date": "8 July 2026",
+          "significance": "Real-time sea ice monitoring essential for Arctic geospatial analysis; reveals spatial heterogeneity in ice extent changes across polar regions.",
+          "url": "",
+          "lang": "en"
+        },
+        {
+          "title": "Scientists discover vast hidden structure beneath Antarctica's ice",
+          "summary": "Durham University researchers identified a giant fan-shaped network of subglacial basins beneath East Antarctica using geophysical surveys, revealing previously unknown geological structures affecting ice dynamics.",
+          "source": "ScienceDaily",
+          "date": "4 June 2026",
+          "significance": "Fundamental discovery for ice sheet modeling; Nature Geoscience study reveals subglacial topography critical for understanding ice flow and basal hydrology.",
+          "url": "https://www.sciencedaily.com/releases/2026/06/260604044244.htm",
+          "lang": "en"
+        },
+        {
+          "title": "Extreme Greenland ice melt events more frequent, extensive, and severe",
+          "summary": "Nature Communications research shows Greenland Ice Sheet experiencing record-breaking melt events with unprecedented intensity since 1950, with 7 of 10 most extreme events occurring after 2000.",
+          "source": "Nature Communications",
+          "date": "11 February 2026",
+          "significance": "Critical for sea-level rise projections; demonstrates climate-driven amplification of ice sheet melt beyond natural circulation patterns.",
+          "url": "https://www.nature.com/articles/s41467-026-69543-5",
+          "lang": "en"
+        },
+        {
+          "title": "Mid-Holocene retreat of Greenland Ice Sheet indicated by subglacial methane release",
+          "summary": "Nature Geoscience study documents extensive sampling of meltwater streams revealing biogenic methane release from Greenland subglacial environments, dating 1.5-4.4 thousand years ago.",
+          "source": "Nature Geoscience",
+          "date": "8 May 2026",
+          "significance": "Links ice sheet dynamics to carbon cycling and methane emissions; critical for understanding feedback mechanisms in Greenland cryosphere.",
+          "url": "https://www.nature.com/articles/s41561-026-01976-5",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🆘 Disaster & Hazard Monitoring",
+      "count": 5,
+      "articles": [
+        {
+          "title": "Kumamoto Earthquake Strikes Japan: Magnitude 6.8 hits Kumamoto Prefecture",
+          "summary": "A major earthquake struck Kumamoto Prefecture on July 28, 2026, reaching intensity 7 on the Japanese seismic scale. The earthquake caused significant infrastructure damage including bridge collapses and widespread power outages, with tsunami warnings issued for nearby coastal areas.",
+          "source": "Wikipedia / Japan Meteorological Agency",
+          "date": "28 July 2026",
+          "significance": "Major seismic event in Japan causing significant casualties and infrastructure damage. Critical for earthquake hazard monitoring in seismically active region.",
+          "url": "https://en.wikipedia.org/wiki/2026_Kumamoto_earthquake",
+          "lang": "en"
+        },
+        {
+          "title": "Massive Wildfire Emergency Declared in Washington State",
+          "summary": "Governor Bob Ferguson declared a statewide wildfire emergency on August 1, 2026, due to record-setting drought, extreme heat, and high winds fueling rapid fire spread. Multiple fires including the Old Trails fire in Spokane burned hundreds of homes and forced 5,000+ evacuations.",
+          "source": "Lynnwood Times",
+          "date": "2 August 2026",
+          "significance": "Unprecedented wildfire crisis with record drought conditions in Pacific Northwest. Critical for disaster response resource allocation and wildfire risk assessment.",
+          "url": "https://lynnwoodtimes.com/2026/08/02/wildfire/",
+          "lang": "en"
+        },
+        {
+          "title": "Floods and Landslides Kill 16 in Kerala, India",
+          "summary": "Heavy monsoon rainfall caused severe flooding and landslides across Kerala state on August 2, 2026, killing 8 people with 8 missing and 13 injured. Over 5,700 people were relocated to relief camps and 27 houses destroyed.",
+          "source": "The Watchers",
+          "date": "2 August 2026",
+          "significance": "Recent monsoon-triggered disaster affecting major Indian state with significant displacement. Important for South Asia flood hazard monitoring and early warning systems.",
+          "url": "https://watchers.news/2026/08/02/16-dead-and-missing-as-floods-and-landslides-hit-kerala-india/",
+          "lang": "en"
+        },
+        {
+          "title": "Thailand Issues Landslide and Flash Flood Warnings for 15 Provinces",
+          "summary": "Thailand's Department of Mineral Resources warned residents in 15 provinces on July 30, 2026 to remain vigilant for landslides and flash floods due to continuing heavy rainfall. The Geological Disaster Operations Centre activated monitoring network for 1-3 day period.",
+          "source": "Khao Sod English",
+          "date": "30 July 2026",
+          "significance": "Southeast Asia regional hazard alert covering large geographic area during monsoon season. Critical for early warning system validation and disaster preparedness in Thailand.",
+          "url": "https://www.khaosodenglish.com/featured/2026/07/30/thailand-warns-15-provinces-of-landslides-and-flash-floods/",
+          "lang": "en"
+        },
+        {
+          "title": "Indonesia Escalates Forest Fire Response in Central Kalimantan",
+          "summary": "Indonesia's BNPB intensified coordinated response for Central Kalimantan wildfires in early August 2026, deploying additional water-bombing helicopters and weather modification aircraft ahead of El Niño peak predicted for August-September 2026.",
+          "source": "ANTARA News",
+          "date": "3 August 2026",
+          "significance": "Proactive disaster management coordination combining aerial firefighting and weather modification. Essential for understanding El Niño-driven fire risk in Southeast Asian peatlands.",
+          "url": "https://en.antaranews.com/amp/news/424812/bnpb-ensures-coordinated-action-for-central-kalimantan-wildfires",
+          "lang": "en"
+        }
+      ]
     },
     {
       "label": "🇮🇳 India",
-      "count": 0,
-      "articles": []
+      "count": 5,
+      "articles": [
+        {
+          "title": "NRSC Conducts Capacity Building on Forest Fire Detection for Bhutan Officials",
+          "summary": "National Remote Sensing Centre (NRSC) successfully conducted a four-day capacity building programme on forest fire detection and burnt area mapping using satellite datasets for Bhutanese officials under India-Bhutan Space Cooperation Programme.",
+          "source": "ISRO",
+          "date": "18 June 2026",
+          "significance": "Demonstrates NRSC's regional leadership in satellite-based forest monitoring, building bilateral space cooperation on remote sensing applications for disaster management.",
+          "url": "https://www.isro.gov.in/NRSC_Conducts_Capacity_Building_Programme.html",
+          "lang": "en"
+        },
+        {
+          "title": "BRICS Heads of Space Agencies Meet in Bengaluru to Advance Remote Sensing Satellite Constellation",
+          "summary": "BRICS Heads of Space Agencies Meeting 2026 concluded in Bengaluru under India's chairmanship, with discussions on remote sensing satellite constellation for disaster management and climate change monitoring.",
+          "source": "News On Air",
+          "date": "24 June 2026",
+          "significance": "India chairs BRICS space cooperation framework; advancing shared Earth observation infrastructure and sustainability protocols for geospatial intelligence across BRICS nations.",
+          "url": "https://newsonair.gov.in/brics-heads-of-space-agencies-meeting-2026-concludes-in-bengaluru-under-indias-chairmanship/",
+          "lang": "en"
+        },
+        {
+          "title": "Bharatiya Antariksh Hackathon 2026 Grand Finale at NRSC Hyderabad",
+          "summary": "ISRO announced shortlisted teams for Bharatiya Antariksh Hackathon 2026 grand finale scheduled for 6-7 August at NRSC Hyderabad, featuring 15 satellite and remote sensing technology challenges.",
+          "source": "ISRO",
+          "date": "16 July 2026",
+          "significance": "National-level innovation hackathon driving AI/ML applications in satellite imagery, climate analysis, and remote sensing—building India's next-generation geospatial workforce.",
+          "url": "https://www.isro.gov.in/media_isro/pdf/BAH_2026_Shortlisted_Teams_16072026_Publication.pdf",
+          "lang": "en"
+        },
+        {
+          "title": "Indian Cartography: From Land Mapping to Defense Applications—Latest Advances",
+          "summary": "Recent article in Science India Magazine examines India's evolution from colonial cadastral mapping to modern geospatial infrastructure, including ISRO's Cartosat series, Bhuvan portal, and NavIC satellite navigation.",
+          "source": "Science India Magazine",
+          "date": "17 July 2026",
+          "significance": "Comprehensive review of India's cadastral modernization, satellite-based land administration, and private sector geospatial ecosystem post-2021 deregulation.",
+          "url": "https://scienceindiamag.in/indian-cartography-from-mapping-the-land-to-public-health-urban-planning-and-national-defence/",
+          "lang": "en"
+        },
+        {
+          "title": "PM Gati Shakti GIS Platform: Enabling Infrastructure Planning Through Multi-Sector Data Integration",
+          "summary": "ESRI India published detailed analysis of PM Gati Shakti's GIS-based architecture integrating 1,600+ spatial data layers for cross-ministry infrastructure coordination.",
+          "source": "ESRI India",
+          "date": "17 April 2026",
+          "significance": "Critical infrastructure planning platform demonstrates how geospatial technologies enable multi-agency coordination in India's massive connectivity and logistics development initiatives.",
+          "url": "https://www.esri.in/en-in/newsroom/blog/gis-for-pm-gati-shakti",
+          "lang": "en"
+        }
+      ]
     },
     {
       "label": "🌐 Global Geospatial Intelligence",
-      "count": 0,
-      "articles": []
+      "count": 5,
+      "articles": [
+        {
+          "title": "Australia Conducts Deep-Ocean Seafloor Mapping Survey East Coast",
+          "summary": "CSIRO and Geoscience Australia conducted a research vessel survey in July 2026 to improve Australia's national seabed mapping, with targeted deep-ocean surveys along the east coast from Hobart to Brisbane to depths of 4,500+ meters.",
+          "source": "CSIRO",
+          "date": "July 2026",
+          "significance": "Critical for marine geospatial data; improves ocean territory mapping and coastal zone management for Australia's vast ocean resources.",
+          "url": "https://www.csiro.au/en/news/All/Articles/2026/July/Going-to-great-depths-in-seafloor-mapping",
+          "lang": "en"
+        },
+        {
+          "title": "China's Chang'e-7 Moon Mission Ready for August 2026 Launch",
+          "summary": "China's Chang'e-7 spacecraft has arrived at Wenchang spaceport for August 2026 launch targeting the lunar south pole with orbiter, lander, rover, and hopping probe to search for water ice and map lunar geography.",
+          "source": "SpaceNews",
+          "date": "April 2026",
+          "significance": "Represents major lunar geospatial mapping mission with international payload contributions; will generate high-precision lunar surface imagery and topographic data.",
+          "url": "https://spacenews.com/chinas-change-7-arrives-at-spaceport-for-lunar-south-pole-exploration-mission/",
+          "lang": "en"
+        },
+        {
+          "title": "Роскосмос Электро-Л №5 передал первые снимки Земли",
+          "summary": "Гидрометеорологический спутник Электро-Л №5, запущенный 12 февраля 2026 года, достиг геостационарной орбиты и начал передавать первые снимки планеты высокого качества в 10 спектральных каналах.",
+          "source": "Prokosmos",
+          "date": "25 марта 2026",
+          "significance": "Первый оперативный спутник Роскосмоса на геостационарной орбите; обеспечивает круглосуточный мониторинг Земли для предвещания погоды и мониторинга чрезвычайных ситуаций.",
+          "url": "https://prokosmos.ru/2026/03/25/roskosmos-opublikoval-pervii-snimok-zemli-so-sputnika-elektrol--5",
+          "lang": "ru"
+        },
+        {
+          "title": "JAXA MICHIBIKI QZS-7 Launch Scheduled for 2026",
+          "summary": "Japan Aerospace Exploration Agency scheduled H-3 launch of MICHIBIKI No. 7 quasi-zenith satellite (QZS-7) for July 2026 to expand Japan's positioning and navigation satellite constellation.",
+          "source": "JAXA",
+          "date": "July 8, 2026",
+          "significance": "Extends Japan's high-precision positioning infrastructure; critical for disaster response, autonomous systems, and precise geospatial navigation services across Asia-Pacific region.",
+          "url": "https://global.jaxa.jp/",
+          "lang": "en"
+        },
+        {
+          "title": "Caribbean Sargassum Tracking via Satellite Imagery July 2026",
+          "summary": "CARICOOS satellite monitoring tracked record sargassum events across Caribbean and Lesser Antilles in July 2026, predicting 2026 to be second-largest sargassum year on record affecting coastal regions.",
+          "source": "CARICOOS",
+          "date": "31 July 2026",
+          "significance": "Uses remote sensing for coastal environmental monitoring; supports island nations and Caribbean states with critical early warning data for marine ecosystem and coastal hazard management.",
+          "url": "https://www.caricoos.org/sargassum",
+          "lang": "en"
+        }
+      ]
     }
   ]
 }

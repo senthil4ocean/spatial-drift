@@ -1,0 +1,164 @@
+name: 🌍 Spatial Drift — Fortnightly Alert
+
+on:
+  # ── Runs exactly TWICE A MONTH — 1st and 15th, off-peak IST ──────────────
+  #
+  # WHY NOT "1-7,15-21 * 6":
+  #   In POSIX/Vixie cron (which GitHub Actions follows), when BOTH the
+  #   day-of-month field and the day-of-week field are restricted (neither
+  #   is "*"), they are combined with OR, not AND. The previous expression
+  #   therefore fired on days 1-7 and 15-21 of every month *plus* every
+  #   Saturday — roughly 16-18 runs per month, i.e. near-daily.
+  #
+  # FIX: restrict day-of-month only and leave day-of-week as "*". With one
+  # field unrestricted there is no OR ambiguity, so this fires on exactly
+  # two dates per month. Cadence is 14-16 days depending on month length.
+  # Trade-off: the run day drifts across the week.
+  #
+  # Time chosen to dodge GitHub's load-balancer queueing:
+  #   - Minute :23 instead of :00/:30 = avoids the busiest cron timeslots
+  #
+  # 07:23 AM IST = 01:53 UTC   (IST is UTC+5:30)
+  # 08:03 AM IST = 02:33 UTC
+  #
+  # A backup cron fires 40 minutes later in case the primary lagged.
+  # The script's time-windowed dedup (data/last_run.txt, 60-minute window)
+  # ensures only ONE Telegram message goes out per scheduled morning.
+  schedule:
+    - cron: "53 1 1,15 * *"   # 1st & 15th  07:23 AM IST (primary)
+    - cron: "33 2 1,15 * *"   # 1st & 15th  08:03 AM IST (backup)
+
+  # Manual trigger from Actions tab — always runs to completion
+  workflow_dispatch:
+
+  # PR validation — also forces a full run for testing
+  pull_request:
+    branches: [main]
+    paths:
+      - 'spatial_drift_alert.py'
+      - '**/spatial_drift_alert.py'
+      - '.github/workflows/fortnightly-alert.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  send-geospatial-brief:
+    name: Fetch & Deliver Fortnightly Brief
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v5
+
+      - name: 🐍 Set up Python 3.12
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: 🔎 Diagnostic — list repository contents
+        run: |
+          echo "════════════════════════════════════════════"
+          echo "REPOSITORY ROOT CONTENTS"
+          echo "════════════════════════════════════════════"
+          ls -la
+          echo ""
+          echo "════════════════════════════════════════════"
+          echo "FILE TREE (depth 3, excluding .git)"
+          echo "════════════════════════════════════════════"
+          find . -maxdepth 3 -not -path '*/\.git*' -not -path '*/__pycache__*' | sort
+          echo ""
+          echo "════════════════════════════════════════════"
+          echo "LOCATING spatial_drift_alert.py"
+          echo "════════════════════════════════════════════"
+          find . -name "spatial_drift_alert.py" -not -path '*/\.git*' || echo "❌ NOT FOUND"
+
+      - name: 🔑 Validate Anthropic API key
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          echo "Checking API key validity (a tiny 1-token request)..."
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "❌ ANTHROPIC_API_KEY secret is EMPTY or not set."
+            echo "   Go to Settings → Secrets and variables → Actions → add ANTHROPIC_API_KEY"
+            exit 1
+          fi
+          # Quick validation call — minimal cost
+          HTTP_CODE=$(curl -s -o /tmp/keycheck.json -w "%{http_code}" \
+            https://api.anthropic.com/v1/messages \
+            -H "x-api-key: $ANTHROPIC_API_KEY" \
+            -H "anthropic-version: 2023-06-01" \
+            -H "content-type: application/json" \
+            -d '{"model":"claude-haiku-4-5-20251001","max_tokens":1,"messages":[{"role":"user","content":"hi"}]}')
+          echo "API responded with HTTP $HTTP_CODE"
+          if [ "$HTTP_CODE" = "200" ]; then
+            echo "✅ API key is valid."
+          elif [ "$HTTP_CODE" = "401" ]; then
+            echo "❌ API key is INVALID (401 authentication_error)."
+            echo "   → Create a fresh key at https://console.anthropic.com → API Keys"
+            echo "   → Update the ANTHROPIC_API_KEY secret in GitHub"
+            cat /tmp/keycheck.json
+            exit 1
+          elif [ "$HTTP_CODE" = "400" ]; then
+            echo "⚠️  HTTP 400 — key format may be valid but request was rejected. Continuing anyway."
+            cat /tmp/keycheck.json
+          else
+            echo "⚠️  Unexpected HTTP $HTTP_CODE — check credit balance at console.anthropic.com"
+            cat /tmp/keycheck.json
+            # Don't hard-fail on transient errors; let the main script try
+          fi
+
+      - name: 📦 Install dependencies
+        run: pip install requests
+
+      - name: 🌍 Run Spatial Drift Alert
+        env:
+          ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+          FORCE_RUN: ${{ (github.event_name == 'workflow_dispatch' || github.event_name == 'pull_request') && '1' || '' }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+        run: |
+          echo "════════════════════════════════════════"
+          echo "Trigger:    ${GITHUB_EVENT_NAME}"
+          echo "FORCE_RUN:  ${FORCE_RUN:-'(unset — scheduled run)'}"
+          echo "════════════════════════════════════════"
+
+          # Auto-locate the script wherever the user put it
+          SCRIPT_PATH=$(find . -name "spatial_drift_alert.py" -not -path '*/\.git*' -not -path '*/__pycache__*' | head -1)
+
+          if [ -z "$SCRIPT_PATH" ]; then
+            echo ""
+            echo "❌ ERROR: spatial_drift_alert.py not found anywhere in the repo."
+            echo "ACTION REQUIRED: Upload spatial_drift_alert.py to the repository root."
+            ls -la
+            exit 1
+          fi
+
+          echo "✅ Found script at: $SCRIPT_PATH"
+          echo ""
+
+          # Move script to repo root so its relative paths (data/, docs/) work
+          if [ "$SCRIPT_PATH" != "./spatial_drift_alert.py" ]; then
+            echo "ℹ️  Script is in a subdirectory. Copying to repo root..."
+            cp "$SCRIPT_PATH" ./spatial_drift_alert.py
+          fi
+
+          # Ensure data and docs directories exist
+          mkdir -p data docs
+
+          python ./spatial_drift_alert.py
+
+      - name: 💾 Commit updated articles.json
+        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+        run: |
+          git config user.name  "spatial-drift-bot"
+          git config user.email "bot@spatialdrift.local"
+          git add data/articles.json data/last_run.txt docs/articles.json 2>/dev/null || true
+          if git diff --staged --quiet 2>/dev/null; then
+            echo "Nothing to commit."
+          else
+            git commit -m "🌍 Update articles — $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+          fi

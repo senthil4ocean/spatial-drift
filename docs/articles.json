@@ -1,592 +1,72 @@
 {
-  "generated_at_ist": "2026-09-01 12:29:26 IST",
-  "generated_at_utc": "2026-09-01T06:59:26.938144+00:00",
-  "generated_iso": "2026-09-01T12:29:26.938105+05:30",
-  "display_date": "Tuesday, 01 September 2026",
-  "display_time": "12:29 PM IST",
+  "generated_at_ist": "2026-09-15 12:25:01 IST",
+  "generated_at_utc": "2026-09-15T06:55:01.598522+00:00",
+  "generated_iso": "2026-09-15T12:25:01.598315+05:30",
+  "display_date": "Tuesday, 15 September 2026",
+  "display_time": "12:25 PM IST",
   "stats": {
-    "total_articles": 52,
+    "total_articles": 0,
     "domains_total": 11,
-    "domains_with_news": 11,
-    "unique_sources": 40,
-    "elapsed": "310s"
+    "domains_with_news": 0,
+    "unique_sources": 0,
+    "elapsed": "138s"
   },
-  "source_summary": {
-    "SatNews": 1,
-    "NASA": 3,
-    "Al Jazeera": 4,
-    "NASA LP DAAC": 1,
-    "Nature Climate Change": 2,
-    "Geophysical Research Letters": 2,
-    "Copernicus": 1,
-    "Nature Communications / ScienceDaily": 1,
-    "Nature Communications": 3,
-    "Phys.org": 1,
-    "Archyde / Zookeys": 1,
-    "Nature Communications Earth & Environment": 1,
-    "Nature Scientific Reports": 1,
-    "VolcanoDiscovery": 1,
-    "The Star": 1,
-    "ScienceDaily": 3,
-    "USGS Hawaiian Volcano Observatory": 1,
-    "USGS Alaska Volcano Observatory": 1,
-    "Globe Newswire": 2,
-    "Mining Engineering": 1,
-    "ESA / Avio": 1,
-    "Spaceflight Now": 1,
-    "SpaceNews / Space.com": 1,
-    "NASA Space Geodesy Project": 1,
-    "Nature": 1,
-    "Nature Geoscience": 1,
-    "USGS": 1,
-    "Joint Research Centre (EC)": 1,
-    "National Interagency Fire Center (NIFC)": 1,
-    "Wikipedia / Russian Emergency Services": 1,
-    "Press Trust of India (ANI)": 1,
-    "Indian Space Research Organisation (ISRO)": 1,
-    "Nature Scientific Data": 1,
-    "IBEF (India Brand Equity Foundation)": 1,
-    "Survey of India": 1,
-    "The Japan Times": 1,
-    "Hydro International": 1,
-    "Spatial Source": 1,
-    "Wikipedia (ATENEA)": 1,
-    "Seoul Economic Daily": 1
-  },
+  "source_summary": {},
   "domains": [
     {
       "label": "🛰️ Remote Sensing & GIS",
-      "count": 5,
-      "articles": [
-        {
-          "title": "ISRO Deploys First Geostationary Earth Imager",
-          "summary": "On August 31, 2026, ISRO achieved an orbital milestone by deploying its first geostationary Earth observation imager providing persistent meteorological imaging and environmental monitoring over South Asia.",
-          "source": "SatNews",
-          "date": "31 August 2026",
-          "significance": "New geostationary earth observation satellite operational; major capability advancement for regional environmental monitoring in South Asia.",
-          "url": "https://satnews.com/2026/08/31/isro-deploys-first-geostationary-earth-imager-as-navic-constellation-operates-below-baseline-threshold/",
-          "lang": "en"
-        },
-        {
-          "title": "SAR Satellite Data Identifies Tornado Tracks for Storm Damage Assessment",
-          "summary": "A study led by NASA researchers demonstrated how synthetic aperture radar satellite data can be used to identify tornado tracks and supplement traditional storm damage surveys.",
-          "source": "NASA",
-          "date": "7 August 2026",
-          "significance": "SAR remote sensing application advances disaster response; enables damage assessment in extreme weather events with cloud-penetrating radar imagery.",
-          "url": "https://www.earthdata.nasa.gov/news",
-          "lang": "en"
-        },
-        {
-          "title": "Europe's Rivers Show Record-Low Water Levels via Satellite Imagery",
-          "summary": "Al Jazeera's analysis of satellite imagery revealed that Europe's Loire, Po, Rhine, and Danube rivers reached record-low levels due to prolonged drought conditions affecting half the continent.",
-          "source": "Al Jazeera",
-          "date": "16 August 2026",
-          "significance": "Earth observation demonstrates climate crisis impacts; satellite-based change detection monitors critical freshwater resources across Europe.",
-          "url": "https://www.aljazeera.com/news/2026/8/16/new-satellite-images-show-europes-disappearing-rivers-due-to-drought",
-          "lang": "en"
-        },
-        {
-          "title": "Planet Labs Satellite Imagery Documents Nepal-Tibet Flood Destruction",
-          "summary": "Planet Labs captured before-and-after satellite imagery showing buildings, roads, and villages destroyed by August 2026 floods in Nepal and Tibet, revealing detailed damage assessment.",
-          "source": "Al Jazeera",
-          "date": "27 August 2026",
-          "significance": "High-resolution optical satellite imagery enables rapid disaster damage assessment; critical for humanitarian response and infrastructure recovery planning.",
-          "url": "https://www.aljazeera.com/news/2026/8/27/satellite-images-show-destruction-from-nepal-tibet-floods",
-          "lang": "en"
-        },
-        {
-          "title": "NASA-USGS Hyperspectral Data for Critical Minerals Discovery",
-          "summary": "NASA's LP DAAC reports that leveraging hyperspectral data from USGS-NASA GEMx airborne campaign and NASA's EMIT mission enables discovery of critical minerals essential for clean energy.",
-          "source": "NASA LP DAAC",
-          "date": "24 August 2026",
-          "significance": "Hyperspectral remote sensing advances critical mineral identification; supports sustainable mining and energy infrastructure development globally.",
-          "url": "https://www.earthdata.nasa.gov/centers/lp-daac/news",
-          "lang": "en"
-        }
-      ]
+      "count": 0,
+      "articles": []
     },
     {
       "label": "🌡️ Climatology & Atmospheric Science",
-      "count": 5,
-      "articles": [
-        {
-          "title": "Global heat stress intensification expands hazardous heat footprint globally",
-          "summary": "Study shows heat stress extremes have intensified on every continent with compound daytime-nighttime events increasing, exposing previously unaffected regions to dangerous temperature conditions and expanding the heat stress season by up to 50 days annually in some regions.",
-          "source": "Nature Climate Change",
-          "date": "10 August 2026",
-          "significance": "Critical for geospatial professionals assessing climate risk zones and heat exposure vulnerability patterns; demonstrates spatial expansion of extreme heat beyond historical boundaries.",
-          "url": "https://www.nature.com/articles/s41558-026-02670-5",
-          "lang": "en"
-        },
-        {
-          "title": "Arctic cyclone clusters cause twice the sea ice damage compared to isolated storms",
-          "summary": "Research published in August 2026 demonstrates that clustered cyclones in the Arctic reduce sea-ice cover about twice as much as isolated storms, with effects lasting 2.5 times longer, while increasingly thin mobile ice amplifies coastal exposure to waves and storms.",
-          "source": "Geophysical Research Letters",
-          "date": "18 August 2026",
-          "significance": "Essential for Arctic and coastal hazard assessment; reveals how storm clustering patterns compound ice vulnerability and amplify regional climate impacts.",
-          "url": "https://www.rcinet.ca/eye-on-the-arctic/2026/08/18/arctic-sea-ice-hit-twice-as-hard-when-storms-arrive-in-clusters-study/",
-          "lang": "en"
-        },
-        {
-          "title": "Ocean temperatures shatter all-time record in August cooling season",
-          "summary": "Copernicus Climate Change Service confirmed new global ocean temperature record of 21.1°C on August 22 during season when oceans normally cool, signaling El Niño effects superimposed on decades of human-driven warming and reduced marine CO2 absorption.",
-          "source": "Copernicus",
-          "date": "24 August 2026",
-          "significance": "Critical indicator for oceanographic and atmospheric modelers; unprecedented warm-season ocean anomaly signals system-wide climate stress and altered thermal circulation patterns.",
-          "url": "https://www.techtimes.com/articles/325550/20260825/august-ocean-heat-shatters-all-time-record-season-when-it-should-cooling.htm",
-          "lang": "en"
-        },
-        {
-          "title": "Europe's scorching summer breaks records with multiple heat waves above 40°C",
-          "summary": "NASA analysis shows Europe experienced fifth heat wave by mid-August with temperatures exceeding 40°C across broad areas, breaking May records by 2.3°C in London and demonstrating accelerating extreme heat frequency.",
-          "source": "NASA",
-          "date": "August 2026",
-          "significance": "Demonstrates regional heat extremes for climate impact assessment; provides satellite-modeled temperature data essential for attribution studies and adaptive planning.",
-          "url": "https://science.nasa.gov/earth/europes-scorching-summer/",
-          "lang": "en"
-        },
-        {
-          "title": "AMOC stability depends on rate of atmospheric CO2 change, not fixed threshold",
-          "summary": "Nature Climate Change study reveals Atlantic Meridional Overturning Circulation stability is sensitive to the rate of CO2 change rather than absolute CO2 levels, with implications for rapid ocean circulation collapse risk assessment.",
-          "source": "Nature Climate Change",
-          "date": "14 August 2026",
-          "significance": "Fundamental for climate modelers and policy planners; reframes understanding of ocean circulation tipping points and accelerating climate change impacts on global thermohaline circulation.",
-          "url": "https://www.nature.com/nclimate/articles?year=2026",
-          "lang": "en"
-        }
-      ]
+      "count": 0,
+      "articles": []
     },
     {
       "label": "🌊 Oceanography & Marine Science",
-      "count": 5,
-      "articles": [
-        {
-          "title": "Some coastal cities are sinking faster than ocean is rising",
-          "summary": "Research finds land subsidence in densely populated coastal regions nearly doubles relative sea level rise to about 6mm/year, affecting cities like Houston, Jakarta, and New York.",
-          "source": "Nature Communications / ScienceDaily",
-          "date": "2 August 2026",
-          "significance": "Critical for coastal zone planning and infrastructure assessment; subsidence amplifies climate-driven SLR risks in major population centers.",
-          "url": "https://www.sciencedaily.com/releases/2026/08/260801042824.htm",
-          "lang": "en"
-        },
-        {
-          "title": "Global ocean temperatures hit record high as El Nino intensifies",
-          "summary": "Sea surface temperatures reached 21.1°C on 24-25 August 2026, breaking previous records and putting unprecedented strain on coral reefs and marine ecosystems.",
-          "source": "Al Jazeera",
-          "date": "25 August 2026",
-          "significance": "Record ocean heat weakens carbon sinks, damages coral reefs, disrupts fisheries; direct monitoring of climate tipping point dynamics.",
-          "url": "https://www.aljazeera.com/news/2026/8/25/global-ocean-temperatures-hit-record-high-as-el-nino-intensifies",
-          "lang": "en"
-        },
-        {
-          "title": "Abrupt ocean temperature jumps increased 130-140% across major marine ecosystems",
-          "summary": "Human-driven warming has intensified frequency of abrupt temperature shifts in 66 coastal fishing regions, disrupting oxygen, plankton, and catch stability for years.",
-          "source": "Nature Communications",
-          "date": "May 2026",
-          "significance": "Links climate change to fishery economics; abrupt regime shifts harder to predict than gradual warming for marine resource management.",
-          "url": "https://www.earth.com/news/worlds-largest-marine-ecosystems-are-suffering-from-sudden-jumps-in-ocean-temperature/",
-          "lang": "en"
-        },
-        {
-          "title": "Rapid warming may tip Atlantic circulation at 2°C, sooner than expected",
-          "summary": "New research shows AMOC collapse threshold depends on warming speed, not just temperature; tipping could occur at +2°C under rapid emissions scenarios.",
-          "source": "Phys.org",
-          "date": "13 August 2026",
-          "significance": "Revises AMOC collapse predictions; thermohaline circulation stability critical for global heat redistribution and European climate.",
-          "url": "https://phys.org/news/2026-08-rapid-atlantic-circulation-2c-slower.html",
-          "lang": "en"
-        },
-        {
-          "title": "Dozens of new deep-sea species discovered in Clarion-Clipperton Zone",
-          "summary": "Pacific Ocean expedition recovered 48 new megafauna species from abyssal plains and 20 new species from deep reefs off Guam using ROV and autonomous systems.",
-          "source": "Archyde / Zookeys",
-          "date": "31 August 2026",
-          "significance": "Deep biodiversity assessment critical before seabed mining expansion; baseline data for abyssal ecosystem change monitoring.",
-          "url": "https://www.archyde.com/pacific-ocean-expedition-discovers-dozens-of-new-deep-sea-species/",
-          "lang": "en"
-        }
-      ]
+      "count": 0,
+      "articles": []
     },
     {
       "label": "🏔️ Plate Tectonics & Seismology",
-      "count": 5,
-      "articles": [
-        {
-          "title": "Fault zone strength controls segmentation of oceanic transform faults",
-          "summary": "Study using thousands of small earthquakes reveals how variations in fault zone strength control segmentation of oceanic transform faults and their distinct slip behaviors, with implications for understanding submarine fault mechanics.",
-          "source": "Nature Communications",
-          "date": "15 August 2026",
-          "significance": "Advances understanding of fault segmentation using microseismicity, critical for seismic hazard assessment in submarine transform zones worldwide.",
-          "url": "",
-          "lang": "en"
-        },
-        {
-          "title": "Accelerating volcano-tectonic earthquakes reveal weakening crustal structures",
-          "summary": "Research shows accelerating volcano-tectonic earthquakes can occur as crustal stress decreases and fractures weaken the crust, providing a new method to recognize when reawakening volcanoes may approach rupture.",
-          "source": "Nature Communications",
-          "date": "24 August 2026",
-          "significance": "Offers new early-warning capability for volcanic eruption forecasting by linking earthquake acceleration patterns to crustal weakening processes.",
-          "url": "",
-          "lang": "en"
-        },
-        {
-          "title": "Fluid-induced stress changes in volcano-tectonic systems: Mount Ontake case study",
-          "summary": "Volcano-tectonic earthquake focal mechanisms at Mt. Ontake (2024-2025) reveal how fluid pressurization reorients local stress fields and drives development of hydrothermal circulation systems.",
-          "source": "Nature Communications Earth & Environment",
-          "date": "7 April 2026",
-          "significance": "Demonstrates how geodetic and seismic analysis of volcano-tectonic systems can track subsurface fluid-fault interactions critical for volcanic hazard assessment.",
-          "url": "https://www.nature.com/articles/s43247-026-03463-6",
-          "lang": "en"
-        },
-        {
-          "title": "Subducting slab thermo-petrologic structure and intermediate-depth earthquakes in Colombia",
-          "summary": "Study published in Geophysical Research Letters reveals slab-mantle thermo-petrologic structure controlling intermediate-depth seismic activity in the southern Colombia subduction zone.",
-          "source": "Geophysical Research Letters",
-          "date": "August 2026",
-          "significance": "Enhances understanding of intraslab earthquake mechanics in subduction zones, crucial for tsunami hazard assessment in South American margin.",
-          "url": "https://doi.org/10.1029/2025GL118610",
-          "lang": "en"
-        },
-        {
-          "title": "Crustal deformation and strong earthquake preparation revealed by GNSS in western China",
-          "summary": "Analysis of GNSS observations combined with seismic data identifies common crustal deformation characteristics preceding medium and strong earthquakes in western China.",
-          "source": "Nature Scientific Reports",
-          "date": "16 November 2024",
-          "significance": "GPS geodesy provides critical early-warning signals for major earthquakes in tectonically active western China, supporting real-time hazard monitoring.",
-          "url": "https://www.nature.com/articles/s41598-024-78457-5",
-          "lang": "en"
-        }
-      ]
+      "count": 0,
+      "articles": []
     },
     {
       "label": "🌋 Volcanology",
-      "count": 5,
-      "articles": [
-        {
-          "title": "Etna volcano alert lowered to orange as eruptive activity decreases",
-          "summary": "Mount Etna's powerful lava fountaining and lateral effusive eruption that began on August 6 intensified through mid-August, forcing Catania Airport closure and hundreds of flight cancellations, but activity decreased significantly by August 26 with the aviation alert downgraded from red to green.",
-          "source": "VolcanoDiscovery",
-          "date": "26 August 2026",
-          "significance": "Europe's highest active volcano caused the longest airport closures since 2002 and reshaped ash monitoring protocols; alerts provide real-time eruption tracking.",
-          "url": "https://www.volcanodiscovery.com/etna/news/332382/Etna-Volcano-Italy-activity-update-Aug-26-2026-Eruptive-activity-decreased.html",
-          "lang": "en"
-        },
-        {
-          "title": "Mount Anak Krakatau erupts 20 times in single day with ash columns reaching 400 meters",
-          "summary": "Indonesia's Mount Anak Krakatau in the Sunda Strait erupted 20 times on August 24, 2026, with ash plumes reaching 400 meters height, blanking nearby Sebesi Island and maintaining Level III alert status with a 3-km exclusion zone.",
-          "source": "The Star",
-          "date": "19 August 2026",
-          "significance": "One of Indonesia's most active volcanoes; rapid succession eruptions demonstrate need for continuous ash plume monitoring and aviation hazard coordination.",
-          "url": "https://www.thestar.com.my/aseanplus/aseanplus-news/2026/08/19/mt-anak-krakatau-erupts-more-than-two-dozen-times-blankets-nearby-island-in-ash",
-          "lang": "en"
-        },
-        {
-          "title": "Japan's Kikai Caldera magma reservoir refilling with fresh magma after 7,300 years",
-          "summary": "Seismic imaging reveals Kikai Caldera beneath Japan is accumulating chemically distinct newly injected magma at shallow depth (2.5-6 km), marking first detailed observation of post-eruption magma reinjection at a giant caldera system.",
-          "source": "ScienceDaily",
-          "date": "25 July 2026",
-          "significance": "Rare glimpse into supervolcano reactivation processes; findings apply to other calderas like Yellowstone and Toba for long-term eruption forecasting.",
-          "url": "https://www.sciencedaily.com/releases/2026/07/260725105644.htm",
-          "lang": "en"
-        },
-        {
-          "title": "Kīlauea episode 54 lava fountaining reaches 150 meters with volcanic plume to 17,000 feet",
-          "summary": "Kīlauea's lava fountaining episode 54 occurred on August 25, 2026, at Halemaʻumaʻu summit caldera, generating 150-meter fountains and tephra accumulation; reinflation patterns suggest another episode may occur within weeks.",
-          "source": "USGS Hawaiian Volcano Observatory",
-          "date": "25 August 2026",
-          "significance": "Active monitoring of Hawaii's world-leading volcanic research site documents episodic eruption cycles critical for understanding caldera eruption dynamics and hazard assessment.",
-          "url": "https://www.usgs.gov/volcanoes/kilauea/volcano-updates",
-          "lang": "en"
-        },
-        {
-          "title": "Great Sitkin volcano lava dome continues slow effusive eruption with low seismicity",
-          "summary": "Alaska's Great Sitkin volcano maintains continuous slow lava effusion within summit crater since July 2021, with lava dome gradually expanding eastward and only minor rockfall-related earthquakes detected over past week.",
-          "source": "USGS Alaska Volcano Observatory",
-          "date": "31 August 2026",
-          "significance": "Long-duration low-level basaltic lava extrusion demonstrates sustained dome-building processes; Aleutian monitoring network tracks Ring of Fire volcanic hazards.",
-          "url": "https://volcanoes.usgs.gov/hans-public/notice/DOI-USGS-AVO-2026-08-31T18:53:21+00:00",
-          "lang": "en"
-        }
-      ]
+      "count": 0,
+      "articles": []
     },
     {
       "label": "⛏️ Mining & Geology",
-      "count": 3,
-      "articles": [
-        {
-          "title": "Goliath Confirms Multiple Gold Mineralization Zones in Golden Triangle BC",
-          "summary": "Goliath Resources reports expansion of Bonanza Zone (19% increase) and Golden Gate Zone (38% increase) with newly defined volcanic Wedge Zones containing gold-bearing quartz-sulphide mineralization. Surebet Discovery footprint expanded to 2.01 km² representing a 12% increase from prior season.",
-          "source": "Globe Newswire",
-          "date": "31 August 2026",
-          "significance": "Major gold mineralization expansion in BC Golden Triangle indicates sustained resource growth potential; 100% hit rate drilling demonstrates exploration efficiency in established mineral district.",
-          "url": "https://www.globenewswire.com/news-release/2026/08/31/3353229/0/en/goliath-confirms-multiple-broad-intervals-of-gold-mineralization-connecting-the-bonanza-and-golden-gate-zones-that-remain-open-for-expansion-drilling-continues-on-the-high-grade-go.html",
-          "lang": "en"
-        },
-        {
-          "title": "Lynas Rare Earths Expands Supply Chain Beyond China Dominance",
-          "summary": "Lynas Rare Earths reported annual profits jumped sharply with average selling prices rising 59% amid global demand surge. Company pursuing new ionic clay deposits and early-stage talks for US magnet-making facility to diversify rare-earth supply outside China.",
-          "source": "Mining Engineering",
-          "date": "28 August 2026",
-          "significance": "Represents critical shift in rare-earth supply chain geopolitics; expansion of non-China processing capacity directly impacts global battery, EV, and defense supply security for geospatial mineral mapping professionals.",
-          "url": "https://media.smenet.org/mining-engineering-s-weekly-rundown-august-28-2026/",
-          "lang": "en"
-        },
-        {
-          "title": "Northern Discovery Metals Engages Geomap for Vent Copper Property Exploration",
-          "summary": "Northern Discovery Metals engaged Geomap Exploration to execute Stage 1 exploration program beginning September 2026 on Vent Copper Property in Alberni Mining Division, BC. Fieldwork includes geological mapping, prospecting and targeted rock-soil sampling.",
-          "source": "Globe Newswire",
-          "date": "25 August 2026",
-          "significance": "Systematic exploration methodology combines geological mapping with geophysical techniques; exemplifies modern mineral property advancement using multi-disciplinary geospatial assessment approaches.",
-          "url": "https://www.globenewswire.com/news-release/2026/08/25/3350375/0/en/northern-discovery-metals-engages-geomap-exploration-to-advance-vent-copper-targets.html",
-          "lang": "en"
-        }
-      ]
+      "count": 0,
+      "articles": []
     },
     {
       "label": "🚀 Space & Geodesy",
-      "count": 5,
-      "articles": [
-        {
-          "title": "NASA's Nancy Grace Roman Space Telescope Launches Successfully",
-          "summary": "NASA's Nancy Grace Roman Space Telescope launched aboard a SpaceX Falcon Heavy rocket on August 30, 2026, from Kennedy Space Center. The telescope begins a three-month journey to Sun-Earth L2 with a 100x wider field of view than Hubble for dark energy and exoplanet research.",
-          "source": "NASA",
-          "date": "31 August 2026",
-          "significance": "Major NASA flagship mission for infrared astronomy and cosmology; demonstrates continued space telescope capability for understanding universe structure and exoplanet detection.",
-          "url": "https://www.nasa.gov/news-release/nasas-dark-universe-seeking-nancy-grace-roman-space-telescope-launches/",
-          "lang": "en"
-        },
-        {
-          "title": "Sentinel-3C and FLEX Earth Observation Satellites Ready for September Launch",
-          "summary": "ESA's Copernicus Sentinel-3C and FLEX (FLuorescence Explorer) satellites are scheduled to launch together on Vega-C on September 14, 2026, from French Guiana. The dual launch will provide enhanced Earth observation for oceans, land ice, and atmospheric monitoring.",
-          "source": "ESA / Avio",
-          "date": "30 July 2026",
-          "significance": "Critical for Copernicus program continuity; provides independent European earth observation data for climate monitoring and environmental management across multiple geospatial domains.",
-          "url": "https://www.avio.com/press-release/avio-to-launch-copernicus-sentinel-3-c-and-flex-satellites-on-september-14th-2026-on-vega-c",
-          "lang": "en"
-        },
-        {
-          "title": "Rocket Lab to Launch Synspective's StriX-9 Earth Observation Satellite",
-          "summary": "Rocket Lab is set to launch Synspective's StriX-9 synthetic aperture radar (SAR) satellite on September 1, 2026, from its New Zealand facility. The 100 kg satellite will operate in sun-synchronous orbit with 1-3 km resolution capabilities.",
-          "source": "Spaceflight Now",
-          "date": "1 September 2026",
-          "significance": "Advances commercial SAR earth observation capacity; supports disaster response and resource monitoring with high-resolution radar imaging at accessible price points.",
-          "url": "https://www.nasaspaceflight.com/2026/08/launch-preview-083126/",
-          "lang": "en"
-        },
-        {
-          "title": "SpaceX Completes 100th Orbital Mission of 2026 with Starlink Launch",
-          "summary": "SpaceX launched its 100th Falcon rocket mission of 2026 on August 21-22, deploying 27 Starlink satellites into low Earth orbit. The rapid cadence demonstrates sustained commercial satellite constellation expansion.",
-          "source": "SpaceNews / Space.com",
-          "date": "22 August 2026",
-          "significance": "Reflects commercial mega-constellation growth; global broadband coverage via LEO satellites impacts geospatial connectivity and remote sensing data distribution infrastructure.",
-          "url": "https://www.space.com/space-exploration/launches-spacecraft/spacex-starlink-satellite-launch-group-15-20",
-          "lang": "en"
-        },
-        {
-          "title": "IGS Analysis Center Coordinator Role Reassigned to NASA Goddard Partnership",
-          "summary": "The International GNSS Service announced a collaborative leadership for its Analysis Center Coordinator role, led by NASA Goddard Space Flight Center with Geoscience Australia, GFZ, and MIT. The role oversees GNSS product quality and terrestrial reference frame maintenance.",
-          "source": "NASA Space Geodesy Project",
-          "date": "19 March 2026",
-          "significance": "Critical for maintaining ITRF accuracy; coordinates global GNSS data processing essential for geodetic reference frames, precise positioning, and geodynamics monitoring.",
-          "url": "https://space-geodesy.nasa.gov/news/news.html",
-          "lang": "en"
-        }
-      ]
+      "count": 0,
+      "articles": []
     },
     {
       "label": "🧊 Cryosphere & Polar Science",
-      "count": 4,
-      "articles": [
-        {
-          "title": "Hidden earthquakes found at Antarctica's Doomsday Glacier",
-          "summary": "Over 360 glacier seismic events were detected near Thwaites and Pine Island glaciers, which are major sources of sea-level rise. Thwaites Glacier could raise global sea levels by 3 metres if it collapses completely.",
-          "source": "ScienceDaily",
-          "date": "31 August 2026",
-          "significance": "Detects previously unmapped seismic activity at Antarctic ice streams critical to sea-level rise prediction and glacier stability monitoring.",
-          "url": "https://www.sciencedaily.com/releases/2026/08/260829035328.htm",
-          "lang": "en"
-        },
-        {
-          "title": "Manhattan-sized ice island breaks off Greenland's Petermann Glacier",
-          "summary": "A 76.4 km² ice island calved from Petermann Glacier on August 4, 2026, marking the largest loss of floating ice since 2012 and the biggest Arctic calving event since 2020. Scientists expect two more large sections could detach.",
-          "source": "ScienceDaily",
-          "date": "26 August 2026",
-          "significance": "Major Arctic glacier destabilization event with implications for sea level rise, shipping routes, and ice sheet dynamics monitoring.",
-          "url": "https://www.sciencedaily.com/releases/2026/08/260826055503.htm",
-          "lang": "en"
-        },
-        {
-          "title": "East Antarctic Ice Gain Explained by Tropical Ocean-Atmosphere Connection",
-          "summary": "Between 2021-2023, East Antarctica unexpectedly gained ice mass due to warm tropical Pacific waters triggering atmospheric patterns that increased snowfall. This counterintuitive event demonstrates temporary climate feedbacks masking long-term trends.",
-          "source": "Nature",
-          "date": "27 August 2026",
-          "significance": "Reveals atmospheric teleconnections affecting Antarctic mass balance; critical for understanding transient climate variability in ice sheet projections.",
-          "url": "https://www.nature.com/nature/volumes/656/issues/8129",
-          "lang": "en"
-        },
-        {
-          "title": "Ice-sheet regime shifts with climate warming",
-          "summary": "Ice sheets exhibit bistable behavior under intermediate climate conditions but occupy predictable states at temperature extremes. Critical transitions occur with less than 2 K atmospheric warming changes.",
-          "source": "Nature Geoscience",
-          "date": "5 June 2026",
-          "significance": "Identifies tipping points and regime shifts in ice sheet stability; essential for sea-level rise projections and climate modeling thresholds.",
-          "url": "https://www.nature.com/articles/s41561-026-02010-4",
-          "lang": "en"
-        }
-      ]
+      "count": 0,
+      "articles": []
     },
     {
       "label": "🆘 Disaster & Hazard Monitoring",
-      "count": 5,
-      "articles": [
-        {
-          "title": "Nepal-China Border Glacier Collapse Triggers Catastrophic Flash Flood",
-          "summary": "On August 26, 2026, a massive glacier collapse near Langtang Lirung peak on the Nepal-China border triggered a devastating flash flood and landslide. The disaster killed at least 300-903 people with over 1,300 missing across Nepal and China, destroying villages, infrastructure, and the vital Rasuwagadhi border post.",
-          "source": "USGS",
-          "date": "4 days ago",
-          "significance": "Demonstrates climate-change-linked glacial collapse triggering extreme debris flows. Critical for early warning system design and glacier hazard monitoring in Himalayan regions with dense populations downstream.",
-          "url": "https://www.usgs.gov/programs/landslide-hazards/science/2026-nepal-debris-avalanche-and-flash-flood",
-          "lang": "en"
-        },
-        {
-          "title": "Flores Earthquake (7.7–7.8 magnitude) Kills 111 in Indonesia, Triggers Tsunami",
-          "summary": "On August 15, 2026, a magnitude 7.7–7.8 earthquake struck off Indonesia's Flores Island, causing at least 111 deaths and injuring 1,678 people. The quake damaged 95,500 homes and triggered a tsunami with a maximum height of 1.61 m. Over 230 aftershocks followed.",
-          "source": "Al Jazeera",
-          "date": "2 weeks ago",
-          "significance": "Major subduction zone earthquake in Pacific Ring of Fire. Essential for tsunami preparedness, real-time aftershock monitoring, and understanding Flores back-arc thrust fault hazards for regional disaster risk reduction.",
-          "url": "https://www.aljazeera.com/news/2026/8/15/at-least-two-killed-as-magnitude-7-7-quake-hits-indonesia",
-          "lang": "en"
-        },
-        {
-          "title": "European Wildfire Season Shows Extreme Danger in Central Europe and Balkans",
-          "summary": "As of August 31, 2026, 636,100 hectares have burned in Europe this year—below the record 2025 levels but still severe. Very extreme fire danger is forecast through September 2, particularly in central Europe, the Balkans, northern Finland, Portugal, and eastern Spain.",
-          "source": "Joint Research Centre (EC)",
-          "date": "4 days ago",
-          "significance": "Real-time fire danger monitoring using Fire Weather Index (FWI) anomalies. Critical for early warning, resource allocation, and understanding wildfire risk in context of climate change and extreme temperatures across diverse European ecosystems.",
-          "url": "https://joint-research-centre.ec.europa.eu/scientific-activities/natural-and-man-made-hazards/forest-fires/current-wildfire-situation-europe_en",
-          "lang": "en"
-        },
-        {
-          "title": "US Wildfire Activity Reaches 126% of 10-Year Average by Early September 2026",
-          "summary": "By August 31, 2026, firefighters responded to 52,253 wildfires burning over 8.2 million acres across the United States—126% of the 10-year average for fire count and 166% for acreage. Severe drought and heat persist in the West.",
-          "source": "National Interagency Fire Center (NIFC)",
-          "date": "1 day ago",
-          "significance": "Quantifies unprecedented wildfire scale for North America. Geospatial monitoring via satellite imagery (NOAA NESDIS) and fuel condition mapping are essential for real-time risk assessment and interagency resource coordination.",
-          "url": "https://www.nifc.gov/fire-information/nfn",
-          "lang": "en"
-        },
-        {
-          "title": "2026 Dagestan Flood: Largest in Over Century, Kills 7, Displaces Thousands",
-          "summary": "On March 28–31, 2026, anomalous heavy rainfall triggered catastrophic flooding and landslides in Russia's Republic of Dagestan, affecting capital Makhachkala and coastal regions. The event became one of the largest floods in the region in 100 years, with 7 confirmed deaths and 50,000 affected.",
-          "source": "Wikipedia / Russian Emergency Services",
-          "date": "August 31, 2026",
-          "significance": "Exceptional rainfall and terrain-driven landslide cascade in mountainous region. Demonstrates importance of cross-border hydrological monitoring and early warning systems for flash flood hazards in Caucasus geographies.",
-          "url": "https://en.wikipedia.org/wiki/2026_Dagestan_flood",
-          "lang": "en"
-        }
-      ]
+      "count": 0,
+      "articles": []
     },
     {
       "label": "🇮🇳 India",
-      "count": 5,
-      "articles": [
-        {
-          "title": "SVAMITVA drone mapping generates 3.30 lakh villages mapped, Rs 1,713 cr loans",
-          "summary": "India's SVAMITVA scheme has completed drone surveys in 3.30 lakh villages, enabling Rs 1,713 crore in loans through property cards. Union Minister announced progress in Rajya Sabha on August 5, 2026.",
-          "source": "Press Trust of India (ANI)",
-          "date": "5 August 2026",
-          "significance": "Geospatial professionals track SVAMITVA's scale; 3.30 lakh villages mapped using drone surveys and CORS technology enables property-based lending.",
-          "url": "https://aninews.in/news/national/general-news/330-lakh-villages-mapped-under-svamitva-scheme-rs-1713-cr-loans-disbursed-using-property-cards20260805182142/",
-          "lang": "en"
-        },
-        {
-          "title": "Bharatiya Antariksh Hackathon finals at NRSC Hyderabad during 6-7 August 2026",
-          "summary": "ISRO announced shortlisted teams competing in grand finale of Bharatiya Antariksh Hackathon at National Remote Sensing Centre, Hyderabad.",
-          "source": "Indian Space Research Organisation (ISRO)",
-          "date": "6 August 2026",
-          "significance": "NRSC innovation event showcasing geospatial and space tech talent development, fostering India's growing ecosystem of remote sensing applications.",
-          "url": "https://www.isro.gov.in/",
-          "lang": "en"
-        },
-        {
-          "title": "National-scale sandy beach dataset for India from satellite imagery",
-          "summary": "Researchers published first comprehensive high-resolution mapping of sandy beaches across India using IRS ResourceSat-2 LISS-IV imagery and deep learning.",
-          "source": "Nature Scientific Data",
-          "date": "9 May 2026",
-          "significance": "NRSC-supported coastal mapping research enables improved coastal management and conservation planning using satellite remote sensing infrastructure.",
-          "url": "https://www.nature.com/articles/s41597-026-07408-8",
-          "lang": "en"
-        },
-        {
-          "title": "PM Gati Shakti integrated over 1,700 data layers for multimodal connectivity",
-          "summary": "Union Budget 2026-27 highlights PM Gati Shakti as key driver of integrated infrastructure planning using 1,700+ data layers across 57 ministries.",
-          "source": "IBEF (India Brand Equity Foundation)",
-          "date": "June 2026",
-          "significance": "Geospatial professionals use PM Gati Shakti's GIS-based platform integrating multi-ministry data; private sector now gaining access to 230 datasets.",
-          "url": "",
-          "lang": "en"
-        },
-        {
-          "title": "Report on Geospatial Data Standards in India 2026 released by Survey of India",
-          "summary": "Survey of India published comprehensive report on geospatial data standards for 2026, supporting the National Geospatial Policy implementation.",
-          "source": "Survey of India",
-          "date": "July 2026",
-          "significance": "SOI standards guide geospatial data acquisition, processing, and sharing across government and private sector applications in India.",
-          "url": "https://surveyofindia.gov.in/pages/national-geospatial-policy-2022",
-          "lang": "en"
-        }
-      ]
+      "count": 0,
+      "articles": []
     },
     {
       "label": "🌐 Global Geospatial Intelligence",
-      "count": 5,
-      "articles": [
-        {
-          "title": "Satellite data-driven cabbage demand forecasting rolls out in Japan",
-          "summary": "JAXA's satellite data-driven system predicts cabbage crop supplies and prices to optimize advertising and reduce food waste. The initiative links Earth observation satellite technology with Dentsu's advertising platform, launching at 50 retail stores in Tokyo and Kansai regions on August 24, 2026.",
-          "source": "The Japan Times",
-          "date": "25 August 2026",
-          "significance": "Demonstrates practical geospatial intelligence application in agriculture using satellite data for supply-demand optimization and waste reduction.",
-          "url": "https://www.japantimes.co.jp/news/2026/08/25/japan/satellite-data-cabbage-sales/",
-          "lang": "en"
-        },
-        {
-          "title": "LINZ launches 3D Coastal Mapping Programme to protect New Zealand shores",
-          "summary": "New Zealand's LINZ begins a three-year 3D Coastal Mapping Programme capturing elevation and seafloor data for up to 40% of the coastline. The initiative supports hazard modeling and infrastructure planning amid climate change impacts.",
-          "source": "Hydro International",
-          "date": "16 June 2026",
-          "significance": "Critical coastal geospatial infrastructure providing LiDAR-based bathymetric and topographic data for climate resilience and maritime planning.",
-          "url": "https://www.hydro-international.com/content/article/the-art-of-mapping-the-edge",
-          "lang": "en"
-        },
-        {
-          "title": "Global Earth observation experts convene in Perth under Australia's CEOS leadership",
-          "summary": "Australia leads the Committee on Earth Observation Satellites (CEOS) in 2026 with Team Australia comprising CSIRO, Geoscience Australia, and the Bureau of Meteorology. Focus on calibration, validation, and SAR mission coordination.",
-          "source": "Spatial Source",
-          "date": "1 September 2026",
-          "significance": "Demonstrates international coordination of satellite data calibration and validation standards critical for geospatial intelligence consistency.",
-          "url": "https://www.spatialsource.com.au/global-earth-observation-experts-to-convene-in-perth/",
-          "lang": "en"
-        },
-        {
-          "title": "Argentina's CONAE launches ATENEA CubeSat as part of Artemis 2 mission",
-          "summary": "Argentina's CONAE successfully launched ATENEA, a 12U CubeSat developed with universities and scientific agencies, as part of NASA's Artemis 2 lunar mission on April 1, 2026. The satellite tested deep-space communications and radiation measurement technologies.",
-          "source": "Wikipedia (ATENEA)",
-          "date": "1 April 2026",
-          "significance": "Demonstrates Argentine geospatial and space capabilities in deep-space technology development and international partnerships.",
-          "url": "https://en.wikipedia.org/wiki/ATENEA_(satellite)",
-          "lang": "en"
-        },
-        {
-          "title": "South Korea plans 19 small reconnaissance satellites through 2026-2027",
-          "summary": "South Korea's military authorities plan to launch 19 small and ultra-small cluster reconnaissance satellites with synthetic aperture radar (SAR) capabilities. About 60% of missions focus on North Korea surveillance, with 40% for civilian disaster response.",
-          "source": "Seoul Economic Daily",
-          "date": "4 May 2026",
-          "significance": "Major Asia-Pacific geospatial intelligence initiative combining military surveillance with civilian applications for disaster management.",
-          "url": "https://en.sedaily.com/politics/2026/05/04/korea-to-launch-19-small-reconnaissance-satellites-by-2026",
-          "lang": "en"
-        }
-      ]
+      "count": 0,
+      "articles": []
     }
   ]
 }

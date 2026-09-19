@@ -1,72 +1,709 @@
 {
-  "generated_at_ist": "2026-09-15 13:30:24 IST",
-  "generated_at_utc": "2026-09-15T08:00:24.367385+00:00",
-  "generated_iso": "2026-09-15T13:30:24.367229+05:30",
-  "display_date": "Tuesday, 15 September 2026",
-  "display_time": "01:30 PM IST",
+  "generated_at_ist": "2026-09-19 20:13:56 IST",
+  "generated_at_utc": "2026-09-19T14:44:16.973252+00:00",
+  "generated_iso": "2026-09-19T20:13:56.102254+05:30",
+  "display_date": "Saturday, 19 September 2026",
+  "display_time": "08:13 PM IST",
   "stats": {
-    "total_articles": 0,
+    "total_articles": 67,
     "domains_total": 11,
-    "domains_with_news": 0,
-    "unique_sources": 0,
-    "elapsed": "136s"
+    "domains_with_news": 11,
+    "unique_sources": 22,
+    "elapsed": "20s"
   },
-  "source_summary": {},
+  "source_summary": {
+    "ESA Observing the Earth": 2,
+    "NASA Science Earth": 2,
+    "Eos (AGU)": 10,
+    "Phys.org Earth": 12,
+    "Nature Climate Change": 1,
+    "Carbon Brief": 2,
+    "ScienceDaily Earth & Climate": 9,
+    "Woods Hole (WHOI)": 2,
+    "Nature": 3,
+    "USGS Earthquakes M4.5+": 2,
+    "Nature Geoscience": 4,
+    "Smithsonian GVP Weekly Volcanic Activity": 1,
+    "MINING.COM": 2,
+    "Phys.org Space": 2,
+    "SpaceNews": 2,
+    "ScienceDaily Space": 2,
+    "NASA JPL": 1,
+    "The Cryosphere (Copernicus)": 2,
+    "GDACS": 1,
+    "Copernicus Emergency Management Service": 1,
+    "The Hindu Sci-Tech": 2,
+    "Mongabay": 2
+  },
   "domains": [
     {
       "label": "🛰️ Remote Sensing & GIS",
-      "count": 0,
-      "articles": []
+      "count": 4,
+      "articles": [
+        {
+          "title": "Earth from Space: Laguna Colorada",
+          "summary": "Image: This Copernicus Sentinel-2 image, acquired on 25 August 2026, shows an area of the Andean Altiplano in southern Bolivia near the border with Chile.",
+          "source": "ESA Observing the Earth",
+          "date": "18 September 2026",
+          "url": "https://www.esa.int/ESA_Multimedia/Images/2026/09/Earth_from_Space_Laguna_Colorada",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Lake Powell Drops to Record-Low Levels",
+          "summary": "Snow drought and unusually warm temperatures in the Colorado Basin in 2026 helped drive down reservoir water storage in the U.S. West. The post Lake Powell Drops to Record-Low Levels appeared first on NASA Science .",
+          "source": "NASA Science Earth",
+          "date": "18 September 2026",
+          "url": "https://science.nasa.gov/earth/earth-observatory/lake-powell-drops-to-record-low-levels/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "ESA awards contracts for Europe’s EOGS blueprint",
+          "summary": "The European Space Agency has awarded two contracts, one to ICEYE and one to Leonardo, to carry out parallel architecture studies for the EU’s future Earth Observation Governmental Service (EOGS). These activities are funded by the European Commission and are integral part of Element 1 of ESA’s European Resilience from Space for Earth Observation (ERS-EO) programme – a new programme decided at the Ministerial…",
+          "source": "ESA Observing the Earth",
+          "date": "17 September 2026",
+          "url": "https://www.esa.int/Applications/Observing_the_Earth/ESA_awards_contracts_for_Europe_s_EOGS_blueprint",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Summer Goes Out With a Heat Dome",
+          "summary": "Temperature records toppled across the central and southern U.S. as the autumnal equinox approached. The post Summer Goes Out With a Heat Dome appeared first on NASA Science .",
+          "source": "NASA Science Earth",
+          "date": "17 September 2026",
+          "url": "https://science.nasa.gov/earth/earth-observatory/summer-goes-out-with-a-heat-dome/",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
     },
     {
       "label": "🌡️ Climatology & Atmospheric Science",
-      "count": 0,
-      "articles": []
+      "count": 8,
+      "articles": [
+        {
+          "title": "Chemical Conversations Between Forests and the Sky Affect Air Quality, Clouds, and More",
+          "summary": "Tropical tree emissions hang above the forest canopy around Borobudur temple on the island of Java. Credit: Kanenori / Pixabay",
+          "source": "Eos (AGU)",
+          "date": "18 September 2026",
+          "url": "https://eos.org/features/chemical-conversations-between-forests-and-the-sky-affect-air-quality-clouds-and-more",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "In hottest summer on record, 2 in 3 Americans say climate change is increasing heat-related illnesses",
+          "summary": "Nearly two-thirds of the American public say climate change is increasing the risk of respiratory diseases and heat- and insect-related illnesses, according to a new survey from the Annenberg Public Policy Center (APPC) of the University of Pennsylvania.",
+          "source": "Phys.org Earth",
+          "date": "18 September 2026",
+          "url": "https://phys.org/news/2026-09-hottest-summer-americans-climate-illnesses.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Genetically engineered crops increase climate resilience of US fields",
+          "summary": "Nature Climate Change, Published online: 18 September 2026; doi:10.1038/s41558-026-02750-6 Analyses of four decades of data show that genetically engineered varieties of corn, soybean and cotton raised average yields, reduced year-on-year yield variability and blunted the climate-driven northward drift of crop production. These findings indicate that biotechnology is an under-recognized instrument of climate…",
+          "source": "Nature Climate Change",
+          "date": "18 September 2026",
+          "url": "https://www.nature.com/articles/s41558-026-02750-6",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Why global wind energy may stay steady even as storm tracks shift poleward",
+          "summary": "Understanding how wind changes in response to global warming is necessary for accurately modeling climate and weather, identifying risks to infrastructure, and assessing global wind power capacity.",
+          "source": "Phys.org Earth",
+          "date": "18 September 2026",
+          "url": "https://phys.org/news/2026-09-global-energy-stay-steady-storm.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Wind Works: The Atmosphere’s Invisible Energetic Tug-of-War",
+          "summary": "New research aims to improve understanding of the heat engine driving winds on Earth. Credit: Daniel Boberg / Unsplash",
+          "source": "Eos (AGU)",
+          "date": "17 September 2026",
+          "url": "https://eos.org/research-spotlights/wind-works-the-atmospheres-invisible-energetic-tug-of-war",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Analysis: India’s power-sector emissions flat for two years due to clean-energy surge",
+          "summary": "A surge in clean energy has kept carbon dioxide (CO2) emissions in check across India’s power sector, with no growth… The post Analysis: India’s power-sector emissions flat for two years due to clean-energy surge appeared first on Carbon Brief .",
+          "source": "Carbon Brief",
+          "date": "17 September 2026",
+          "url": "https://www.carbonbrief.org/analysis-indias-power-sector-emissions-flat-for-two-years-due-to-clean-energy-surge",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Analysis: Global fossil-fuel emissions set to fall in 2026 amid Hormuz crisis",
+          "summary": "Global fossil-fuel emissions are set to fall by around 0.5% in 2026 amid the fallout from the Hormuz crisis, according… The post Analysis: Global fossil-fuel emissions set to fall in 2026 amid Hormuz crisis appeared first on Carbon Brief .",
+          "source": "Carbon Brief",
+          "date": "16 September 2026",
+          "url": "https://www.carbonbrief.org/analysis-global-fossil-fuel-emissions-set-to-fall-in-2026-amid-hormuz-crisis",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Irrigation’s climate benefit could equal 363 years of its own emissions",
+          "summary": "U.S. irrigation produces some greenhouse gas emissions, but new research suggests it prevents vastly more by allowing farmers to grow more food on less land. Without irrigation, replacing lost crop yields could require converting natural ecosystems into farmland, releasing an estimated 6.86 gigatons of greenhouse gases. That is equivalent to about 363 years of current annual U.S. irrigation emissions.",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "16 September 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260915232119.htm",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
     },
     {
       "label": "🌊 Oceanography & Marine Science",
-      "count": 0,
-      "articles": []
+      "count": 8,
+      "articles": [
+        {
+          "title": "Sea surface temperature biases shift the North Pacific jet stream southward, study finds",
+          "summary": "Climate models are numerical models used to project future climate change. They simulate the climate from the present into the future by calculating changes in the atmosphere, ocean and other components of the climate system. However, simulations of the present-day climate do not perfectly reproduce observations and contain various biases. The model characteristics that cause these biases can also affect simulations…",
+          "source": "Phys.org Earth",
+          "date": "19 September 2026",
+          "url": "https://phys.org/news/2026-09-sea-surface-temperature-biases-shift.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Venusian Sulfur Clouds Might Not Be So Inhospitable After All",
+          "summary": "Data from NASA’s Magellan spacecraft were used to create this image of Venus’s northern hemisphere. New research examines the possibility that peptides can form into omega loops in the planet’s sulfuric clouds. Credit: NASA/JPL-Caltech",
+          "source": "Eos (AGU)",
+          "date": "18 September 2026",
+          "url": "https://eos.org/articles/venusian-sulfur-clouds-might-not-be-so-inhospitable-after-all",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Fossil plankton shells reveal reduced nitrogen fixation in warmer oceans 3 million years ago",
+          "summary": "Nitrogen is a key nutrient because it fuels the growth of plankton, which forms the basis of the marine food web. Two opposing processes determine the global nitrogen cycle: nitrogen fixation and denitrification.",
+          "source": "Phys.org Earth",
+          "date": "18 September 2026",
+          "url": "https://phys.org/news/2026-09-fossil-plankton-shells-reveal-nitrogen.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "These seabirds fly toward cyclones, not away from them",
+          "summary": "New GPS tracking on petrels reveals a surprising survival strategy hidden in the eye of the storm",
+          "source": "Woods Hole (WHOI)",
+          "date": "17 September 2026",
+          "url": "https://www.whoi.edu/oceanus/feature/rare-seabirds-chase-cyclones-petrels/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Dust and Marine Halogens Team Up to Destroy Tropospheric Ozone",
+          "summary": "Dust plumes in Baja California, Mexico in October 2007. Credit: NASA",
+          "source": "Eos (AGU)",
+          "date": "17 September 2026",
+          "url": "https://eos.org/editor-highlights/dust-and-marine-halogens-team-up-to-destroy-tropospheric-ozone",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Marine carbon dioxide removal is advancing, but questions remain about viability, says new digital report",
+          "summary": "A new National Academies report lays out a research strategy for studying the ocean's ability to sequester carbon",
+          "source": "Woods Hole (WHOI)",
+          "date": "17 September 2026",
+          "url": "https://www.whoi.edu/press-room/news-release/mcdrreport/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Marine bacteria cooperate to break down complex algal carbohydrates",
+          "summary": "Nature, Published online: 16 September 2026; doi:10.1038/d41586-026-02873-y Marine algae produce sulfated carbohydrates called fucoidans that are chemically too complex for any bacteria to digest alone. Instead, marine bacteria split the task between them in a modular fashion: some strains degrade the molecular backbone, whereas others remove the side branches.",
+          "source": "Nature",
+          "date": "16 September 2026",
+          "url": "https://www.nature.com/articles/d41586-026-02873-y",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "A coral reef thought dead for 60 years is teeming with life",
+          "summary": "More than 60 years after surveys suggested a deep coral reef off Benin was probably dead, scientists have found it alive. Cameras revealed healthy-looking coral patches supporting multiple fish species more than 50 meters beneath the surface. The discovery suggests West Africa’s coastal waters may contain other overlooked reefs that have yet to be documented.",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "15 September 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260913081927.htm",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
     },
     {
       "label": "🏔️ Plate Tectonics & Seismology",
-      "count": 0,
-      "articles": []
+      "count": 6,
+      "articles": [
+        {
+          "title": "M 6.5 - 169 km W of Nikolski, Alaska",
+          "summary": "PAGER - GREEN ShakeMap - V DYFI? - III Time 2026-09-17 14:19:52 UTC 2026-09-17 14:19:52 UTC at epicenter Location 52.859°N 171.376°W Depth 98.00 km (60.89 mi)",
+          "source": "USGS Earthquakes M4.5+",
+          "date": "19 September 2026",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000ti1p",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "M 4.8 - 5 km SW of Guánica, Puerto Rico",
+          "summary": "PAGER - GREEN ShakeMap - IV DYFI? - VI Time 2026-09-18 13:19:35 UTC 2026-09-18 13:19:35 UTC at epicenter Location 17.939°N 66.946°W Depth 7.00 km (4.35 mi)",
+          "source": "USGS Earthquakes M4.5+",
+          "date": "19 September 2026",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/pr2026261000",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "North Korea's nuclear testing may have triggered hundreds of earthquakes over several years",
+          "summary": "Between 2006 and 2017, North Korea conducted six underground nuclear tests at its vast testing site at Mount Mantap in North Hamgyong province. Typically, underground explosions trigger an intense burst of minor earthquakes that die down once testing stops. But geologists have detected far more seismic activity after the final detonation, and it has persisted for years.",
+          "source": "Phys.org Earth",
+          "date": "19 September 2026",
+          "url": "https://phys.org/news/2026-09-north-korea-nuclear-triggered-hundreds.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Reading Fault Stress from the Rhythm of Earthquakes",
+          "summary": "The 2008 Reno–Mogul earthquake swarm. Maps in panels (a) and (c) show earthquake epicenters; panel (a) also includes mapped faults and GPS stations. Panel (b) presents earthquake depths, while panel (d) shows changes in the number of earthquakes over time. Panels (c) and (d) compare the original catalog (black) with events remaining after likely aftershocks were removed (red). Credit: Credit: Jiang et al. [2026] ,…",
+          "source": "Eos (AGU)",
+          "date": "16 September 2026",
+          "url": "https://eos.org/editor-highlights/reading-fault-stress-from-the-rhythm-of-earthquakes",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "UNESCO warns there’s close to a 100% chance of a Mediterranean tsunami",
+          "summary": "The Mediterranean may seem far removed from the world’s major tsunami zones, but history and modern modeling show that destructive waves can strike the French Riviera with surprisingly little warning. Some tsunamis could reach shore in under 10 minutes, while past events have produced waves around two meters high, powerful currents, damage, and deaths.",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "10 September 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260910022149.htm",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Maximum earthquake magnitude unlikely to be controlled by subduction interface roughness",
+          "summary": "Nature Geoscience, Published online: 10 September 2026; doi:10.1038/s41561-026-02093-z An analysis of data from 15 subduction zones finds no relationship between metrics of the topography of the plate interface and the largest earthquake it can generate, implying that this topography is not a key control on subduction zone seismicity.",
+          "source": "Nature Geoscience",
+          "date": "10 September 2026",
+          "url": "https://www.nature.com/articles/s41561-026-02093-z",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
     },
     {
       "label": "🌋 Volcanology",
-      "count": 0,
-      "articles": []
+      "count": 6,
+      "articles": [
+        {
+          "title": "How one plume of hot rock built two volcano chains off Australia's coast",
+          "summary": "Lord Howe Island sits about 600 kilometers (370 miles) off the New South Wales coast, a crescent of rainforest and sea cliffs that draws visitors to its beaches and birdlife. Few people realize they are standing on the worn-down remains of a volcano.",
+          "source": "Phys.org Earth",
+          "date": "18 September 2026",
+          "url": "https://phys.org/news/2026-09-plume-hot-built-volcano-chains.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Anak Krakatau blasts ash nearly 10 miles high",
+          "summary": "Anak Krakatau erupted for more than 24 hours in early September, sending volcanic ash up to 50,000 feet into the atmosphere. The ash cloud shut down eight airports, disrupted nearly 3,000 flights, and affected air quality as far away as Jakarta. NASA satellites captured dramatic views of the plume spreading across the region.",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "18 September 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260917003718.htm",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Experimental constraints on a long-lived magma layer at the Martian core–mantle boundary",
+          "summary": "Nature Geoscience, Published online: 18 September 2026; doi:10.1038/s41561-026-02104-z Melts generated at the Martian core–mantle boundary would be strongly enriched in iron and have high densities favouring the formation of a molten silicate layer previously suggested from InSight seismic data, according to experimental constraints.",
+          "source": "Nature Geoscience",
+          "date": "18 September 2026",
+          "url": "https://www.nature.com/articles/s41561-026-02104-z",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Krakatau (Indonesia) - Report for 10 September-16 September 2026 - New Eruptive Activity",
+          "summary": "The Pusat Vulkanologi dan Mitigasi Bencana Geologi (PVMBG) reported ongoing eruptive activity at Krakatau during 9-16 September. During 6-11 September there were 14 Strombolian eruptions reported. There was one eruption detected on a seismograph at 0047 on 9 September, but it was not visually confirmed. According to an analysis of a HIMAWARI-9 RGB image taken on that same day, an ash plume rose 2.1 km above the…",
+          "source": "Smithsonian GVP Weekly Volcanic Activity",
+          "date": "17 September 2026",
+          "url": "https://volcano.si.edu/reports_weekly.cfm",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Scientists stunned as volcano cloud starts destroying methane",
+          "summary": "The Hunga Tonga eruption may have triggered a surprising chemical reaction that destroyed some of the methane released into the atmosphere. Scientists say the discovery could reshape estimates of methane pollution and inspire new methods for slowing near-term global warming.",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "15 September 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260915095750.htm",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Rapid submarine caldera collapse during the 2022 climactic eruption of Hunga volcano (Tonga)",
+          "summary": "Nature Geoscience, Published online: 11 September 2026; doi:10.1038/s41561-026-02099-7 Rapid caldera collapse during submarine eruptions could increase tsunami magnitude, suggests an analysis of the geomorphological evolution of the caldera formed in the climactic eruption of Hunga volcano (Tonga) in 2022.",
+          "source": "Nature Geoscience",
+          "date": "11 September 2026",
+          "url": "https://www.nature.com/articles/s41561-026-02099-7",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
     },
     {
       "label": "⛏️ Mining & Geology",
-      "count": 0,
-      "articles": []
+      "count": 5,
+      "articles": [
+        {
+          "title": "US DOE looks to industry for critical minerals cleanup at legacy sites",
+          "summary": "Materials subject to the EOI are aluminum, cesium, chloride, copper, fluorine, lead, lithium hydride, platinum, selenium, silver, tungsten and vanadium.",
+          "source": "MINING.COM",
+          "date": "19 September 2026",
+          "url": "https://www.mining.com/us-doe-looks-to-industry-for-critical-minerals-and-materials-cleanup-at-legacy-sites/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Aura Minerals secures $200M loan for Americas growth",
+          "summary": "Aura operates four gold mines in Brazil, the Minosa gold mine in Honduras and the Aranzazu copper-gold-silver mine in Mexico.",
+          "source": "MINING.COM",
+          "date": "19 September 2026",
+          "url": "https://www.mining.com/aura-minerals-secures-200m-loan-for-americas-growth/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Earth–Moon and Solar System history recorded in Mesoproterozoic Grand Canyon strata",
+          "summary": "Nature Geoscience, Published online: 18 September 2026; doi:10.1038/s41561-026-02100-3 Cyclostratigraphic analysis of a ~1.2 billion-year-old rhythmically bedded mudstone formation in the Grand Canyon shows that the frequency and amplitude of Milanković cycles were markedly different than the present.",
+          "source": "Nature Geoscience",
+          "date": "18 September 2026",
+          "url": "https://www.nature.com/articles/s41561-026-02100-3",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Scientists turn seawater into fresh water without harmful brine",
+          "summary": "Scientists have developed a solar-powered desalination system that turns seawater into fresh water while removing nearly all of the leftover salt as a solid instead of producing harmful brine. The self-cleaning technology could also recover valuable minerals such as lithium, potentially turning desalination waste into a useful resource.",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "16 September 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260915100137.htm",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "11 Things Park Staff Found in Yellowstone’s Hydrothermal Areas this Summer",
+          "summary": "Objects found by Yellowstone's Geology Program team are laid out here like a game of \"I Spy.\" Can you spot the jingle bell, compass, and micro-SD card? Credit: National Park Service photo by Margery Price, September 2026",
+          "source": "Eos (AGU)",
+          "date": "16 September 2026",
+          "url": "https://eos.org/research-and-developments/11-things-park-staff-found-in-yellowstones-hydrothermal-areas-this-summer",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
     },
     {
       "label": "🚀 Space & Geodesy",
-      "count": 0,
-      "articles": []
+      "count": 8,
+      "articles": [
+        {
+          "title": "Scientists simulate cosmic crashes to test whether icy moons gain or lose their ability to sustain life",
+          "summary": "Many of the moons orbiting Saturn, Uranus and Neptune likely conceal oceans of liquid water beneath miles of icy shell. Because life as we know it needs water, these buried oceans rank among the most promising places to search for life beyond Earth.",
+          "source": "Phys.org Space",
+          "date": "19 September 2026",
+          "url": "https://phys.org/news/2026-09-scientists-simulate-cosmic-icy-moons.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Hubble spots an out-of-sync galaxy",
+          "summary": "Though the spiral galaxy in this new image from the NASA/ESA Hubble Space Telescope seems serene, it hides a chaotic secret. This galaxy is NGC 4698, and it lies about 55 million light-years away in the constellation Virgo. It's one of more than a thousand galaxies in the Virgo Cluster, the nearest large cluster of galaxies bound together by gravity.",
+          "source": "Phys.org Space",
+          "date": "18 September 2026",
+          "url": "https://phys.org/news/2026-09-hubble-sync-galaxy.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Terran Orbital Promotes Margherita Cardi to Vice President of European Operations & Head of Strategic Programs",
+          "summary": "IRVINE, Calif. and TORINO, Italy – Sept. 17, 2026 – Terran Orbital, a Lockheed Martin company and a global leader in satellite-based solutions primarily serving the aerospace and defense industries, […] The post Terran Orbital Promotes Margherita Cardi to Vice President of European Operations & Head of Strategic Programs appeared first on SpaceNews .",
+          "source": "SpaceNews",
+          "date": "18 September 2026",
+          "url": "https://spacenews.com/terran-orbital-promotes-margherita-cardi-to-vice-president-of-european-operations-head-of-strategic-programs/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "NASA’s Roman Space Telescope could last more than twice as long as planned",
+          "summary": "NASA’s Roman Space Telescope may now have enough fuel for at least 22 years of science, more than double its original 10 year design life. An extremely precise course correction, extra fuel at launch, and additional expected savings could keep the powerful observatory studying the universe for decades.",
+          "source": "ScienceDaily Space",
+          "date": "18 September 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260918024802.htm",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Scientists are about to test Einstein’s gravity with exotic matter",
+          "summary": "Scientists have found a new way to create a controlled beam of muonium, an exotic atom containing a heavier cousin of the electron. The advance could allow researchers to test for the first time whether gravity acts on second-generation particles exactly as Einstein’s theory predicts. Any unexpected difference would be a major surprise and could potentially point toward new physics, including a hypothetical fifth…",
+          "source": "ScienceDaily Space",
+          "date": "18 September 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260918024808.htm",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Europe pushes for space independence amid geopolitical rifts",
+          "summary": "Nature, Published online: 18 September 2026; doi:10.1038/d41586-026-02919-1 The European Union is easing its reliance on US space infrastructure — and is seeking to grow its satellite and launch operations.",
+          "source": "Nature",
+          "date": "18 September 2026",
+          "url": "https://www.nature.com/articles/d41586-026-02919-1",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Satrec Initiative to build 10-centimeter-class optical satellites for Hanwha constellation",
+          "summary": "PARIS — South Korean company Satrec Initiative is working with parent company Hanwha Aerospace to provide high-resolution Earth imagery for the synthetic-aperture-radar (SAR) constellation announced in July. Satrec Initiative, acquires 25-centimeter optical […] The post Satrec Initiative to build 10-centimeter-class optical satellites for Hanwha constellation appeared first on SpaceNews .",
+          "source": "SpaceNews",
+          "date": "17 September 2026",
+          "url": "https://spacenews.com/satrec-initiative-to-build-10-centimeter-class-optical-satellites-for-hanwha-constellation/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "NASA Watches Earth’s Weight, Finds Center of Mass",
+          "summary": "As the seasons change, Earth transfers mass from some locations to pack on the gigatons in others.",
+          "source": "NASA JPL",
+          "date": "16 September 2026",
+          "url": "https://www.jpl.nasa.gov/news/nasa-watches-earths-weight-finds-center-of-mass",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
     },
     {
       "label": "🧊 Cryosphere & Polar Science",
-      "count": 0,
-      "articles": []
+      "count": 8,
+      "articles": [
+        {
+          "title": "Greenland's Qaanaaq Ice Cap has lost enough ice to produce a layer of water about 8 meters deep",
+          "summary": "Each summer, researchers from Hokkaido University returned to the Qaanaaq Ice Cap in northwestern Greenland to measure changes in the ice surface using aluminum poles drilled into the ice. Their 13-year record shows how the ice cap changed from 2012 to 2025.",
+          "source": "Phys.org Earth",
+          "date": "18 September 2026",
+          "url": "https://phys.org/news/2026-09-greenland-qaanaaq-ice-cap-lost.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "In 2025, the ozone hole shrank to one of its smallest sizes in decades",
+          "summary": "The Antarctic ozone hole in 2025 was one of the smallest in decades—a testament to the continuing success of international action to protect Earth's ozone layer, which shields us from the sun's harmful ultraviolet rays, according to a new report from the World Meteorological Organization (WMO).",
+          "source": "Phys.org Earth",
+          "date": "18 September 2026",
+          "url": "https://phys.org/news/2026-09-ozone-hole-shrunk-smallest-sizes.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Air temperature partitioning of snow accumulation, erosion and melt: a regime shift occurring on Mt. Ortles (Eastern Italian Alps)",
+          "summary": "Air temperature partitioning of snow accumulation, erosion and melt: a regime shift occurring on Mt. Ortles (Eastern Italian Alps) Tiziana Lazzarina Zendrini, Luca Carturan, Michael Lehning, Mathias Bavay, Federico Cazorzi, Paolo Gabrielli, Nander Wever, and Giancarlo Dalla Fontana The Cryosphere, 20, 5199–5224, https://doi.org/10.5194/tc-20-5199-2026, 2026 By combining in situ mass balance data with a physics‐based…",
+          "source": "The Cryosphere (Copernicus)",
+          "date": "18 September 2026",
+          "url": "https://doi.org/10.5194/tc-20-5199-2026",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Modelling climate-induced instability of ice-rich permafrost slopes",
+          "summary": "Modelling climate-induced instability of ice-rich permafrost slopes Juditha Aga, Antoni G. Lewkowicz, and Sebastian Westermann The Cryosphere, 20, 5225–5245, https://doi.org/10.5194/tc-20-5225-2026, 2026 In this study, we explore the influence of a warming climate on landslides in ice-rich permafrost slopes. Using climate, terrain and soil data, we built a model that simulates permafrost thaw and its impact on slope…",
+          "source": "The Cryosphere (Copernicus)",
+          "date": "18 September 2026",
+          "url": "https://doi.org/10.5194/tc-20-5225-2026",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Scientists just discovered why Arctic sea ice moves so strangely",
+          "summary": "Arctic sea ice may move in unexpected ways because individual ice floes are constantly colliding and transferring energy. Researchers found that this simple process can explain several long-standing mysteries about how quickly the ice moves and spreads.",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "18 September 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260917003708.htm",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Scientists Mapped a Hidden Glacier Using Gravity",
+          "summary": "Over six trips, master’s student Bronson Cvijanovich (pictured here walking on snow) collected 232 observations of the Timpanogos Rock Glacier in Utah using a gravimeter, which measures subtle differences in Earth’s gravity. Credit: Michael Thorne",
+          "source": "Eos (AGU)",
+          "date": "17 September 2026",
+          "url": "https://eos.org/articles/scientists-mapped-a-hidden-glacier-using-gravity",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "The Effects of Polar Night and Day on Arctic Air Masses",
+          "summary": "These clouds associated with a cold air outbreak (CAO) were photographed near the Arctic island of Svalbard in spring 2026 as part of an aircraft observing campaign. Credit: Marcus Klingebiel",
+          "source": "Eos (AGU)",
+          "date": "16 September 2026",
+          "url": "https://eos.org/features/the-effects-of-polar-night-and-day-on-arctic-air-masses",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "DNA solves the mystery of a body found in the Arctic in 1859",
+          "summary": "Scientists have used DNA from living descendants to identify four more members of the doomed Franklin expedition, including Harry Peglar, whose identity had remained uncertain for 166 years. The findings offer new clues about the sailors who survived for years in the Arctic before joining the expedition’s ultimately fatal escape attempt.",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "10 September 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260909231735.htm",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
     },
     {
       "label": "🆘 Disaster & Hazard Monitoring",
-      "count": 0,
-      "articles": []
+      "count": 8,
+      "articles": [
+        {
+          "title": "Green forest fire notification in Angola",
+          "summary": "On 04/09/2026, a forest fire started in Angola, until 17/09/2026.",
+          "source": "GDACS",
+          "date": "19 September 2026",
+          "url": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032170",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Improving urban flood forecasting with real-time hazardous rainfall detection",
+          "summary": "The Korea Institute of Civil Engineering and Building Technology (KICT) announced that it will apply its early detection technology for quasi-stationary linear rainbands and sudden localized torrential rainfall to the Urban Flood Forecasting Platform operated by the Han River Flood Control Office in Korea for urban flood forecasting.",
+          "source": "Phys.org Earth",
+          "date": "19 September 2026",
+          "url": "https://phys.org/news/2026-09-urban-real-hazardous-rainfall.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Who do you trust in an emergency? Researchers ask people in places hit by extreme weather",
+          "summary": "One evening in August 2025, a Pakistani shepherd, Abuzar Hussain, was tending sheep and goats on the mountain slopes of Shijar. At about 6 p.m., a thunderous roar shattered the silence of the valley.",
+          "source": "Phys.org Earth",
+          "date": "18 September 2026",
+          "url": "https://phys.org/news/2026-09-emergency-people-extreme-weather.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Precursory deformation for the 26 August 2026 Nepal landslide disaster",
+          "summary": "Planet Labs image from 28 August 2026 showing the aftermath of the 26 August 2026 landslide in Nepal. Image via Watanave Lab.",
+          "source": "Eos (AGU)",
+          "date": "16 September 2026",
+          "url": "https://eos.org/thelandslideblog/nepal-landslide-precursory-behaviour",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Updates on the 2026 Nepal-Tibet landslide and the 2023 Teesta Valley GLOF",
+          "summary": "The aftermath of the 2023 Teesta Valley GLOF in Chungthang, posted to the Save The Hills blog by Praful Rao.",
+          "source": "Eos (AGU)",
+          "date": "15 September 2026",
+          "url": "https://eos.org/thelandslideblog/2026-nepal-landslide-the-2023-teesta-valley-glof",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Wildfire in Huelva Province, Spain",
+          "summary": "Activation EMSR932. On the 15 September 2025 at 13:00 UTC, an active fire is reported to have affected anthropic forestry land in Huelva Province. Copernicus EMS Rapid Mapping is requested to provide initial rough estimation, fire extent and damage assessment emergency mapping.",
+          "source": "Copernicus Emergency Management Service",
+          "date": "15 September 2026",
+          "url": "http://mapping.emergency.copernicus.eu/news/wildfire-in-huelva-province-spain-emsr932/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Why Nepal floods resulted in a disaster even after satellites spotted danger",
+          "summary": "Nature, Published online: 15 September 2026; doi:10.1038/d41586-026-02907-5 Why Nepal floods resulted in a disaster even after satellites spotted danger",
+          "source": "Nature",
+          "date": "15 September 2026",
+          "url": "https://www.nature.com/articles/d41586-026-02907-5",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Back-to-back Arctic storms can double sea ice loss",
+          "summary": "Scientists have found that Arctic cyclones become especially destructive when several strike one after another. These storm clusters cause about twice as much sea ice loss as isolated cyclones, with impacts that persist roughly two and a half times longer. As Arctic ice becomes thinner and weaker, the damage from these storms appears to be increasing, potentially creating a feedback loop that accelerates future ice…",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "14 September 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260912220045.htm",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
     },
     {
       "label": "🇮🇳 India",
-      "count": 0,
-      "articles": []
+      "count": 2,
+      "articles": [
+        {
+          "title": "New, sophisticated drugs did not move the needs on hearts attacks, strokes: what this teaches us",
+          "summary": "Drugs built against specific biomarkers hsCRP and Lp(a) both failed to reduce the number of heart attacks and strokes, in recent clinical trials. Cardiovascular medicine teaches us again and again that the interventions with the best evidence are still the boring ones: eat well, move, don’t smoke, stay lean",
+          "source": "The Hindu Sci-Tech",
+          "date": "19 September 2026",
+          "url": "https://www.thehindu.com/sci-tech/health/new-sophisticated-drugs-did-not-move-the-needs-on-hearts-attacks-strokes-what-this-teaches-us/article71467117.ece",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Apple Pay eyes India rollout with Axis Bank, sources say",
+          "summary": "Apple Pay ‌has ⁠also been in discussions with HDFC Bank and ICICI Bank but they are yet to agree commercial terms",
+          "source": "The Hindu Sci-Tech",
+          "date": "19 September 2026",
+          "url": "https://www.thehindu.com/business/Industry/apple-pay-eyes-india-rollout-with-axis-bank-sources-say/article71479562.ece",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
     },
     {
       "label": "🌐 Global Geospatial Intelligence",
-      "count": 0,
-      "articles": []
+      "count": 4,
+      "articles": [
+        {
+          "title": "Canada shuts down corporate watchdog. Critics say its replacement lacks teeth",
+          "summary": "When the Canadian government earlier this year shut down its independent watchdog responsible for investigating alleged human rights abuses including environmental pollution by Canada-based companies operating overseas, it promised that a little-known office called the National Contact Point would take over that work. But critics say the National Contact Point, which has operated for more […]",
+          "source": "Mongabay",
+          "date": "19 September 2026",
+          "url": "https://news.mongabay.com/2026/09/canada-shuts-down-corporate-watchdog-critics-say-its-replacement-lacks-teeth/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "‘You Belong with Me:’ Taylor Swift has a new genus of bug named after her",
+          "summary": "You may have heard her songs, seen her videos, maybe even attended one of her concerts … but have you seen the new genus of Australian plant bugs named after Taylor Swift? Scientists at the University of California, Riverside recently described a new genus of plant bugs, they’ve named Swiftiephylus, in honor of the Grammy-winning […]",
+          "source": "Mongabay",
+          "date": "19 September 2026",
+          "url": "https://news.mongabay.com/short-article/2026/09/you-belong-with-me-taylor-swift-has-a-new-genus-of-bug-named-after-her/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Nullarbor mapping reveals surface signs of deep, hidden cave systems",
+          "summary": "Mysterious trenches stretching for kilometers across southern Australia's Nullarbor Plain have been revealed as the surface footprints of deep, hidden ancient cave systems.",
+          "source": "Phys.org Earth",
+          "date": "17 September 2026",
+          "url": "https://phys.org/news/2026-09-nullarbor-reveals-surface-deep-hidden.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "We could soon be able to track changes in Australia's forests in near‑real time—using satellites",
+          "summary": "Forests and woodlands cover millions of hectares across Australia, from tropical rainforests and temperate eucalypt forests to the vast woodlands and shrublands of the arid interior. They store enormous amounts of carbon, support biodiversity, regulate water supplies and help buffer the impacts of climate change. Yet we know surprisingly little about how these important ecosystems are changing over time.",
+          "source": "Phys.org Earth",
+          "date": "17 September 2026",
+          "url": "https://phys.org/news/2026-09-track-australia-forests-nearreal-satellites.html",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
     }
   ]
 }

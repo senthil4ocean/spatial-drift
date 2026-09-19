@@ -1,0 +1,93 @@
+name: 🌍 Spatial Drift — Fortnightly Brief (RSS, no API)
+
+# ==============================================================================
+#  Replaces fortnightly-alert.yml. Differences that matter:
+#
+#   - No ANTHROPIC_API_KEY. Nothing here costs money per run.
+#   - No API-key validation step, so a dead key can no longer abort the run.
+#   - Articles come from publisher RSS/Atom feeds, so every link is a real
+#     article with a real publication date. Nothing is generated.
+#   - Same output files (data/articles.json, docs/articles.json) in the same
+#     schema, so the Pages site and the portfolio keep working unchanged.
+#   - Same Telegram secrets as before: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID.
+#
+#  Schedule: 1st and 15th at 01:53 UTC = 07:23 AM IST, matching the original.
+#  Only ONE cron here, not a primary + backup pair: the old script needed a
+#  backup because API calls could hang, and then needed last_run.txt dedup to
+#  stop the backup double-posting. Feed fetching either works or fails fast,
+#  so a single run with per-feed error handling is enough — and there is no
+#  dedup file to go wrong.
+# ==============================================================================
+
+on:
+  schedule:
+    - cron: "53 1 1,15 * *"     # 1st & 15th, 07:23 AM IST
+
+  workflow_dispatch:            # manual run from the Actions tab
+    inputs:
+      recency_days:
+        description: "How many days back to look for articles"
+        required: false
+        default: "15"
+      skip_telegram:
+        description: "Set to 1 to build the JSON without sending Telegram"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: spatial-drift-brief
+  cancel-in-progress: false
+
+jobs:
+  brief:
+    name: Harvest feeds, publish JSON, send Telegram
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v5
+
+      - name: 🐍 Python 3.12
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: 📦 Install dependencies
+        run: pip install --quiet feedparser requests
+
+      - name: 🌍 Harvest and send
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:   ${{ secrets.TELEGRAM_CHAT_ID }}
+          RECENCY_DAYS:       ${{ github.event.inputs.recency_days || '15' }}
+          SKIP_TELEGRAM:      ${{ github.event.inputs.skip_telegram || '' }}
+          MAX_PER_DOMAIN:     "8"
+          MAX_PER_SOURCE:     "2"
+        run: python spatial_drift_rss.py
+
+      - name: 💾 Commit updated articles
+        run: |
+          git config user.name  "spatial-drift-bot"
+          git config user.email "bot@spatialdrift.local"
+          git add data/articles.json docs/articles.json data/archive/ 2>/dev/null || true
+          if git diff --staged --quiet 2>/dev/null; then
+            echo "Nothing to commit."
+          else
+            git commit -m "🌍 Spatial Drift brief — $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+          fi
+
+      # The harvest step never fails the job over a single dead feed — it logs
+      # each one in the FEED REPORT instead. This surfaces that report as the
+      # job summary so a feed that has gone stale is visible without digging
+      # through logs.
+      - name: 📋 Note
+        if: always()
+        run: |
+          echo "### Spatial Drift run finished" >> $GITHUB_STEP_SUMMARY
+          echo "Check the *Harvest and send* step's FEED REPORT for any feed marked FAIL or EMPTY." >> $GITHUB_STEP_SUMMARY
+          echo "A feed that reports FAIL twice in a row should be replaced or removed from spatial_drift_rss.py." >> $GITHUB_STEP_SUMMARY

@@ -1,0 +1,667 @@
+{
+  "generated_at_ist": "2026-10-15 12:04:00 IST",
+  "generated_at_utc": "2026-10-15T06:34:23.014665+00:00",
+  "generated_iso": "2026-10-15T12:04:00.653675+05:30",
+  "display_date": "Thursday, 15 October 2026",
+  "display_time": "12:04 PM IST",
+  "stats": {
+    "total_articles": 62,
+    "domains_total": 11,
+    "domains_with_news": 11,
+    "unique_sources": 25,
+    "elapsed": "22s"
+  },
+  "source_summary": {
+    "Geospatial World": 2,
+    "ESA Observing the Earth": 2,
+    "Phys.org Earth": 9,
+    "Nature Climate Change": 2,
+    "Nature": 5,
+    "Carbon Brief": 1,
+    "Nature Geoscience": 4,
+    "Woods Hole (WHOI)": 2,
+    "NOAA Ocean Service": 1,
+    "ScienceDaily Earth & Climate": 5,
+    "USGS Earthquakes M4.5+": 2,
+    "Eos (AGU)": 5,
+    "The Watchers": 2,
+    "MINING.COM": 2,
+    "Natural Resources Canada Geospatial": 1,
+    "Phys.org Space": 2,
+    "SpaceNews": 1,
+    "ScienceDaily Space": 2,
+    "Spaceflight Now": 2,
+    "NASA JPL": 1,
+    "The Cryosphere (Copernicus)": 2,
+    "GDACS": 1,
+    "Copernicus Emergency Management Service": 2,
+    "The Hindu Sci-Tech": 2,
+    "Mongabay": 2
+  },
+  "domains": [
+    {
+      "label": "🛰️ Remote Sensing & GIS",
+      "count": 4,
+      "articles": [
+        {
+          "title": "First Principles First: Need to Calibrate Data Access for Disaster Resilience",
+          "summary": "Every year on October 13, the United Nations marks the International Day for Disaster Risk Reduction, a date the General Assembly fixed in 2009 after first setting aside a day […] The post First Principles First: Need to Calibrate Data Access for Disaster Resilience appeared first on Geospatial World .",
+          "source": "Geospatial World",
+          "date": "14 October 2026",
+          "url": "https://geospatialworld.net/prime/business-and-industry-trends/first-principles-first-need-to-calibrate-data-access-for-disaster-resilience/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Gibraltar imaged by IRIDE Eaglet II",
+          "summary": "Image: While the final eight IRIDE Eaglet II satellites were launched a week ago, the first images from Eaglet II satellites launched earlier are being returned, including a view of Gibraltar featured here.",
+          "source": "ESA Observing the Earth",
+          "date": "09 October 2026",
+          "url": "https://www.esa.int/ESA_Multimedia/Images/2026/10/Gibraltar_imaged_by_IRIDE_Eaglet_II",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Earth from Space: Namibia’s biggest salt pan",
+          "summary": "Image: This image from Copernicus Sentinel-2, acquired on 5 April 2026, shows the Etosha National Park in northern Namibia.",
+          "source": "ESA Observing the Earth",
+          "date": "09 October 2026",
+          "url": "https://www.esa.int/ESA_Multimedia/Images/2026/10/Earth_from_Space_Namibia_s_biggest_salt_pan",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Geospatial World Becomes EuroGeographics’ First Observer Member",
+          "summary": "New Delhi, 28th September 2026 — Geospatial World has become the first Observer Member of EuroGeographics, marking an important step in strengthening international collaboration between Europe’s National Mapping, Cadastral and Land […] The post Geospatial World Becomes EuroGeographics’ First Observer Member appeared first on Geospatial World .",
+          "source": "Geospatial World",
+          "date": "08 October 2026",
+          "url": "https://geospatialworld.net/news/geospatial-world-becomes-eurogeographics-first-observer-member/",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🌡️ Climatology & Atmospheric Science",
+      "count": 8,
+      "articles": [
+        {
+          "title": "Storm Harry: Drifting buoys help improve early forecasts of extreme events in the Mediterranean Sea",
+          "summary": "A network of drifting buoys equipped with barometers can help improve weather forecasts of extreme Mediterranean storms by providing crucial atmospheric observations from areas of the sea where measurements are scarce. A new study published in the Quarterly Journal of the Royal Meteorological Society provides the first assessment of the impact of these observations during Storm Harry, which affected the…",
+          "source": "Phys.org Earth",
+          "date": "14 October 2026",
+          "url": "https://phys.org/news/2026-10-storm-harry-drifting-buoys-early.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Satellites accurately detect methane emissions in largest controlled test yet",
+          "summary": "Researchers have conducted the largest-ever controlled test of space-based methane monitoring, finding that dedicated methane sensors correctly detected nearly all methane plumes released on clear days.",
+          "source": "Phys.org Earth",
+          "date": "14 October 2026",
+          "url": "https://phys.org/news/2026-10-satellites-accurately-methane-emissions-largest.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "The ambitions and limitations of climate assemblies",
+          "summary": "Nature Climate Change, Published online: 14 October 2026; doi:10.1038/s41558-026-02764-0 Climate citizens’ assemblies are gaining traction worldwide as a way to involve the public in climate governance. Now a study demonstrates that although these assemblies propose more ambitious recommendations than existing climate policy, these recommendations vary across contexts and have limited impact on policy decisions.",
+          "source": "Nature Climate Change",
+          "date": "14 October 2026",
+          "url": "https://www.nature.com/articles/s41558-026-02764-0",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Strengthening Rio Convention implementation architecture through reciprocal learning",
+          "summary": "Nature Climate Change, Published online: 14 October 2026; doi:10.1038/s41558-026-02777-9 As the Rio Conventions mature from negotiating commitments towards delivering them, strengthening implementation has become an urgent priority. We argue for greater cross-convention learning within the context of institutional architecture to accelerate progress on climate, biodiversity and land degradation.",
+          "source": "Nature Climate Change",
+          "date": "14 October 2026",
+          "url": "https://www.nature.com/articles/s41558-026-02777-9",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Large blind test of methane-detecting satellites lends credibility to emissions data",
+          "summary": "Nature, Published online: 14 October 2026; doi:10.1038/d41586-026-03075-2 Twelve methane-sensing satellites were tested for their accuracy in measuring controlled-release events in the Arizona desert over a year-long blind test. Many were found to detect and quantify releases accurately, with instruments purpose-built for methane sensing performing best.",
+          "source": "Nature",
+          "date": "14 October 2026",
+          "url": "https://www.nature.com/articles/d41586-026-03075-2",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Evaluating space-based methane detection through a one-year blind test",
+          "summary": "Nature, Published online: 14 October 2026; doi:10.1038/s41586-026-11115-0 A year-long single-blind study shows that multiple satellites can accurately detect and quantify methane point-source emissions.",
+          "source": "Nature",
+          "date": "14 October 2026",
+          "url": "https://www.nature.com/articles/s41586-026-11115-0",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Interactive: Tracking negotiating texts at the COP17 biodiversity summit",
+          "summary": "Next week, diplomats from around the world will descend on Yerevan, Armenia, to negotiate a series of decisions under the… The post Interactive: Tracking negotiating texts at the COP17 biodiversity summit appeared first on Carbon Brief .",
+          "source": "Carbon Brief",
+          "date": "12 October 2026",
+          "url": "https://www.carbonbrief.org/interactive-tracking-negotiating-texts-at-the-cop17-biodiversity-summit",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Dry pebble rain could have delivered water to Earth through hydrogen reduction of iron oxide",
+          "summary": "Nature Geoscience, Published online: 12 October 2026; doi:10.1038/s41561-026-02138-3 Much of the water on Earth could have been produced from dry silicate pebbles falling through the hot, hydrogen-rich primordial atmosphere as the planet formed. High-temperature experiments in streams of pure hydrogen demonstrate that the reduction of iron oxide in the silicates can produce water vapour in minutes or hours, and…",
+          "source": "Nature Geoscience",
+          "date": "12 October 2026",
+          "url": "https://www.nature.com/articles/s41561-026-02138-3",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🌊 Oceanography & Marine Science",
+      "count": 8,
+      "articles": [
+        {
+          "title": "Spilhaus Data Composite",
+          "summary": "Data cycles across a Spilhaus map, revealing temperature-colored currents, bathymetry, plate boundaries, hydrothermal vents, sea ice, and chlorophyll over time.",
+          "source": "Woods Hole (WHOI)",
+          "date": "15 October 2026",
+          "url": "https://www.whoi.edu/ocean-learning-hub/multimedia/spilhaus-data-composite/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "WHOI joins Manresa Wilds Project to help restore part of Connecticut’s coastline",
+          "summary": "Development of a new coastal green space and public park opens up access to ocean science in Long Island Sound",
+          "source": "Woods Hole (WHOI)",
+          "date": "15 October 2026",
+          "url": "https://www.whoi.edu/oceanus/feature/whoi-joins-manresa-wilds-project-to-help-restore-part-of-connecticuts-coastline/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Rocks from hydrothermal vents can spontaneously combust, posing potential risks for deep-sea mining operations",
+          "summary": "Projects involving the mining of seafloor massive sulfide (SMS) deposits around hydrothermal vents already face criticism over their destructive nature, and now these projects may face a new concern: spontaneous combustion. A new study, published in Scientific Reports, describes how certain samples of rock brought up from SMS deposits have unexpectedly caught fire. The study indicates that conditions at the surface,…",
+          "source": "Phys.org Earth",
+          "date": "14 October 2026",
+          "url": "https://phys.org/news/2026-10-hydrothermal-vents-spontaneously-combust-posing.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Growing plane and ship traffic degrade the air of western North America",
+          "summary": "Nature, Published online: 14 October 2026; doi:10.1038/d41586-026-03239-0 Pollution from transport across the Pacific Ocean is raising ozone levels above a region whose own emissions have dropped.",
+          "source": "Nature",
+          "date": "14 October 2026",
+          "url": "https://www.nature.com/articles/d41586-026-03239-0",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "‘Incredible’: bleached corals thrive within days when touching healthy neighbour",
+          "summary": "Nature, Published online: 14 October 2026; doi:10.1038/d41586-026-03266-x A coral fragment can form a tissue bridge with a dying counterpart — and provide it with crucial microalgae.",
+          "source": "Nature",
+          "date": "14 October 2026",
+          "url": "https://www.nature.com/articles/d41586-026-03266-x",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "The ocean circulation that persists even after a key AMOC component fails",
+          "summary": "The Atlantic meridional overturning circulation (AMOC) is thought to face a potentially existential threat from climate change. But attempts to model what happens to AMOC as the oceans warm show divergent outcomes, leaving its fate unclear. In a paper published in AGU Advances, Shantong Sun and Andrew Thompson use a hierarchy of models to show that the cross-hemispheric overturning could persist for centuries even…",
+          "source": "Phys.org Earth",
+          "date": "14 October 2026",
+          "url": "https://phys.org/news/2026-10-ocean-circulation-persists-key-amoc.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Hurricane Isaias: Aerial Imagery",
+          "summary": "The National Geodetic Survey is collecting aerial damage assessment images in the aftermath of Hurricane Isaias.",
+          "source": "NOAA Ocean Service",
+          "date": "13 October 2026",
+          "url": "https://oceanservice.noaa.gov/news/oct26/ngs-hurricane-isaias.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Scientists uncover the 2.3-billion-year-old secret that helped keep Earth habitable",
+          "summary": "Scientists may have solved a 2.3-billion-year-old mystery about how Earth maintained enough oxygen to support life. Ancient rocks reveal that phosphorus recycling in the oceans created a self-sustaining cycle that helped keep oxygen levels high, even as the planet underwent dramatic environmental changes. The discovery challenges assumptions about Earth's early atmosphere and raises new questions about why complex…",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "13 October 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/10/261011211602.htm",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🏔️ Plate Tectonics & Seismology",
+      "count": 5,
+      "articles": [
+        {
+          "title": "M 5.3 - 43 km SSE of Otorohanga, New Zealand",
+          "summary": "PAGER - GREEN ShakeMap - III DYFI? - III Time 2026-10-15 05:25:31 UTC 2026-10-15 05:25:31 UTC at epicenter Location 38.548°S 175.381°E Depth 286.01 km (177.72 mi)",
+          "source": "USGS Earthquakes M4.5+",
+          "date": "15 October 2026",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u2ev",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "M 7.7 - 12 km WSW of Pitaloza Arriba, Panama",
+          "summary": "PAGER - ORANGE ShakeMap - VIII DYFI? - VIII Time 2026-10-09 17:56:06 UTC 2026-10-09 17:56:06 UTC at epicenter Location 7.587°N 80.769°W Depth 12.65 km (7.86 mi)",
+          "source": "USGS Earthquakes M4.5+",
+          "date": "15 October 2026",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u18k",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Earth's mantle was 'breathing' oxygen a billion years before it hit the atmosphere, mineral time capsules reveal",
+          "summary": "Why is there life on Earth? It's one of the oldest questions humans have asked, and as far as we know, our planet is the only one that holds the answer.",
+          "source": "Phys.org Earth",
+          "date": "15 October 2026",
+          "url": "https://phys.org/news/2026-10-earth-mantle-oxygen-billion-years.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Shooting Light Pulses Down a 3-Kilometer Borehole Could Illuminate Seismic Hazards",
+          "summary": "Researchers used data gathered via distributed acoustic sensing at Utah’s Cape Modern geothermal site to learn more about the properties of small earthquakes. Credit: Stefan.chamorro/Wikimedia Commons , CC BY-SA 4.0",
+          "source": "Eos (AGU)",
+          "date": "06 October 2026",
+          "url": "https://eos.org/research-spotlights/shooting-light-pulses-down-a-3-kilometer-borehole-could-illuminate-seismic-hazards",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Scientists find an “earthquake gate” as California fault stress hits a 1,000-year high",
+          "summary": "Researchers say stress on Southern California’s San Andreas and San Jacinto faults has reached some of the highest levels seen in a 1,000-year simulation. Because both faults are highly stressed at the same time, the Cajon Pass junction may be increasingly primed for a rupture that could cross both systems, although the study does not predict when an earthquake will happen.",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "02 October 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/10/261001095521.htm",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🌋 Volcanology",
+      "count": 5,
+      "articles": [
+        {
+          "title": "Life-threatening flash flooding reported across Oklahoma City, major flooding forecast on Canadian River",
+          "summary": "Life-threatening flash flooding was reported across the Oklahoma City metropolitan area on October 14 after thunderstorms produced 76–152 mm (3–6 inches) of rain, while radar indicated 102–279 mm (4–11 inches) farther west, according to the National Weather Service (NWS) in Norman. Major flooding was forecast on the Canadian River near Bridgeport, while the Weather Prediction Center (WPC) maintained a Moderate Risk…",
+          "source": "The Watchers",
+          "date": "15 October 2026",
+          "url": "https://watchers.news/2026/10/14/life-threatening-flash-flooding-reported-across-oklahoma-city-major-flooding-forecast-on-canadian-river/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Daily high-temperature records broken or tied on October 13 across parts of the central U.S.",
+          "summary": "Five daily high-temperature records were broken and one was tied at six sites across Kansas, Oklahoma, Missouri and Illinois on October 13, 2026. Temperatures at the sites reached 32.8–33.9°C (91–93°F), or 9.4–13.3°C (17–24°F) above normal, following the warmest September on record for the contiguous United States. Source",
+          "source": "The Watchers",
+          "date": "14 October 2026",
+          "url": "https://watchers.news/2026/10/14/daily-high-temperature-records-broken-or-tied-on-october-13-across-parts-of-the-central-u-s/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Progressive oxidative weathering raised sub-arc mantle fugacity on the Archaean Earth",
+          "summary": "Nature Geoscience, Published online: 14 October 2026; doi:10.1038/s41561-026-02119-6 Progressive oxidative weathering in the Archaean may have raised the proportion of oxidized sulfur recycled during subduction, suggesting a feedback between the surface and increasingly oxidized arc magmatism, according to sulfur in apatite inclusions.",
+          "source": "Nature Geoscience",
+          "date": "14 October 2026",
+          "url": "https://www.nature.com/articles/s41561-026-02119-6",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Ice clouds born from Martian waves",
+          "summary": "Nature Geoscience, Published online: 07 October 2026; doi:10.1038/s41561-026-02109-8 Water-ice clouds are common across the Solar System, but their formation typically requires pre-existing dust particles to coax water vapour into ice. Atmospheric simulations now suggest that gravity waves over a Martian volcano can bypass the need for dust, generating ice clouds through spontaneous nucleation of water vapour.",
+          "source": "Nature Geoscience",
+          "date": "07 October 2026",
+          "url": "https://www.nature.com/articles/s41561-026-02109-8",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Pompeii’s 2,000-year-old eruption just gave scientists a better clock for Earth’s past",
+          "summary": "Mount Vesuvius’ famous 79 CE eruption has given scientists a remarkably precise benchmark for dating events deep in Earth’s past. The improved technique could sharpen the timelines of volcanic eruptions, asteroid impacts, extinctions, and other major moments in geological history.",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "30 September 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/09/260928100531.htm",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "⛏️ Mining & Geology",
+      "count": 4,
+      "articles": [
+        {
+          "title": "Tenaris produces new steel grade for Canadian energy operators",
+          "summary": "Company said it has invested more than C$355M in its Canadian operations since 2020 and in May 2026, announced a C$306M joint investment with the federal and Ontario governments.",
+          "source": "MINING.COM",
+          "date": "15 October 2026",
+          "url": "https://www.mining.com/tenaris-produces-new-steel-grade-for-canadian-energy-operators/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Canadian Chrome Company launches First Nations advisory committee",
+          "summary": "The committee is aimed at increasing First Nations participation with regards to CCC’s Ring of Fire assets in Ontario.",
+          "source": "MINING.COM",
+          "date": "15 October 2026",
+          "url": "https://www.mining.com/canadian-chrome-company-launches-first-nations-advisory-committee/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Evidence for multi-Li + clustering in lithium-ion battery electrolytes",
+          "summary": "Nature, Published online: 14 October 2026; doi:10.1038/s41586-026-11138-7 Machine-learning-enabled atomistic simulations, spectroscopy, electrochemical data and quantum-chemical calculations reveal previously unstudied multi-lithium-ion complexes without bound anions, improving understanding of lithium-ion-battery functionality at the atomic level.",
+          "source": "Nature",
+          "date": "14 October 2026",
+          "url": "https://www.nature.com/articles/s41586-026-11138-7",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "FHIMP Progress in Atlantic Canada: Expanding Flood Hazard Information and Coverage",
+          "summary": "Discover how the Flood Hazard Identification and Mapping Program (FHIMP) is supporting Atlantic provinces to close flood mapping gaps and improve access to consistent flood hazard information . Atlantic Canada is exposed to coastal hazards, powerful storms driving intense rainfall, ice jams, and riverine flooding. Up-to-date, accessible flood hazard information is needed across the region, including information that…",
+          "source": "Natural Resources Canada Geospatial",
+          "date": "07 October 2026",
+          "url": "https://natural-resources.canada.ca/science-data/science-research/geomatics/fhimp-progress-atlantic-canada-expanding-flood-hazard-information-coverage",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🚀 Space & Geodesy",
+      "count": 8,
+      "articles": [
+        {
+          "title": "Green, pink and purple: Astronomers reveal the surprising true colors of white dwarf stars",
+          "summary": "University of Warwick astronomers have shown that white dwarf stars can glow in a range of colors, including the first star ever found that would appear green to the human eye.",
+          "source": "Phys.org Space",
+          "date": "15 October 2026",
+          "url": "https://phys.org/news/2026-10-green-pink-purple-astronomers-reveal.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "NASA develops batteries to power humanity's return to moon",
+          "summary": "If you've ever had your car start sluggishly, or not at all, on a particularly frigid winter morning, you know standard batteries do not like extreme cold. That's why NASA researchers are working to develop a battery that could function in the brutal cold of the moon's south pole, where nighttime temperatures plunge to minus 328 degrees Fahrenheit (minus 200 degrees Celsius).",
+          "source": "Phys.org Space",
+          "date": "15 October 2026",
+          "url": "https://phys.org/news/2026-10-nasa-batteries-power-humanity-moon.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "How mini-constellations could more quickly bring new tech to Europe, and to orbit",
+          "summary": "When the European thermal-imagery company constellr began working with Space Inventor on its next generation of satellites, some of the most important details of the spacecraft had yet to be […] The post How mini-constellations could more quickly bring new tech to Europe, and to orbit appeared first on SpaceNews .",
+          "source": "SpaceNews",
+          "date": "14 October 2026",
+          "url": "https://spacenews.com/how-mini-constellations-could-more-quickly-bring-new-tech-to-europe-and-to-orbit/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Scientists may have finally solved the mystery of the Moon’s two faces",
+          "summary": "Scientists may have solved a long-standing mystery about why the Moon’s two sides are so different, using samples collected from its farside for the first time. Their findings suggest that uneven heating from Earth's gravitational pull drove enormous flows of ancient magma, creating the dramatically different lunar landscapes we see today.",
+          "source": "ScienceDaily Space",
+          "date": "14 October 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/10/261012185019.htm",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "A planet 320 light-years away confirms what scientists long suspected",
+          "summary": "Astronomers have discovered that a scorching-hot planet 320 light-years away shares a striking chemical similarity with its host star, providing the first direct evidence for a fundamental assumption about planet formation. The breakthrough could help scientists predict what distant rocky planets are made of and identify worlds with conditions favorable for life.",
+          "source": "ScienceDaily Space",
+          "date": "14 October 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/10/261012185015.htm",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "SpaceX launches NASA science and cargo to the International Space Station",
+          "summary": "The sunrise launch on Oct. 13 was the 35th SpaceX flight under the Commercial Resupply Services 2 contract with NASA.",
+          "source": "Spaceflight Now",
+          "date": "13 October 2026",
+          "url": "https://spaceflightnow.com/2026/10/13/spacex-launches-nasa-science-and-cargo-to-the-international-space-station/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "NASA JPL Testing Readies Voyager Technologies Lander for Moon Mission",
+          "summary": "Shaken, spun, baked, and blasted, the Griffin-1 spacecraft was put through weeks of tests to show it can survive the conditions of launch through lunar landing.",
+          "source": "NASA JPL",
+          "date": "13 October 2026",
+          "url": "https://www.jpl.nasa.gov/news/nasa-jpl-testing-readies-voyager-technologies-lander-for-moon-mission",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Launch preview: NASA, SpaceX to launch new solar arrays, 6,300 pounds of cargo to the space station",
+          "summary": "Liftoff of the Falcon 9 rocket from pad 40 at Cape Canaveral Space Force Station is scheduled for 6:33 a.m. EDT (1033 UTC) on Tuesday, Oct. 13. The Cargo Dragon spacecraft will arrive at the space station following a two-day flight.",
+          "source": "Spaceflight Now",
+          "date": "13 October 2026",
+          "url": "https://spaceflightnow.com/2026/10/13/live-coverage-nasa-spacex-to-launch-new-solar-arrays-6300-pounds-of-cargo-to-the-space-station/",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🧊 Cryosphere & Polar Science",
+      "count": 6,
+      "articles": [
+        {
+          "title": "Propagating meteorological uncertainty in physically based mountain snow modeling",
+          "summary": "Propagating meteorological uncertainty in physically based mountain snow modeling David R. Casson, Guoqiang Tang, Nicolás Vásquez, Andrew W. Wood, and Martyn P. Clark The Cryosphere, 20, 5895–5940, https://doi.org/10.5194/tc-20-5895-2026, 2026 Improving mountain snow prediction requires better representation of meteorological uncertainty. This study generates meteorological ensembles accounting for topography, gauge…",
+          "source": "The Cryosphere (Copernicus)",
+          "date": "15 October 2026",
+          "url": "https://doi.org/10.5194/tc-20-5895-2026",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Patchier permafrost is linked to more intense hillslope erosion in Alaska",
+          "summary": "The Arctic is warming four times faster than the rest of the globe, and scientists are racing to understand how that fact affects the region's landscapes and ecosystems. Permafrost thaw is one of the most visible signs of climate change, with whole hillslopes of previously frozen ground slumping off and coastlines falling into the ocean. It's disrupting ecosystems, releasing carbon, and threatening Indigenous…",
+          "source": "Phys.org Earth",
+          "date": "15 October 2026",
+          "url": "https://phys.org/news/2026-10-patchier-permafrost-linked-intense-hillslope.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "2026 State of the Climate Report Shows a Planet Reaching Its Limits",
+          "summary": "The Upsala Glacier in Argentina, like many of Earth's glaciers, has been thinning and retreating at a rapid pace. According to a new report, worldwide glacier thickness is at a record low. Credit: Etienne Berthier, Université de Toulouse/NASA Goddard",
+          "source": "Eos (AGU)",
+          "date": "14 October 2026",
+          "url": "https://eos.org/research-and-developments/2026-state-of-the-climate-report-shows-a-planet-reaching-its-limits",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Patchier Permafrost Is Linked to More Intense Hillslope Erosion",
+          "summary": "Researchers collect a sediment core from a lake in Alaska’s Toolik Lake cluster to investigate erosion across permafrost landscapes. Credit: Mark Abbott",
+          "source": "Eos (AGU)",
+          "date": "14 October 2026",
+          "url": "https://eos.org/research-spotlights/patchier-permafrost-is-linked-to-more-intense-hillslope-erosion",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Thwaites Glacier could contribute twice as much sea-level rise as previously projected",
+          "summary": "A new ice sheet model developed by glaciologists at the University of California, Irvine and NASA's Jet Propulsion Laboratory projects that the melting of Thwaites Glacier in West Antarctica will contribute up to 30 millimeters (1.2 inches) of sea level rise by 2100—twice previous estimates—even without additional climate warming.",
+          "source": "Phys.org Earth",
+          "date": "14 October 2026",
+          "url": "https://phys.org/news/2026-10-thwaites-glacier-contribute-sea-previously.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Introducing a new normalized cryospheric index (NCI) to categorize sub-watersheds on arid environments",
+          "summary": "Introducing a new normalized cryospheric index (NCI) to categorize sub-watersheds on arid environments Christopher Ulloa, Ayon García, and Anouk Beniest The Cryosphere, 20, 5829–5866, https://doi.org/10.5194/tc-20-5829-2026, 2026 In arid zones, water comes mainly from snow, glaciers and ice-rich permafrost landforms. We introduce the Normalized Cryospheric Index (NCI), which combines ice storage and snow permanence…",
+          "source": "The Cryosphere (Copernicus)",
+          "date": "13 October 2026",
+          "url": "https://doi.org/10.5194/tc-20-5829-2026",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🆘 Disaster & Hazard Monitoring",
+      "count": 7,
+      "articles": [
+        {
+          "title": "Green forest fire notification in Mozambique",
+          "summary": "On 07/10/2026, a forest fire started in Mozambique, until 12/10/2026.",
+          "source": "GDACS",
+          "date": "15 October 2026",
+          "url": "https://www.gdacs.org/report.aspx?eventtype=WF&eventid=1032769",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Nepal flood triggered by rock and ice avalanche: Report",
+          "summary": "Nepal's disaster authority said Wednesday that an avalanche of rock and ice triggered a recent flash flood, echoing the mountain collapse that unleashed a tsunami-like wall of water in August.",
+          "source": "Phys.org Earth",
+          "date": "15 October 2026",
+          "url": "https://phys.org/news/2026-10-nepal-triggered-ice-avalanche.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Warmer climate could reshape hurricane risk and its relationship with El Niño around Hawai'i",
+          "summary": "A new study examining how tropical cyclone activity near Hawai'i could change in a warmer future finds a shift toward stronger storms, even though substantial uncertainty remains about whether the total number of storms near the islands will increase.",
+          "source": "Phys.org Earth",
+          "date": "15 October 2026",
+          "url": "https://phys.org/news/2026-10-warmer-climate-reshape-hurricane-relationship.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "The 11 October 2026 landslide and debris flow/flood on the Budhi Gandaki River in Gorkha district, Nepal",
+          "summary": "The aftermath of the Budhi Gandaki landslide. Still from a video posted to Youtube by Online Khabar.",
+          "source": "Eos (AGU)",
+          "date": "12 October 2026",
+          "url": "https://eos.org/thelandslideblog/the-11-october-2026-landslide-and-debris-flow-flood-on-the-budhi-gandaki-river-in-gorkha-district-nepal",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Earthquake in Los Santos, Panama",
+          "summary": "Activation EMSR934. On 09 October at 17:56 UTC (12:56 Local Time) Panama was stuck by a 7.7M earthquake. The epicentre was 12 km west-southwest of Pitaloza Arriba, Panama (inland). Copernicus EMS Rapid Mapping is requested to provide earthquake damage assessment emergency mapping.",
+          "source": "Copernicus Emergency Management Service",
+          "date": "09 October 2026",
+          "url": "http://mapping.emergency.copernicus.eu/news/earthquake-in-los-santos-panama-emsr934/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "The 25 January 2026 landslide at Niscemi in Sicily, Italy",
+          "summary": "Map showing major deformational features of the Niscemi landslides. Inset picture a depicts the western sector of the upper part of the southern Niscemi landslide (last access 06 August 2026; https://www.meteoweb.eu/2026/02/ciclone-harry-e-niscemi-la-consulta-degli-ingegneri-propone-una-task-force-tecnica-a-supporto-della-regione/1001896651/). From Guerriero et al. (2026), published under a CC license.",
+          "source": "Eos (AGU)",
+          "date": "08 October 2026",
+          "url": "https://eos.org/thelandslideblog/niscemi-1",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Flood in Crete, Greece",
+          "summary": "Activation EMSR933. On 01 October 2026, a severe rainfall and flooding event was reported to have affected Crete, Greece. The event is ongoing and increasing, with damage reported to affect buildings, critical infrastructure, transportation networks, agricultural areas and private properties. Copernicus EMS Rapid Mapping is requested to provide flood extent and damage assessment emergency mapping.",
+          "source": "Copernicus Emergency Management Service",
+          "date": "04 October 2026",
+          "url": "http://mapping.emergency.copernicus.eu/news/flood-in-crete-greece-emsr933/",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🇮🇳 India",
+      "count": 3,
+      "articles": [
+        {
+          "title": "Netflix is laying off 6% of its workforce, in biggest round of job cuts at streaming giant in years",
+          "summary": "Netflix plans to lay off about 6% of its workforce as part of wider organisational changes",
+          "source": "The Hindu Sci-Tech",
+          "date": "15 October 2026",
+          "url": "https://www.thehindu.com/sci-tech/technology/netflix-is-laying-off-6-of-its-workforce-in-biggest-round-of-job-cuts-at-streaming-giant-in-years/article71586690.ece",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Licences of three Mumbai blood banks suspended for offering gifts",
+          "summary": "Two blood centres appealed the suspension before the State Government and secured temporary stays",
+          "source": "The Hindu Sci-Tech",
+          "date": "15 October 2026",
+          "url": "https://www.thehindu.com/news/cities/mumbai/licences-of-three-mumbai-blood-banks-suspended-for-offering-gifts/article71584515.ece",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Rethinking Agulhas Leakage impacts on Atlantic circulation",
+          "summary": "Nature Geoscience, Published online: 07 October 2026; doi:10.1038/s41561-026-02111-0 The Agulhas Leakage is a set of currents that carry salty water from the Indian to the Atlantic Ocean around the southern tip of Africa. It helps drive modern Atlantic Meridional Overturning Circulation, but evidence suggests this link wasn’t present in the Pliocene.",
+          "source": "Nature Geoscience",
+          "date": "07 October 2026",
+          "url": "https://www.nature.com/articles/s41561-026-02111-0",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🌐 Global Geospatial Intelligence",
+      "count": 4,
+      "articles": [
+        {
+          "title": "World Mushroom Day: From food to plastic replacement",
+          "summary": "A mushroom is analogous to a flower on a plant — it’s the reproductive organ of a fungus, which protects and distributes fungal spores. Mushrooms are critical part of our ecosystems. For humans and other animals, mushrooms are also food. And they may be part of the solution for food security and solving the plastic […]",
+          "source": "Mongabay",
+          "date": "15 October 2026",
+          "url": "https://news.mongabay.com/short-article/2026/10/world-mushroom-day-from-food-to-plastic-replacement/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "From paper parks to lasting protection, here’s what works in marine conservation",
+          "summary": "In recent years, there has been a steady stream of ocean conservation pledges, from French Polynesia extending marine protection across its nearly 5 million-square-kilometer exclusive economic zone, including more than 1 million square kilometers of highly or fully protected waters, to the Eastern Tropical Pacific Marine Corridor (CMAR), where Colombia, Costa Rica, Ecuador, and Panama […]",
+          "source": "Mongabay",
+          "date": "15 October 2026",
+          "url": "https://news.mongabay.com/2026/10/from-paper-parks-to-lasting-protection-heres-what-works-in-marine-conservation/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Europe's new Sentinel-3C satellite just sent back spectacular images of Earth",
+          "summary": "Europe's Sentinel-3C satellite has returned breathtaking images of Earth just two weeks after launch, revealing the snowy Alps, frozen Arctic islands, and brilliant turquoise Caribbean waters. Its first measurements also show promising results for tracking rising seas, melting ice sheets, and other changes reshaping our planet.",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "13 October 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/10/261011211559.htm",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "NASA captures a stunning transformation in Australia's red outback",
+          "summary": "Australia's normally dry, rust-colored outback has erupted into a spectacular carpet of wildflowers after unusually heavy rains, potentially producing its most impressive bloom in nearly 20 years. NASA satellite images capture the stunning transformation, which has even brought rare flowers to the grounds of a remote deep-space observatory.",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "12 October 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/10/261008102710.htm",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,666 @@
+{
+  "generated_at_ist": "2026-11-01 13:44:00 IST",
+  "generated_at_utc": "2026-11-01T08:14:21.176480+00:00",
+  "generated_iso": "2026-11-01T13:44:00.460514+05:30",
+  "display_date": "Sunday, 01 November 2026",
+  "display_time": "01:44 PM IST",
+  "stats": {
+    "total_articles": 62,
+    "domains_total": 11,
+    "domains_with_news": 11,
+    "unique_sources": 24,
+    "elapsed": "20s"
+  },
+  "source_summary": {
+    "ESA Observing the Earth": 2,
+    "Geospatial World": 1,
+    "Carbon Brief": 2,
+    "Phys.org Earth": 10,
+    "Eos (AGU)": 8,
+    "ScienceDaily Earth & Climate": 7,
+    "Nature Climate Change": 1,
+    "Woods Hole (WHOI)": 2,
+    "Nature": 3,
+    "NOAA Ocean Service": 1,
+    "USGS Earthquakes M4.5+": 2,
+    "The Watchers": 2,
+    "MINING.COM": 2,
+    "Nature Geoscience": 2,
+    "ScienceDaily Space": 2,
+    "Phys.org Space": 2,
+    "Spaceflight Now": 2,
+    "SpaceNews": 1,
+    "NASA JPL": 1,
+    "The Cryosphere (Copernicus)": 2,
+    "GDACS": 1,
+    "Copernicus Emergency Management Service": 2,
+    "The Hindu Sci-Tech": 2,
+    "Mongabay": 2
+  },
+  "domains": [
+    {
+      "label": "🛰️ Remote Sensing & GIS",
+      "count": 3,
+      "articles": [
+        {
+          "title": "Sentinel-6B enters service",
+          "summary": "Sentinel-6B enters service",
+          "source": "ESA Observing the Earth",
+          "date": "30 October 2026",
+          "url": "https://www.eumetsat.int/sentinel-6b-track-rising-seas-predict-storms-and-aid-forecasts",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Understanding the Subsurface in India’s Infrastructure Planning",
+          "summary": "Dr. Sanjay Rana, Managing Director, PARSAN Overseas Pvt. Ltd., and Chairman, Aqua Foundation, explains why subsurface investigation receives less attention and investment than the infrastructure it supports. He discusses how […] The post Understanding the Subsurface in India’s Infrastructure Planning appeared first on Geospatial World .",
+          "source": "Geospatial World",
+          "date": "30 October 2026",
+          "url": "https://geospatialworld.net/video-interviews/understanding-the-subsurface-in-indias-infrastructure-planning/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Earth from Space: Champi’s eerie eye",
+          "summary": "Image: This image of Super Typhoon Champi from Copernicus Sentinel-3 was captured on 21 October 2026 off the coasts of Taiwan and the Philippines.",
+          "source": "ESA Observing the Earth",
+          "date": "30 October 2026",
+          "url": "https://www.esa.int/ESA_Multimedia/Images/2026/10/Earth_from_Space_Champi_s_eerie_eye",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🌡️ Climatology & Atmospheric Science",
+      "count": 8,
+      "articles": [
+        {
+          "title": "COP17: Key outcomes agreed at the UN biodiversity conference in Yerevan",
+          "summary": "Countries have completed the first “global review” of their progress towards reversing nature loss by 2030 at the COP17 biodiversity… The post COP17: Key outcomes agreed at the UN biodiversity conference in Yerevan appeared first on Carbon Brief .",
+          "source": "Carbon Brief",
+          "date": "31 October 2026",
+          "url": "https://www.carbonbrief.org/cop17-key-outcomes-agreed-at-the-un-biodiversity-conference-in-yerevan",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Young Canadians focus on mental health at key climate trial",
+          "summary": "At a landmark Canadian trial focused on the government's obligations to fight climate change, the young plaintiffs suing Ottawa over alleged policy failures have sought to focus attention on their mental health.",
+          "source": "Phys.org Earth",
+          "date": "31 October 2026",
+          "url": "https://phys.org/news/2026-10-young-canadians-focus-mental-health.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Hidden erosion: Study reveals soft mountain rock erodes three times faster than hard rock—with climate implications",
+          "summary": "A University of Massachusetts Amherst-led research team has discovered that weaker rock in mountain landscapes erodes three times faster than harder rock—even on gentler slopes—and is one of the main attributes governing mountain erosion. The finding also challenges our current understanding of the relationship between erosion and the release of carbon dioxide, and suggests that geologists and atmospheric scientists…",
+          "source": "Phys.org Earth",
+          "date": "31 October 2026",
+          "url": "https://phys.org/news/2026-10-hidden-erosion-reveals-soft-mountain.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "A Decade of Carbon Dioxide Data from Space Gets an Upgrade",
+          "summary": "This image is a visual representation of atmospheric carbon dioxide levels as modeled by NASA’s Goddard Earth Observing System, which incorporates data from the Orbiting Carbon Observatory-2 satellite. Credit: Scientific Visualization Studio, NASA",
+          "source": "Eos (AGU)",
+          "date": "30 October 2026",
+          "url": "https://eos.org/research-spotlights/a-decade-of-carbon-dioxide-data-from-space-gets-an-upgrade",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Scientists confirm global warming is accelerating faster than ever recorded",
+          "summary": "Earth is warming faster than ever recorded, with scientists detecting a major acceleration in global temperatures since around 2015. A new study reveals that the warming rate has surged to approximately 0.35°C per decade, nearly double the average pace observed from 1970 to 2015. After removing natural climate fluctuations, researchers confirmed the acceleration with more than 98% statistical confidence.",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "30 October 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/10/261027231200.htm",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Atmospheric stabilization of the East Antarctic ice sheet under warming",
+          "summary": "Nature Climate Change, Published online: 30 October 2026; doi:10.1038/s41558-026-02791-x The long-term response of the Greenland and Antarctic ice sheets to warming is often studied using ice-only simulations. Here the authors use a coupled ice–atmosphere–ocean model and find that East Antarctica remains stable even under higher warming because changes in atmospheric circulation increase precipitation sensitivity.",
+          "source": "Nature Climate Change",
+          "date": "30 October 2026",
+          "url": "https://www.nature.com/articles/s41558-026-02791-x",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Experts: What China wants from the COP31 climate talks",
+          "summary": "With the COP31 climate summit in Turkey looming, all eyes are on China to see what the country will push… The post Experts: What China wants from the COP31 climate talks appeared first on Carbon Brief .",
+          "source": "Carbon Brief",
+          "date": "29 October 2026",
+          "url": "https://www.carbonbrief.org/experts-what-china-wants-from-the-cop31-climate-talks",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Trump to Ease Methane Rules for Oil and Gas Wells",
+          "summary": "On 27 October, President Donald Trump announced that the Environmental Protection Agency was proposing rollbacks to existing methane emissions rules for oil and gas drilling. Credit: Wikimedia Commons/AFGE , CC BY 2.0",
+          "source": "Eos (AGU)",
+          "date": "28 October 2026",
+          "url": "https://eos.org/research-and-developments/trump-to-ease-methane-rules-for-oil-and-gas-wells",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🌊 Oceanography & Marine Science",
+      "count": 8,
+      "articles": [
+        {
+          "title": "Researchers observe the arrival of El Niño in Monterey Bay",
+          "summary": "For more than 30 years, MBARI technology has recorded real-time data about Monterey Bay, from oceanographic conditions at the surface to biological surveys in the depths of Monterey Canyon. These data are integral to understanding our changing ocean and underpin the institute's efforts to monitor the impacts of the incoming El Niño, which has been predicted to be among the strongest since the beginning of modern…",
+          "source": "Phys.org Earth",
+          "date": "30 October 2026",
+          "url": "https://phys.org/news/2026-10-el-nio-monterey-bay.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Microplastic shape can influence viral disease severity in rainbow trout",
+          "summary": "The shape of microplastics can influence how deadly a viral infection can be for fish, according to new research from William & Mary's Virginia Institute of Marine Science (VIMS). The findings suggest that some forms of plastic pollution pose greater biological risks than others, offering scientists a potential path toward reducing the environmental impacts of microplastics.",
+          "source": "Phys.org Earth",
+          "date": "30 October 2026",
+          "url": "https://phys.org/news/2026-10-microplastic-viral-disease-severity-rainbow.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Albert Santiago Sr.",
+          "summary": "The Woods Hole Oceanographic Institution announces with great sorrow the death of former employee Albert Santiago Sr., of East Falmouth, MA, on September 29, 2026. He was 91. Albert made…",
+          "source": "Woods Hole (WHOI)",
+          "date": "29 October 2026",
+          "url": "https://www.whoi.edu/who-we-are/about-us/people/obituary/albert-santiago-sr/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Amy Bower elected a Fellow of the Academy of Blind Scientists",
+          "summary": "The Academy’s highest honor, the fellowship recognizes blind and low-vision scientists advancing science and the blind community.",
+          "source": "Woods Hole (WHOI)",
+          "date": "29 October 2026",
+          "url": "https://www.whoi.edu/press-room/news-release/academy-of-blind-scientists/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Archaea Survived Enceladus-Like Conditions in Lab",
+          "summary": "Enceladus is spraying its subsurface ocean into space, letting us test whether Earth life could survive in extraterritorial ocean chemistry. Credit: NASA/JPL-Caltech , Public Domain",
+          "source": "Eos (AGU)",
+          "date": "29 October 2026",
+          "url": "https://eos.org/articles/archaea-survived-enceladus-like-conditions-in-lab",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Now Critical: Optimizing Complementary Ocean Carbon Observing Networks",
+          "summary": "A schematic of optimized networks for observing ocean carbon properties including ship-based GO-SHIP (white), SOCONET (blue) measurements, and BGC-ARGO (orange) profiling float measurements. Credit: Sutton et al. [2026] , Figure 2",
+          "source": "Eos (AGU)",
+          "date": "29 October 2026",
+          "url": "https://eos.org/editor-highlights/now-critical-optimizing-complementary-ocean-carbon-observing-networks",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "T and B cells recognize splicing-derived neutrophil neoantigens in lupus",
+          "summary": "Nature, Published online: 28 October 2026; doi:10.1038/s41586-026-11219-7 In systemic lupus erythematosus, aberrant splicing in neutrophils generates novel peptides that are presented on MHC I, driving CD4+ and CD8+ T cell activation, clonal expansion and IgG autoantibody responses, establishing neoantigen-driven autoimmune immunity.",
+          "source": "Nature",
+          "date": "28 October 2026",
+          "url": "https://www.nature.com/articles/s41586-026-11219-7",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "NOAA expands groundbreaking flood risk visualization capabilities",
+          "summary": "Data will now support the U.S. West Coast, Hawaii, and southern Alaska",
+          "source": "NOAA Ocean Service",
+          "date": "27 October 2026",
+          "url": "https://oceanservice.noaa.gov/news/oct26/noaa-expands-CORA-dataset.html",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🏔️ Plate Tectonics & Seismology",
+      "count": 6,
+      "articles": [
+        {
+          "title": "M 4.7 - 191 km NW of Port-Olry, Vanuatu",
+          "summary": "Time 2026-11-01 07:37:47 UTC 2026-11-01 07:37:47 UTC at epicenter Location 13.987°S 165.664°E Depth 10.00 km (6.21 mi)",
+          "source": "USGS Earthquakes M4.5+",
+          "date": "01 November 2026",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tung",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "M 6.0 - 58 km SSE of Shima, Japan",
+          "summary": "PAGER - GREEN ShakeMap - III DYFI? - III Time 2026-10-31 22:15:02 UTC 2026-10-31 22:15:02 UTC at epicenter Location 33.822°N 136.985°E Depth 352.45 km (219.00 mi)",
+          "source": "USGS Earthquakes M4.5+",
+          "date": "01 November 2026",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tuku",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Faraway tectonic forces may have accelerated the Gulf of California rifting",
+          "summary": "When the Baja California peninsula broke from mainland Mexico nearly 12 million years ago, it gave rise to the Gulf of California. New research suggests that this process of continental rifting was greatly accelerated due to tectonic forces on the opposite side of the Pacific Ocean.",
+          "source": "Phys.org Earth",
+          "date": "30 October 2026",
+          "url": "https://phys.org/news/2026-10-faraway-tectonic-gulf-california-rifting.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Daily briefing: The three red flags of suspicious journals",
+          "summary": "Nature, Published online: 29 October 2026; doi:10.1038/d41586-026-03548-4 These warning signs suggest a journal might be engaging in dubious publishing activities. Plus, the brain clears out faulty neurons at birth and whether a giant ‘sunshade’ could cool Earth.",
+          "source": "Nature",
+          "date": "29 October 2026",
+          "url": "https://www.nature.com/articles/d41586-026-03548-4",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "The brain liquidates billions of mutant neurons around the time we’re born",
+          "summary": "Nature, Published online: 28 October 2026; doi:10.1038/d41586-026-03444-x Faulty neurons can contribute to various neurological conditions, but researchers have uncovered a system that might clean them up.",
+          "source": "Nature",
+          "date": "28 October 2026",
+          "url": "https://www.nature.com/articles/d41586-026-03444-x",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "A massive asteroid slammed into the North Sea and unleashed a 330-foot tsunami",
+          "summary": "A decades-long mystery beneath the North Sea has finally been solved. Scientists have confirmed that the Silverpit Crater, buried 700 meters below the seabed, was created when a 160-meter-wide asteroid struck Earth roughly 43 to 46 million years ago. The violent collision blasted a towering curtain of rock and water 1.5 kilometers into the air and triggered a tsunami more than 100 meters high.",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "21 October 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/10/261020085727.htm",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🌋 Volcanology",
+      "count": 4,
+      "articles": [
+        {
+          "title": "Mayon erupts as Alert Level rises to 3 and ash spreads south, Philippines",
+          "summary": "An explosive eruption occurred at Mayon Volcano in Albay, Philippines, at 11:53 LT on October 30, 2026, sending a dense ash plume 3 000 m (9 843 feet) above the summit crater and prompting DOST-PHIVOLCS to raise the volcano from Alert Level 2 to Alert Level 3. By 19:20 LT, Tokyo VAAC was still detecting volcanic ash in Himawari-9 satellite imagery moving south, with ash analyzed up to FL180 and forecast up to FL190…",
+          "source": "The Watchers",
+          "date": "30 October 2026",
+          "url": "https://watchers.news/2026/10/30/mayon-erupts-as-alert-level-rises-to-3-and-ash-spreads-south-philippines/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "The Weekly Volcanic Activity Report: October 22-28, 2026",
+          "summary": "New activity/unrest was reported for 5 volcanoes from October 22-28, 2026. During the same period, ongoing activity was reported for 23 volcanoes. Source",
+          "source": "The Watchers",
+          "date": "30 October 2026",
+          "url": "https://watchers.news/2026/10/30/the-weekly-volcanic-activity-report-october-22-28-2026/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Scientists discover a hidden oxygen reservoir deep inside Earth",
+          "summary": "Scientists have discovered that magma deep inside Earth can store surprising amounts of extra oxygen, potentially revealing a hidden contributor to our planet's oxygen-rich atmosphere. The findings suggest that ancient volcanic eruptions may have helped transform Earth's atmosphere billions of years ago, with implications for understanding life on other planets.",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "29 October 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/10/261027063702.htm",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Scientists discover a hidden 100-million-year-old volcanic system",
+          "summary": "Scientists have uncovered a long-lost volcanic system in Iran that dates back roughly 100 million years, revealing a hidden chapter in Earth's tectonic history. The discovery sheds new light on the disappearance of an ancient ocean and the powerful geological forces that reshaped the Middle East.",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "28 October 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/10/261026225615.htm",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "⛏️ Mining & Geology",
+      "count": 5,
+      "articles": [
+        {
+          "title": "Uranium shares slide even as analysts see tighter supply",
+          "summary": "The near-term market is better supplied than the longer-term outlook might suggest.",
+          "source": "MINING.COM",
+          "date": "31 October 2026",
+          "url": "https://www.mining.com/uranium-shares-slide-even-as-analysts-see-tighter-supply/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Radical AI uses autonomous labs to accelerate alloy discovery",
+          "summary": "New York-based company says its AI-powered platform is developing advanced alloys in months rather than years.",
+          "source": "MINING.COM",
+          "date": "31 October 2026",
+          "url": "https://www.mining.com/radical-ai-uses-autonomous-labs-to-accelerate-alloy-discovery/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Discovery of bromochloropyrene reveals unexpected biological properties",
+          "summary": "Environmental pollutants containing chlorine or bromine have been widely studied, but compounds containing both elements have remained largely unexplored. Researchers have now detected bromochloropyrene in industrial soils and harbor sediments, investigated its breakdown under simulated sunlight, and measured its activity through a biological receptor linked to toxic effects. The findings reveal distinct…",
+          "source": "Phys.org Earth",
+          "date": "30 October 2026",
+          "url": "https://phys.org/news/2026-10-discovery-bromochloropyrene-reveals-unexpected-biological.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "The Secrets of Acid Salt Lakes",
+          "summary": "Anicia Henne, one of Kathleen Benison’s field assistants who is now a geologist at Australia’s Commonwealth Scientific and Industrial Research Organisation, conducts research at Statues Lake in January 2026. Credit: Kathleen Benison",
+          "source": "Eos (AGU)",
+          "date": "23 October 2026",
+          "url": "https://eos.org/articles/the-secrets-of-acid-salt-lakes",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Decolonize soil erosion modelling",
+          "summary": "Nature Geoscience, Published online: 19 October 2026; doi:10.1038/s41561-026-02124-9 Uncritical extrapolation of soil erosion models developed in the Global North to Global South settings for which they were not designed reflects and perpetuates neocolonial biases in geoscience. To build a more accurate and equitable understanding of land degradation, we must rethink erosion research.",
+          "source": "Nature Geoscience",
+          "date": "19 October 2026",
+          "url": "https://www.nature.com/articles/s41561-026-02124-9",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🚀 Space & Geodesy",
+      "count": 8,
+      "articles": [
+        {
+          "title": "Scientists say a forgotten particle may explain why the universe exists",
+          "summary": "A mysterious particle overlooked for decades may hold the key to why matter survived the Big Bang, allowing stars, planets, and life to exist. Scientists believe this forgotten neutrino reshaped the early universe and may have left detectable gravitational wave signals that could help unlock the cosmos’s deepest mysteries.",
+          "source": "ScienceDaily Space",
+          "date": "01 November 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/10/261031221201.htm",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "This oddball reflective lava world is challenging to understand",
+          "summary": "Among Kepler and TESS's many surprising exoplanet discoveries are the ultra-short-period (USP) planets. These planets move very quickly and complete an orbit in less than 24 hours. Ancient astronomers thought that Mercury was so fast—it goes around the sun every 88 days—that they named it after the Roman god Mercury, who was the fast-traveling messenger of the gods. They couldn't have known how sluggish Mercury is…",
+          "source": "Phys.org Space",
+          "date": "01 November 2026",
+          "url": "https://phys.org/news/2026-10-oddball-lava-world.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "New gel fuel could make rocket and satellite propulsion easier to control",
+          "summary": "A kerosene-based gel developed by Concordia researchers could make rocket and satellite fuels easier to store and control.",
+          "source": "Phys.org Space",
+          "date": "31 October 2026",
+          "url": "https://phys.org/news/2026-10-gel-fuel-rocket-satellite-propulsion.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Scientists smash oxygen nuclei to recreate matter from the Big Bang",
+          "summary": "Scientists have recreated a primordial state of matter from the dawn of the universe by colliding oxygen nuclei at nearly the speed of light. The surprising results show that this exotic substance can form in smaller, lower-energy collisions than previously demonstrated, challenging the known boundaries of early-universe physics.",
+          "source": "ScienceDaily Space",
+          "date": "31 October 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/10/261030002935.htm",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "SpaceX closes out October with 700th Falcon 9 launch to date",
+          "summary": "The Starlink 15-18 mission will add another 27 Starlink V2 Mini Optimized satellites to SpaceX’s megaconstellation. Liftoff from pad 4E at Vandenberg Space Force Base is scheduled for 9:04 p.m. PDT (12:04 a.m. EDT / 0404 UTC).",
+          "source": "Spaceflight Now",
+          "date": "31 October 2026",
+          "url": "https://spaceflightnow.com/2026/10/30/live-coverage-spacex-to-close-out-october-with-halloween-eve-falcon-9-launch/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "ESI supplying solar array components to missile defense programs",
+          "summary": "Oct. 30, 2026 – ESI Motion Inc. is proud to announce that it is supplying the Solar Array Drive Electronics (SADE) to Lockheed Martin for its work on the Space […] The post ESI supplying solar array components to missile defense programs appeared first on SpaceNews .",
+          "source": "SpaceNews",
+          "date": "31 October 2026",
+          "url": "https://spacenews.com/esi-supplying-solar-array-components-to-missile-defense-programs/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Turkey aims for first Moon-orbiting mission in 2027",
+          "summary": "This is the first of a pair of Turkish flights to the Moon. The first will be an orbiter with several scientific instruments and the second will be a lander.",
+          "source": "Spaceflight Now",
+          "date": "30 October 2026",
+          "url": "https://spaceflightnow.com/2026/10/30/turkey-aims-for-first-moon-orbiting-mission-in-2027/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "NASA-funded Study Details One of Oldest Mars Meteorites Ever Found",
+          "summary": "Called Teghaza 001, the rock is from a piece of Mars that formed more than 4.1 billion years ago.",
+          "source": "NASA JPL",
+          "date": "29 October 2026",
+          "url": "https://www.jpl.nasa.gov/news/nasa-funded-study-details-one-of-oldest-mars-meteorites-ever-found",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🧊 Cryosphere & Polar Science",
+      "count": 8,
+      "articles": [
+        {
+          "title": "Empirical evidence of overestimated Ku-band sea ice radar freeboards in satellite altimetry",
+          "summary": "Empirical evidence of overestimated Ku-band sea ice radar freeboards in satellite altimetry Catherine Taelman, Jack C. Landy, Robbie D. C. Mallett, and Polona Itkin The Cryosphere, 20, 6181–6219, https://doi.org/10.5194/tc-20-6181-2026, 2026 Arctic sea ice thickness is commonly estimated using radar measurements from satellites. This technique assumes that the snow on sea ice is \"invisible\" to the radar signals. We…",
+          "source": "The Cryosphere (Copernicus)",
+          "date": "31 October 2026",
+          "url": "https://doi.org/10.5194/tc-20-6181-2026",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Assessment of snow depth retrievability from passive microwave observations over Arctic sea ice: a global sensitivity analysis",
+          "summary": "Assessment of snow depth retrievability from passive microwave observations over Arctic sea ice: a global sensitivity analysis Ziyu Yan, Yufang Ye, Georg Heygster, Bin Cheng, Carolina Gabarró, Ferran Hernández-Macià, and Xiao Cheng The Cryosphere, 20, 6157–6180, https://doi.org/10.5194/tc-20-6157-2026, 2026 Passive microwave retrieval of snow depth remains constrained by snow and ice conditions. By combining the…",
+          "source": "The Cryosphere (Copernicus)",
+          "date": "31 October 2026",
+          "url": "https://doi.org/10.5194/tc-20-6157-2026",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Snowfall and clouds may slow East Antarctic ice loss in a warmer world",
+          "summary": "A new modeling study, published in the journal Nature Climate Change, suggests that the East Antarctic Ice Sheet may be more resilient to extreme long-term warming than previously estimated. Increased snowfall, greater cloud cover and changes in atmospheric circulation could partially offset ice loss—even under very high carbon dioxide concentrations.",
+          "source": "Phys.org Earth",
+          "date": "30 October 2026",
+          "url": "https://phys.org/news/2026-10-snowfall-clouds-east-antarctic-ice.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Waves alter Antarctic polynyas by breaking up surrounding sea ice",
+          "summary": "Polynyas are one of Antarctica's great counterintuitive features: recurring areas of open water surrounded by vast expanses of sea ice. These unusual environments are hot spots for sea-ice production, ocean–atmosphere exchange and biological productivity. They are commonly maintained by powerful winds that push newly formed ice away from the coast, repeatedly exposing the ocean to the freezing Antarctic atmosphere.",
+          "source": "Phys.org Earth",
+          "date": "30 October 2026",
+          "url": "https://phys.org/news/2026-10-antarctic-polynyas-sea-ice.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "128,000-year-old ice in Tibet could rewrite climate history",
+          "summary": "Ancient ice discovered high in Tibet may be more than 128,000 years old, preserving an extraordinary record of Earth's climate that scientists previously thought had been lost. The discovery reveals a rare glimpse into the last ice age and could reshape our understanding of how glaciers survive dramatic changes in global climate.",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "29 October 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/10/261028232713.htm",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Earth's ice ages may have been driven by a hidden ocean chain reaction",
+          "summary": "Scientists have uncovered a surprising connection between Earth's opposite poles that may help explain how the planet plunged into past ice ages. New research suggests that as massive ice sheets expanded across the Northern Hemisphere, they cooled Atlantic Ocean waters that eventually traveled south toward Antarctica. This cooling may have disrupted Southern Ocean circulation, allowing the ocean to absorb and store…",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "28 October 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/10/261026225610.htm",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Antarctica’s Only Flowering Plants Take Opposite Paths Under Experimental Warming",
+          "summary": "Open-top chambers simulate warming over pearlwort and hair grass plants in Antarctica. Credit: Nelida Pohl",
+          "source": "Eos (AGU)",
+          "date": "26 October 2026",
+          "url": "https://eos.org/articles/antarcticas-only-flowering-plants-take-opposite-paths-under-experimental-warming",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "An Arctic ice shelf in the Last Glacial Maximum rivalled Antarctica’s modern ice shelves",
+          "summary": "Nature Geoscience, Published online: 26 October 2026; doi:10.1038/s41561-026-02127-6 Ice shelves stabilize marine-terminating ice sheets, and their loss can trigger rapid, irreversible ice-sheet retreat. New geomorphic evidence for a multi-kilometre-thick ice shelf in Baffin Bay during the last glacial period constrains the maximum extents of three surrounding ice sheets and demonstrates that their stability was…",
+          "source": "Nature Geoscience",
+          "date": "26 October 2026",
+          "url": "https://www.nature.com/articles/s41561-026-02127-6",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🆘 Disaster & Hazard Monitoring",
+      "count": 8,
+      "articles": [
+        {
+          "title": "Green forest fire notification in China",
+          "summary": "On 28/10/2026, a forest fire started in China, until 28/10/2026.",
+          "source": "GDACS",
+          "date": "01 November 2026",
+          "url": "http://www.gdacs.org/report.aspx?eventtype=WF&eventid=1033270",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "U.S. River Sediment Transport Is Becoming “Burstier”",
+          "summary": "Summer flash floods can introduce large amounts of sediment to the Colorado River. New research examines the rate of sediment transport in 175 rivers across the United States. Credit: Ryan Crow, USGS",
+          "source": "Eos (AGU)",
+          "date": "30 October 2026",
+          "url": "https://eos.org/articles/u-s-river-sediment-transport-is-becoming-burstier",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Fire pollution killed 3,560 people in Indonesia in September: Report",
+          "summary": "Pollution from smoke emitted by months of wildfires across Indonesia caused an estimated 3,560 deaths in the vast Southeast Asian archipelago in September, according to a new study.",
+          "source": "Phys.org Earth",
+          "date": "30 October 2026",
+          "url": "https://phys.org/news/2026-10-pollution-people-indonesia-september.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Using machine learning to build safer cities",
+          "summary": "In eThekwini, researchers have harnessed machine learning and satellite data to spot the city's most landslide-prone zones. A new study published in Scientific Reports has found that urban development activities, including road construction, property development and vegetation loss, are significantly increasing landslide susceptibility across parts of eThekwini.",
+          "source": "Phys.org Earth",
+          "date": "30 October 2026",
+          "url": "https://phys.org/news/2026-10-machine-safer-cities.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Eaton Wildfire Exposed Millions to a “Cocktail of Chemicals”",
+          "summary": "New research examines toxin levels in the smoke plume from the January 2026 Eaton Fire in Los Angeles. Credit: Matt Muller, USDA Forest Service/Flickr , Public Domain",
+          "source": "Eos (AGU)",
+          "date": "28 October 2026",
+          "url": "https://eos.org/articles/eaton-wildfire-exposed-millions-to-a-cocktail-of-chemicals",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "40 years later, Chernobyl's nuclear fallout is not what scientists expected",
+          "summary": "Forty years after the Chornobyl disaster, tiny radioactive particles still linger in the soil, carrying a dangerous legacy. Using powerful X-rays, scientists discovered that some of these particles have remained surprisingly stable, trapping radioactive substances inside instead of releasing them into the environment.",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "23 October 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/10/261021231241.htm",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Wildfire Risk Assessment and Response Planning for regional parks and Special Areas of Conservation in Sardinia, Italy",
+          "summary": "EMSN235 supported wildfire preparedness and response planning in Sardinia by assessing wildfire hazard, exposure, risk and accessibility, and identifying priority areas for emergency response and mitigation measures across five areas of interest.",
+          "source": "Copernicus Emergency Management Service",
+          "date": "22 October 2026",
+          "url": "http://mapping.emergency.copernicus.eu/news/wildfire-risk-assessment-and-response-planning-for-regional-parks-and-special-areas-of-conservation-in-sardinia-italy-emsn235/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Mass movement analysis post-storm Kristin in Central Portugal",
+          "summary": "EMSN236 supported recovery planning in central Portugal following Storm Kristin by mapping ground instability, monitoring landslide activity and assessing soil erosion and susceptibility to future erosion using satellite observations.",
+          "source": "Copernicus Emergency Management Service",
+          "date": "22 October 2026",
+          "url": "http://mapping.emergency.copernicus.eu/news/mass-movement-analysis-post-storm-kristin-in-central-portugal-emsn236/",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🇮🇳 India",
+      "count": 2,
+      "articles": [
+        {
+          "title": "Gene therapy offers to beat hepatitis B virus by muting its DNA",
+          "summary": "An experimental therapy called CRMA-1001 is a remarkable development because, instead of targeting the virus directly, it silences the viral DNA; this is promising because current treatments rarely eliminate the DNA, which allows the virus to rebound",
+          "source": "The Hindu Sci-Tech",
+          "date": "01 November 2026",
+          "url": "https://www.thehindu.com/sci-tech/science/gene-therapy-offers-to-beat-hepatitis-b-virus-by-muting-its-dna/article71635399.ece",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Mapping the human brain in 3D | Brain atlas | Episode 57 | Health Wrap",
+          "summary": "",
+          "source": "The Hindu Sci-Tech",
+          "date": "01 November 2026",
+          "url": "https://www.thehindu.com/videos/shows/mapping-the-human-brain-in-3d-brain-atlas-episode-57-health-wrap/article71650477.ece",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🌐 Global Geospatial Intelligence",
+      "count": 2,
+      "articles": [
+        {
+          "title": "Environmental defenders testify about attacks in Latin America linked to Canadian mining companies",
+          "summary": "The Inter-American Commission on Human Rights heard testimony Oct. 27 from representatives of six countries alleging harm linked to Canadian mining companies’ operations, including four alleged attacks on environmental defenders. The regional agency gathered in Panama to examine Canada’s obligations with respect to its extractive companies and their impact overseas on human rights and the […]",
+          "source": "Mongabay",
+          "date": "31 October 2026",
+          "url": "https://news.mongabay.com/2026/10/environmental-defenders-testify-about-attacks-in-latin-america-linked-to-canadian-mining-companies/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Leaders grapple with finance and harmful subsidies at UN’s COP17 biodiversity conference",
+          "summary": "YEREVAN, Armenia — Visitors entering the main hallway of the 2026 U.N. biodiversity conference (COP17) encounter a mural of a herd of elephants. The installation, led by the NGO Friends of the Earth International, doesn’t celebrate the gains that some elephant populations have made in recent decades. Instead, it uses the “elephants in the room” […]",
+          "source": "Mongabay",
+          "date": "31 October 2026",
+          "url": "https://news.mongabay.com/2026/10/leaders-grapple-with-finance-and-harmful-subsidies-at-uns-cop17-biodiversity-conference/",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    }
+  ]
+}

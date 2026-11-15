@@ -1,0 +1,671 @@
+{
+  "generated_at_ist": "2026-11-15 13:58:55 IST",
+  "generated_at_utc": "2026-11-15T08:29:13.159130+00:00",
+  "generated_iso": "2026-11-15T13:58:55.546165+05:30",
+  "display_date": "Sunday, 15 November 2026",
+  "display_time": "01:58 PM IST",
+  "stats": {
+    "total_articles": 63,
+    "domains_total": 11,
+    "domains_with_news": 11,
+    "unique_sources": 20,
+    "elapsed": "17s"
+  },
+  "source_summary": {
+    "Nature Geoscience": 2,
+    "Nature": 11,
+    "Phys.org Earth": 9,
+    "ScienceDaily Earth & Climate": 6,
+    "Nature Climate Change": 1,
+    "Carbon Brief": 2,
+    "Eos (AGU)": 7,
+    "Woods Hole (WHOI)": 2,
+    "USGS Earthquakes M4.5+": 2,
+    "The Watchers": 2,
+    "MINING.COM": 2,
+    "ScienceDaily Space": 2,
+    "Phys.org Space": 2,
+    "Spaceflight Now": 2,
+    "SpaceNews": 2,
+    "The Cryosphere (Copernicus)": 2,
+    "GDACS": 1,
+    "The Hindu Sci-Tech": 2,
+    "Indian Express Technology": 2,
+    "Mongabay": 2
+  },
+  "domains": [
+    {
+      "label": "🛰️ Remote Sensing & GIS",
+      "count": 2,
+      "articles": [
+        {
+          "title": "Limiting six sources of pharmaceuticals might slash mixture toxicity risk in rivers",
+          "summary": "Nature Geoscience, Published online: 12 November 2026; doi:10.1038/s41561-026-02101-2 A machine-learning model leverages 1,017 toxicity assays in three species and 24 geospatial predictors to generate high-resolution maps of toxicity from pharmaceutical mixtures in rivers worldwide. Analyses reveal that targeted management of six key sources of pharmaceuticals might substantially reduce the river areas at risk.",
+          "source": "Nature Geoscience",
+          "date": "12 November 2026",
+          "url": "https://www.nature.com/articles/s41561-026-02101-2",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Independent interferometric observable confirms black hole shadow in M87*",
+          "summary": "Nature, Published online: 11 November 2026; doi:10.1038/s41586-026-11241-9 An imaging algorithm using closure-invariant formalism and diffusion-based reconstruction applied to supermassive black hole very long baseline radio interferometry datasets enables independent recovery of the ring-like shadow and mass that is free from the usual calibration and imaging assumptions.",
+          "source": "Nature",
+          "date": "11 November 2026",
+          "url": "https://www.nature.com/articles/s41586-026-11241-9",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🌡️ Climatology & Atmospheric Science",
+      "count": 8,
+      "articles": [
+        {
+          "title": "Climate could force more than 200 million from homes: U.N. migration chief",
+          "summary": "Climate change could force more than 200 million people from their homes even as countries spend billions on securing their borders, the head of the U.N.'s migration body said Friday.",
+          "source": "Phys.org Earth",
+          "date": "13 November 2026",
+          "url": "https://phys.org/news/2026-11-climate-billion-homes-migration-chief.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Act now against El Niño or costs will double, UNDP warns",
+          "summary": "Acting now to counter the devastating effects of the El Niño phenomenon will cost half as much as waiting, the head of the U.N. Development Programme told AFP Friday.",
+          "source": "Phys.org Earth",
+          "date": "13 November 2026",
+          "url": "https://phys.org/news/2026-11-el-nio-undp.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "The Sun unleashed a monster storm. Earth may have made it worse",
+          "summary": "The massive solar storm that illuminated skies worldwide in May 2024 has uncovered an unexpected twist: Earth's own atmosphere may have helped make the storm so powerful. Satellite measurements revealed that roughly 85% of the charged particles fueling the disturbance originated from Earth's upper atmosphere rather than the solar wind. Scientists also detected an extraordinary 40% weakening of Earth's magnetic field…",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "13 November 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261111005905.htm",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Declining environmental predictability erodes reproduction in a tropical seabird",
+          "summary": "Nature Climate Change, Published online: 13 November 2026; doi:10.1038/s41558-026-02795-7 The authors show that, for a tropical seabird model species, winter–spring phytoplankton blooms kept a stable mean timing but became more variable between years. Breeding synchrony weakened and reproductive success declined and became less consistent over the same two decades.",
+          "source": "Nature Climate Change",
+          "date": "13 November 2026",
+          "url": "https://www.nature.com/articles/s41558-026-02795-7",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "COP31: How Ed Miliband answered Carbon Brief readers’ questions",
+          "summary": "UK foreign secretary and COP veteran Ed Miliband spoke with Carbon Brief earlier today at COP31 in Antalya, Turkey, to… The post COP31: How Ed Miliband answered Carbon Brief readers’ questions appeared first on Carbon Brief .",
+          "source": "Carbon Brief",
+          "date": "12 November 2026",
+          "url": "https://www.carbonbrief.org/cop31-how-ed-miliband-answered-carbon-brief-readers-questions",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Analysis: Climate-finance pledges fall 70% as countries meet at COP31",
+          "summary": "The amount of public funding pledged to help developing countries tackle climate change has dropped by more than 70% in… The post Analysis: Climate-finance pledges fall 70% as countries meet at COP31 appeared first on Carbon Brief .",
+          "source": "Carbon Brief",
+          "date": "11 November 2026",
+          "url": "https://www.carbonbrief.org/analysis-climate-finance-pledges-fall-70-as-countries-meet-at-cop31",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Biotech innovations are an opportunity to limit climate change",
+          "summary": "Nature, Published online: 11 November 2026; doi:10.1038/d41586-026-03621-y Agricultural biotechnology once found itself in opposition to environmental science. Now it could reduce the impact of food systems on global warming and biodiversity loss.",
+          "source": "Nature",
+          "date": "11 November 2026",
+          "url": "https://www.nature.com/articles/d41586-026-03621-y",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Global fossil fuel emissions set to fall in 2026, but total CO2 keeps rising",
+          "summary": "Global fossil fuel emissions are projected to fall in 2026 as renewable energy and electric vehicles gain ground, but rising emissions from deforestation threaten to push total CO2 emissions to a new record. Scientists warn that the world's remaining carbon budget for limiting warming to 1.5°C could be exhausted in less than four years, even as a lasting decline in emissions appears increasingly within reach.",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "10 November 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261109205358.htm",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🌊 Oceanography & Marine Science",
+      "count": 8,
+      "articles": [
+        {
+          "title": "Ocean absorbs more fossil fuel carbon while land uptake stalls, 30 years of data show",
+          "summary": "The ocean has been absorbing carbon dioxide from fossil fuel emissions at an increasing rate since 1990, while the net uptake of carbon by forests, soils and other land ecosystems has not grown, according to a new study led by scientists at UC San Diego's Scripps Institution of Oceanography.",
+          "source": "Phys.org Earth",
+          "date": "14 November 2026",
+          "url": "https://phys.org/news/2026-11-ocean-absorbs-fossil-fuel-carbon.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Oʻahu infrastructure threatened by tipping point in sea-level rise impacts",
+          "summary": "A new comprehensive study by researchers at the University of Hawaiʻi (UH) at Mānoa Climate Resilience Collaborative reveals that traditional sea-level rise models, which account only for rising ocean waters, drastically underestimate the true threat to coastal infrastructure on Oʻahu, Hawai'i.",
+          "source": "Phys.org Earth",
+          "date": "13 November 2026",
+          "url": "https://phys.org/news/2026-11-oahu-infrastructure-threatened-sea-impacts.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Why Metrology Matters for Ocean Alkalinity Enhancement",
+          "summary": "Researchers recently developed novel reference materials for use in validating measurements of total seawater alkalinity, including these samples of stabilized deep-Mediterranean seawater developed at the Mediterranean Institute of Oceanography in Marseilles, France. Credit: Gaëlle Capitaine",
+          "source": "Eos (AGU)",
+          "date": "12 November 2026",
+          "url": "https://eos.org/opinions/why-metrology-matters-for-ocean-alkalinity-enhancement",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "A new treasure map reveals where Earth's lost prehistoric life may be hiding",
+          "summary": "A sweeping analysis of 540 million years of marine fossils has revealed surprising gaps in our understanding of Earth's ancient life. Scientists discovered that some of the greatest opportunities for finding previously unknown species lie in relatively recent geological periods, rather than the distant past. By mapping unexplored fossil-rich regions around the world, researchers have created a powerful tool to guide…",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "12 November 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261112025529.htm",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Scientists are studying how ecosystems form on the world’s largest artificial reef",
+          "summary": "Following the sinking of the SS United States, researchers will track how marine life, microbes, and chemistry build a new reef from the ground up",
+          "source": "Woods Hole (WHOI)",
+          "date": "11 November 2026",
+          "url": "https://www.whoi.edu/press-room/news-release/ssus-reef/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "UNC13A splice correction rescues synaptic dysfunction induced by TDP-43 loss",
+          "summary": "Nature, Published online: 11 November 2026; doi:10.1038/s41586-026-11256-2 TDP-43 loss induces a predegenerative state in which neurons remain structurally intact and suffer a substantial breakdown in synaptic communication; a therapeutic strategy is found that corrects UNC13A cryptic splicing by using splice-switching antisense oligonucleotides.",
+          "source": "Nature",
+          "date": "11 November 2026",
+          "url": "https://www.nature.com/articles/s41586-026-11256-2",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "A plant RNA-binding protein senses 2′,3′-cNMP produced by insect effectors",
+          "summary": "Nature, Published online: 11 November 2026; doi:10.1038/s41586-026-11259-z The rice RNA-binding protein NIB1 detects 2′,3′-cyclic nucleotide products from insect saliva RNase, forming nuclear condensates that recruit EDS1 to activate defence, revealing a conserved messenger-based immune pathway in plants.",
+          "source": "Nature",
+          "date": "11 November 2026",
+          "url": "https://www.nature.com/articles/s41586-026-11259-z",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Swordfish may be using deep dives to navigate the open ocean",
+          "summary": "Scientists from the Woods Hole Oceanographic Institution explore why swordfish are pushing the boundary of the ocean twilight zone.",
+          "source": "Woods Hole (WHOI)",
+          "date": "10 November 2026",
+          "url": "https://www.whoi.edu/press-room/news-release/swordfish-deep-dives/",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🏔️ Plate Tectonics & Seismology",
+      "count": 5,
+      "articles": [
+        {
+          "title": "M 4.5 - off the coast of Oregon",
+          "summary": "DYFI? - II Time 2026-11-12 08:17:28 UTC 2026-11-12 08:17:28 UTC at epicenter Location 44.454°N 129.621°W Depth 10.00 km (6.21 mi)",
+          "source": "USGS Earthquakes M4.5+",
+          "date": "15 November 2026",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000txrk",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "M 4.7 - 92 km NW of Houma, Tonga",
+          "summary": "Time 2026-11-15 07:36:37 UTC 2026-11-15 07:36:37 UTC at epicenter Location 20.589°S 175.935°W Depth 177.52 km (110.31 mi)",
+          "source": "USGS Earthquakes M4.5+",
+          "date": "15 November 2026",
+          "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us7000tyd3",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Earth’s early history told by 3.9-billion-year-old rocks from northern China",
+          "summary": "Nature, Published online: 11 November 2026; doi:10.1038/d41586-026-03499-w Ancient rocks in northern China reveal that by 3.95 billion years ago, surface-altered oceanic crust had been buried rapidly to depths greater than 50 kilometres and partly melted. This crust was derived from a mantle reservoir that had been left behind when the crust separated from the early mantle as early as 4.3 billion years ago.",
+          "source": "Nature",
+          "date": "11 November 2026",
+          "url": "https://www.nature.com/articles/d41586-026-03499-w",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Hadean mantle depletion and 3.95-Gyr subduction implied by North China rocks",
+          "summary": "Nature, Published online: 11 November 2026; doi:10.1038/s41586-026-11280-2 Analysis of a 3.95-Gyr-old trondhjemitic gneiss from eastern Hebei, China, reveals a composition suggesting a low-temperature altered basaltic source, that originated from a mantle depleted in the Hadean, was most likely transported to mantle depths through a transient subduction event and partially melted to produce the trondhjemite.",
+          "source": "Nature",
+          "date": "11 November 2026",
+          "url": "https://www.nature.com/articles/s41586-026-11280-2",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "One Shock, Many Responses in Zircon and Other Grains",
+          "summary": "A zircon grain shocked at 40 gigapascals (equivalent to a lower mantle pressure in Earth) partially converts to zones of its high-pressure form, reidite. The image was produced using electron backscatter diffraction analysis. Credit: Kim A. Cone, University of Rochester",
+          "source": "Eos (AGU)",
+          "date": "09 November 2026",
+          "url": "https://eos.org/research-spotlights/one-shock-many-responses-in-zircon-and-other-grains",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🌋 Volcanology",
+      "count": 6,
+      "articles": [
+        {
+          "title": "The Leonid meteor shower peaks on the night of November 17, exactly 60 years after the 1966 storm, when some observers reported meteors falling at up to 40 a second, though this year’s show should be closer to 15 an hour",
+          "summary": "In the early hours of November 17, 1966, a small group of amateur astronomers stood on Kitt Peak in Arizona, watching the sky. As the night went on, the number of meteors kept climbing. Then it exploded. At the peak, they estimated meteors were streaking across the sky at around 40 per second. It was... Source",
+          "source": "The Watchers",
+          "date": "15 November 2026",
+          "url": "https://watchers.news/2026/11/15/the-leonid-meteor-shower-peaks-on-the-night-of-november-17-exactly-60-years-after-the-1966-storm-when-some-observers-reported-meteors-falling-at-up-to-40-a-second-though-this-years-show-sh/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "A tangled sunspot cluster about 93 million miles away doubled in size in a single weekend earlier this month and fired 20 solar flares in one day, and forecasters gave it a small chance of producing an X-class flare, the most powerful kind…",
+          "summary": "In early November, a dark, tangled patch appeared on the face of the Sun. It grew quickly, doubling in size over a single weekend, and turned to face Earth. Within days, it had become the most active spot on the Sun. Over one 24-hour stretch, it fired off 20 solar flares, including three M-class flares,... Source",
+          "source": "The Watchers",
+          "date": "14 November 2026",
+          "url": "https://watchers.news/2026/11/14/a-tangled-sunspot-cluster-about-93-million-miles-away-doubled-in-size-in-a-single-weekend-earlier-this-month-and-fired-20-solar-flares-in-one-day-and-forecasters-gave-it-a-small-chance-of-producing-a/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Superheated magma could fuel towering lava fountains",
+          "summary": "Why do some volcanoes erupt with spectacular lava fountains while others release lava more quietly? Scientists have discovered that a hidden effect of extreme heat inside magma may help explain the difference. Experiments revealed that superheated magma can delay crystal formation for more than eight hours, compared with just 20 minutes in magma that has not been superheated.",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "13 November 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261111221811.htm",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Global climate policies continue to advance despite setbacks, research finds",
+          "summary": "The latest findings from the Oxford Climate Policy Monitor, led by the Blavatnik School of Government and the Oxford Sustainable Law Programme, show that progress in Asia, Africa and Latin America is more than offsetting the weakening or reversal of climate policies in parts of Europe and North America.",
+          "source": "Phys.org Earth",
+          "date": "13 November 2026",
+          "url": "https://phys.org/news/2026-11-global-climate-policies-advance-setbacks.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Two hot zones near Earth's core may fuel volcanoes beneath oceans",
+          "summary": "The ocean covers around 70% of the Earth's surface, but large parts of the seafloor remain largely unexplored.",
+          "source": "Phys.org Earth",
+          "date": "13 November 2026",
+          "url": "https://phys.org/news/2026-11-hot-zones-earth-core-fuel.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "The Experiments Improving Our Understanding of Volcanic Tsunamis",
+          "summary": "A pyroclastic density current enters the sea along the Sciara del Fuoco, Stromboli, Italy, on 3 July 2019. Credit: LBZ visible camera, LGS",
+          "source": "Eos (AGU)",
+          "date": "12 November 2026",
+          "url": "https://eos.org/research-spotlights/the-experiments-improving-our-understanding-of-volcanic-tsunamis",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "⛏️ Mining & Geology",
+      "count": 4,
+      "articles": [
+        {
+          "title": "Freeport strikes $77M deal for BC copper stake",
+          "summary": "Freeport has committed to spend $30 million of the $80 million exploration total within three years of closing.",
+          "source": "MINING.COM",
+          "date": "14 November 2026",
+          "url": "https://www.mining.com/freeport-strikes-110m-deal-for-bc-copper-stake/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Capstone cuts copper outlook as restart slips",
+          "summary": "The company has lowered the bottom of its annual copper production forecast by 5,000 tonnes.",
+          "source": "MINING.COM",
+          "date": "14 November 2026",
+          "url": "https://www.mining.com/capstone-cuts-copper-outlook-as-restart-slips/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "How microbes can secure the critical minerals the world needs",
+          "summary": "Nature, Published online: 10 November 2026; doi:10.1038/d41586-026-03629-4 To sustain supplies of key metals, policymakers should support the infrastructure needed to deploy mining biotechnologies on a large scale.",
+          "source": "Nature",
+          "date": "10 November 2026",
+          "url": "https://www.nature.com/articles/d41586-026-03629-4",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Ettringite’s concrete contribution",
+          "summary": "Nature Geoscience, Published online: 05 November 2026; doi:10.1038/s41561-026-02132-9 Vincent Thiéry and Migueli Chedrewih discuss how studying ettringite’s natural, geologic occurrences can inform understanding of concrete’s material properties and ageing processes.",
+          "source": "Nature Geoscience",
+          "date": "05 November 2026",
+          "url": "https://www.nature.com/articles/s41561-026-02132-9",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🚀 Space & Geodesy",
+      "count": 8,
+      "articles": [
+        {
+          "title": "Euclid discovers ancient cosmic beacons from the dawn of time, shining like a trillion suns",
+          "summary": "ESA’s Euclid space telescope has discovered 31 ancient quasars, including two record-breaking objects that shone with the brightness of a trillion Suns when the Universe was just 670 million years old. Powered by supermassive black holes, these extraordinary cosmic beacons reveal a time when the first galaxies were still taking shape.",
+          "source": "ScienceDaily Space",
+          "date": "15 November 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261112230504.htm",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Is this iconic black hole image accurate? New study delivers an independent result",
+          "summary": "On April 10, 2019, the Event Horizon Telescope (EHT) Collaboration revealed the first picture of a black hole. The object is at the center of a galaxy known as M87, about 55 million light-years away.",
+          "source": "Phys.org Space",
+          "date": "15 November 2026",
+          "url": "https://phys.org/news/2026-11-iconic-black-hole-image-accurate.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "A dead star is flashing radio waves every 8 minutes, and its partner looks a lot like the sun",
+          "summary": "Since 2022, astronomers have been puzzling over a new kind of cosmic object called long-period radio transients. These are objects that emit bright flashes of radio waves into space every few minutes to every few hours. Some have been traced back to binary systems consisting of a small, dim, cool star called a red dwarf in orbit with a stellar remnant called a white dwarf.",
+          "source": "Phys.org Space",
+          "date": "15 November 2026",
+          "url": "https://phys.org/news/2026-11-dead-star-radio-minutes-partner.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "A giant icy world hiding beyond Pluto could be our sixth dwarf planet",
+          "summary": "Astronomers have uncovered a potentially enormous new dwarf planet beyond Pluto, hidden for years in one of the most crowded regions of the night sky. The discovery of 2026 ED138 could expand the solar system's official dwarf planet family and hints that more mysterious worlds may be lurking far beyond Neptune.",
+          "source": "ScienceDaily Space",
+          "date": "14 November 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261112230447.htm",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Starship in orbit ahead of catch attempt, booster diverts to explosive splashdown",
+          "summary": "Liftoff of the Starship vehicle from Starbase in Texas occurred at 4:47 p.m. CST (5:47 p.m. EST / 2247 UTC) on Friday, Nov. 13. The Ship could return to a landing at Starbase on Saturday.",
+          "source": "Spaceflight Now",
+          "date": "14 November 2026",
+          "url": "https://spaceflightnow.com/2026/11/13/live-coverage-starship-flight-15-attempts-to-recover-full-vehicle-in-double-launch-pad-catch/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Commercial Space Federation Welcomes CesiumAstro as a New Associate Member",
+          "summary": "November 13, 2026— Washington, D.C.—The Commercial Space Federation (CSF) is pleased to welcome CesiumAstro as its newest Associate Member. A global leader in advanced connectivity solutions for the space and […] The post Commercial Space Federation Welcomes CesiumAstro as a New Associate Member appeared first on SpaceNews .",
+          "source": "SpaceNews",
+          "date": "13 November 2026",
+          "url": "https://spacenews.com/commercial-space-federation-welcomes-cesiumastro-as-a-new-associate-member/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "ULA delays to Sunday Vulcan rocket launch of 40 Leo satellites for Amazon",
+          "summary": "Liftoff from Space Launch Complex 41 at Cape Canaveral Space Force Station is now scheduled for 12:11 p.m. EST (1711 UTC) on Sunday.",
+          "source": "Spaceflight Now",
+          "date": "13 November 2026",
+          "url": "https://spaceflightnow.com/2026/11/13/ulas-vulcan-rocket-plans-return-to-flight-with-launch-of-40-leo-satellites-for-amazon/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "AST SpaceMobile presses case for developing own launch vehicle",
+          "summary": "AST SpaceMobile executives expressed confidence in the company’s ability to field a new reusable launch vehicle in just two years despite widespread industry skepticism. The post AST SpaceMobile presses case for developing own launch vehicle appeared first on SpaceNews .",
+          "source": "SpaceNews",
+          "date": "13 November 2026",
+          "url": "https://spacenews.com/ast-spacemobile-presses-case-for-developing-own-launch-vehicle/",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🧊 Cryosphere & Polar Science",
+      "count": 7,
+      "articles": [
+        {
+          "title": "Intra-annual grounding-line migration and retreat: insights from high-resolution satellite and in situ observations over Milne Glacier in the Canadian High Arctic",
+          "summary": "Intra-annual grounding-line migration and retreat: insights from high-resolution satellite and in situ observations over Milne Glacier in the Canadian High Arctic Yulia K. Antropova, Derek Mueller, Sergey V. Samsonov, Alexander S. Komarov, and Jérémie Bonneau The Cryosphere, 20, 6535–6563, https://doi.org/10.5194/tc-20-6535-2026, 2026 Arctic glaciers that flow into the ocean are changing rapidly due to climate…",
+          "source": "The Cryosphere (Copernicus)",
+          "date": "14 November 2026",
+          "url": "https://doi.org/10.5194/tc-20-6535-2026",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Cryosphere decline beyond safe planetary limits, putting conditions for human society at risk",
+          "summary": "New research published at COP31 issues a stark warning about the health of the frozen parts of the planet—ice sheets, mountain glaciers, sea ice, permafrost and snow cover—known as the cryosphere. The study, published in Science, finds that human-driven climate change is degrading these landscapes beyond safe environmental limits, systematically threatening the Earth system conditions on which humanity fundamentally…",
+          "source": "Phys.org Earth",
+          "date": "13 November 2026",
+          "url": "https://phys.org/news/2026-11-cryosphere-decline-safe-planetary-limits.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Multi-sensor satellite analysis reveals latitudinal and morphometric controls on ice phenology across 31 000 lakes on the Alaska North Slope",
+          "summary": "Multi-sensor satellite analysis reveals latitudinal and morphometric controls on ice phenology across 31 000 lakes on the Alaska North Slope Alexander L. Nguyen, Cesar G. Lopez, Jennifer Melara-Valle, Eliza Ross, Alexander S. Bradley, Maggie R. Limbeck, Claire C. Masteller, and Roger J. Michaelides The Cryosphere, 20, 6501–6519, https://doi.org/10.5194/tc-20-6501-2026, 2026 Arctic lakes undergo freezing and thawing,…",
+          "source": "The Cryosphere (Copernicus)",
+          "date": "13 November 2026",
+          "url": "https://doi.org/10.5194/tc-20-6501-2026",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "NASA reveals Earth's ozone hole has grown to a size not seen in a decade",
+          "summary": "The Antarctic ozone hole expanded to its seventh-largest size on record in 2026, driven by unusual weather conditions that pushed it close to its historic maximum. Scientists say international restrictions on ozone-destroying chemicals prevented even greater damage, and Earth's protective ozone layer is still recovering.",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "11 November 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261110042546.htm",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Airborne Imaging Explores a Mosaic of Thawing Permafrost",
+          "summary": "A winter road in Canada’s Mackenzie Valley is seen alongside the Mackenzie River, which is now the site of a new all-weather road. Credit: Duane Froese",
+          "source": "Eos (AGU)",
+          "date": "10 November 2026",
+          "url": "https://eos.org/research-spotlights/airborne-imaging-explores-a-mosaic-of-thawing-permafrost",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Scientists Traced Arctic Arsenic Back to a Montana Mine",
+          "summary": "The chemistry of the ice, like this sample from Greenland, can be preserved in ice sheets for millennia and can offer researchers clues about Earth’s past environments. Credit: Joe McConnell/DRI",
+          "source": "Eos (AGU)",
+          "date": "10 November 2026",
+          "url": "https://eos.org/articles/scientists-traced-arctic-arsenic-back-to-a-montana-mine",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "NASA reveals a haunting skull hidden in Antarctica’s ice",
+          "summary": "NASA satellites have captured an eerie, skull-shaped formation on a remote Antarctic island, but its haunting appearance conceals a troubling warning about melting glaciers. Unusually warm winter temperatures have exposed large areas of dark ice, potentially accelerating future melting and gradually transforming the skull's ghostly features.",
+          "source": "ScienceDaily Earth & Climate",
+          "date": "02 November 2026",
+          "url": "https://www.sciencedaily.com/releases/2026/11/261101010538.htm",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🆘 Disaster & Hazard Monitoring",
+      "count": 7,
+      "articles": [
+        {
+          "title": "Green forest fire notification in Central African Republic",
+          "summary": "On 06/11/2026, a forest fire started in Central African Republic, until 11/11/2026.",
+          "source": "GDACS",
+          "date": "15 November 2026",
+          "url": "http://www.gdacs.org/report.aspx?eventtype=WF&eventid=1033755",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "California steels for storms that could trigger massive waves, flooding",
+          "summary": "California was bracing Friday for a storm series packing heavy rain and surf that could once again flood coastal communities and potentially send monster waves pounding shores.",
+          "source": "Phys.org Earth",
+          "date": "14 November 2026",
+          "url": "https://phys.org/news/2026-11-california-steels-storms-trigger-massive.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Direct observation of a submarine landslide reveals seafloor processes",
+          "summary": "Submarine landslides have significant implications for marine ecology and infrastructure, yet these unpredictable events have remained challenging to study. New research co-led by Newcastle University's Dr. Sanem Acikalin and involving an international team of collaborators from 10 institutions has provided the first direct observations of these elusive events.",
+          "source": "Phys.org Earth",
+          "date": "13 November 2026",
+          "url": "https://phys.org/news/2026-11-submarine-landslide-reveals-seafloor.html",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "The threat from rock slope failures to ski resorts",
+          "summary": "Google Earth image showing the landslide upslope from the Les Menuires ski resort in France.",
+          "source": "Eos (AGU)",
+          "date": "13 November 2026",
+          "url": "https://eos.org/thelandslideblog/rock-slope-failures-ski-resorts",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Using LiDAR Lens to examine landslides in the UK",
+          "summary": "LiDAR image of the landslide at in the Hope Valley. Imagery via LiDAR Lens.",
+          "source": "Eos (AGU)",
+          "date": "12 November 2026",
+          "url": "https://eos.org/thelandslideblog/lidar-lens-1",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Too dry for cacti: extreme droughts could push iconic species to extinction",
+          "summary": "Nature, Published online: 11 November 2026; doi:10.1038/d41586-026-03671-2 Analysis reveals these plants face severe habitat loss across the Americas — plus, researchers test a new way to diagnose obesity.",
+          "source": "Nature",
+          "date": "11 November 2026",
+          "url": "https://www.nature.com/articles/d41586-026-03671-2",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Cacti are severely threatened by drought in a warming world",
+          "summary": "Nature, Published online: 11 November 2026; doi:10.1038/d41586-026-03496-z Forecasts of the effects that climate change will have on biodiversity typically rely on long-term climate averages while excluding extreme events. Projections that include severe drought predict that a majority of the 993 cactus species assessed will see large losses of suitable climatic area: more than 25% of species could lose at least 80%…",
+          "source": "Nature",
+          "date": "11 November 2026",
+          "url": "https://www.nature.com/articles/d41586-026-03496-z",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🇮🇳 India",
+      "count": 5,
+      "articles": [
+        {
+          "title": "What is ‘food is medicine’? – 2 experts explain this decades-old approach to healthcare that is taking on new life",
+          "summary": "Access to healthy food would be considered as essential as medications for patients with chronic illness",
+          "source": "The Hindu Sci-Tech",
+          "date": "15 November 2026",
+          "url": "https://www.thehindu.com/sci-tech/health/what-is-food-is-medicine-2-experts-explain-this-decades-old-approach-to-healthcare-that-is-taking-on-new-life/article71704316.ece",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "SpaceX pulls off first-ever spaceship ‘catch’",
+          "summary": "The Starship emerged from the clouds after surviving the extreme heat of re-entering Earth’s atmosphere, then descended slowly over SpaceX’s south Texas Starbase before slipping smoothly between mechanical “chopstick arms” above Launch Pad 2",
+          "source": "The Hindu Sci-Tech",
+          "date": "15 November 2026",
+          "url": "https://www.thehindu.com/news/international/spacexs-starship-returns-from-orbit-and-is-captured-by-launch-pad-arms-in-a-dramatic-first/article71703046.ece",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "OpenAI’s new ChatGPT Wallet lets AI agents shop for you: Here’s how to set it up",
+          "summary": "",
+          "source": "Indian Express Technology",
+          "date": "15 November 2026",
+          "url": "https://indianexpress.com/article/technology/artificial-intelligence/chatgpt-wallet-ai-agent-shopping-how-to-use-10963778/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "After Jensen Huang’s exit, what lies ahead for Nvidia’s open-source AI push?",
+          "summary": "",
+          "source": "Indian Express Technology",
+          "date": "14 November 2026",
+          "url": "https://indianexpress.com/article/technology/artificial-intelligence/jensen-huangs-exit-nvidias-open-source-ai-ambitions-10963100/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Number of international students arriving in US plunges — worrying scientists",
+          "summary": "Nature, Published online: 13 November 2026; doi:10.1038/d41586-026-03668-x Declines in students from China and India are driving the trend, which researchers say could slow the progress of US science.",
+          "source": "Nature",
+          "date": "13 November 2026",
+          "url": "https://www.nature.com/articles/d41586-026-03668-x",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    },
+    {
+      "label": "🌐 Global Geospatial Intelligence",
+      "count": 3,
+      "articles": [
+        {
+          "title": "Targeted by al-Shabaab for defending Kenya’s ecosystems: Foundation founder gets award",
+          "summary": "Conservation is rarely conflict-free. On Kenya’s northern coastline, in Lamu and Tana River counties — a biodiversity hotspot where the nation’s longest river meets the Indian Ocean — the work of protecting marine and terrestrial habitats often takes a willingness to challenge industrial fishing and extractive industries. For Raabia Hawa, defending nature against these activities […]",
+          "source": "Mongabay",
+          "date": "15 November 2026",
+          "url": "https://news.mongabay.com/2026/11/targeted-by-al-shabaab-for-defending-kenyas-ecosystems-foundation-founder-gets-award/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Spicy ping-pong balls and flaming dung keep elephants at bay in Zimbabwe",
+          "summary": "On the front line of the human-elephant conflict, coming up with non-lethal methods of protecting crops means getting creative. In one village in Zimbabwe, a multilayered approach is taken – first a fence covered in chili infused rags and chili powder traps, if that fails elephant dung covered in chili oil is set alight, finally […]",
+          "source": "Mongabay",
+          "date": "14 November 2026",
+          "url": "https://news.mongabay.com/short-article/2026/11/spicy-ping-pong-balls-and-flaming-dung-keep-elephants-at-bay-in-zimbabwe/",
+          "significance": "",
+          "lang": "en"
+        },
+        {
+          "title": "Even giant anteaters in remote Brazil have microplastics in their blood",
+          "summary": "Nature, Published online: 11 November 2026; doi:10.1038/d41586-026-03660-5 Mapping the movements of wildlife across the Amazon and other regions to their exposure to human activities can inform protection initiatives.",
+          "source": "Nature",
+          "date": "11 November 2026",
+          "url": "https://www.nature.com/articles/d41586-026-03660-5",
+          "significance": "",
+          "lang": "en"
+        }
+      ]
+    }
+  ]
+}
